@@ -1,0 +1,57 @@
+{
+  "entries": [
+    {
+      "key": "TT_TELEKENESIS",
+      "name": "thaumictinkerer.research.TT_TELEKENESIS.title",
+      "icons": [
+        "thaumictinkerer:textures/foci_icons/telekenesis.png"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "location": [
+        -5,
+        0
+      ],
+      "parents": [
+        "BASEAUROMANCY"
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.TT_TELEKENESIS.0",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.TT_TELEKENESIS.1"
+        }
+      ]
+    },
+    {
+      "key": "TT_DISLOCATE",
+      "name": "thaumictinkerer.research.TT_DISLOCATE.title",
+      "icons": [
+        "thaumictinkerer:textures/foci_icons/dislocation.png"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "location": [
+        -5,
+        3
+      ],
+      "parents": [
+        "BASEAUROMANCY",
+        "FOCUSEXCHANGE"
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.DISLOCATE.0",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.DISLOCATE.1"
+        }
+      ]
+    }
+  ]
+}

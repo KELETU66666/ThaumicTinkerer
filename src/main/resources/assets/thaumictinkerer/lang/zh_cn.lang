@@ -1,0 +1,199 @@
+itemGroup.thaumictinkerer=神秘工匠
+
+
+item.thaumictinkerer:share_book.name=知识共享之书
+item.thaumictinkerer:share_book.0=金鱼的日记
+
+
+item.thaumictinkerer:black_quartz.name=烟黑石英
+item.thaumictinkerer:connector.name=矢量变换绑定器
+
+item.thaumictinkerer:energetic_nitor.name=超能闪耀之光
+item.thaumictinkerer:form_revealer.name=多方块结构映射器
+item.thaumictinkerer:soul_mould.name=灵魂模具
+item.thaumictinkerer:blood_sword.name=咒灵之刃
+item.thaumictinkerer:mob_aspect.name=生物灵魂
+item.thaumictinkerer:kamiresource.0.name=末影裂痕
+item.thaumictinkerer:kamiresource.1.name=下界残片
+item.thaumictinkerer:kamiresource.2.name=灵液
+item.thaumictinkerer:kamiresource.3.name=灵宝
+item.thaumictinkerer:kamiresource.4.name=灵布
+item.thaumictinkerer:kamiresource.5.name=灵宝粒
+tile.thaumictinkerer:ichor_block.name=灵宝块
+tile.bedrock_portal.name=基岩世界传送门
+
+item.ichorium_sword.name=灵宝剑
+item.ichorium_pick.name=灵宝镐
+item.ichorium_axe.name=灵宝斧
+item.ichorium_shovel.name=灵宝铲
+
+item.ichor_helm.name=灵布头巾
+item.ichor_chest.name=灵布法袍
+item.ichor_legs.name=灵布护腿
+item.ichor_boots.name=灵布靴子
+
+item.kami_helm.name=无尽深渊之帽
+item.kami_chest.name=云霄塔法袍
+item.kami_legs.name=熔岩地幔护腿
+item.kami_boots.name=地平线盾牌之靴
+
+item.ichorium_pick_adv.name=觉醒灵宝镐
+item.ichorium_axe_adv.name=觉醒灵宝斧
+item.ichorium_shovel_adv.name=觉醒灵宝铲
+item.ichorium_sword_adv.name=觉醒灵宝剑
+
+tile.thaumictinkerer:funnel.name=源质漏斗
+tile.thaumictinkerer:funnel.0=纵已转移
+
+tile.thaumictinkerer:dissimulation.name=伪装方块
+
+tile.thaumictinkerer:transvector_interface.name=矢量变换接口
+tile.thaumictinkerer:transvector_dislocator.name=矢量转位仪
+
+tile.thaumictinkerer:repairer.name=奥法修复台
+tile.thaumictinkerer:animation_tablet.name=活化工作台
+tile.thaumictinkerer:magnet.name=奥术磁铁
+tile.thaumictinkerer:mob_magnet.name=奥术生物磁铁
+tile.thaumictinkerer:osmotic_enchanter.name=渗透附魔台
+tile.thaumictinkerer:enchantment_pillar.name=蕴魔柱
+tile.thaumictinkerer:black_quartz_block.name=烟黑石英块
+tile.thaumictinkerer:example.name=镜像方块
+
+thaumictinkerer.TELEKENESIS.name=念力
+thaumictinkerer.mobaspect.type=Aspect: %s
+thaumictinkerer.mobaspect.invalid=Invalid Aspect
+
+
+thaumictinkerer.config.title=Thaumic Tinkerer配置
+thaumictinkerer.config.talisman=启用防身护身符
+
+
+thaumictinkerer.card.experience.name=Experience
+thaumictinkerer.card.experience.text=You notice that a lot of the Tinkering you are doing, is inspired by your experience in life. Gain 25 in Thaumic Tinkerer, At the cost of 4 levels of experience.
+
+ttmisc.mobmagnet.all=全部
+ttmisc.mobmagnet.none=无
+ttmisc.mobmagnet.child=幼年
+ttmisc.mobmagnet.adult=成年
+ttmisc.mobmagnet.push=Push
+ttmisc.mobmagnet.pull=Pull
+ttmisc.animation_tablet.left=Left Click
+ttmisc.animation_tablet.right=Right Click
+ttmisc.enchanter.start=Start Enchanting!
+ttmisc.enchanter.notready=Can't Enchant!
+ttmisc.enchanter.incomplete=This construct is incomplete. The enchanter is unable to work.
+ttmisc.shareTome.write=研究已写入！
+ttmisc.shareTome.noAssign=未分配
+ttmisc.shareTome.playerName=绑定到%s的研究上。
+ttmisc.shareTome.sync=已获得研究。
+ttmisc.shareTome.clear=研究已清除。
+ttmisc.connector.complete=绑定完成！
+ttmisc.connector.set=位置已设置！
+ttmisc.connector.notinterf=并非矢量变换接口。
+ttmisc.connector.interffail=不能将矢量变换接口绑定到矢量变换接口上去。
+ttmisc.connector.dislfail=无法将矢量变换接口绑定到另一个上去。
+ttmisc.connector.notpresent=该矢量变换接口已经不存在了。
+ttmisc.connector.toofar=原来的矢量变换接口太远了。
+ttmisc.connector.clear=你已解除对原矢量变换接口的绑定。
+ttmisc.soulMould.nonAssigned=无模板
+ttmisc.soulMould.pattern=目前模板：%s
+
+ttmisc.debug.redstone=Redstone Recieved: %b
+
+
+tc.research_category.THAUMIC_TINKERER=神秘工匠
+thaumictinkerer.research.share_tome.title=知识共享之书
+thaumictinkerer.research.share_tome.lore=金鱼的日记
+thaumictinkerer.research.share_tome.0=假如有朝一日，你想要将你所研究的知识分享给其他人，那么这本书将正合你用。<BR><BR>通过右击本书，并交给其他人阅读,他们便能学会迄今为止你所研究出的一切知识。<BR><BR>（注意：如若右侧未曾显示合成表，则说明当前合成方法禁用，此时该物品仅在创造模式下有效。）
+
+thaumictinkerer.research.funnel.title=源质漏斗
+thaumictinkerer.research.funnel.lore=纵已转移
+thaumictinkerer.research.funnel.0=你对用安瓿来倒腾罐子里的要素烦透了，因此你最终制造出一种新设备，能够将罐子里的源质转移到其他罐子中。<BR><BR>将此方块置于漏斗上方，用含有要素的罐子右击，如果漏斗对接的是一个空罐子或者装有相同要素的未满罐子，那么你手持罐子中的要素会向其转移。
+
+thaumictinkerer.research.black_quartz.title=烟黑石英
+thaumictinkerer.research.black_quartz.lore=暗影之日
+thaumictinkerer.research.black_quartz.0=烟黑石英肖似普通的石英，但性状相反。石英为材料的方块都能用烟黑石英做，但是看起来是黑色的。<BR><BR>烟黑使用可以用煤炭或者木炭以及普通下界石英制成。
+thaumictinkerer.research.black_quartz.1=If I use some coal or charcoal and fuse it with quartz, I end up with a smokey quartz that can make all the regular quartz blocks, but looks much darker and satisfying to use, it also appears to have unlocked a few more thaumic uses as well. Part of me wonders if this would make a good hunting weapon if I attached a string
+
+
+thaumictinkerer.research.transvector_interface.title=矢量变换接口
+thaumictinkerer.research.transvector_interface.0=“事实就是，1个方块只有6个面…”——Direwolf20如是说。<BR><BR>神秘等于化不可能为可能！你最新制作的这台设备能够与附近的方块绑定，之后它的面会变成你选中的方块的面的样子，并且你能够用这个面与选中的方块互动。它能够作为能量（BuildCraft（建筑）与IC2（工业时代2）的能量）输入接口以及物品，源质，流体的输入输出接口。<BR>为了将接口与其他方块绑定，你需要制作一个被称作矢量变换接口绑定器的特殊工具。<BR><BR>右击目标方块之后右击接口就能完成绑定操作（注意：建筑模组的管道需要在绑定后拆掉再装才能有效），也可以手持另一个方块右击将其伪装成那个方块。要移除伪装，只需要再次用空手右击即可。item.thaumictinkerer:spellbinding_cloth.name
+thaumictinkerer.research.transvector_interface.1=A man who’s name is only known as Direwolf20, once said “The thing is, there's only six sides to a block...”. ... I think I can now say that myth is busted. I can bind this new interface to a nearby block, and it will effectively bind the two points in space.<BR>Although it may look seperate to the naked eye, pipes, wires, and other mechanics, both thaumic, and mundane, will interact with the interface block as if they were touching the linked block itself.<BR> I simply have to select the interface with my specially constructed beacon device, to link the two, then select the block I wish linked with the beacon, and then the two blocks are linked, until one or the other is removed. The interface even retains the camouflage ability of the dissimulation block.<BR> It's effects seem very much like the mirrors, I wonder what happens if I add the base glass?
+thaumictinkerer.research.transvector_interface.2=A man who’s name is only known as Direwolf20, once said “The thing is, there's only six sides to a block...”. ... I think I can now say that myth is busted. I can bind this new interface to a nearby block, and it will effectively bind the two points in space.<BR>Although it may look seperate to the naked eye, pipes, wires, and other mechanics, both thaumic, and mundane, will interact with the interface block as if they were touching the linked block itself.<BR> I simply have to select the interface with my specially constructed beacon device, to link the two, then select the block I wish linked with the beacon, and then the two blocks are linked, until one or the other is removed. The interface even retains the camouflage ability of the dissimulation block.<BR><BR> I now also have the Transvector Dislocator too. The addition of the magical mirror base seems to strengten the effect, letting me swap two points in space at command. All I have to do is bind a block to the Dislocator, then on a redstone signal it swaps it with the block in front of the dislocator.
+
+thaumictinkerer.research.form_revealer.title=Multiblock Guide
+thaumictinkerer.research.form_revealer.0=As I learn more about Thaumaturgy, I find that my workings no longer always fit inside one block, sometimes structures taller then myself even, are needed to be constructed to complete my tasks. If I take the basic memory provided from a zombie’s brain, and combine it with the phantasmal light of nitor, I may be able to make a wand that will remember where I need to place blocks, to complete a structure, and show me which block I need to provide in whichever places they need to go.
+
+thaumictinkerer.research.TT_TELEKENESIS.title=Telekinesis
+thaumictinkerer.research.TT_TELEKENESIS.0=After watching how creatures and items alike drift in water I started to wonder, what if I had a stream of magical energy that could do so?
+thaumictinkerer.research.TT_TELEKENESIS.1=I have managed to create a focal pattern that creates a light stream of magic infused with vis,  if I add this pattern to a bolt and right click on the ground, all nearby items will float towards that point. Crouching will instead cause the items to flee from that point.
+
+thaumictinkerer.research.TT_DISLOCATE.title=Dislocation
+thaumictinkerer.research.DISLOCATE.0=After so much work was put into discovering how to exchange blocks, I noticed sometimes there would be a delay before the block appears when being swapped. I wonder what would happen if I look into this more?
+thaumictinkerer.research.DISLOCATE.1=Success! After some experimentation, many lost blocks of cobblestone, and an invasion of endermen or two,  I substituted permutatio for desiderium, so the effect desired to hold on longer, and now I have a pattern that can temporarily store blocks to move them. <BR> Once applied to a focus, left click on a block to store it within the focus, then left click again to place the block.
+
+thaumictinkerer.research.prismarine.title=Aquatic Alchemy
+
+thaumictinkerer.research.spellbinding_cloth.title=Spellbinding Cloth
+thaumictinkerer.research.spellbinding_cloth.lore=The sad palmtop thaumaturge
+thaumictinkerer.research.spellbinding_cloth.0=While working with my enchanted axe one day, I accidentally dropped it in a cauldron of concentrated magic. The axe, of course, was lost, but I noticed the first thing to go was the enchantment glow, leaving it a plain metal axe before it dissolved. <BR> I wonder what would happen if I coated some Enchanted cloth in this mixture and just wiped a tool down with it?
+thaumictinkerer.research.spellbinding_cloth.1=My experiments have born fruit, Enchanted fabric soaked in the mixture will wipe an enchantment off an item, leaving it pristine and ready for re-enchantment. It seems to damage the cloth slightly each time, however.
+
+thaumictinkerer.research.dissimulation.title=Dissimulation Block
+thaumictinkerer.research.dissimulation.0=This new substance called Prismarine seems to have some unusual optical properties. I wonder what I could do once I have fully investigated it.
+thaumictinkerer.research.dissimulation.1=After fully investigating Prismarine, I have found a way to make blocks that with a magical push, can look like any other block. <BR> All I have to do is place this Dissimulation block down, and then touch another block against it by right clicking. I wonder if I can use this apparent memory of another block in any other ways?
+
+
+
+thaumictinkerer.research.repairer.title=Thaumic Restorer
+thaumictinkerer.research.repairer.0=After finding out one mixture of Essentia could disenchant, but damage tools, I started to wonder, could another fix them? <BR> Turns out it can. If I take my new Thaumic Restorer and put the tool in, then pump in the correct Essentia for the tool, it will let the tool regain it's natural durability. It's handy that the ever-useful goggles let me see which type is needed.
+
+thaumictinkerer.research.magnet.title=Thaumic Magnents
+thaumictinkerer.research.magnet.0=Putting a focus containing my new telekenesis effect into a framework of greatwood and iron ,I get a device that attracts or repels items dependent on the redstone signal. With some clever adjustment, I can also filter which items it should attract or repel. <BR> I get the feeling there is a way to magnify this pull, to effect more then just dropped items.
+thaumictinkerer.research.magnet.1=Putting a focus containing my new telekenesis effect into a framework of greatwood and iron ,I get a device that attracts or repels items dependent on the redstone signal. With some clever adjustment, I can also filter which items it should attract or repel. <BR> Substituting iron for thaumium, and adding more vis, seems to magnify the effect, not items now, but creatures will be attracted or repeled. I obviously can't place a creature in the device to filter it, but I can catch the essence of their soul using a modified ender pearl, and that seems to do just as well a filter.
+
+thaumictinkerer.research.enchanter.title=Osmotic Enchanter
+thaumictinkerer.research.enchanter.0=Infusion seems more familiar the more I look at it. Something about how it pulls in magic and infuses such a large amount into an object to give it new properties makes me think it could be related to enchantment of an item in some way. If I investigate infusion more I wonder if I can find the link?
+thaumictinkerer.research.enchanter.1=I have found the link between infusion and enchantment! Whereas infusing an object requires a massive amount of different essentia, enchantment, being a lower power infusing, doesnt need much more then the basic ambient magic. Working off of this theory, I can build an enchanting table that uses a similar setup to the infusion matrix, to instead add enchantment to a tool, while being able to select which magic settles on the tool, meaning I can select the enchantment. Building this structure, then triggering it by sprinkling some salis mundus should work
+
+thaumictinkerer.research.tablet.title=Dynamism Tablet
+thaumictinkerer.research.tablet.0=Golems are so very useful, watching them wandering here and there to do my bidding is quite amusing. However, sometimes I don't want a minion doing something for me. Sometimes, I just need a plain block that does one thing, but does it well. The way I built a magnet around a focus makes me wonder: can I build something around a seal? I must examine golems more.
+thaumictinkerer.research.tablet.1=It looks like I can build a block around a seal that leverages golemancy to use an item, without actually being a fully mobile golem. If I place this block down and give it an item, it will use the item on the block in front of it. That is, as long as it has a redstone signal. ` It can be told whether to mine or use a block. However, with no inventory, anything it does mine drops into the world - perhaps for its more mobile cousin to pick up.
+
+thaumictinkerer.research.energetic_nitor.title=Hyperenergetic Nitor
+thaumictinkerer.research.energetic_nitor.0=One cannot deny the Nitor is useful. However, having to place it down before I see anything is annoying. I wonder, could I somehow make it visible from my palm if I were to make it more energetic?
+thaumictinkerer.research.energetic_nitor.1=Adding in more Energy and Light Essentia seems to have done the trick. I have managed to create a more powerful nitor - this Hyperenergetic Nitor burns with a visible light from my hand, so much so that it will even leave a trail as I move.
+
+tip.awakenpick.name0=方块模式
+tip.awakenpick.name1=正方模式
+tip.awakenpick.name2=线性模式
+
+tip.awakenshovel.name0=方块模式
+tip.awakenshovel.name1=正方模式
+tip.awakenshovel.name2=柱状模式
+
+tip.awakenaxe.name0=方块模式
+tip.awakenaxe.name1=正方模式
+tip.awakenaxe.name2=伐木模式
+
+tip.awakensword.name0=单杀模式
+tip.awakensword.name1=区域模式
+tip.awakensword.name2=狩魂模式
+
+tip.awakenarmor.name0=觉醒
+tip.awakenarmor.name1=休眠
+
+enchantment.ascentboost=腾讯
+enchantment.shockwave=震荡波
+enchantment.slowfall=落雪
+enchantment.pounce=猫爪
+enchantment.finalstrike=致命一击
+enchantment.valiance=英勇
+enchantment.vampirsim=吸血
+enchantment.desintegrate=解离
+enchantment.dispersedstrikes=群杀
+enchantment.focusedstrikes=单杀
+enchantment.quickdraw=及时战备
+enchantment.shatter=碎裂
+enchantment.tunnel=隧道
+enchantment.autosmelt=熔炼
