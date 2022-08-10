@@ -62,7 +62,7 @@ item.ichorium_axe_adv.name=Awakened Ichorium Axe
 item.ichorium_shovel_adv.name=Awakened Ichorium Shovel
 item.ichorium_sword_adv.name=Awakened Ichorium Sword
 
-item.proto_clay.name=Proto Clay
+item.thaumictinkerer:proto_clay.name=Proto Clay
 item.revealing_helm.name=Helmet of Revealing
 
 thaumictinkerer.TELEKENESIS.name=Telekenesis

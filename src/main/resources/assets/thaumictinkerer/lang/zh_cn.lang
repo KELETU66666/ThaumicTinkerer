@@ -23,7 +23,7 @@ item.thaumictinkerer:kamiresource.5.name=灵宝粒
 tile.thaumictinkerer:ichor_block.name=灵宝块
 tile.bedrock_portal.name=基岩世界传送门
 
-item.proto_clay.name=息壤
+item.thaumictinkerer:proto_clay.name=息壤
 item.thaumictinkerer:block_talisman.name=黑洞指环
 
 item.ichorium_sword.name=灵宝剑

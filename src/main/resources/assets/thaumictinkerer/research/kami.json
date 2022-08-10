@@ -401,7 +401,7 @@
       "name": "thaumictinkerer.research.proto_clay.title",
       "category": "THAUMIC_TINKERER",
       "icons": [
-        "thaumictinkerer:block_talisman"
+        "thaumictinkerer:proto_clay"
       ],
       "parents": [
         "TT_ICHOR_PICK_ADV"
@@ -417,8 +417,8 @@
         {
           "text": "thaumictinkerer.research.proto_clay.text",
           "required_knowledge": [
-            "THEORY;INFUSION;2",
-            "THEORY;THAUMIC_TINKERER;2"
+            "OBSERVATION;THAUMIC_TINKERER;1",
+            "THEORY;THAUMIC_TINKERER;1"
           ]
         },
         {
