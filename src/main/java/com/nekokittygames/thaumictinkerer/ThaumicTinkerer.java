@@ -106,6 +106,7 @@ public class ThaumicTinkerer {
         ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/baubles"));
         ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/machines"));
         ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/foci"));
+        ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/kami"));
         TheorycraftManager.registerCard(CardExperience.class);
         TheorycraftManager.registerAid(new AidBlackQuartz(ModBlocks.black_quartz_block));
         BotaniaCompat.addTheorycraft();

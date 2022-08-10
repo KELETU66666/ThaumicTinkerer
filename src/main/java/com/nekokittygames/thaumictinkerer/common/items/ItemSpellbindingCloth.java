@@ -10,6 +10,7 @@ import net.minecraftforge.common.IRarity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class ItemSpellbindingCloth extends TTItem {
@@ -20,11 +21,6 @@ public class ItemSpellbindingCloth extends TTItem {
         setNoRepair();
     }
 
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack) {
-        itemStack.setItemDamage(itemStack.getItemDamage()+1);
-        return itemStack;
-    }
 
     @Override
     public boolean hasContainerItem() {
@@ -43,4 +39,10 @@ public class ItemSpellbindingCloth extends TTItem {
         return false;
     }
 
-}
+    @Nonnull
+    @Override
+    public ItemStack getContainerItem(@Nonnull ItemStack itemStack) {
+        ItemStack newStack = itemStack.copy();
+        newStack.setItemDamage(itemStack.getItemDamage() + 1);
+        return newStack;
+    }}

@@ -1,10 +1,8 @@
 package com.nekokittygames.thaumictinkerer.common.recipes;
 
-import com.nekokittygames.thaumictinkerer.common.blocks.BlockIchorBlock;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.compat.botania.BotaniaCompat;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
-import com.nekokittygames.thaumictinkerer.common.items.ItemKamiResource;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.libs.LibOreDict;
@@ -16,7 +14,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.potion.PotionUtils;
@@ -24,7 +21,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectHelper;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.casters.FocusPackage;
@@ -38,7 +37,6 @@ import java.util.Objects;
 
 import static com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks.black_quartz_block;
 import static com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks.ichor_block;
-import static com.nekokittygames.thaumictinkerer.common.libs.LibResearch.ICHORIUM_TOOLS;
 import static thaumcraft.api.ThaumcraftApi.*;
 
 public class ModRecipes {
@@ -122,6 +120,16 @@ public class ModRecipes {
         addArcaneCraftingRecipe(LibRecipes.MOB_MAGNET, new ShapedArcaneRecipe(defaultGroup, LibResearch.CORPOREAL_MAGNET, 200, new AspectList().add(Aspect.AIR, 1).add(Aspect.ORDER, 1).add(Aspect.EARTH, 15).add(Aspect.ENTROPY, 1), new ItemStack(Objects.requireNonNull(ModBlocks.mob_magnet)), " C ", "ACE", "GFG", 'C', new ItemStack(ItemsTC.ingots, 1, 0), 'A', new TTIngredientNBT(airCrystal), 'E', new TTIngredientNBT(earthCrystal), 'G', new ItemStack(BlocksTC.logGreatwood), 'F', new TTFocusIngredient(FocusEffectTelekenesis.class, focus)));
         addArcaneCraftingRecipe(LibRecipes.ITEM_MAGNET, new ShapedArcaneRecipe(defaultGroup, LibResearch.KINETIC_MAGNET, 20, new AspectList().add(Aspect.AIR, 1).add(Aspect.ORDER, 1).add(Aspect.EARTH, 15).add(Aspect.ENTROPY, 1), new ItemStack(Objects.requireNonNull(ModBlocks.magnet)), " C ", "ACE", "GFG", 'C', "ingotIron", 'A', new TTIngredientNBT(airCrystal), 'E', new TTIngredientNBT(earthCrystal), 'G', new ItemStack(BlocksTC.logGreatwood), 'F', new TTFocusIngredient(FocusEffectTelekenesis.class, focus)));
         addArcaneCraftingRecipe(LibRecipes.TABLET, new ShapedArcaneRecipe(defaultGroup, LibResearch.TABLET, 20, new AspectList().add(Aspect.AIR, 3).add(Aspect.ORDER, 2).add(Aspect.FIRE, 1), new ItemStack(Objects.requireNonNull(ModBlocks.animation_tablet)), "GIG", "ISI", 'G', new ItemStack(Items.GOLD_INGOT), 'I', new ItemStack(Items.IRON_INGOT), 'S', new ItemStack(ItemsTC.seals)));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "revealing_helm"), new ShapelessArcaneRecipe(
+                defaultGroup,
+                "TT_REVEALING",
+                5,
+                new AspectList(),
+                new ItemStack(ModItems.revealing_helm),
+                new Object[]{
+                        new ItemStack(ItemsTC.goggles),
+                        new ItemStack(ItemsTC.thaumiumHelm)
+                }));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_cloth"), new ShapedArcaneRecipe(
                 defaultGroup,
                 "TT_ICHOR",
@@ -388,5 +396,17 @@ public class ModRecipes {
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(ItemsTC.elementalSword),
                 new ItemStack(ModItems.kamiresource,1,4)));
+        addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "block_talisman"), new InfusionRecipe(
+                "TT_BLACKHOLE_RING",
+                new ItemStack(ModItems.block_talisman),
+                9,
+                new AspectList().add(Aspect.ELDRITCH, 125).add(Aspect.MAGIC, 200).add(Aspect.DARKNESS, 125).add(Aspect.VOID, 250),
+                new ItemStack(ItemsTC.focus2),
+                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(Blocks.ENDER_CHEST),
+                new ItemStack(Items.DIAMOND),
+                new ItemStack(ModItems.kamiresource,1,2),
+                ThaumcraftApiHelper.makeCrystal(Aspect.FLUX),
+                new ItemStack(BlocksTC.jarVoid)));
     }
 }

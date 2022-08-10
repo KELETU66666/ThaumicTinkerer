@@ -15,8 +15,8 @@
       "meta": [
       ],
       "location": [
-        1,
-        1
+        0,
+        -6
       ],
       "stages": [
         {
@@ -48,10 +48,9 @@
       "name": "thaumictinkerer.research.repairer.title",
       "icons": ["thaumictinkerer:repairer"],
       "category": "THAUMIC_TINKERER",
-      "parents": ["INFUSION","~TT_SPELLBINDING_CLOTH"],
+      "parents": ["INFUSION","TT_BLACK_QUARTZ"],
       "siblings": [],
-      "meta": ["ROUND"],
-      "location": [5,5],
+      "location": [-3, 2],
       "stages": [
         {
           "text": "thaumictinkerer.research.repairer.0",
@@ -68,15 +67,16 @@
       "category": "THAUMIC_TINKERER",
       "parents": [
         "FIRSTSTEPS",
-        "TT_TELEKENESIS"
+        "TT_TELEKENESIS",
+        "TT_DISSIMULATION"
       ],
       "siblings": [],
       "meta": [
-        "ROUND"
+        "REVERSE"
       ],
       "location": [
-        -4,
-        1
+        -2,
+        -4
       ],
       "stages": [
         {
@@ -104,14 +104,15 @@
       ],
       "category": "THAUMIC_TINKERER",
       "parents": [
-        "WARDEDJARS"
+        "WARDEDJARS",
+        "TT_BLACK_QUARTZ"
       ],
       "siblings": [],
       "meta": [
       ],
       "location": [
-        3,
-        1
+        2,
+        2
       ],
       "stages": [
         {
@@ -130,14 +131,16 @@
       ],
       "category": "THAUMIC_TINKERER",
       "parents": [
-        "INFUSION"
+        "INFUSION",
+        "TT_REPAIRER",
+        "TT_SPELLBINDING_CLOTH"
       ],
       "siblings": [],
       "meta": [
       ],
       "location": [
-        3,
-        2
+        -5,
+        1
       ],
       "stages": [
         {
@@ -164,13 +167,9 @@
         "TT_THAUMIC_MAGNETS",
         "CONTROLSEALS"
       ],
-      "siblings": [],
-      "meta": [
-        "ROUND"
-      ],
       "location": [
-        -3,
-        3
+        -2,
+        -6
       ],
       "stages": [
         {

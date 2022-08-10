@@ -1,8 +1,7 @@
-package com.nekokittygames.thaumictinkerer.common.items.Kami.Tool;
+package com.nekokittygames.thaumictinkerer.common.items.Kami.Tools;
 
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;

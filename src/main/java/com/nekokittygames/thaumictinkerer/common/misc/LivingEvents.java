@@ -1,7 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.misc;
 
 import com.nekokittygames.thaumictinkerer.common.items.Kami.KamiArmor;
-import com.nekokittygames.thaumictinkerer.common.items.Kami.Tool.IchoriumPickAdv;
+import com.nekokittygames.thaumictinkerer.common.items.Kami.Tools.IchoriumPickAdv;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;

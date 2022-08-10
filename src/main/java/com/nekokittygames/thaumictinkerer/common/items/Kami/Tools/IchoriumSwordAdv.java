@@ -1,4 +1,4 @@
-package com.nekokittygames.thaumictinkerer.common.items.Kami.Tool;
+package com.nekokittygames.thaumictinkerer.common.items.Kami.Tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;

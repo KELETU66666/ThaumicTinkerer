@@ -1,8 +1,10 @@
-package com.nekokittygames.thaumictinkerer.common.items;
+package com.nekokittygames.thaumictinkerer.common.items.Kami;
 
+import com.nekokittygames.thaumictinkerer.common.items.TTItem;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -44,6 +46,11 @@ public class ItemKamiResource extends TTItem {
                 return 0.0F;
             }
         });
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack itemstack) {
+        return EnumRarity.EPIC;
     }
 
     @Override

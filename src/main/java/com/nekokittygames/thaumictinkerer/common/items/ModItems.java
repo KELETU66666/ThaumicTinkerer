@@ -2,10 +2,11 @@ package com.nekokittygames.thaumictinkerer.common.items;
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
 import com.nekokittygames.thaumictinkerer.common.items.Kami.IchorArmor;
+import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemBlockTalisman;
+import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemKamiResource;
 import com.nekokittygames.thaumictinkerer.common.items.Kami.KamiArmor;
-import com.nekokittygames.thaumictinkerer.common.items.Kami.Tool.*;
+import com.nekokittygames.thaumictinkerer.common.items.Kami.Tools.*;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
-import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTInkererCreativeTab;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -16,11 +17,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+import thaumcraft.api.ThaumcraftMaterials;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHOR;
 import static com.nekokittygames.thaumictinkerer.common.utils.MiscUtils.nullz;
 
 @SuppressWarnings("WeakerAccess")
@@ -52,7 +53,8 @@ public class ModItems {
     public static final Item kami_chest = null;
     public static final Item kami_legs = null;
     public static final Item kami_boots = null;
-
+    public static final Item block_talisman = null;
+public static final Item revealing_helm = null;
     //public static final ItemFormRevealer form_revealer = nullz();
 
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -92,7 +94,9 @@ public class ModItems {
                     new KamiArmor("kami_helm", MATERIAL_ICHOR, 1, EntityEquipmentSlot.HEAD, ThaumicTinkerer.getTab()),
                     new KamiArmor("kami_chest", MATERIAL_ICHOR, 1, EntityEquipmentSlot.CHEST, ThaumicTinkerer.getTab()),
                     new KamiArmor("kami_legs", MATERIAL_ICHOR, 2, EntityEquipmentSlot.LEGS, ThaumicTinkerer.getTab()),
-                    new KamiArmor("kami_boots", MATERIAL_ICHOR, 1, EntityEquipmentSlot.FEET, ThaumicTinkerer.getTab())
+                    new KamiArmor("kami_boots", MATERIAL_ICHOR, 1, EntityEquipmentSlot.FEET, ThaumicTinkerer.getTab()),
+                    new ItemBlockTalisman(),
+                    new ItemRevealingHelm("revealing_helm", ThaumcraftMaterials.ARMORMAT_THAUMIUM, 1, EntityEquipmentSlot.HEAD, ThaumicTinkerer.getTab())
                    // new ItemFormRevealer()
             };
             final IForgeRegistry<Item> registry = event.getRegistry();

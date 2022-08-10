@@ -17,4 +17,6 @@ public class LibItemNames {
     public static final String ICHORIUM_SWORD = "ichorium_sword";
     public static final String ICHORIUM_PICK = "ichorium_pick";
 
+    public static final String BLOCK_TALISMAN = "block_talisman";
+
 }
