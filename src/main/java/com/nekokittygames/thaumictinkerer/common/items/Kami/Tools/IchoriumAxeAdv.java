@@ -34,7 +34,7 @@ import thaumcraft.common.lib.utils.Utils;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IchoriumAxeAdv extends IchoriumAxe  {
+public class IchoriumAxeAdv extends IchoriumAxe implements IAdvancedTool{
 
     public IchoriumAxeAdv(String name) {
 
@@ -190,5 +190,9 @@ public class IchoriumAxeAdv extends IchoriumAxe  {
         return EnumRarity.EPIC;
     }
 
-    
+
+    @Override
+    public String getType() {
+        return "axe";
+    }
 }

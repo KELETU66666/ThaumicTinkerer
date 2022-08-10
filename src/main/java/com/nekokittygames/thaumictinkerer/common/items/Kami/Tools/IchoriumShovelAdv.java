@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 
-public class IchoriumShovelAdv extends IchoriumShovel{
+public class IchoriumShovelAdv extends IchoriumShovel implements IAdvancedTool{
     public IchoriumShovelAdv(String name) {
 
         super(name);
@@ -212,5 +212,10 @@ public class IchoriumShovelAdv extends IchoriumShovel{
         else{tooltip.add(TextFormatting.DARK_GREEN +
                 I18n.translateToLocal("tip.awakenshovel.name0"));}
         super.addInformation(stack, worldIn, tooltip, flagIn);
+    }
+
+    @Override
+    public String getType() {
+        return "shovel";
     }
 }

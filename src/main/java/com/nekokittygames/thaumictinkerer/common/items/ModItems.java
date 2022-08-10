@@ -1,10 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.items;
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
-import com.nekokittygames.thaumictinkerer.common.items.Kami.IchorArmor;
-import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemBlockTalisman;
-import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemKamiResource;
-import com.nekokittygames.thaumictinkerer.common.items.Kami.KamiArmor;
+import com.nekokittygames.thaumictinkerer.common.items.Kami.*;
 import com.nekokittygames.thaumictinkerer.common.items.Kami.Tools.*;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import net.minecraft.init.SoundEvents;
@@ -55,6 +52,7 @@ public class ModItems {
     public static final Item kami_boots = null;
     public static final Item block_talisman = null;
 public static final Item revealing_helm = null;
+public static final ItemProtoclay proto_clay = null;
     //public static final ItemFormRevealer form_revealer = nullz();
 
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -79,6 +77,7 @@ public static final Item revealing_helm = null;
                     new ItemBloodSword(),
                     new ItemMobAspect(),
                     new ItemKamiResource(),
+                    new ItemProtoclay(),
                     new IchoriumAxe("ichorium_axe"),
                     new IchoriumSword("ichorium_sword"),
                     new IchoriumShovel("ichorium_shovel"),

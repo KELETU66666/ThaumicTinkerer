@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IchoriumPickAdv extends IchoriumPick
+public class IchoriumPickAdv extends IchoriumPick implements IAdvancedTool
 {
     public IchoriumPickAdv(String name) {
 
@@ -290,5 +290,9 @@ public class IchoriumPickAdv extends IchoriumPick
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
-    
+
+    @Override
+    public String getType() {
+        return "pick";
+    }
 }

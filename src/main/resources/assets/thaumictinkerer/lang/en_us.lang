@@ -62,7 +62,9 @@ item.ichorium_axe_adv.name=Awakened Ichorium Axe
 item.ichorium_shovel_adv.name=Awakened Ichorium Shovel
 item.ichorium_sword_adv.name=Awakened Ichorium Sword
 
+item.proto_clay.name=Proto Clay
 item.revealing_helm.name=Helmet of Revealing
+
 thaumictinkerer.TELEKENESIS.name=Telekenesis
 thaumictinkerer.dislocation.name=Dislocation
 thaumictinkerer.TELEKENESIS.text=Telekenesis
@@ -229,6 +231,10 @@ thaumictinkerer.research.revealing_helm.complete.text=As it turns out, goggles d
 thaumictinkerer.research.blackhole_ring.title=Black Hole Ring
 thaumictinkerer.research.blackhole_ring.text=[WIP]
 thaumictinkerer.research.blackhole_ring.complete.text=This ring can be set to condense any block, by right clicking with it in world in the type of block you want to have it be set to, when enabled via right click will absorb any excess (over 1 stack) of that block in your inventory, and make sure at least one stack stays there. The contents can be stored in any inventory by right clicking it, or placed in world as if they were normal blocks.<BR><BR>It can store over 2 billion of the same block. Guess cobblestone clogging the space isn't an issue. If the ring is empty, it can be shift right clicked into another block to change its binding.
+
+thaumictinkerer.research.proto_clay.title=Proto Clay
+thaumictinkerer.research.proto_clay.text=[WIP]
+thaumictinkerer.research.proto_clay.complete.text=You grew tired of having to constantly swap your tools.<BR><BR>This mixture will, by melding with the Ichorium, switch any Awakened Ichorium tools being held by the one used for the block being pointed at, case one tries to break it with the wrong tool.<BR><BR>As an example, trying to break a dirt block with an Awakened Ichorium Pickaxe while a Shovel is present elsewhere in the inventory will swap the two, and allow for fast disposal of the dirt block.
 
 thaumictinkerer.research.auromancy.title=Advanced Auromancy
 

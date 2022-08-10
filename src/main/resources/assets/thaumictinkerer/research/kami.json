@@ -374,11 +374,11 @@
         "TT_ICHOR_PICK_ADV"
       ],
       "meta": [
-        "HIDDEN"
+        "REVERSE"
       ],
       "location": [
         10,
-        -2
+        -3
       ],
       "stages": [
         {
@@ -393,6 +393,39 @@
           "recipes": [
             "thaumictinkerer:block_talisman"
             ]
+        }
+      ]
+    },
+    {
+      "key": "TT_PROTO_CLAY",
+      "name": "thaumictinkerer.research.proto_clay.title",
+      "category": "THAUMIC_TINKERER",
+      "icons": [
+        "thaumictinkerer:block_talisman"
+      ],
+      "parents": [
+        "TT_ICHOR_PICK_ADV"
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "location": [
+        10,
+        -1
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.proto_clay.text",
+          "required_knowledge": [
+            "THEORY;INFUSION;2",
+            "THEORY;THAUMIC_TINKERER;2"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.proto_clay.complete.text",
+          "recipes": [
+            "thaumictinkerer:proto_clay"
+          ]
         }
       ]
     }

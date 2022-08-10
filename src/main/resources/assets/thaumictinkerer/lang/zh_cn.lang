@@ -23,6 +23,7 @@ item.thaumictinkerer:kamiresource.5.name=灵宝粒
 tile.thaumictinkerer:ichor_block.name=灵宝块
 tile.bedrock_portal.name=基岩世界传送门
 
+item.proto_clay.name=息壤
 item.thaumictinkerer:block_talisman.name=黑洞指环
 
 item.ichorium_sword.name=灵宝剑
@@ -230,6 +231,10 @@ thaumictinkerer.research.revealing_helm.complete.text=[临时文案]<BR>事实�
 thaumictinkerer.research.blackhole_ring.title=黑洞指环
 thaumictinkerer.research.blackhole_ring.text=文案暂未完成
 thaumictinkerer.research.blackhole_ring.complete.text=[临时文案]<BR>这枚指环能够被用来压缩放置任意类型的方块.手持它拿着某种方块右击即可建立绑定关系,此后按住右键就能将物品栏中的数量超过一个堆叠的同类方块收诸其内,并会保留至少一个堆叠于物品栏.收入的物品通过右击可以放回物品栏,也可以直接放置在地上.<BR><BR>它最多能容纳超过2百万同类型的方块,这下子不会存在圆石没地方搁的问题了吧.护身符空置时按住shift右击可以切换绑定对象.
+
+thaumictinkerer.research.proto_clay.title=息壤
+thaumictinkerer.research.proto_clay.text=文案暂未完成
+thaumictinkerer.research.proto_clay.complete.text=[临时文案]<BR>你厌倦了总是要轮换工具的日子.<BR><BR>这团混有灵宝的物质,能够在你使用错误工具进行操作时自动将手持工具切换为合适的觉醒灵宝工具.<BR><BR>例如,一旦你试图用觉醒灵宝镐挖土,而物品栏里却有觉醒灵宝铲时,手持工具会马上自动替换成觉醒灵宝铲,以便让你更快速地挖下泥土.
 
 thaumictinkerer.research.auromancy.title=高级神秘学
 
