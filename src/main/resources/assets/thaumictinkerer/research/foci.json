@@ -19,7 +19,7 @@
         {
           "text": "thaumictinkerer.research.TT_TELEKENESIS.0",
           "required_knowledge": [
-            "THEORY;AUROMANCY;1"
+            "THEORY;AUROMANCY;1","THEORY;THAUMIC_TINKERER;1"
           ]
         },
         {
@@ -47,11 +47,40 @@
         {
           "text": "thaumictinkerer.research.DISLOCATE.0",
           "required_knowledge": [
-            "THEORY;AUROMANCY;1"
+            "THEORY;AUROMANCY;1","THEORY;THAUMIC_TINKERER;1"
           ]
         },
         {
           "text": "thaumictinkerer.research.DISLOCATE.1"
+        }
+      ]
+    },
+    {
+      "key": "TT_EFREET_FLAME",
+      "name": "thaumictinkerer.research.EFREET_FLAME.title",
+      "icons": [
+        "focus:thaumictinkerer.efreetflame"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "location": [
+        -7,
+        -3
+      ],
+      "parents": [
+        "BASEAUROMANCY",
+        "FOCUSBREAK",
+        "TT_AUROMANCY"
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.EFREET_FLAME.0",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1","THEORY;THAUMIC_TINKERER;1"
+          ],
+          "required_item": ["thaumcraft:nitor_yellow"]
+        },
+        {
+          "text": "thaumictinkerer.research.EFREET_FLAME.1"
         }
       ]
     }

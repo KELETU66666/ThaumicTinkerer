@@ -67,8 +67,10 @@ tile.thaumictinkerer:example.name=镜像方块
 
 thaumictinkerer.TELEKENESIS.name=念力
 thaumictinkerer.dislocation.name=转移
+thaumictinkerer.efreetflame.name=伊芙利特之辉
 thaumictinkerer.TELEKENESIS.text=发射一道念力束，牵引附近的掉落物，潜行时施法推开掉落物。
 thaumictinkerer.dislocation.text=将一个方块收容进核心中，再次施法将其释放。
+thaumictinkerer.efreetflame.text=将方块转化成它们烧制之后的形态。
 thaumictinkerer.mobaspect.type=Aspect: %s
 thaumictinkerer.mobaspect.invalid=Invalid Aspect
 
@@ -142,6 +144,10 @@ thaumictinkerer.research.TT_TELEKENESIS.1=我成功创制了一种核心效果�
 thaumictinkerer.research.TT_DISLOCATE.title=核心效果：转移
 thaumictinkerer.research.DISLOCATE.0=在交换方块上花费了大量精力进行研究后，我注意到有时方块在交换时会有片刻的延迟。我不禁想到，如果深入调查这一现象会如何？
 thaumictinkerer.research.DISLOCATE.1=成功了！在一番试验、花费了不少圆石方块、遭遇了一两次末影人的入侵后，我用Desiderium替换了Permutatio，如此一来这一效果会倾向于更长久的持有方块，于是现在我有了暂时储存方块以便移动它们的核心样式。<BR>安装核心后，右击方块以将其存入核心，再次右击可将方块放下。
+
+thaumictinkerer.research.EFREET_FLAME.title=核心效果：伊芙利特之辉
+thaumictinkerer.research.EFREET_FLAME.0=[WIP]
+thaumictinkerer.research.EFREET_FLAME.1=[WIP]
 
 thaumictinkerer.research.prismarine.title=水生炼金术
 thaumictinkerer.research.prismarine.0=我找到了炼制海晶碎片的方法。

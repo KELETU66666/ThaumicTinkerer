@@ -10,6 +10,7 @@ import com.nekokittygames.thaumictinkerer.common.dim.ModDimensions;
 import com.nekokittygames.thaumictinkerer.common.dim.OreClusterGenerator;
 import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectDislocate;
+import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectEfreetFlame;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.loot.LootTableHandler;
@@ -124,6 +125,7 @@ public class ThaumicTinkerer {
             logger.info("Initializing Telekenetic powers");
             FocusEngine.registerElement(FocusEffectTelekenesis.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/telekenesis.png"), 13566207);
         }
+        FocusEngine.registerElement(FocusEffectEfreetFlame.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/efreetflame.png"), 25565230);
     }
 
     @Mod.EventHandler

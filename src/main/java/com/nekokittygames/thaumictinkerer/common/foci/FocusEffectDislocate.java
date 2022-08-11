@@ -227,7 +227,7 @@ public class FocusEffectDislocate extends FocusEffect {
 
     @Override
     public int getComplexity() {
-        return 1;
+        return 20;
     }
 
     @Override

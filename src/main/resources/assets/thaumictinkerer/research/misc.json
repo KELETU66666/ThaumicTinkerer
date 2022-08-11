@@ -11,7 +11,7 @@
         "FIRSTSTEPS"
       ],
       "meta": [
-        "ROUND"
+        "ROUND", "HIDDEN"
       ],
       "siblings": [],
 
@@ -52,6 +52,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.black_quartz.0",
+          "required_knowledge": ["OBSERVATION;THAUMIC_TINKERER;1"],
           "required_item": [
             "minecraft:quartz"
           ]
@@ -84,6 +85,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.energetic_nitor.0",
+          "required_knowledge": ["OBSERVATION;THAUMIC_TINKERER;1", "THEORY;THAUMIC_TINKERER;1", "THEORY;ALCHEMY;1"],
           "required_item": [
             "thaumcraft:nitor_yellow"
           ]
@@ -114,6 +116,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.prismarine.0",
+          "required_knowledge": ["OBSERVATION;THAUMIC_TINKERER;1"],
           "recipes": [
             "thaumictinkerer:prismarine"
           ],
@@ -142,6 +145,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.spellbinding_cloth.0",
+          "required_knowledge": ["OBSERVATION;ALCHEMY;1", "THEORY;THAUMIC_TINKERER;1", "THEORY;ALCHEMY;1"],
           "required_item": [
             "thaumcraft:fabric"
           ]
@@ -164,6 +168,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.dissimulation.0",
+          "required_knowledge": ["OBSERVATION;THAUMIC_TINKERER;1", "OBSERVATION;ALCHEMY;1"],
           "required_item":["minecraft:prismarine_shard;30"]
         },
         {

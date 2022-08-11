@@ -67,8 +67,10 @@ item.revealing_helm.name=Helmet of Revealing
 
 thaumictinkerer.TELEKENESIS.name=Telekenesis
 thaumictinkerer.dislocation.name=Dislocation
-thaumictinkerer.TELEKENESIS.text=Telekenesis
-thaumictinkerer.dislocation.text=Dislocation
+thaumictinkerer.efreetflame.name=Efreet's Flame
+thaumictinkerer.TELEKENESIS.text=[WIP] Telekenesis
+thaumictinkerer.dislocation.text=[WIP] Dislocation
+thaumictinkerer.efreetflame.text=[WIP] Efreet's Flame
 thaumictinkerer.mobaspect.type=Aspect: %s
 thaumictinkerer.mobaspect.invalid=Invalid Aspect
 
@@ -136,13 +138,17 @@ thaumictinkerer.research.transvector_interface.2=A man who’s name is only know
 thaumictinkerer.research.form_revealer.title=Multiblock Guide
 thaumictinkerer.research.form_revealer.0=As I learn more about Thaumaturgy, I find that my workings no longer always fit inside one block, sometimes structures taller then myself even, are needed to be constructed to complete my tasks. If I take the basic memory provided from a zombie’s brain, and combine it with the phantasmal light of nitor, I may be able to make a wand that will remember where I need to place blocks, to complete a structure, and show me which block I need to provide in whichever places they need to go.
 
-thaumictinkerer.research.TT_TELEKENESIS.title=Telekinesis
+thaumictinkerer.research.TT_TELEKENESIS.title=Focus Effect: Telekinesis
 thaumictinkerer.research.TT_TELEKENESIS.0=After watching how creatures and items alike drift in water I started to wonder, what if I had a stream of magical energy that could do so?
 thaumictinkerer.research.TT_TELEKENESIS.1=I have managed to create a focal pattern that creates a light stream of magic infused with vis,  if I add this pattern to a bolt and right click on the ground, all nearby items will float towards that point. Crouching will instead cause the items to flee from that point.
 
-thaumictinkerer.research.TT_DISLOCATE.title=Dislocation
+thaumictinkerer.research.TT_DISLOCATE.title=Focus Effect: Dislocation
 thaumictinkerer.research.DISLOCATE.0=After so much work was put into discovering how to exchange blocks, I noticed sometimes there would be a delay before the block appears when being swapped. I wonder what would happen if I look into this more?
 thaumictinkerer.research.DISLOCATE.1=Success! After some experimentation, many lost blocks of cobblestone, and an invasion of endermen or two,  I substituted permutatio for desiderium, so the effect desired to hold on longer, and now I have a pattern that can temporarily store blocks to move them. <BR> Once applied to a focus, left click on a block to store it within the focus, then left click again to place the block.
+
+thaumictinkerer.research.EFREET_FLAME.title=Focus Effect: Efreet's Flame
+thaumictinkerer.research.EFREET_FLAME.0=[WIP]
+thaumictinkerer.research.EFREET_FLAME.1=[WIP]
 
 thaumictinkerer.research.prismarine.title=Aquatic Alchemy
 
@@ -226,15 +232,15 @@ thaumictinkerer.research.kamiboots.complete.text=It seems to be possible to Infu
 
 thaumictinkerer.research.revealing_helm.title=Helmet of Revealing
 thaumictinkerer.research.revealing_helm.text=[WIP]
-thaumictinkerer.research.revealing_helm.complete.text=As it turns out, goggles don't offer much protection from attacking zombies. You think you have a fix for that though. By strapping goggles of revealing onto a thaumium helmet, you can get the benefits of both. Well, it turns out it is a bit more complicated than that. A bit of magic is required to avoid feedback loops, and a bit of magic to keep them from slipping off, but on the whole, it more or less works.
+thaumictinkerer.research.revealing_helm.complete.text=[WIP] As it turns out, goggles don't offer much protection from attacking zombies. You think you have a fix for that though. By strapping goggles of revealing onto a thaumium helmet, you can get the benefits of both. Well, it turns out it is a bit more complicated than that. A bit of magic is required to avoid feedback loops, and a bit of magic to keep them from slipping off, but on the whole, it more or less works.
 
 thaumictinkerer.research.blackhole_ring.title=Black Hole Ring
 thaumictinkerer.research.blackhole_ring.text=[WIP]
-thaumictinkerer.research.blackhole_ring.complete.text=This ring can be set to condense any block, by right clicking with it in world in the type of block you want to have it be set to, when enabled via right click will absorb any excess (over 1 stack) of that block in your inventory, and make sure at least one stack stays there. The contents can be stored in any inventory by right clicking it, or placed in world as if they were normal blocks.<BR><BR>It can store over 2 billion of the same block. Guess cobblestone clogging the space isn't an issue. If the ring is empty, it can be shift right clicked into another block to change its binding.
+thaumictinkerer.research.blackhole_ring.complete.text=[WIP] This ring can be set to condense any block, by right clicking with it in world in the type of block you want to have it be set to, when enabled via right click will absorb any excess (over 1 stack) of that block in your inventory, and make sure at least one stack stays there. The contents can be stored in any inventory by right clicking it, or placed in world as if they were normal blocks.<BR><BR>It can store over 2 billion of the same block. Guess cobblestone clogging the space isn't an issue. If the ring is empty, it can be shift right clicked into another block to change its binding.
 
 thaumictinkerer.research.proto_clay.title=Proto Clay
 thaumictinkerer.research.proto_clay.text=[WIP]
-thaumictinkerer.research.proto_clay.complete.text=You grew tired of having to constantly swap your tools.<BR><BR>This mixture will, by melding with the Ichorium, switch any Awakened Ichorium tools being held by the one used for the block being pointed at, case one tries to break it with the wrong tool.<BR><BR>As an example, trying to break a dirt block with an Awakened Ichorium Pickaxe while a Shovel is present elsewhere in the inventory will swap the two, and allow for fast disposal of the dirt block.
+thaumictinkerer.research.proto_clay.complete.text=[WIP] You grew tired of having to constantly swap your tools.<BR><BR>This mixture will, by melding with the Ichorium, switch any Awakened Ichorium tools being held by the one used for the block being pointed at, case one tries to break it with the wrong tool.<BR><BR>As an example, trying to break a dirt block with an Awakened Ichorium Pickaxe while a Shovel is present elsewhere in the inventory will swap the two, and allow for fast disposal of the dirt block.
 
 thaumictinkerer.research.auromancy.title=Advanced Auromancy
 
