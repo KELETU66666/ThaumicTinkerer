@@ -46,7 +46,6 @@ public class CommonProxy implements ITTProxy {
         LootTableList.register(new ResourceLocation("modid", "loot_table_name"));
         EventHandler.registerEvents();
         GameRegistry.registerWorldGenerator(new OreClusterGenerator(), 3);
-        ModDimensions.init();
     }
 
     @Override
