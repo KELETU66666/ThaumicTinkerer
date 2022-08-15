@@ -52,7 +52,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.black_quartz.0",
-          "required_knowledge": ["OBSERVATION;THAUMIC_TINKERER;1"],
+          "required_knowledge": ["OBSERVATION;BASICS;1"],
           "required_item": [
             "minecraft:quartz"
           ]
@@ -85,7 +85,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.energetic_nitor.0",
-          "required_knowledge": ["OBSERVATION;THAUMIC_TINKERER;1", "THEORY;THAUMIC_TINKERER;1", "THEORY;ALCHEMY;1"],
+          "required_knowledge": ["OBSERVATION;BAISCS;1", "THEORY;THAUMIC_TINKERER;1", "THEORY;ALCHEMY;1"],
           "required_item": [
             "thaumcraft:nitor_yellow"
           ]
@@ -116,7 +116,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.prismarine.0",
-          "required_knowledge": ["OBSERVATION;THAUMIC_TINKERER;1"],
+          "required_knowledge": ["OBSERVATION;BASICS;1"],
           "recipes": [
             "thaumictinkerer:prismarine"
           ],
@@ -168,7 +168,7 @@
       "stages": [
         {
           "text": "thaumictinkerer.research.dissimulation.0",
-          "required_knowledge": ["OBSERVATION;THAUMIC_TINKERER;1", "OBSERVATION;ALCHEMY;1"],
+          "required_knowledge": ["OBSERVATION;BASICS;1", "OBSERVATION;ALCHEMY;1"],
           "required_item":["minecraft:prismarine_shard;30"]
         },
         {
@@ -220,7 +220,7 @@
         {
           "text": "thaumictinkerer.research.revealing_helm.text",
           "required_craft":["thaumcraft:goggles"],
-          "required_knowledge":["OBSERVATION;THAUMIC_TINKERER;1", "OBSERVATION;ARTIFICE;1"]
+          "required_knowledge":["OBSERVATION;BASICS;1", "OBSERVATION;ARTIFICE;1"]
         },
         {
           "text": "thaumictinkerer.research.revealing_helm.complete.text",

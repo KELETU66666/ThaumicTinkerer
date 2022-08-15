@@ -417,7 +417,7 @@
         {
           "text": "thaumictinkerer.research.proto_clay.text",
           "required_knowledge": [
-            "OBSERVATION;THAUMIC_TINKERER;1",
+            "OBSERVATION;BASICS;1",
             "THEORY;THAUMIC_TINKERER;1"
           ]
         },
