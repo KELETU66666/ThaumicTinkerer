@@ -66,16 +66,28 @@ public class TTConfig {
     @Config.Name("Blacklisted Enchants")
     public static int[] blacklistedEnchants = new int[]{71, 10};
 
-    @Config.Comment("config.dimensionalsharddroprate.comment")
+    @Config.Comment("DimensionShard(NetherShard and EnderShard) Drop Rate")
     @Config.Name("Dimension Shard Drop Rate")
     @Config.RangeInt(min = 0, max = 1)
     @Config.RequiresMcRestart
     public static float shardDropRate = 0.0065F;
 
-    @Config.Comment("config.bedrockworddim.comment")
+    @Config.Comment("BedrockDim DimID")
     @Config.Name("Bedrock Dimension ID")
     @Config.RequiresMcRestart
     public static int BedRockDimensionID = 19;
+
+    @Config.Comment("Ichorium ToolPart Base Damage")
+    @Config.Name("Ichorium Weapon DamageBase")
+    @Config.RangeInt(min = 0)
+    @Config.RequiresMcRestart
+    public static float IWeaponDamage = 3.5F;
+
+    @Config.Comment("\"AuraStrike\" Modifier Damage Bonus")
+    @Config.Name("'AuraStrike' Modifier Damage Bonus")
+    @Config.RangeInt(min = 0)
+    @Config.RequiresMcRestart
+    public static int AuraStrikeBonus = 5;
 
     @Mod.EventBusSubscriber
     private static class EventHandler {

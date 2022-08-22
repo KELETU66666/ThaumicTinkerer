@@ -277,3 +277,13 @@ enchantment.quickdraw=及时战备
 enchantment.shatter=碎裂
 enchantment.tunnel=隧道
 enchantment.autosmelt=熔炼
+
+#Tinkers Compat
+modifier.instantbreak.name=地心崩解
+modifier.instantbreak.desc=§o彻底粉碎！§r\n灵宝镐头做成的镐子无视硬度瞬间挖掘！
+modifier.writableadv.name=天地匠心
+modifier.writableadv.desc=§o工匠精神！§r\n工具将得到两个额外的强化槽！
+modifier.aurastrike.name=蕴能打击
+modifier.aurastrike.desc=§o灵气之怒！§r\n攻击释放vis，当vis足够高时，吸收vis重创目标并形成护盾。
+
+material.ichorium.name=灵宝

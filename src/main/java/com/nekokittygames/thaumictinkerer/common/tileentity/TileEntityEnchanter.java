@@ -189,7 +189,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     }
 
     private void onInventoryChanged(ItemStack stackInSlot) {
-
+        clearEnchants();
         refreshEnchants();
     }
 

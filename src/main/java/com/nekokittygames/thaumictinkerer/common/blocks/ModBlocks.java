@@ -6,8 +6,8 @@ import com.nekokittygames.thaumictinkerer.common.blocks.transvector.BlockTransve
 import com.nekokittygames.thaumictinkerer.common.blocks.transvector.BlockTransvectorInterface;
 import com.nekokittygames.thaumictinkerer.common.libs.LibBlockNames;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
-import com.nekokittygames.thaumictinkerer.common.tileentity.*;
 import com.nekokittygames.thaumictinkerer.common.tileentity.Kami.TileBedrockPortal;
+import com.nekokittygames.thaumictinkerer.common.tileentity.*;
 import com.nekokittygames.thaumictinkerer.common.tileentity.transvector.TileEntityTransvectorDislocator;
 import com.nekokittygames.thaumictinkerer.common.tileentity.transvector.TileEntityTransvectorInterface;
 import net.minecraft.block.Block;
@@ -17,6 +17,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;

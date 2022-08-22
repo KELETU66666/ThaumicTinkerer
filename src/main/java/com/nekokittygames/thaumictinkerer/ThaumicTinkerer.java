@@ -4,6 +4,7 @@ import com.nekokittygames.thaumictinkerer.api.ThaumicTinkererAPI;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.commands.CommandDumpEnchants;
 import com.nekokittygames.thaumictinkerer.common.commands.CommandRefreshMultiblocks;
+import com.nekokittygames.thaumictinkerer.common.compat.Tconstruct.TConstructHandler;
 import com.nekokittygames.thaumictinkerer.common.compat.botania.BotaniaCompat;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.dim.ModDimensions;
@@ -12,6 +13,8 @@ import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectDislocate;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectEfreetFlame;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
+import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemKamiResource;
+import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.loot.LootTableHandler;
 import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTInkererCreativeTab;
@@ -22,15 +25,20 @@ import com.nekokittygames.thaumictinkerer.common.research.theorycraft.AidBlackQu
 import com.nekokittygames.thaumictinkerer.common.research.theorycraft.CardExperience;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.Logger;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
@@ -40,6 +48,7 @@ import thaumcraft.api.research.theorycraft.TheorycraftManager;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+
 
 @Mod(modid = LibMisc.MOD_ID, name = LibMisc.MOD_NAME, version = LibMisc.MOD_VERSION, dependencies = LibMisc.MOD_DEPENDENCIES)
 public class ThaumicTinkerer {
@@ -62,12 +71,16 @@ public class ThaumicTinkerer {
         ThaumicTinkerer.tab = tab;
     }
 
+    static { FluidRegistry.enableUniversalBucket(); }
+
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
         tab = new ThaumicTInkererCreativeTab();
         logger = event.getModLog();
-
         proxy.preInit(event);
+        if(Loader.isModLoaded("tconstruct")) {
+            TConstructHandler.preInit(event);
+        }
         PacketHandler.registerMessages(LibMisc.MOD_ID);
         GameRegistry.registerWorldGenerator(new OreClusterGenerator(), 3);
         ModDimensions.init();
