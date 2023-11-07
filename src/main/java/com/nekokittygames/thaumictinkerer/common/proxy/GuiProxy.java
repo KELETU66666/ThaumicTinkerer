@@ -31,7 +31,7 @@ public class GuiProxy implements IGuiHandler {
             return new MagnetContainer(entityPlayer.inventory, (TileEntityMagnet) te);
         }
         if (te instanceof TileEntityEnchanter) {
-            return new EnchanterContainer(entityPlayer.inventory, (TileEntityEnchanter) te);
+            return new EnchanterContainer(entityPlayer.inventory, (TileEntityEnchanter) te, entityPlayer);
         }
         if (te instanceof TileEntityAnimationTablet) {
             return new AnimationTabletContainer(entityPlayer.inventory, (TileEntityAnimationTablet) te);
@@ -55,7 +55,7 @@ public class GuiProxy implements IGuiHandler {
         }
         if (te instanceof TileEntityEnchanter) {
             TileEntityEnchanter enchanter = (TileEntityEnchanter) te;
-            return new GuiEnchanter(enchanter, new EnchanterContainer(entityPlayer.inventory, enchanter));
+            return new GuiEnchanter(enchanter, new EnchanterContainer(entityPlayer.inventory, enchanter, entityPlayer));
         }
         if (te instanceof TileEntityAnimationTablet) {
             TileEntityAnimationTablet animationTablet = (TileEntityAnimationTablet) te;

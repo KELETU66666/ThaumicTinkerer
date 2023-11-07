@@ -52,9 +52,9 @@ public class ModItems {
     public static final Item kami_legs = null;
     public static final Item kami_boots = null;
     public static final Item block_talisman = null;
-    public static final Item ichor_pouch = null;
-public static final Item revealing_helm = null;
-public static final ItemProtoclay proto_clay = null;
+    public static final Item focus_pouch = new IchorPouch();
+    public static final Item revealing_helm = null;
+    public static final ItemProtoclay proto_clay = null;
     //public static final ItemFormRevealer form_revealer = nullz();
 
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)

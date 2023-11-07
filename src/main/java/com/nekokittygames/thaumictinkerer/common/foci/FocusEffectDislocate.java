@@ -18,7 +18,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.ForgeEventFactory;
@@ -51,11 +50,11 @@ public class FocusEffectDislocate extends FocusEffect {
         if (rayTraceResult.typeOfHit != RayTraceResult.Type.BLOCK)
             return false;
 
-            BlockPos pos = rayTraceResult.getBlockPos();
+        BlockPos pos = rayTraceResult.getBlockPos();
 
-            IBlockState blockState = this.getPackage().world.getBlockState(pos);
-            TileEntity tileEntity = this.getPackage().world.getTileEntity(pos);
-            ItemStack casterStack = ItemStack.EMPTY;
+         IBlockState blockState = this.getPackage().world.getBlockState(pos);
+          TileEntity tileEntity = this.getPackage().world.getTileEntity(pos);
+           ItemStack casterStack = ItemStack.EMPTY;
             if (this.getPackage().getCaster().getHeldItemMainhand() != ItemStack.EMPTY && this.getPackage().getCaster().getHeldItemMainhand().getItem() instanceof ICaster) {
                 casterStack = this.getPackage().getCaster().getHeldItemMainhand();
             } else if (this.getPackage().getCaster().getHeldItemOffhand() != ItemStack.EMPTY && this.getPackage().getCaster().getHeldItemOffhand().getItem() instanceof ICaster) {
@@ -74,23 +73,23 @@ public class FocusEffectDislocate extends FocusEffect {
                         case UP:
                             pos = pos.up();
                             break;
-                        case DOWN:
-                            pos = pos.down();
-                            break;
-                        case NORTH:
-                            pos = pos.north();
-                            break;
-                        case EAST:
-                            pos = pos.east();
-                            break;
-                        case SOUTH:
-                            pos = pos.south();
-                            break;
-                        case WEST:
-                            pos = pos.west();
-                            break;
-                        default:
-                            break;
+                            case DOWN:
+                                pos = pos.down();
+                                break;
+                                case NORTH:
+                                    pos = pos.north();
+                                    break;
+                                    case EAST:
+                                        pos = pos.east();
+                                        break;
+                                        case SOUTH:
+                                            pos = pos.south();
+                                            break;
+                                            case WEST:
+                                                pos = pos.west();
+                                                break;
+                                                default:
+                                                    break;
                     }
                     if (blockState.getBlock().canPlaceBlockOnSide(getPackage().world, pos, rayTraceResult.sideHit) && !getPackage().world.isRemote) {
                         //getPackage().world.setBlockState(pos, stateStored, 1 | 2);
@@ -106,7 +105,7 @@ public class FocusEffectDislocate extends FocusEffect {
                         clearPickedBlock(focus);
                 }
             }
-        return false;
+            return false;
     }
 
     private static EnumActionResult PlaceBlock(World world, EntityPlayerMP entityPlayerMP, BlockPos pos, EnumFacing side, EnumHand hand,IBlockState state, NBTTagCompound tileCmp)
@@ -125,13 +124,13 @@ public class FocusEffectDislocate extends FocusEffect {
         if (blockSnapshots.size() > 1) {
             placeEvent = ForgeEventFactory.onPlayerMultiBlockPlace(entityPlayerMP, blockSnapshots, side, hand);
         } else if (blockSnapshots.size() == 1) {
-            placeEvent = ForgeEventFactory.onPlayerBlockPlace(entityPlayerMP, (BlockSnapshot)blockSnapshots.get(0), side, hand);
+            placeEvent = ForgeEventFactory.onPlayerBlockPlace(entityPlayerMP, blockSnapshots.get(0), side, hand);
         }
 
         Iterator var18;
         BlockSnapshot snap;
         EnumActionResult ret;
-        if (placeEvent != null && ((BlockEvent.PlaceEvent)placeEvent).isCanceled()) {
+        if (placeEvent != null && placeEvent.isCanceled()) {
             ret = EnumActionResult.FAIL;
 
             for(var18 = Lists.reverse(blockSnapshots).iterator(); var18.hasNext(); world.restoringBlockSnapshots = false) {
@@ -143,7 +142,7 @@ public class FocusEffectDislocate extends FocusEffect {
             int updateFlag;
             IBlockState oldBlock;
             IBlockState newBlock;
-            for(var18 = blockSnapshots.iterator(); var18.hasNext(); world.markAndNotifyBlock(snap.getPos(), (Chunk)null, oldBlock, newBlock, updateFlag)) {
+            for(var18 = blockSnapshots.iterator(); var18.hasNext(); world.markAndNotifyBlock(snap.getPos(), null, oldBlock, newBlock, updateFlag)) {
                 snap = (BlockSnapshot)var18.next();
                 updateFlag = snap.getFlag();
                 oldBlock = snap.getReplacedBlock();
@@ -159,9 +158,7 @@ public class FocusEffectDislocate extends FocusEffect {
     }
 
     private static EnumActionResult BreakBlock(World world, EntityPlayerMP entityPlayer, BlockPos pos) {
-        boolean preCancelEvent = false;
-        if(world.getBlockState(pos).getBlockHardness(world,pos) == -1)
-            preCancelEvent=true;
+        boolean preCancelEvent = world.getBlockState(pos).getBlockHardness(world, pos) == -1;
 
         IBlockState state = world.getBlockState(pos);
         BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(world, pos, state, entityPlayer);
@@ -186,7 +183,7 @@ public class FocusEffectDislocate extends FocusEffect {
         if (tileEntity != null) {
             tileEntity.writeToNBT(cmp);
         }
-        ThaumicTinkerer.logger.info("Storing a "+blockName.toString()+" with metadata "+metadata+" With NBT: "+cmp.toString());
+        ThaumicTinkerer.logger.info("Storing a "+ blockName +" with metadata "+metadata+" With NBT: "+ cmp);
         ItemNBTHelper.getItemTag(focus).setTag(TAG_TILE_CMP, cmp);
         ItemNBTHelper.setBool(focus, TAG_AVAILABLE, true);
 

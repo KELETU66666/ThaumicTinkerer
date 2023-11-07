@@ -247,6 +247,10 @@ public class GuiEnchanter extends GuiContainer {
             cost=enchanter.getEnchantmentVisCost();
         }
 
+        if (enchanter.isWorking())
+        {
+            this.mc.player.closeScreen();
+        }
 
         workingLastTick=enchanter.isWorking();
         if (startButton!=null && enchanter.getEnchantments().size() > 0 && !enchanter.isWorking() && !stack.isItemEnchanted() && enchanter.playerHasIngredients(enchanter.getEnchantmentCost(), Minecraft.getMinecraft().player) && this.enchanter.getAuraVisServer() > this.cost) {

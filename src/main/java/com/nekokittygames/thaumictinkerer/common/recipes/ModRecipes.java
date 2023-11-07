@@ -418,5 +418,17 @@ public class ModRecipes {
                 new ItemStack(Blocks.LOG),
                 new ItemStack(Blocks.STONE),
                 new ItemStack(ModItems.kamiresource,1,0)));
+        addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_pouch"), new InfusionRecipe(
+                "TT_ICHOR_POUCH",
+                new ItemStack(ModItems.focus_pouch),
+                7,
+                new AspectList().add(Aspect.AIR, 250).add(Aspect.ELDRITCH, 125).add(Aspect.MAN, 125).add(Aspect.CRAFT, 125).add(Aspect.VOID, 250),
+                new ItemStack(ItemsTC.focusPouch),
+                new ItemStack(ModItems.kamiresource,1,4),
+                new ItemStack(BlocksTC.hungryChest),
+                "gemDiamond",
+                new ItemStack(ModItems.kamiresource,1,4),
+                new ItemStack(ItemsTC.focus2),
+                new ItemStack(BlocksTC.jarVoid)));
     }
 }

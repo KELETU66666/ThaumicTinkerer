@@ -45,8 +45,8 @@
       ],
       "parents": [
         "ESSENTIATRANSPORT","IMPROVEDSMELTING2","POTIONSPRAYER", "SANESOAP", "LIQUIDDEATH", "BOTTLETAINT", "ARCANESPA", "EVERFULLURN", "METALPURIFICATION", "POTIONSPRAYER",
-        "FOCUSADVANCED", "FOCUSCURSE", "FOCUSPLAN", "FOCUSRIFT", "FOCUSSPELLBAT", "FOCUSCLOUD", "FOCUSSPLIT", "RECHARGEPEDESTAL", "VISAMULET", "WORKBENCHCHARGER", "FOCUSPOUCH",
-        "INFUSIONBOOST", "RUNICSHIELDING", "FORTRESSMASK", "CHARMUNDYING", "VERDANTCHARMS", "CURIOSITYBAND", "PAVINGSTONES",
+        "FOCUSADVANCED", "FOCUSPLAN", "FOCUSRIFT", "FOCUSSPLIT", "RECHARGEPEDESTAL", "VISAMULET", "WORKBENCHCHARGER", "FOCUSPOUCH",
+        "INFUSIONBOOST", "RUNICSHIELDING", "FORTRESSMASK", "VERDANTCHARMS", "CURIOSITYBAND", "PAVINGSTONES",
         "JARBRAIN", "GOLEMLOGISTICS", "GOLEMVISION", "GOLEMFLYER", "GOLEMCOMBATADV", "SEALLUMBER", "SEALHARVEST", "SEALBUTCHER","SEALSTORE",
         "FLUXCLEANUP", "RIFTCLOSER",
         "~LEVITATOR", "~BELLOWS", "~MIRRORHAND", "~MIRRORESSENTIA", "~LAMPGROWTH",  "~LAMPFERTILITY", "~ARCANEPATTERNCRAFTER", "~ARCANEBORE", "~ADVANCEDTURRET", "~GRAPPLEGUN", "~VISGENERATOR"
@@ -425,6 +425,38 @@
           "text": "thaumictinkerer.research.proto_clay.complete.text",
           "recipes": [
             "thaumictinkerer:proto_clay"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TT_ICHOR_POUCH",
+      "name": "thaumictinkerer.research.ichorpouch.title",
+      "category": "THAUMIC_TINKERER",
+      "icons": [
+        "thaumictinkerer:focus_pouch"
+      ],
+      "parents": [
+        "TT_ICHOR"
+      ],
+      "location": [
+        4,
+        -1
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.ichorpouch.text",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;1"
+          ],
+          "required_item": [
+            "thaumcraft:focus_pouch"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.ichorpouch.complete.text",
+          "recipes": [
+            "thaumictinkerer:ichor_pouch"
           ]
         }
       ]

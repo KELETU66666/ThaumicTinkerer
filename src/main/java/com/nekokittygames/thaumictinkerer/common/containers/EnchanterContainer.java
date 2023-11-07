@@ -1,6 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.containers;
 
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityEnchanter;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -19,8 +20,9 @@ public class EnchanterContainer extends ThaumicTContainer<TileEntityEnchanter> {
      * @param playerInventory Inventory for the player accessing the inventory
      * @param tileEntity Tile entity being opened
      */
-    public EnchanterContainer(IInventory playerInventory, TileEntityEnchanter tileEntity) {
+    public EnchanterContainer(IInventory playerInventory, TileEntityEnchanter tileEntity, EntityPlayer player) {
         super(playerInventory, tileEntity);
+        tileEntity.openInventory(player);
     }
 
     /**

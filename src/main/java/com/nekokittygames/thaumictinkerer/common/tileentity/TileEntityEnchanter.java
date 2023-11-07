@@ -371,7 +371,8 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
     @Override
     public void openInventory(EntityPlayer player) {
-
+        clearEnchants();
+        refreshEnchants();
     }
 
     @Override

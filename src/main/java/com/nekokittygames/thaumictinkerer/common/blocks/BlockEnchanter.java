@@ -45,7 +45,7 @@ public class BlockEnchanter extends TTTileEntity<TileEntityEnchanter> {
         if (!(te instanceof TileEntityEnchanter)) {
             return false;
         }
-        if(((TileEntityEnchanter)te).checkLocation())
+        if(((TileEntityEnchanter)te).checkLocation() && !((TileEntityEnchanter)te).isWorking())
             player.openGui(ThaumicTinkerer.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
         else
             player.sendStatusMessage(new TextComponentString(TextFormatting.DARK_RED + TextFormatting.BOLD.toString() + ThaumicTinkerer.proxy.localize("ttmisc.enchanter.incomplete")), true);
