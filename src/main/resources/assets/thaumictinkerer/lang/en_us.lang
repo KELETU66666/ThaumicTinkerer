@@ -47,6 +47,8 @@ item.ichorium_pick.name=Ichorium Pickaxe
 item.ichorium_axe.name=Ichorium Axe
 item.ichorium_shovel.name=Ichorium Shovel
 
+item.ichor_pouch.name=Ichorcloth Pouch
+
 item.ichor_helm.name=Ichorcloth Cowl
 item.ichor_chest.name=Ichorcloth Robe
 item.ichor_legs.name=Ichorcloth Leggings
