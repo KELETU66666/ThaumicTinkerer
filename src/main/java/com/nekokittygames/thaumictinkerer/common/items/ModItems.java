@@ -55,6 +55,8 @@ public class ModItems {
     public static final Item focus_pouch = new IchorPouch();
     public static final Item revealing_helm = null;
     public static final ItemProtoclay proto_clay = null;
+    public static final Item cat_amulet = new ItemCatAmulet();
+
     //public static final ItemFormRevealer form_revealer = nullz();
 
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -81,6 +83,7 @@ public class ModItems {
                     new ItemKamiResource(),
                     new ItemProtoclay(),
                     new IchorPouch(),
+                    new ItemCatAmulet(),
                     new IchoriumAxe("ichorium_axe"),
                     new IchoriumSword("ichorium_sword"),
                     new IchoriumShovel("ichorium_shovel"),

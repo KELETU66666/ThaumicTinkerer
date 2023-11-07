@@ -28,6 +28,7 @@ import com.nekokittygames.thaumictinkerer.common.research.theorycraft.CardExperi
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.monster.EntityEndermite;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
@@ -47,6 +48,8 @@ import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.casters.FocusEngine;
 import thaumcraft.api.research.ResearchCategories;
+import thaumcraft.api.research.ScanEntity;
+import thaumcraft.api.research.ScanningManager;
 import thaumcraft.api.research.theorycraft.TheorycraftManager;
 
 import java.io.IOException;
@@ -129,6 +132,7 @@ public class ThaumicTinkerer {
     ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/foci"));
     ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/kami"));
     TheorycraftManager.registerCard(CardExperience.class);
+    ScanningManager.addScannableThing(new ScanEntity("!Ocelot", EntityOcelot.class, true));
     TheorycraftManager.registerAid(new AidBlackQuartz(ModBlocks.black_quartz_block));
     BotaniaCompat.addTheorycraft();
     proxy.registerRenderers();

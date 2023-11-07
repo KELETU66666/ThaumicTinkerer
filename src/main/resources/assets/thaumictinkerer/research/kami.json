@@ -460,6 +460,38 @@
           ]
         }
       ]
+    },
+    {
+      "key": "TT_CAT_AMULET",
+      "name": "thaumictinkerer.research.cat_amulet.title",
+      "category": "THAUMIC_TINKERER",
+      "icons": [
+        "thaumictinkerer:cat_amulet"
+      ],
+      "parents": [
+        "TT_ICHOR"
+      ],
+      "location": [
+        2,
+        -5
+      ],"meta": ["REVERSE"],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.cat_amulet.text",
+          "required_knowledge": [
+            "THEORY;INFUSION;1"
+          ],
+          "required_research": [
+            "!Ocelot;thaumictinkerer:textures/misc/ocelot.png"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.cat_amulet.complete.text",
+          "recipes": [
+            "thaumictinkerer:cat_amulet"
+          ]
+        }
+      ]
     }
   ]
 }

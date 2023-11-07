@@ -430,5 +430,17 @@ public class ModRecipes {
                 new ItemStack(ModItems.kamiresource,1,4),
                 new ItemStack(ItemsTC.focus2),
                 new ItemStack(BlocksTC.jarVoid)));
+        addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "cat_amulet"), new InfusionRecipe(
+                "TT_CAT_AMULET",
+                new ItemStack(ModItems.cat_amulet),
+                8,
+                new AspectList().add(Aspect.DARKNESS, 75).add(Aspect.ORDER, 125).add(Aspect.MIND, 75),
+                new ItemStack(Blocks.QUARTZ_BLOCK),
+                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(Items.GOLD_INGOT),
+                new ItemStack(Items.GOLD_INGOT),
+                new ItemStack(Items.DYE, 1, 3),
+                new ItemStack(Blocks.LEAVES, 1, 3),
+                new ItemStack(Items.FISH)));
     }
 }

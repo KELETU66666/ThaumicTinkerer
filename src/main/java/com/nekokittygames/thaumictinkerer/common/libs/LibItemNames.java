@@ -21,4 +21,6 @@ public class LibItemNames {
     public static final String Protoclay = "proto_clay";
 
     public static final String ICHOR_POUCH = "ichor_pouch";
+
+    public static final String CAT_AMULET = "cat_amulet";
 }

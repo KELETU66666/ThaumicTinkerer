@@ -22,6 +22,7 @@ item.thaumictinkerer:kamiresource.4.name=Ichor Cloth
 item.thaumictinkerer:kamiresource.5.name=Ichorium Nugget
 
 item.thaumictinkerer:block_talisman.name=Black Hole Ring
+item.thaumictinkerer:cat_amulet.name=Feline Amulet
 
 tile.thaumictinkerer:funnel.name=Essentia Funnel
 tile.thaumictinkerer:funnel.0=Even Transfer
@@ -118,6 +119,8 @@ ttmisc.debug.redstone=Redstone Recieved: %s
 
 
 tc.research_category.THAUMIC_TINKERER=Thaumic Tinkerer
+research.!Ocelot.text=Scan an ocelot
+
 thaumictinkerer.research.share_tome.title=Tome of Knowledge Sharing
 thaumictinkerer.research.share_tome.lore=A Goldfish's Diary
 thaumictinkerer.research.share_tome.0=While exploring the magic of the Thaumonomicon one evening I started pondering about the knowledge within, and how it is all in this one, easilly lost, not shareable book.  It seems anyone I teach to make a Thaumonomicon makes either a blank one or, if they are a practioner, one which contains their own knowledge. After some minor experimentation, I found that if I write with special ink, I can make a tome that will transfer the completed knowledge of one Thaumonomicon to another practioners's Thaumonomicon. Uncompleted research seems to be resistant to this method of transfer.
@@ -247,6 +250,10 @@ thaumictinkerer.research.blackhole_ring.complete.text=[WIP] This ring can be set
 thaumictinkerer.research.proto_clay.title=Proto Clay
 thaumictinkerer.research.proto_clay.text=[WIP]
 thaumictinkerer.research.proto_clay.complete.text=[WIP] You grew tired of having to constantly swap your tools.<BR><BR>This mixture will, by melding with the Ichorium, switch any Awakened Ichorium tools being held by the one used for the block being pointed at, case one tries to break it with the wrong tool.<BR><BR>As an example, trying to break a dirt block with an Awakened Ichorium Pickaxe while a Shovel is present elsewhere in the inventory will swap the two, and allow for fast disposal of the dirt block.
+
+thaumictinkerer.research.cat_amulet.title=Feline Amulet
+thaumictinkerer.research.cat_amulet.text=It didn't take you long to come to the conclusion that you hated all those times a creeper snuck up on you.
+thaumictinkerer.research.cat_amulet.complete.text=It didn't take you long to come to the conclusion that you hated all those times a creeper snuck up on you.<BR><BR>To that end, using the knowledge you have that creepers run away from cats, you have devised an amulet that by simply being carried on you makes all creepers run in fear of your presence. Not only that, but they'll be petrified to the point of not gathering enough stoke to explode. Great. It must be worn in your amulet slot to take effect.
 
 thaumictinkerer.research.auromancy.title=Advanced Auromancy
 

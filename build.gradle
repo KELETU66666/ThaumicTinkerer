@@ -26,7 +26,7 @@ minecraft {
     runDir = "run"
 
     mappings = "stable_39"
-    //accessTransformer(file('src/main/resources/META-INF/tk_at.cfg'))
+    accessTransformer(file('src/main/resources/META-INF/tt_at.cfg'))
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
