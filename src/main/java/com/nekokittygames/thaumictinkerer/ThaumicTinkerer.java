@@ -6,19 +6,13 @@ import com.nekokittygames.thaumictinkerer.api.ThaumicTinkererAPI;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.commands.CommandDumpEnchants;
 import com.nekokittygames.thaumictinkerer.common.commands.CommandRefreshMultiblocks;
-import com.nekokittygames.thaumictinkerer.common.compat.Tconstruct.TConstructHandler;
 import com.nekokittygames.thaumictinkerer.common.compat.botania.BotaniaCompat;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
-import com.nekokittygames.thaumictinkerer.common.dim.ModDimensions;
-import com.nekokittygames.thaumictinkerer.common.dim.OreClusterGenerator;
 import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectDislocate;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectEfreetFlame;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
-import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemKamiResource;
-import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
-import com.nekokittygames.thaumictinkerer.common.loot.LootTableHandler;
 import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTInkererCreativeTab;
 import com.nekokittygames.thaumictinkerer.common.multiblocks.MultiblockManager;
 import com.nekokittygames.thaumictinkerer.common.packets.PacketHandler;
@@ -29,20 +23,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.monster.EntityEndermite;
 import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.Logger;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
@@ -84,12 +72,7 @@ public class ThaumicTinkerer {
     tab = new ThaumicTInkererCreativeTab();
     logger = event.getModLog();
     proxy.preInit(event);
-    if(Loader.isModLoaded("tconstruct")) {
-      TConstructHandler.preInit(event);
-    }
     PacketHandler.registerMessages(LibMisc.MOD_ID);
-    GameRegistry.registerWorldGenerator(new OreClusterGenerator(), 3);
-    ModDimensions.init();
   }
 
   @Mod.EventHandler
@@ -130,14 +113,11 @@ public class ThaumicTinkerer {
     ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/baubles"));
     ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/machines"));
     ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/foci"));
-    ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/kami"));
     TheorycraftManager.registerCard(CardExperience.class);
-    ScanningManager.addScannableThing(new ScanEntity("!Ocelot", EntityOcelot.class, true));
     TheorycraftManager.registerAid(new AidBlackQuartz(ModBlocks.black_quartz_block));
     BotaniaCompat.addTheorycraft();
     proxy.registerRenderers();
     initFoci();
-    MinecraftForge.EVENT_BUS.register(LootTableHandler.class);
     //IDustTrigger.registerDustTrigger(ModBlocks.osmotic_enchanter);
 
   }

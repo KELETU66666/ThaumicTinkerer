@@ -1,23 +1,19 @@
 package com.nekokittygames.thaumictinkerer.common.blocks;
 
 import com.google.common.base.Preconditions;
-import com.nekokittygames.thaumictinkerer.common.blocks.Kami.BlockBedrockPortal;
 import com.nekokittygames.thaumictinkerer.common.blocks.transvector.BlockTransvectorDislocator;
 import com.nekokittygames.thaumictinkerer.common.blocks.transvector.BlockTransvectorInterface;
 import com.nekokittygames.thaumictinkerer.common.libs.LibBlockNames;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
-import com.nekokittygames.thaumictinkerer.common.tileentity.Kami.TileBedrockPortal;
 import com.nekokittygames.thaumictinkerer.common.tileentity.*;
 import com.nekokittygames.thaumictinkerer.common.tileentity.transvector.TileEntityTransvectorDislocator;
 import com.nekokittygames.thaumictinkerer.common.tileentity.transvector.TileEntityTransvectorInterface;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -40,14 +36,14 @@ public class ModBlocks {
     public static final BlockItemMagnet magnet = nullz();
     public static final BlockMobMagnet mob_magnet = nullz();
     public static final BlockNitorVapor nitor_vapor = nullz();
+    public static final BlockGaseousShadow shadow_gas = new BlockGaseousShadow();
+    public static final BlockGaseousLight light_gas = new BlockGaseousLight();
     public static final BlockExample example = nullz();
     public static final BlockEnchanter osmotic_enchanter = nullz();
     public static final BlockEnchantmentPillar enchantment_pillar = nullz();
     public static final BlockBlackQuartz black_quartz_block = nullz();
     public static final BlockAnimationTablet animation_tablet = nullz();
     public static final BlockDummyNitor dummy_nitor=nullz();
-    public static final BlockIchorBlock ichor_block=nullz();
-    public static final BlockBedrockPortal bedrock_portal=nullz();
 
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
     public static class RegistrationHandler {
@@ -71,14 +67,14 @@ public class ModBlocks {
                     new BlockItemMagnet(),
                     new BlockMobMagnet(),
                     new BlockNitorVapor(),
+                    new BlockGaseousLight(),
+                    new BlockGaseousShadow(),
                     new BlockExample(),
                     new BlockEnchanter(),
                     new BlockEnchantmentPillar(),
                     new BlockBlackQuartz(),
                     new BlockAnimationTablet(),
-                    new BlockDummyNitor(),
-                    new BlockIchorBlock(),
-                    new BlockBedrockPortal("bedrock_portal", Material.PORTAL)
+                    new BlockDummyNitor()
             };
             for(Block block:blocks) {
                 registry.register(block);
@@ -106,9 +102,7 @@ public class ModBlocks {
                     new ItemBlock(osmotic_enchanter),
                     new ItemBlock(enchantment_pillar),
                     new ItemBlock(animation_tablet),
-                    new ItemBlock(black_quartz_block),
-                    new ItemBlock(ichor_block),
-                    new ItemBlock(bedrock_portal),
+                    new ItemBlock(black_quartz_block)
             };
             final IForgeRegistry<Item> registry = event.getRegistry();
 
@@ -132,7 +126,6 @@ public class ModBlocks {
             registerTileEntity(TileEntityEnchanter.class, LibBlockNames.OSMOTIC_ENCHANTER);
             registerTileEntity(TileEntityEnchantmentPillar.class, LibBlockNames.ENCHANTMENT_PILLAR);
             registerTileEntity(TileEntityAnimationTablet.class, LibBlockNames.ANIMATION_TABLET);
-            registerTileEntity(TileBedrockPortal.class, LibBlockNames.BEDROCK_PORTAL);
         }
 
         private static void registerTileEntity(Class<? extends TileEntity> clazz, String name) {

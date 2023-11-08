@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "thaumictinkerer:items/ichorium_sword_adv2"
-  }
-}
