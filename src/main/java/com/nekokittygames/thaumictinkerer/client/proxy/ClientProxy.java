@@ -20,6 +20,8 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.common.blocks.misc.BlockNitor;
 
 import java.awt.*;
@@ -29,6 +31,7 @@ import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
 /**
  * Client side proxy
  */
+@SideOnly(Side.CLIENT)
 public class ClientProxy implements ITTProxy {
 
     /**

@@ -1,4 +1,35 @@
 {
   "entries": [
+    {
+      "key": "TT_CLEANSER",
+      "name": "thaumictinkerer.research.cleanser.title",
+      "icons": [
+        "thaumictinkerer:cleaning_talisman"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "parents": [
+        "UNLOCKINFUSION", "TT_BLACK_QUARTZ"
+      ],
+      "siblings": [],
+      "location": [
+        0,
+        4
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.cleanser.0",
+          "required_knowledge": ["OBSERVATION;INFUSION;1", "THEORY;BASICS;1"],
+          "required_item": [
+            "minecraft:milk_bucket"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.cleanser.1",
+          "recipes": [
+            "thaumictinkerer:cleanser"
+          ]
+        }
+      ]
+    }
   ]
 }

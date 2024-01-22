@@ -15,8 +15,6 @@ item.thaumictinkerer:soul_mould.name=灵魂模具
 item.thaumictinkerer:blood_sword.name=咒灵之刃
 item.thaumictinkerer:mob_aspect.name=生物灵魂
 
-item.thaumictinkerer:block_talisman.name=黑洞指环
-
 item.revealing_helm.name=揭示之头盔
 
 tile.thaumictinkerer:funnel.name=源质漏斗
@@ -35,6 +33,8 @@ tile.thaumictinkerer:osmotic_enchanter.name=渗透附魔台
 tile.thaumictinkerer:enchantment_pillar.name=蕴魔柱
 tile.thaumictinkerer:black_quartz_block.name=烟黑石英块
 tile.thaumictinkerer:example.name=镜像方块
+
+item.thaumictinkerer:cleaning_talisman.name=防身护身符
 
 thaumictinkerer.TELEKENESIS.name=念力
 thaumictinkerer.dislocation.name=转移

@@ -29,5 +29,6 @@ public class CommonProxy implements ITTProxy {
 
     @Override
     public void preInit( FMLPreInitializationEvent event ) {
+    //    NumericAspectHelper.init();
      }
 }

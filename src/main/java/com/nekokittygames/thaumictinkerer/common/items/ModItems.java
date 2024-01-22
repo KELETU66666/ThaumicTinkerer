@@ -25,6 +25,7 @@ import static com.nekokittygames.thaumictinkerer.common.utils.MiscUtils.nullz;
 public class ModItems {
 
     public static final ItemShareBook share_book = nullz();
+    public static final ItemCleansingTalisman cleaning_talisman = nullz();
     public static final ItemBlackQuartz black_quartz = nullz();
     public static final ItemConnector connector = nullz();
     public static final ItemSoulMould soul_mould = nullz();
@@ -33,6 +34,9 @@ public class ModItems {
     public static final ItemBloodSword blood_sword=nullz();
     public static final ItemMobAspect mob_aspect=nullz();
     public static final Item revealing_helm = null;
+    public static final Item gas_remover = new ItemGasRemover();
+    public static final ItemGas gas_shadow_item = nullz();
+    public static final ItemGas gas_light_item = nullz();
 
     //public static final ItemFormRevealer form_revealer = nullz();
 

@@ -92,6 +92,18 @@ public class ModRecipes {
         addCrucibleRecipe(LibRecipes.SOUL_MOLD, new CrucibleRecipe(LibResearch.CORPOREAL_MAGNET, new ItemStack(Objects.requireNonNull(ModItems.soul_mould)), new ItemStack(Items.ENDER_PEARL), new AspectList().add(Aspect.BEAST, 5).add(Aspect.MIND, 10).add(Aspect.SENSES, 10)));
         addCrucibleRecipe(LibRecipes.SPELLBINDING_CLOTH, new CrucibleRecipe(LibResearch.SPELLBINDING_CLOTH, new ItemStack(Objects.requireNonNull(ModItems.spellbinding_cloth)), new ItemStack(ItemsTC.fabric), new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.ENTROPY, 6).add(Aspect.MAGIC, 10)));
         addCrucibleRecipe(LibRecipes.ENERGETIC_NITOR, new CrucibleRecipe(LibResearch.ENERGETIC_NITOR, new ItemStack(Objects.requireNonNull(ModItems.energetic_nitor)), "nitor", new AspectList().add(Aspect.FIRE, 10).add(Aspect.AIR, 10).add(Aspect.LIGHT, 25).add(Aspect.ENERGY, 25)));
+        addCrucibleRecipe(LibRecipes.LIGHT_GAS, new CrucibleRecipe(
+                "TT_GAS",
+                new ItemStack(ModItems.gas_light_item),
+                new ItemStack(ItemsTC.phial),
+                new AspectList().add(Aspect.AIR, 10).add(Aspect.LIGHT, 20).add(Aspect.MOTION, 20)));
+        addCrucibleRecipe(LibRecipes.SHADOW_GAS, new CrucibleRecipe(
+                "TT_GAS",
+                new ItemStack(ModItems.gas_shadow_item),
+                new ItemStack(ItemsTC.phial),
+                new AspectList().add(Aspect.AIR, 10).add(Aspect.DARKNESS, 20).add(Aspect.MOTION, 20)));
+
+
     }
 
     private static void initializeCraftingRecipes(IForgeRegistry<IRecipe> registry) {
@@ -103,6 +115,20 @@ public class ModRecipes {
         addArcaneCraftingRecipe(LibRecipes.DISSIMULATION, new ShapedArcaneRecipe(defaultGroup, LibResearch.DISSIMULATION, 30, new AspectList().add(Aspect.ORDER, 1).add(Aspect.ENTROPY, 1), new ItemStack(Objects.requireNonNull(ModBlocks.dissimulation)), "BEB", "PBP", "BEB", 'B', new ItemStack(BlocksTC.stoneArcane), 'E', new ItemStack(Items.CLAY_BALL), 'P', new ItemStack(Items.PRISMARINE_SHARD)));
         addArcaneCraftingRecipe(LibRecipes.TRANSVECTOR_INTERFACE, new ShapedArcaneRecipe(defaultGroup, LibResearch.TRANSVECTOR_INTERFACE, 200, new AspectList().add(Aspect.ORDER, 1).add(Aspect.ENTROPY, 1), new ItemStack(Objects.requireNonNull(ModBlocks.transvector_interface)), "BRB", "LEL", "BDB", 'B', new ItemStack(BlocksTC.stoneArcane), 'R', "dustRedstone", 'L', new ItemStack(Items.DYE, 1, 4), 'E', new ItemStack(Items.ENDER_PEARL), 'D', new ItemStack(Objects.requireNonNull(ModBlocks.dissimulation))));
         addArcaneCraftingRecipe(LibRecipes.TRANSVECTOR_DISLOCATOR, new ShapedArcaneRecipe(defaultGroup, LibResearch.TRANSVECTOR_DISLOCATOR, 200, new AspectList().add(Aspect.EARTH, 5).add(Aspect.ENTROPY, 5), new ItemStack(Objects.requireNonNull(ModBlocks.transvector_dislocator)), " M ", " T ", " C ", 'M', new ItemStack(ItemsTC.mirroredGlass), 'T', new ItemStack(ModBlocks.transvector_interface), 'C', new ItemStack(Items.COMPARATOR)));
+        addArcaneCraftingRecipe(LibRecipes.GAS_REMOVER, new ShapedArcaneRecipe(
+                defaultGroup,
+                "TT_GAS_REMOVER",
+                10,
+                new AspectList().add(Aspect.AIR, 2).add(Aspect.ORDER, 2),
+                new ItemStack(ModItems.gas_remover),
+                "BBB",
+                "S L",
+                "WWW",
+                'S', ModItems.gas_shadow_item,
+                'L', ModItems.gas_light_item,
+                'B', "quartzDark",
+                'W', "gemQuartz"));
+
         // Magnets
         ItemStack airCrystal = new ItemStack(ItemsTC.crystalEssence);
         ((ItemCrystalEssence) ItemsTC.crystalEssence).setAspects(airCrystal, new AspectList().add(Aspect.AIR, 1));
@@ -131,5 +157,6 @@ public class ModRecipes {
         // Empty for now
         addInfusionCraftingRecipe(LibRecipes.ENCHANTER, new InfusionRecipe(LibResearch.ENCHANTER, new ItemStack(Objects.requireNonNull(ModBlocks.osmotic_enchanter)), 1, new AspectList().add(Aspect.ELDRITCH, 20).add(Aspect.MIND, 10).add(Aspect.ENERGY, 20).add(Aspect.MAGIC, 50).add(Aspect.VOID, 20), new ItemStack(Blocks.ENCHANTING_TABLE), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Objects.requireNonNull(ModItems.spellbinding_cloth)), new ItemStack(ItemsTC.ingots, 1, 0), new ItemStack(ItemsTC.ingots, 1, 0)));
         addInfusionCraftingRecipe(LibRecipes.REPAIRER, new InfusionRecipe(LibResearch.REPAIRER, new ItemStack(Objects.requireNonNull(ModBlocks.repairer)), 1, new AspectList().add(Aspect.CRAFT, 20).add(Aspect.TOOL, 15).add(Aspect.ORDER, 10).add(Aspect.MAGIC, 15), new ItemStack(BlocksTC.metalBlockThaumium), "plankWood", new ItemStack(Items.LEATHER), new ItemStack(ItemsTC.fabric), new ItemStack(ItemsTC.ingots, 1, 0), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GOLD_INGOT), new ItemStack(Items.DIAMOND), new ItemStack(Blocks.COBBLESTONE)));
+        addInfusionCraftingRecipe(LibRecipes.CLEANSER, new InfusionRecipe(LibResearch.CLEANSER, new ItemStack(Objects.requireNonNull(ModItems.cleaning_talisman)), 1, new AspectList().add(Aspect.MAN, 20).add(Aspect.TOOL, 20).add(Aspect.LIFE, 20), new ItemStack(Items.ENDER_PEARL), Items.GHAST_TEAR, "quartzDark", "quartzDark", "quartzDark", "quartzDark", "nitor"));
     }
 }

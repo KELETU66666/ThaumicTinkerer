@@ -20,6 +20,7 @@ import baubles.api.IBauble;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
 import com.nekokittygames.thaumictinkerer.common.misc.ItemNBTHelper;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +34,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -45,7 +45,9 @@ import thaumcraft.common.lib.potions.*;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 
 public class ItemCleansingTalisman extends TTItem implements IBauble {
 
@@ -91,8 +93,8 @@ public class ItemCleansingTalisman extends TTItem implements IBauble {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack par1ItemStack, World world, List<String> stacks, ITooltipFlag flags) {
         if (isEnabled(par1ItemStack))
-            stacks.add(I18n.translateToLocal("ttmisc.active"));
-        else stacks.add(I18n.translateToLocal("ttmisc.inactive"));
+            stacks.add(I18n.format("ttmisc.active"));
+        else stacks.add(I18n.format("ttmisc.inactive"));
     }
 
     @Override
@@ -123,7 +125,7 @@ public class ItemCleansingTalisman extends TTItem implements IBauble {
                     } else for (PotionEffect potion : potions) {
                         Potion id = potion.getPotion();
                         boolean badEffect;
-                        badEffect = ReflectionHelper.getPrivateValue(Potion.class, id, new String[]{"isBadEffect", "field_76418_K"});
+                        badEffect = ReflectionHelper.getPrivateValue(Potion.class, id, "isBadEffect", "field_76418_K");
                         if (id instanceof PotionWarpWard) {
                             badEffect = false;
                         }
@@ -142,6 +144,7 @@ public class ItemCleansingTalisman extends TTItem implements IBauble {
 
 
                         par1ItemStack.damageItem(damage, player);
+                        //TODO: FIX THIS
                         if(par1ItemStack.getItemDamage()<=0) {
                             BaublesApi.getBaubles((EntityPlayer) player).setInventorySlotContents(BaubleType.CHARM.getValidSlots()[0], ItemStack.EMPTY);
                         }

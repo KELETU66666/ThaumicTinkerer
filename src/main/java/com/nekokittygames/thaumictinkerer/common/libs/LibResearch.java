@@ -9,6 +9,7 @@ public class LibResearch {
     public static final String PRISMARINE="TT_PRISMARINE";
     public static final String CORPOREAL_MAGNET ="TT_THAUMIC_MAGNETS";
     public static final String KINETIC_MAGNET = CORPOREAL_MAGNET +"@1";
+    public static final String CLEANSER = "TT_CLEANSER";
 
     public static final String DISSIMULATION = "TT_DISSIMULATION";
 

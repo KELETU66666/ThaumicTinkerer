@@ -7,6 +7,7 @@ import static com.nekokittygames.thaumictinkerer.common.libs.LibMisc.MOD_ID;
 public class LibRecipes {
     public static final ResourceLocation OSMOTIC_ENCHANTER_MB=new ResourceLocation(MOD_ID,"osmotic_enchanter_mb");
     public static final ResourceLocation PRISMARINE=new ResourceLocation(MOD_ID,"prismarine");
+    public static final ResourceLocation CLEANSER=new ResourceLocation(MOD_ID,"cleanser");
     public static final ResourceLocation SOUL_MOLD=new ResourceLocation(MOD_ID,"soul_mould");
     public static final ResourceLocation SPELLBINDING_CLOTH=new ResourceLocation(MOD_ID,"spellbinding_cloth");
     public static final ResourceLocation FUNNEL=new ResourceLocation(MOD_ID,"funnel");
@@ -19,4 +20,7 @@ public class LibRecipes {
     public static final ResourceLocation REPAIRER = new ResourceLocation(MOD_ID, "repairer");
     public static final ResourceLocation TABLET = new ResourceLocation(MOD_ID, "tablet");
     public static final ResourceLocation ENERGETIC_NITOR = new ResourceLocation(MOD_ID, "energetic_nitor");
+    public static final ResourceLocation SHADOW_GAS = new ResourceLocation(MOD_ID, "gas_light");
+    public static final ResourceLocation LIGHT_GAS = new ResourceLocation(MOD_ID, "gas_shadow");
+    public static final ResourceLocation GAS_REMOVER = new ResourceLocation(MOD_ID, "gas_remover");
 }

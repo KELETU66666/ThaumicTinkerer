@@ -14,9 +14,11 @@ item.thaumictinkerer:spellbinding_cloth.name=Spellbinding Cloth
 item.thaumictinkerer:soul_mould.name=Soul Mould
 item.thaumictinkerer:blood_sword.name=Cursed Spirit's Blade
 item.thaumictinkerer:mob_aspect.name=Mob Aspect
+item.thaumictinkerer:gas_shadow_item.name=Shadow Gas Phial
+item.thaumictinkerer:gas_light_item.name=Light Gas Phial
+item.thaumictinkerer:gas_remover.name=Gas Remover
 
-item.thaumictinkerer:block_talisman.name=Black Hole Ring
-item.thaumictinkerer:cat_amulet.name=Feline Amulet
+item.thaumictinkerer:cleaning_talisman.name=Cleansing Charm
 
 tile.thaumictinkerer:funnel.name=Essentia Funnel
 tile.thaumictinkerer:funnel.0=Even Transfer
@@ -133,7 +135,21 @@ thaumictinkerer.research.dissimulation.title=Dissimulation Block
 thaumictinkerer.research.dissimulation.0=This new substance called Prismarine seems to have some unusual optical properties. I wonder what I could do once I have fully investigated it.
 thaumictinkerer.research.dissimulation.1=After fully investigating Prismarine, I have found a way to make blocks that with a magical push, can look like any other block. <BR> All I have to do is place this Dissimulation block down, and then touch another block against it by right clicking. I wonder if I can use this apparent memory of another block in any other ways?
 
+thaumictinkerer.research.revealing_helm.title=Helmet of Revealing
+thaumictinkerer.research.revealing_helm.0=As it turns out, goggles don't offer much protection from attacking zombies. You think you have a fix for that though.
+thaumictinkerer.research.revealing_helm.1=As it turns out, goggles don't offer much protection from attacking zombies. You think you have a fix for that though. By strapping goggles of revealing onto a thaumium helmet, you can get the benefits of both. Well, it turns out it is a bit more complicated than that. A bit of magic is required to avoid feedback loops, and a bit of magic to keep them from slipping off, but on the whole, it more or less works.
 
+thaumictinkerer.research.cleanser.title=Cleansing Talisman
+thaumictinkerer.research.cleanser.0=You have studied life and the body and found that through the application of magic you can protect yourself from harmful outside influences by redirecting these effects to a construct.
+thaumictinkerer.research.cleanser.1=You have studied life and the body and found that through the application of magic you can protect yourself from harmful outside influences by redirecting these effects to a construct. This talisman will dispel most harmful effects on the holder and keep them on itself, taking damage. It will removed some effects stemming from warp, at an extreme durability cost.<BR><BR>To enable or disable this ability, one would shift-right click on it. As expected, it only works whilst enabled. It must be worn in your amulet slot to take effect.
+
+thaumictinkerer.research.gases.title=Gaseous
+thaumictinkerer.research.gases.0=You have studied life and the body and found that through the application of magic you can protect yourself from harmful outside influences by redirecting these effects to a construct.
+thaumictinkerer.research.gases.1=You have studied life and the body and found that through the application of magic you can protect yourself from harmful outside influences by redirecting these effects to a construct. This talisman will dispel most harmful effects on the holder and keep them on itself, taking damage. It will removed some effects stemming from warp, at an extreme durability cost.<BR><BR>To enable or disable this ability, one would shift-right click on it. As expected, it only works whilst enabled. It must be worn in your amulet slot to take effect.
+
+thaumictinkerer.research.gas_remover.title=Fume Dissipator
+thaumictinkerer.research.gas_remover.0=After knowing both the Gaseous Illuminae and Tenebrae, you are thinking it's becoming a hassle to get rid of it.
+thaumictinkerer.research.gas_remover.1=After knowing both the Gaseous Illuminae and Tenebrae, you are thinking it's becoming a hassle to get rid of it. With this item, by shift-right clicking on it, all the nearby gas will get dissipated.
 
 thaumictinkerer.research.repairer.title=Thaumic Restorer
 thaumictinkerer.research.repairer.0=After finding out one mixture of Essentia could disenchant, but damage tools, I started to wonder, could another fix them? <BR> Turns out it can. If I take my new Thaumic Restorer and put the tool in, then pump in the correct Essentia for the tool, it will let the tool regain it's natural durability. It's handy that the ever-useful goggles let me see which type is needed.

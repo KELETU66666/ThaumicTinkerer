@@ -229,6 +229,64 @@
           ]
         }
       ]
+    },
+    {
+      "key": "TT_GAS",
+      "name": "thaumictinkerer.research.gases.title",
+      "icons": [
+        "thaumictinkerer:gas_light_item",
+        "thaumictinkerer:gas_shadow_item"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "parents": [
+        "TT_PRISMARINE"
+      ],
+      "location": [
+        2,
+        -4
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.gases.0",
+          "required_knowledge": [
+            "OBSERVATION;ALCHEMY;2"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.gases.1",
+          "recipes": [
+            "thaumictinkerer:gas_shadow",
+            "thaumictinkerer:gas_light"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TT_GAS_REMOVER",
+      "name": "thaumictinkerer.research.gas_remover.title",
+      "icons": [
+        "thaumictinkerer:gas_remover"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "parents": [
+        "TT_GAS"
+      ],
+      "location": [
+        2,
+        -6
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.gas_remover.0",
+          "required_knowledge":["THEORY;ALCHEMY;1"]
+        },
+        {
+          "text": "thaumictinkerer.research.gas_remover.1",
+          "recipes": [
+            "thaumictinkerer:gas_remover"
+          ]
+        }
+      ]
     }
   ]
 }
