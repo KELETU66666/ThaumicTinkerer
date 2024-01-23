@@ -6,8 +6,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentSlowFall extends Enchantment {
-    public EnchantmentSlowFall(int id) {
+public class EnchantmentSlowFall extends TTEnchantment {
+    public EnchantmentSlowFall() {
         super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET});
         this.setRegistryName("slowfall");
         this.setName("slowfall");

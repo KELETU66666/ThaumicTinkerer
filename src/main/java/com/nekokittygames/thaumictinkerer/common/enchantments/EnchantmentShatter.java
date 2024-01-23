@@ -5,8 +5,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentShatter extends Enchantment {
-    public EnchantmentShatter(int id) {
+public class EnchantmentShatter extends TTEnchantment {
+    public EnchantmentShatter() {
         super(Rarity.UNCOMMON, EnumEnchantmentType.DIGGER, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setRegistryName("shatter");
         this.setName("shatter");

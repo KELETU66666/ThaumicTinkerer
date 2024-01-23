@@ -21,7 +21,7 @@ public class OreClusterGenerator implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
-        if (world.provider instanceof BedrockWorldProvider) {
+        if (world.provider instanceof ProviderBedrock) {
             for (int k = 0; k < density; k++) {
                 int firstBlockXCoord = 16 * chunkX + random.nextInt(16);
                 int firstBlockZCoord = 16 * chunkZ + random.nextInt(16);

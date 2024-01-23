@@ -1,24 +1,25 @@
 package com.nekokittygames.thaumictinkerer.common.dim;
 
 
+import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 
-public class BedrockWorldProvider extends WorldProvider {
+public class ProviderBedrock extends WorldProvider {
 
     @Override
     public DimensionType getDimensionType() {
-        return ModDimensions.testDimensionType;
+        return ModDimensions.BedrockDimensionType;
     }
 
     @Override
     public String getSaveFolder() {
-        return "TEST";
+        return "DIM" + TTConfig.BedRockDimensionID;
     }
 
     @Override
-    public ChunkGeneratorBedrock createChunkGenerator() {
-        return new ChunkGeneratorBedrock(world, getSeed());
+    public ChunkGeneratorMining createChunkGenerator() {
+        return new ChunkGeneratorMining(world, getSeed());
     }
 
     protected void generateLightBrightnessTable() {
@@ -27,13 +28,6 @@ public class BedrockWorldProvider extends WorldProvider {
             float f1 = 12.0F - i / 15.0F;
             this.lightBrightnessTable[i] = ((1.0F - f1) / (f1 * 3.0F + 1.0F) * (1.0F - f) + f);
         }
-    }
-    public boolean renderClouds() {
-        return false;
-    }
-
-    public float setSunSize() {
-        return 10.0F;
     }
 
     public boolean canRespawnHere() {

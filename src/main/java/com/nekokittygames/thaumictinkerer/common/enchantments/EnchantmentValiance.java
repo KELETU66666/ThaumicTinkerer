@@ -6,8 +6,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentValiance extends Enchantment {
-    public EnchantmentValiance(int id) {
+public class EnchantmentValiance extends TTEnchantment {
+    public EnchantmentValiance() {
         super(Rarity.UNCOMMON, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setRegistryName("valiance");
         this.setName("valiance");

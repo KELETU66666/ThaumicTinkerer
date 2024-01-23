@@ -140,47 +140,49 @@ public class IchoriumPickAdv extends IchoriumPick implements IAdvancedTool
             boolean xAxis = facing.getAxis() == EnumFacing.Axis.X;
 
             for (int i = -2; i <= 2; ++i) {
-                for (int j = -2; j <= 2 && !stack.isEmpty(); ++j) {
-                    if (i == 0 && j == 0) {
-                        continue;
-                    }
+                for (int h = -1; h <= 3; ++h) {
+                    for (int j = -2; j <= 2 && !stack.isEmpty(); ++j) {
+                        if (i == 0 && j == 0 && h==0) {
+                            continue;
+                        }
 
-                    BlockPos pos1;
-                    if (yAxis) {
-                        pos1 = pos.add(i, 0, j);
-                    } else if (xAxis) {
-                        pos1 = pos.add(0, i, j);
-                    } else {
-                        pos1 = pos.add(i, j, 0);
-                    }
+                        BlockPos pos1;
+                        if (yAxis) {
+                            pos1 = pos.add(i, 0, j);
+                        } else if (xAxis) {
+                            pos1 = pos.add(0, h, j);
+                        } else {
+                            pos1 = pos.add(i, h, 0);
+                        }
 
-                    IBlockState state1 = worldIn.getBlockState(pos1);
-                    float f = state1.getBlockHardness(worldIn, pos1);
-                    if (f >= 0F|| (f>=-1F && player.dimension ==TTConfig.BedRockDimensionID)) {
-                        BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(worldIn, pos1, state1, player);
-                        MinecraftForge.EVENT_BUS.post(event);
-                        if (!event.isCanceled()) {
-                            Block block = state1.getBlock();
-                            if ((block instanceof BlockCommandBlock || block instanceof BlockStructure) && !player.canUseCommandBlock()) {
-                                worldIn.notifyBlockUpdate(pos1, state1, state1, 3);
-                                continue;
-                            }
-                            TileEntity tileentity = worldIn.getTileEntity(pos1);
-                            if (tileentity != null) {
-                                Packet<?> pkt = tileentity.getUpdatePacket();
-                                if (pkt != null) {
-                                    ((EntityPlayerMP) player).connection.sendPacket(pkt);
+                        //:Replicate logic of PlayerInteractionManager.tryHarvestBlock(pos1)
+                        IBlockState state1 = worldIn.getBlockState(pos1);
+                        float f = state1.getBlockHardness(worldIn, pos1);
+                        if (f >= 0F) {
+                            BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(worldIn, pos1, state1, player);
+                            MinecraftForge.EVENT_BUS.post(event);
+                            if (!event.isCanceled()) {
+                                Block block = state1.getBlock();
+                                if ((block instanceof BlockCommandBlock || block instanceof BlockStructure) && !player.canUseCommandBlock()) {
+                                    worldIn.notifyBlockUpdate(pos1, state1, state1, 3);
+                                    continue;
                                 }
-                            }
+                                TileEntity tileentity = worldIn.getTileEntity(pos1);
+                                if (tileentity != null) {
+                                    Packet<?> pkt = tileentity.getUpdatePacket();
+                                    if (pkt != null) {
+                                        ((EntityPlayerMP) player).connection.sendPacket(pkt);
+                                    }
+                                }
 
-                            boolean canHarvest = block.canHarvestBlock(worldIn, pos1, player);
-                            boolean destroyed = block.removedByPlayer(state1, worldIn, pos1, player, canHarvest);
-                            if (destroyed) {
-                                block.breakBlock(worldIn, pos1, state1);
-                            }
-                            if (canHarvest && destroyed) {
-                                block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
-                                stack.damageItem(1, player);
+                                boolean canHarvest = block.canHarvestBlock(worldIn, pos1, player);
+                                boolean destroyed = block.removedByPlayer(state1, worldIn, pos1, player, canHarvest);
+                                if (destroyed) {
+                                    block.breakBlock(worldIn, pos1, state1);
+                                }
+                                if (canHarvest && destroyed) {
+                                    block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
+                                }
                             }
                         }
                     }
@@ -227,7 +229,7 @@ public class IchoriumPickAdv extends IchoriumPick implements IAdvancedTool
 
                 IBlockState state1 = worldIn.getBlockState(pos1);
                 float f = state1.getBlockHardness(worldIn, pos1);
-                if (f >= 0F|| (f>=-1F && player.dimension ==TTConfig.BedRockDimensionID)) {
+                if (f >= 0F) {
                     BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(worldIn, pos1, state1, player);
                     MinecraftForge.EVENT_BUS.post(event);
                     if (!event.isCanceled()) {
@@ -251,7 +253,7 @@ public class IchoriumPickAdv extends IchoriumPick implements IAdvancedTool
                         }
                         if (canHarvest && destroyed) {
                             block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
-                            stack.damageItem(1, player);
+
                         }
                     }
                 }

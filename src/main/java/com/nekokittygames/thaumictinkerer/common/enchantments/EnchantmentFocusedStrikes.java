@@ -6,8 +6,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentFocusedStrikes extends Enchantment {
-    public EnchantmentFocusedStrikes(int id) {
+public class EnchantmentFocusedStrikes extends TTEnchantment {
+    public EnchantmentFocusedStrikes() {
         super(Rarity.RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setRegistryName("focusedstrikes");
         this.setName("focusedstrikes");

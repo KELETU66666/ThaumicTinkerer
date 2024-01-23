@@ -5,8 +5,8 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentAscentBoost extends Enchantment {
-    public EnchantmentAscentBoost(int id) {
+public class EnchantmentAscentBoost extends TTEnchantment {
+    public EnchantmentAscentBoost() {
         super(Rarity.RARE, EnumEnchantmentType.ARMOR_LEGS, new EntityEquipmentSlot[]{EntityEquipmentSlot.LEGS});
         this.setRegistryName("ascentboost");
         this.setName("ascentboost");

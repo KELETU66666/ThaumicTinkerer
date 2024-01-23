@@ -6,8 +6,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentShockwave extends Enchantment {
-    public EnchantmentShockwave(int id) {
+public class EnchantmentShockwave extends TTEnchantment {
+    public EnchantmentShockwave() {
         super(Rarity.UNCOMMON, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET});
         this.setRegistryName("shockwave");
         this.setName("shockwave");

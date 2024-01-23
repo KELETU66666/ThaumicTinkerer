@@ -6,8 +6,8 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-public class EnchantmentTunnel extends Enchantment {
-    public EnchantmentTunnel(int id) {
+public class EnchantmentTunnel extends TTEnchantment {
+    public EnchantmentTunnel() {
         super(Rarity.UNCOMMON, EnumEnchantmentType.DIGGER, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setRegistryName("tunnel");
         this.setName("tunnel");

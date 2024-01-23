@@ -13,26 +13,24 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import org.jetbrains.annotations.Nullable;
+import org.apache.commons.lang3.StringUtils;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.function.BooleanSupplier;
 
-public class ChunkGeneratorBedrock implements IChunkGenerator {
+public class ChunkGeneratorMining implements IChunkGenerator {
     private static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
 
     private final List<Tuple<? extends MapGenBase, BooleanSupplier>> mapGen = new ArrayList<>();
-
-    private final List<Tuple<? extends WorldGenerator, BooleanSupplier>> worldGen = new ArrayList<>();
 
     private final World world;
 
@@ -42,12 +40,12 @@ public class ChunkGeneratorBedrock implements IChunkGenerator {
 
     private OreClusterGenerator generator;
 
-    public ChunkGeneratorBedrock(World world, long seed) {
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenCaves(), InitMapGenEvent.EventType.CAVE), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenRavine(), InitMapGenEvent.EventType.RAVINE), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenMineshaft(), InitMapGenEvent.EventType.MINESHAFT), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenStronghold(), InitMapGenEvent.EventType.STRONGHOLD), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenVillage(), InitMapGenEvent.EventType.VILLAGE), () -> false);
+    public ChunkGeneratorMining(World world, long seed) {
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenCaves(), InitMapGenEvent.EventType.CAVE), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenRavine(), InitMapGenEvent.EventType.RAVINE), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenMineshaft(), InitMapGenEvent.EventType.MINESHAFT), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenStronghold(), InitMapGenEvent.EventType.STRONGHOLD), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenVillage(), InitMapGenEvent.EventType.VILLAGE), () -> false);
         this.world = world;
         this.seed = seed;
         this.generator = new OreClusterGenerator();
@@ -76,8 +74,8 @@ public class ChunkGeneratorBedrock implements IChunkGenerator {
             }
         }
         for (Tuple<? extends MapGenBase, BooleanSupplier> gen : this.mapGen) {
-            if (((BooleanSupplier)gen.getSecond()).getAsBoolean())
-                ((MapGenBase)gen.getFirst()).generate(this.world, chunkX, chunkZ, primer);
+            if (gen.getSecond().getAsBoolean())
+                gen.getFirst().generate(this.world, chunkX, chunkZ, primer);
         }
         Chunk chunk = new Chunk(this.world, primer, chunkX, chunkZ);
         chunk.generateSkylightMap();
@@ -86,15 +84,16 @@ public class ChunkGeneratorBedrock implements IChunkGenerator {
 
     @Override
     public void populate(int par2, int par3) {
-        this.rng.setSeed(this.world.getSeed());
-        long i1 = this.rng.nextLong() / 2L * 2L + 1L;
-        long j1 = this.rng.nextLong() / 2L * 2L + 1L;
-        this.rng.setSeed((long) par2 * i1 + (long) par3 * j1 ^ this.world.getSeed());
+        if (this.rng != null && StringUtils.isNotEmpty(String.valueOf(this.rng.nextLong()))) {
+            this.rng.setSeed(this.world.getSeed());
+            long i1 = this.rng.nextLong() / 2L * 2L + 1L;
+            long j1 = this.rng.nextLong() / 2L * 2L + 1L;
+            this.rng.setSeed((long) par2 * i1 + (long) par3 * j1 ^ this.world.getSeed());
 
-        if (this.generator != null) {
-            this.generator.generate(this.rng, par2, par3, this.world, this, world.getChunkProvider());
+            if (this.generator != null) {
+                this.generator.generate(this.rng, par2, par3, this.world, this, world.getChunkProvider());
+            }
         }
-
     }
 
     public boolean generateStructures
@@ -116,7 +115,7 @@ public class ChunkGeneratorBedrock implements IChunkGenerator {
     public void recreateStructures(Chunk chunk, int chunkX, int chunkZ) {
         for (Tuple<? extends MapGenBase, BooleanSupplier> t : this.mapGen) {
             if (t.getFirst() instanceof MapGenStructure)
-                ((MapGenBase)t.getFirst()).generate(this.world, chunkX, chunkZ, null);
+                t.getFirst().generate(this.world, chunkX, chunkZ, null);
         }
     }
 
@@ -127,7 +126,7 @@ public class ChunkGeneratorBedrock implements IChunkGenerator {
 
 
     private void addMapGen(MapGenBase gen, BooleanSupplier active) {
-        Tuple<MapGenBase, BooleanSupplier> t = new Tuple(gen, active);
+        Tuple<MapGenBase, BooleanSupplier> t = new Tuple<>(gen, active);
         this.mapGen.add(t);
     }
 }

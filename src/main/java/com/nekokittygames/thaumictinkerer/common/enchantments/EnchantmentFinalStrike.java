@@ -6,8 +6,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentFinalStrike extends Enchantment {
-    public EnchantmentFinalStrike(int id) {
+public class EnchantmentFinalStrike extends TTEnchantment {
+    public EnchantmentFinalStrike() {
         super(Rarity.RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setRegistryName("finalstrike");
         this.setName("finalstrike");

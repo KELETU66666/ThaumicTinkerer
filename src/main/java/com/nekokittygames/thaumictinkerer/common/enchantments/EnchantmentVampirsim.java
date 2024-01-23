@@ -6,8 +6,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentVampirsim extends Enchantment {
-    public EnchantmentVampirsim(int id) {
+public class EnchantmentVampirsim extends TTEnchantment {
+    public EnchantmentVampirsim() {
         super(Rarity.RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setRegistryName("vamprisim");
         this.setName("vampirsim");

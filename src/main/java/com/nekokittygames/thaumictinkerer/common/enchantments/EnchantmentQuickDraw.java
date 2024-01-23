@@ -6,8 +6,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentQuickDraw extends Enchantment {
-    public EnchantmentQuickDraw(int id) {
+public class EnchantmentQuickDraw extends TTEnchantment {
+    public EnchantmentQuickDraw() {
         super(Rarity.RARE, EnumEnchantmentType.BOW, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setRegistryName("quickdraw");
         this.setName("quickdraw");

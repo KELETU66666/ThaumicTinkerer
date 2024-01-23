@@ -5,8 +5,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentAutoSmelt extends Enchantment {
-    public EnchantmentAutoSmelt(int id) {
+public class EnchantmentAutoSmelt extends TTEnchantment {
+    public EnchantmentAutoSmelt() {
         super(Rarity.UNCOMMON, EnumEnchantmentType.DIGGER, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
         this.setRegistryName("autosmelt");
         this.setName("autosmelt");

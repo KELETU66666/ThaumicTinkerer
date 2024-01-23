@@ -7,7 +7,7 @@ import net.minecraftforge.common.DimensionManager;
 
 public class ModDimensions {
 
-    public static DimensionType testDimensionType;
+    public static DimensionType BedrockDimensionType;
 
     public static void init() {
         registerDimensionTypes();
@@ -15,10 +15,10 @@ public class ModDimensions {
     }
 
     private static void registerDimensionTypes() {
-        testDimensionType = DimensionType.register(LibMisc.MOD_ID, "_test", TTConfig.BedRockDimensionID, BedrockWorldProvider.class, false);
+        BedrockDimensionType = DimensionType.register(LibMisc.MOD_ID + "bedrockworld", "_bedrockworld", TTConfig.BedRockDimensionID, ProviderBedrock.class, false);
     }
 
     private static void registerDimensions() {
-        DimensionManager.registerDimension(TTConfig.BedRockDimensionID, testDimensionType);
+        DimensionManager.registerDimension(TTConfig.BedRockDimensionID, BedrockDimensionType);
     }
 }
