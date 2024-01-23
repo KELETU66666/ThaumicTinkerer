@@ -14,14 +14,10 @@
  */
 package com.nekokittygames.thaumictinkerer.common.recipes;
 
-import com.nekokittygames.thaumictinkerer.api.INoRemoveEnchant;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
-import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 

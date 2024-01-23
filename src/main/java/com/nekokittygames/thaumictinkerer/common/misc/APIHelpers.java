@@ -4,13 +4,10 @@ import com.mojang.authlib.GameProfile;
 import com.nekokittygames.thaumictinkerer.api.ThaumicTinkererAPI;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-
-import java.lang.ref.WeakReference;
 
 public class APIHelpers {
 

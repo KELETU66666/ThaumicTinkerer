@@ -11,22 +11,18 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.capabilities.ThaumcraftCapabilities;
 import thaumcraft.api.crafting.IDustTrigger;
 import thaumcraft.api.crafting.Part;
 import thaumcraft.common.blocks.IBlockFacingHorizontal;
 import thaumcraft.common.container.InventoryFake;
-import thaumcraft.common.lib.crafting.Matrix;
 import thaumcraft.common.lib.events.ServerEvents;
 import thaumcraft.common.lib.events.ToolEvents;
 import thaumcraft.common.lib.utils.BlockUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TTDustTriggerMultiblock implements IDustTrigger {
 

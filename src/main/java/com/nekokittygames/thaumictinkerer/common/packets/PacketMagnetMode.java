@@ -2,7 +2,6 @@ package com.nekokittygames.thaumictinkerer.common.packets;
 
 import com.nekokittygames.thaumictinkerer.common.blocks.BlockMagnet;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityMagnet;
-import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityMobMagnet;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;

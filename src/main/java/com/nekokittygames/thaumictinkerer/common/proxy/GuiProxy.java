@@ -1,12 +1,13 @@
 package com.nekokittygames.thaumictinkerer.common.proxy;
 
-import com.nekokittygames.thaumictinkerer.client.gui.GuiAnimationTablet;
-import com.nekokittygames.thaumictinkerer.client.gui.GuiEnchanter;
-import com.nekokittygames.thaumictinkerer.client.gui.GuiMagnet;
-import com.nekokittygames.thaumictinkerer.client.gui.GuiMobMagnet;
+import com.nekokittygames.thaumictinkerer.client.gui.*;
 import com.nekokittygames.thaumictinkerer.common.containers.AnimationTabletContainer;
+import com.nekokittygames.thaumictinkerer.common.containers.ContainerWarpGate;
 import com.nekokittygames.thaumictinkerer.common.containers.EnchanterContainer;
 import com.nekokittygames.thaumictinkerer.common.containers.MagnetContainer;
+import com.nekokittygames.thaumictinkerer.common.items.Kami.ichorpouch.ContainerPouch;
+import com.nekokittygames.thaumictinkerer.common.items.Kami.ichorpouch.GuiPouch;
+import com.nekokittygames.thaumictinkerer.common.tileentity.Kami.TileWarpGate;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityAnimationTablet;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityEnchanter;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityMagnet;
@@ -34,6 +35,10 @@ public class GuiProxy implements IGuiHandler {
         if (te instanceof TileEntityAnimationTablet) {
             return new AnimationTabletContainer(entityPlayer.inventory, (TileEntityAnimationTablet) te);
         }
+        if (i == 0)
+            return new ContainerPouch(entityPlayer);
+        if(i == 1)
+            return new ContainerWarpGate((TileWarpGate) te, entityPlayer.inventory);
         return null;
     }
 
@@ -57,6 +62,12 @@ public class GuiProxy implements IGuiHandler {
             TileEntityAnimationTablet animationTablet = (TileEntityAnimationTablet) te;
             return new GuiAnimationTablet(animationTablet, new AnimationTabletContainer(entityPlayer.inventory, animationTablet));
         }
+        if (i == 0)
+            return new GuiPouch(new ContainerPouch(entityPlayer));
+        if(i == 1)
+            return new GuiWarpGate((TileWarpGate) te, entityPlayer.inventory);
+        if(i == 2)
+            return new GuiWarpGateDestinations((TileWarpGate) te);
         return null;
     }
 }

@@ -14,6 +14,20 @@ public class LibItemNames {
     public static final String GASEOUS_SHADOW = "gas_shadow_item";
     public static final String GASEOUS_LIGHT = "gas_light_item";
 
+    public static final String KAMIRESOURCE="kamiresource";
+
     public static final String BLOOD_SWORD="blood_sword";
     public static final String MOB_ASPECT="mob_aspect";
+    public static final String ICHORIUM_SWORD = "ichorium_sword";
+    public static final String ICHORIUM_PICK = "ichorium_pick";
+
+    public static final String BLOCK_TALISMAN = "block_talisman";
+    public static final String Protoclay = "proto_clay";
+
+    public static final String ICHOR_POUCH = "ichor_pouch";
+
+    public static final String CAT_AMULET = "cat_amulet";
+
+    public static final String SKY_PEARL = "sky_pearl";
+    public static final String PLACEMENT_MIRROR = "placement_mirror";
 }

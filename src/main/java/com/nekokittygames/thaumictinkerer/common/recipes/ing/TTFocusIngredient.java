@@ -3,7 +3,6 @@ package com.nekokittygames.thaumictinkerer.common.recipes.ing;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import thaumcraft.api.casters.FocusEffect;
-import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.items.casters.ItemFocus;
 
 import javax.annotation.Nullable;

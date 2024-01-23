@@ -1,17 +1,13 @@
 package com.nekokittygames.thaumictinkerer.common.items;
 
-import com.nekokittygames.thaumictinkerer.client.misc.ClientHelper;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.IRarity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.awt.*;
 
 public class ItemSpellbindingCloth extends TTItem {

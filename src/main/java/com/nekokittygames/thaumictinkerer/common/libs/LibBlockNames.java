@@ -23,5 +23,7 @@ public class LibBlockNames {
     public static final String ANIMATION_TABLET = "animation_tablet";
     public static final String DUMMY_NITOR="dummy_nitor";
     public static final String INFUSION_SPARK= "infusion_spark";
-    public static final String SUMMONER = "tt_mob_summoner";
+    public static final String ICHOR_BLOCK="ichor_block";
+    public static final String BEDROCK_PORTAL="bedrock_portal";
+    public static final String WARP_GATE="warp_gate";
 }

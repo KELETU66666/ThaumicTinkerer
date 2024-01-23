@@ -1,42 +1,19 @@
 package com.nekokittygames.thaumictinkerer.common.foci;
 
-import com.google.common.collect.Lists;
-import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
-import com.nekokittygames.thaumictinkerer.api.ThaumicTinkererAPI;
-import com.nekokittygames.thaumictinkerer.common.packets.PacketHandler;
-import com.nekokittygames.thaumictinkerer.common.utils.ItemNBTHelper;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.BlockSnapshot;
-import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.casters.FocusEffect;
-import thaumcraft.api.casters.ICaster;
 import thaumcraft.api.casters.Trajectory;
 import thaumcraft.common.items.casters.ItemCaster;
-import thaumcraft.common.lib.events.ServerEvents;
-import thaumcraft.common.lib.utils.BlockUtils;
-
-import javax.annotation.Nullable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
 
 @SuppressWarnings("deprecation")
 public class FocusEffectEfreetFlame extends FocusEffect {

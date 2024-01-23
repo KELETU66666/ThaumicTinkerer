@@ -1,16 +1,11 @@
 package com.nekokittygames.thaumictinkerer.common.blocks;
 
-import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
 import com.nekokittygames.thaumictinkerer.common.libs.LibBlockNames;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityMobMagnet;
-import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityRepairer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

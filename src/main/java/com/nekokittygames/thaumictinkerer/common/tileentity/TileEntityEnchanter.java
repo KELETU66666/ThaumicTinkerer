@@ -2,7 +2,6 @@ package com.nekokittygames.thaumictinkerer.common.tileentity;
 
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
-import com.nekokittygames.thaumictinkerer.common.helper.OreDictHelper;
 import com.nekokittygames.thaumictinkerer.common.helper.Tuple4Int;
 import com.nekokittygames.thaumictinkerer.common.libs.LibOreDict;
 import com.nekokittygames.thaumictinkerer.common.multiblocks.MultiblockManager;

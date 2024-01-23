@@ -2,8 +2,6 @@ package com.nekokittygames.thaumictinkerer.common.blocks;
 
 import com.nekokittygames.thaumictinkerer.common.libs.LibBlockNames;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityItemMagnet;
-import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityMagnet;
-import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityMobMagnet;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
