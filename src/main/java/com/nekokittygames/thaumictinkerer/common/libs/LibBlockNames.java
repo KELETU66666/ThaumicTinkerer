@@ -26,4 +26,5 @@ public class LibBlockNames {
     public static final String ICHOR_BLOCK="ichor_block";
     public static final String BEDROCK_PORTAL="bedrock_portal";
     public static final String WARP_GATE="warp_gate";
+    public static final String CHLOROPHYTE_ORE="chlorophyte_ore";
 }

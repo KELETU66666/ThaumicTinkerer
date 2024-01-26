@@ -15,6 +15,7 @@ import com.nekokittygames.thaumictinkerer.common.proxy.ITTProxy;
 import com.nekokittygames.thaumictinkerer.common.tileentity.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -34,6 +35,10 @@ import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
 @SideOnly(Side.CLIENT)
 public class ClientProxy implements ITTProxy {
 
+
+    public static EntityPlayer getPlayer() {
+        return Minecraft.getMinecraft().player;
+    }
     /**
      * register any renderers or shaders needed on client side
      */

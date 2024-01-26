@@ -44,8 +44,6 @@ public class ItemKamiArmor extends IchorArmor implements IGoggles{
 
     public ItemKamiArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(name, materialIn, renderIndexIn, equipmentSlotIn);
-        setTranslationKey(name);
-        setCreativeTab(ThaumicTinkerer.getTab());
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -161,11 +159,6 @@ public class ItemKamiArmor extends IchorArmor implements IGoggles{
     @Override
     public EnumRarity getRarity(ItemStack itemstack) {
         return EnumRarity.EPIC;
-    }
-
-    @Override
-    public ItemKamiArmor setTranslationKey(String key) {
-        return (ItemKamiArmor) super.setTranslationKey(key);
     }
 
     @Override

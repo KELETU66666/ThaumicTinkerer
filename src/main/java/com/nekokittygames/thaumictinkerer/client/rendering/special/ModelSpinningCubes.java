@@ -14,6 +14,7 @@
  */
 package com.nekokittygames.thaumictinkerer.client.rendering.special;
 
+import com.nekokittygames.thaumictinkerer.client.proxy.ClientProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -44,7 +45,7 @@ public class ModelSpinningCubes extends ModelBase {
         final float radiusBase = 0.7F;
         final float radiusMod = 0.1F;
 
-        double ticks = Minecraft.getMinecraft().player.ticksExisted - 0.75 * (origRepeat - repeat);
+        double ticks = ClientProxy.getPlayer().ticksExisted - 0.75 * (origRepeat - repeat);
         float offsetPerCube = 360 / cubes;
 
         GL11.glPushMatrix();

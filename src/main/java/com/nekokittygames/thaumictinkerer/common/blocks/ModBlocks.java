@@ -2,6 +2,7 @@ package com.nekokittygames.thaumictinkerer.common.blocks;
 
 import com.google.common.base.Preconditions;
 import com.nekokittygames.thaumictinkerer.common.blocks.Kami.BlockBedrockPortal;
+import com.nekokittygames.thaumictinkerer.common.blocks.Kami.BlockChlorophyteOre;
 import com.nekokittygames.thaumictinkerer.common.blocks.Kami.BlockWarpGate;
 import com.nekokittygames.thaumictinkerer.common.blocks.transvector.BlockTransvectorDislocator;
 import com.nekokittygames.thaumictinkerer.common.blocks.transvector.BlockTransvectorInterface;
@@ -52,6 +53,7 @@ public class ModBlocks {
     public static final BlockIchorBlock ichor_block=nullz();
     public static final BlockBedrockPortal bedrock_portal=nullz();
     public static final BlockWarpGate warp_gate=new BlockWarpGate();
+    public static final BlockChlorophyteOre chlorophyte_ore=new BlockChlorophyteOre();
 
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
     public static class RegistrationHandler {
@@ -85,7 +87,8 @@ public class ModBlocks {
                     new BlockDummyNitor(),
                     new BlockIchorBlock(),
                     new BlockBedrockPortal("bedrock_portal", Material.PORTAL),
-                    new BlockWarpGate()
+                    new BlockWarpGate(),
+                    new BlockChlorophyteOre()
             };
             for(Block block:blocks) {
                 registry.register(block);
@@ -117,6 +120,7 @@ public class ModBlocks {
                     new ItemBlock(ichor_block),
                     new ItemBlock(bedrock_portal),
                     new ItemBlock(warp_gate),
+                    new ItemBlock(chlorophyte_ore)
             };
             final IForgeRegistry<Item> registry = event.getRegistry();
 

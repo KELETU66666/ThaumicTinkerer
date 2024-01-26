@@ -32,7 +32,7 @@ item.thaumictinkerer:cat_amulet.name=Feline Amulet
 item.thaumictinkerer:placement_mirror.name=Worldshaper's Looking Glass
 item.thaumictinkerer:sky_pearl.name=Celestial Pearl
 
-tile.thaumictinkerer:warp_gate.name=Celestial Gateway
+tile.warp_gate.name=Celestial Gateway
 
 tile.thaumictinkerer:funnel.name=Essentia Funnel
 tile.thaumictinkerer:funnel.0=Even Transfer

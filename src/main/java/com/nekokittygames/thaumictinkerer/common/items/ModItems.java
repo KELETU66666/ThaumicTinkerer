@@ -115,7 +115,10 @@ public class ModItems {
                     new ItemKamiArmor("kami_boots", MATERIAL_ICHOR, 1, EntityEquipmentSlot.FEET),
                     new ItemBlockTalisman(),
                     new ItemRevealingHelm("revealing_helm", ThaumcraftMaterials.ARMORMAT_THAUMIUM, 1, EntityEquipmentSlot.HEAD, ThaumicTinkerer.getTab()),
-                    new ItemSkyPearl()
+                    new ItemSkyPearl(),
+                    new ItemChlorophyteArmor("chlorophyte_helmet", MATERIAL_ICHOR, 1, EntityEquipmentSlot.HEAD),
+                    new ItemChlorophyteArmor("chlorophyte_chestplate", MATERIAL_ICHOR, 1, EntityEquipmentSlot.CHEST),
+                    new ItemChlorophyteArmor("chlorophyte_leggings", MATERIAL_ICHOR, 1, EntityEquipmentSlot.LEGS)
                     // new ItemFormRevealer()
             };
             final IForgeRegistry<Item> registry = event.getRegistry();

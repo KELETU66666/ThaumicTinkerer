@@ -11,9 +11,9 @@
  */
 package com.nekokittygames.thaumictinkerer.common.packets;
 
+import com.nekokittygames.thaumictinkerer.client.proxy.ClientProxy;
 import com.nekokittygames.thaumictinkerer.common.misc.MiscHelper;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
@@ -59,7 +59,7 @@ public abstract class PacketTile<T extends TileEntity> implements IMessage {
     public IMessage onMessage(PacketTile message, MessageContext ctx) {
         MinecraftServer server = MiscHelper.server();
         if (ctx.side.isClient())
-            message.player = Minecraft.getMinecraft().player;
+            message.player = ClientProxy.getPlayer();
         else {
             message.player = ctx.getServerHandler().player;
         }
