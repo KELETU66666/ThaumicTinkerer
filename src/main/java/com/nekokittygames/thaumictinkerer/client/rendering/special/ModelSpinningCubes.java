@@ -15,7 +15,6 @@
 package com.nekokittygames.thaumictinkerer.client.rendering.special;
 
 import com.nekokittygames.thaumictinkerer.client.proxy.ClientProxy;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;

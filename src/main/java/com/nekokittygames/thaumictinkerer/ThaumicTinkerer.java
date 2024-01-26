@@ -16,6 +16,7 @@ import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectDislocate;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectEfreetFlame;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
+import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.loot.LootTableHandler;
 import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTInkererCreativeTab;
@@ -29,6 +30,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.monster.EntityEndermite;
 import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -142,6 +144,9 @@ public class ThaumicTinkerer {
     initFoci();
     MinecraftForge.EVENT_BUS.register(LootTableHandler.class);
     //IDustTrigger.registerDustTrigger(ModBlocks.osmotic_enchanter);
+
+    GameRegistry.addSmelting(new ItemStack(ModBlocks.chlorophyte_ore), new ItemStack(ModItems.kamiresource, 1, 7), 1);
+
 
   }
 

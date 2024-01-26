@@ -12,9 +12,9 @@ import net.minecraftforge.common.ISpecialArmor;
 import org.jetbrains.annotations.NotNull;
 import thaumcraft.api.items.IVisDiscountGear;
 
-public class IchorArmor extends ItemArmor implements IVisDiscountGear, ISpecialArmor {
+public class ItemIchorArmor extends ItemArmor implements IVisDiscountGear, ISpecialArmor {
 
-    public IchorArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    public ItemIchorArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
             setTranslationKey(name);
         setRegistryName(name);

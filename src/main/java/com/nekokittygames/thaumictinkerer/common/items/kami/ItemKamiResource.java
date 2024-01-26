@@ -61,7 +61,7 @@ public class ItemKamiResource extends TTItem {
             return;
         }
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             items.add(new ItemStack(this, 1, i));
         }
     }

@@ -33,6 +33,7 @@ item.thaumictinkerer:kamiresource.3.name=Ichorium Ingot
 item.thaumictinkerer:kamiresource.4.name=Ichor Cloth
 item.thaumictinkerer:kamiresource.5.name=Ichorium Nugget
 item.thaumictinkerer:kamiresource.6.name=Chlorophyte Ingot
+item.thaumictinkerer:kamiresource.7.name=Chlorophyte Nugget
 
 item.thaumictinkerer:block_talisman.name=Black Hole Ring
 item.thaumictinkerer:cat_amulet.name=Feline Amulet
@@ -218,6 +219,11 @@ thaumictinkerer.research.energetic_nitor.title=Hyperenergetic Nitor
 thaumictinkerer.research.energetic_nitor.0=One cannot deny the Nitor is useful. However, having to place it down before I see anything is annoying. I wonder, could I somehow make it visible from my palm if I were to make it more energetic?
 thaumictinkerer.research.energetic_nitor.1=Adding in more Energy and Light Essentia seems to have done the trick. I have managed to create a more powerful nitor - this Hyperenergetic Nitor burns with a visible light from my hand, so much so that it will even leave a trail as I move.
 
+thaumictinkerer.research.chlorophyte.title=Chlorophyte
+thaumictinkerer.research.chlorophyte.text=[WIP]
+thaumictinkerer.research.chlorophyte.text.2=[WIP]
+thaumictinkerer.research.chlorophyte.complete.text=[WIP]
+
 thaumictinkerer.research.dimensionalshard.title=Dimensional Shards
 thaumictinkerer.research.dimensionalshard.text=Thaumaturges of the Fourth Age spoke of a mythical substance called "Ichor", able to forge some of the most powerful Tools and Armor available to any Thaumaturge who could manage to create it.<BR>I had thought this process was impossible to replicate, until i discovered that whatever Dimensional Shards were being described in the scraps of Research i found seem to still exist. Supposedly, they suddenly stopped coalescing for Thaumaturges late into the Fourth Age, and yet, somehow, they have returned in modern times...<BR>I should gather a sample of these Shards to see if Ichor can be replicated nowadays.
 thaumictinkerer.research.dimensionalshard.complete.text=The prospect of creating this mythical "Ichor" is promising and seems possible, but i am not sure how i can replicate it as of yet, such will require further Research.<BR>These Dimensional Shards may also have other applications, though there was nothing that the Fourth Age scraps described, Fourth Age Thaumaturges were likely too fixated on Ichor.
@@ -326,6 +332,12 @@ enchantment.shatter=Shatter
 enchantment.tunnel=Tunnel
 enchantment.autosmelt=Auto Smelt
 
+item.chlorophyte.upgrade.0=§bAqua
+item.chlorophyte.upgrade.1=§eAer
+item.chlorophyte.upgrade.2=§gIgnis
+item.chlorophyte.upgrade.3=§aTerra
+item.chlorophyte.upgrade.4=§fOrdo
+item.chlorophyte.upgrade.5=§hPerditio
 #Misc
 
 ttmisc.differentDim=Different Dimension

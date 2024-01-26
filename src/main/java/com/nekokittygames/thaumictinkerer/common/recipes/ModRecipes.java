@@ -502,6 +502,51 @@ public class ModRecipes {
                 new ItemStack(ModItems.kamiresource),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(Items.FEATHER)));
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "chlorophyte_ore"), new InfusionRecipe(
+                "TT_CHLOROPHYTE@0",
+                new ItemStack(ModBlocks.chlorophyte_ore),
+                8,
+                new AspectList().add(Aspect.PLANT, 250).add(Aspect.METAL, 250).add(Aspect.CRAFT, 125),
+                new ItemStack(Items.NETHER_STAR),
+                new ItemStack(ModItems.gas_light_item),
+                new ItemStack(Items.EMERALD),
+                new ItemStack(ModItems.gas_shadow_item),
+                new ItemStack(ItemsTC.causalityCollapser)));
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ChlorophyteFortressHelm"), new InfusionRecipe(
+                "TT_CHLOROPHYTE",
+                new ItemStack(ModItems.chlorophyte_helmet),
+                13,
+                new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 40).add(Aspect.ENERGY, 50),
+                new ItemStack(ItemsTC.fortressHelm, 1, 32767),
+                "ingotChlorophyte",
+                "ingotChlorophyte",
+                new ItemStack(Items.GOLD_INGOT),
+                new ItemStack(Items.GOLD_INGOT),
+                new ItemStack(Items.EMERALD)));
+
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ChlorophyteFortressChest"), new InfusionRecipe(
+                "TT_CHLOROPHYTE",
+                new ItemStack(ModItems.chlorophyte_chestplate),
+                13, new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 60).add(Aspect.ENERGY, 50),
+                new ItemStack(ItemsTC.fortressChest, 1, 32767),
+                "ingotChlorophyte",
+                "ingotChlorophyte",
+                "ingotChlorophyte",
+                "ingotChlorophyte",
+                new ItemStack(Items.GOLD_INGOT),
+                "leather"));
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ChlorophyteFortressLegs"), new InfusionRecipe(
+                "TT_CHLOROPHYTE",
+                new ItemStack(ModItems.chlorophyte_leggings),
+                13,
+                new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 50).add(Aspect.ENERGY, 50),
+                new ItemStack(ItemsTC.fortressLegs, 1, 32767),
+                "ingotChlorophyte",
+                "ingotChlorophyte",
+                "ingotChlorophyte",
+                new ItemStack(Items.GOLD_INGOT),
+                "leather"));
+
         Item[] stacks = new Item[]{ModItems.chlorophyte_helmet, ModItems.chlorophyte_chestplate, ModItems.chlorophyte_leggings};
 
         for (Item item : stacks) {

@@ -1,7 +1,6 @@
 package com.nekokittygames.thaumictinkerer.common.enchantments;
 
 
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 

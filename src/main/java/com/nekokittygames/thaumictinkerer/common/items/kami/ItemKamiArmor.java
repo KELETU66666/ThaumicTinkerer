@@ -1,6 +1,5 @@
 package com.nekokittygames.thaumictinkerer.common.items.Kami;
 
-import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
 import com.nekokittygames.thaumictinkerer.client.misc.ModelWings;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
@@ -38,7 +37,7 @@ import thaumcraft.common.lib.events.PlayerEvents;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemKamiArmor extends IchorArmor implements IGoggles{
+public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
 
     public static List<String> playersWith1Step = new ArrayList();
 

@@ -4,6 +4,8 @@ import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
 import com.nekokittygames.thaumictinkerer.client.ModelChlorophyteArmor;
 import com.nekokittygames.thaumictinkerer.common.items.CustomArmorHelper;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
@@ -19,6 +21,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,17 +29,19 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 import thaumcraft.api.items.IGoggles;
+import thaumcraft.api.items.IVisDiscountGear;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.codechicken.lib.vec.Vector3;
 import thaumcraft.common.lib.events.PlayerEvents;
 
 import java.util.List;
 
-public class ItemChlorophyteArmor extends ItemArmor implements IGoggles {
+public class ItemChlorophyteArmor extends ItemArmor implements IGoggles, ISpecialArmor, IVisDiscountGear {
 
     ModelBiped model1;
     ModelBiped model2;
     ModelBiped model;
+    private final int[] discounts = new int[]{0, 0, 3, 4, 4, 4};
 
     public ItemChlorophyteArmor(String name, ArmorMaterial armorMaterial, int renderIndex, EntityEquipmentSlot armorSlot) {
         super(armorMaterial, renderIndex, armorSlot);
@@ -51,6 +56,27 @@ public class ItemChlorophyteArmor extends ItemArmor implements IGoggles {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+
+        if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ItemChlorophyteArmor && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ItemChlorophyteArmor && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ItemChlorophyteArmor) {
+            if (player.ticksExisted % 200 == 0 && player.world.isDaytime() && player.world.canBlockSeeSky(new BlockPos(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ)))) {
+                if(!player.world.isDaytime() && !(itemStack.getTagCompound() != null && itemStack.getTagCompound().getByte("kami_upgrade") == 4))
+                    return;
+
+                float healAmount = 1;
+
+                if(itemStack.getTagCompound() != null)
+                    if( itemStack.getTagCompound().getByte("kami_upgrade") == 5)
+                        healAmount = 0;
+                    else if ( itemStack.getTagCompound().getByte("kami_upgrade") == 4) {
+                        healAmount = 2;
+                    }
+
+                player.heal(healAmount / 2);
+                player.getFoodStats().addStats((int) healAmount, healAmount / 2);
+                if(this.getDamage(itemStack) < this.getMaxDamage(itemStack))
+                    this.setDamage(itemStack, itemStack.getItemDamage() - 1);
+               }
+        }
 
         if(itemStack.getTagCompound() == null)
             return;
@@ -83,15 +109,19 @@ public class ItemChlorophyteArmor extends ItemArmor implements IGoggles {
             if (itemStack.getTagCompound().getByte("kami_upgrade") == 3) {//Earth
                 tickPlayer(player);
             }
+    }
 
-        //if(fullSet) {
-        //    if (player.ticksExisted % 10 == 0 && player.world.isDaytime() && player.world.canBlockSeeSky(new BlockPos(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ)))) {
-        //            player.heal(0.5f);
-        //            player.getFoodStats().addStats(1, 0.5f);
-        //            if(this.getDamage(itemStack) < this.getMaxDamage(itemStack))
-        //                this.setDamage(itemStack, itemStack.getItemDamage() + 1);
-        //        }
-        //}
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        if (stack.hasTagCompound() && stack.getTagCompound().hasKey("kami_upgrade")) {
+            tooltip.add(TextFormatting.GOLD + I18n.format("item.chlorophyte.upgrade." + stack.getTagCompound().getInteger("kami_upgrade")));
+        }
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
     void tickPlayer(EntityPlayer player) {
@@ -172,5 +202,25 @@ public class ItemChlorophyteArmor extends ItemArmor implements IGoggles {
             model2 = new ModelChlorophyteArmor(0.5f);
         }
         return model = CustomArmorHelper.getCustomArmorModel(entityLiving, itemStack, armorSlot, model, model1, model2);
+    }
+
+    @Override
+    public ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage, int slot) {
+        return new ArmorProperties(0, getArmorMaterial().getDamageReductionAmount(armorType) * 0.0425, Integer.MAX_VALUE);
+    }
+
+    @Override
+    public int getArmorDisplay(EntityPlayer player, @NotNull ItemStack armor, int slot) {
+        return getArmorMaterial().getDamageReductionAmount(armorType);
+    }
+
+    @Override
+    public void damageArmor(EntityLivingBase entityLivingBase, @NotNull ItemStack itemStack, DamageSource damageSource, int i, int i1) {
+
+    }
+
+    @Override
+    public int getVisDiscount(ItemStack itemStack, EntityPlayer entityPlayer) {
+        return discounts[armorType.ordinal()];
     }
 }
