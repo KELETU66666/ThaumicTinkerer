@@ -14,8 +14,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
@@ -274,9 +276,9 @@ public class ModRecipes {
                 8,
                 new AspectList().add(Aspect.LIGHT, 125).add(Aspect.MAN, 125).add(Aspect.SOUL, 250),
                 new ItemStack(Items.NETHER_STAR),
-                new ItemStack(ModItems.kamiresource,1,1),
+                new ItemStack(ModItems.kamiresource, 1, 1),
                 new ItemStack(Items.DIAMOND),
-                new ItemStack(ModItems.kamiresource,1,0),
+                new ItemStack(ModItems.kamiresource, 1, 0),
                 new ItemStack(Items.ENDER_EYE)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "kami_helm"), new InfusionRecipe(
                 "TT_KAMIHELM",
@@ -285,8 +287,8 @@ public class ModRecipes {
                 new AspectList().add(Aspect.WATER, 150).add(Aspect.AURA, 125).add(Aspect.MIND, 60).add(Aspect.LIFE, 60).add(Aspect.LIGHT, 250).add(Aspect.PROTECT, 125),
                 new ItemStack(ModItems.ichor_helm),
                 new ItemStack(Items.DIAMOND),
-                new ItemStack(ModItems.kamiresource,1,2),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.thaumonomicon),
                 new ItemStack(Items.CHORUS_FRUIT_POPPED),
                 new ItemStack(Items.GOLDEN_HELMET),
@@ -303,8 +305,8 @@ public class ModRecipes {
                 new AspectList().add(Aspect.AIR, 150).add(Aspect.PROTECT, 125).add(Aspect.FLIGHT, 125).add(Aspect.ORDER, 125).add(Aspect.LIGHT, 250).add(Aspect.ELDRITCH, 60),
                 new ItemStack(ModItems.ichor_chest),
                 new ItemStack(Items.DIAMOND),
-                new ItemStack(ModItems.kamiresource,1,2),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.thaumonomicon),
                 new ItemStack(Items.CHORUS_FRUIT_POPPED),
                 new ItemStack(Items.GOLDEN_CHESTPLATE),
@@ -321,8 +323,8 @@ public class ModRecipes {
                 new AspectList().add(Aspect.AIR, 150).add(Aspect.PROTECT, 125).add(Aspect.FLIGHT, 125).add(Aspect.ORDER, 125).add(Aspect.LIGHT, 250).add(Aspect.ELDRITCH, 60),
                 new ItemStack(ModItems.ichor_legs),
                 new ItemStack(Items.DIAMOND),
-                new ItemStack(ModItems.kamiresource,1,2),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.thaumonomicon),
                 new ItemStack(Items.CHORUS_FRUIT_POPPED),
                 new ItemStack(Items.GOLDEN_CHESTPLATE),
@@ -339,15 +341,15 @@ public class ModRecipes {
                 new AspectList().add(Aspect.EARTH, 150).add(Aspect.PROTECT, 125).add(Aspect.TOOL, 125).add(Aspect.MOTION, 125).add(Aspect.LIGHT, 250).add(Aspect.PLANT, 60).add(Aspect.FLIGHT, 60),
                 new ItemStack(ModItems.ichor_boots),
                 new ItemStack(Items.DIAMOND),
-                new ItemStack(ModItems.kamiresource,1,2),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.thaumonomicon),
                 new ItemStack(Items.CHORUS_FRUIT_POPPED),
                 new ItemStack(Items.GOLDEN_BOOTS),
                 new ItemStack(BlocksTC.grassAmbient),
                 new ItemStack(Items.WHEAT_SEEDS),
                 new ItemStack(BlocksTC.lampGrowth),
-                new ItemStack(ItemsTC.turretPlacer,1, 2),
+                new ItemStack(ItemsTC.turretPlacer, 1, 2),
                 new ItemStack(Blocks.WOOL),
                 new ItemStack(Items.LEAD)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_pick_adv"), new InfusionRecipe(
@@ -356,8 +358,8 @@ public class ModRecipes {
                 13,
                 new AspectList().add(Aspect.FIRE, 150).add(Aspect.DESIRE, 60).add(Aspect.METAL, 125).add(Aspect.TOOL, 250).add(Aspect.SENSES, 60).add(Aspect.EARTH, 125),
                 new ItemStack(ModItems.ichorium_pick),
-                new ItemStack(ModItems.kamiresource,1,3),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 3),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.elementalPick),
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(Blocks.TNT),
@@ -367,15 +369,15 @@ public class ModRecipes {
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(ItemsTC.elementalPick),
-                new ItemStack(ModItems.kamiresource,1,4)));
+                new ItemStack(ModItems.kamiresource, 1, 4)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_shovel_adv"), new InfusionRecipe(
                 "TT_ICHOR_SHOVEL_ADV",
                 new ItemStack(ModItems.ichorium_shovel_adv),
                 13,
                 new AspectList().add(Aspect.TOOL, 250).add(Aspect.SENSES, 60).add(Aspect.EARTH, 125).add(Aspect.TRAP, 60),
                 new ItemStack(ModItems.ichorium_shovel),
-                new ItemStack(ModItems.kamiresource,1,3),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 3),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.elementalShovel),
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(Blocks.TNT),
@@ -385,15 +387,15 @@ public class ModRecipes {
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(ItemsTC.elementalShovel),
-                new ItemStack(ModItems.kamiresource,1,4)));
+                new ItemStack(ModItems.kamiresource, 1, 4)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_axe_adv"), new InfusionRecipe(
                 "TT_ICHOR_AXE_ADV",
                 new ItemStack(ModItems.ichorium_axe_adv),
                 13,
                 new AspectList().add(Aspect.WATER, 150).add(Aspect.PLANT, 125).add(Aspect.TOOL, 250).add(Aspect.SENSES, 60),
                 new ItemStack(ModItems.ichorium_axe),
-                new ItemStack(ModItems.kamiresource,1,3),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 3),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.elementalAxe),
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(Blocks.TNT),
@@ -403,15 +405,15 @@ public class ModRecipes {
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(ItemsTC.elementalAxe),
-                new ItemStack(ModItems.kamiresource,1,4)));
+                new ItemStack(ModItems.kamiresource, 1, 4)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_sword_adv"), new InfusionRecipe(
                 "TT_ICHOR_SWORD_ADV",
                 new ItemStack(ModItems.ichorium_sword_adv),
                 13,
                 new AspectList().add(Aspect.AIR, 150).add(Aspect.DESIRE, 250).add(Aspect.ORDER, 60).add(Aspect.ENERGY, 125).add(Aspect.CRYSTAL, 60).add(Aspect.SOUL, 125).add(Aspect.AVERSION, 125),
                 new ItemStack(ModItems.ichorium_sword),
-                new ItemStack(ModItems.kamiresource,1,3),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 3),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.elementalSword),
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(Blocks.CACTUS),
@@ -421,17 +423,17 @@ public class ModRecipes {
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(ItemsTC.elementalSword),
-                new ItemStack(ModItems.kamiresource,1,4)));
+                new ItemStack(ModItems.kamiresource, 1, 4)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "block_talisman"), new InfusionRecipe(
                 "TT_BLACKHOLE_RING",
                 new ItemStack(ModItems.block_talisman),
                 9,
                 new AspectList().add(Aspect.ELDRITCH, 125).add(Aspect.MAGIC, 200).add(Aspect.DARKNESS, 125).add(Aspect.VOID, 250),
                 new ItemStack(ItemsTC.focus2),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(Blocks.ENDER_CHEST),
                 new ItemStack(Items.DIAMOND),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 ThaumcraftApiHelper.makeCrystal(Aspect.FLUX),
                 new ItemStack(BlocksTC.jarVoid)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "proto_clay"), new InfusionRecipe(
@@ -443,17 +445,17 @@ public class ModRecipes {
                 new ItemStack(Blocks.DIRT),
                 new ItemStack(Blocks.LOG),
                 new ItemStack(Blocks.STONE),
-                new ItemStack(ModItems.kamiresource,1,0)));
+                new ItemStack(ModItems.kamiresource, 1, 0)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_pouch"), new InfusionRecipe(
                 "TT_ICHOR_POUCH",
                 new ItemStack(ModItems.focus_pouch),
                 7,
                 new AspectList().add(Aspect.AIR, 250).add(Aspect.ELDRITCH, 125).add(Aspect.MAN, 125).add(Aspect.CRAFT, 125).add(Aspect.VOID, 250),
                 new ItemStack(ItemsTC.focusPouch),
-                new ItemStack(ModItems.kamiresource,1,4),
+                new ItemStack(ModItems.kamiresource, 1, 4),
                 new ItemStack(BlocksTC.hungryChest),
                 "gemDiamond",
-                new ItemStack(ModItems.kamiresource,1,4),
+                new ItemStack(ModItems.kamiresource, 1, 4),
                 new ItemStack(ItemsTC.focus2),
                 new ItemStack(BlocksTC.jarVoid)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "cat_amulet"), new InfusionRecipe(
@@ -462,7 +464,7 @@ public class ModRecipes {
                 8,
                 new AspectList().add(Aspect.DARKNESS, 75).add(Aspect.ORDER, 125).add(Aspect.MIND, 75),
                 new ItemStack(Blocks.QUARTZ_BLOCK),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(Items.GOLD_INGOT),
                 new ItemStack(Items.GOLD_INGOT),
                 new ItemStack(Items.DYE, 1, 3),
@@ -474,12 +476,12 @@ public class ModRecipes {
                 12,
                 new AspectList().add(Aspect.CRAFT, 65).add(Aspect.CRYSTAL, 32).add(Aspect.MAGIC, 50).add(Aspect.MIND, 32),
                 new ItemStack(ModItems.block_talisman),
-                new ItemStack(ModItems.kamiresource,1,2),
+                new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(Blocks.DROPPER),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(Blocks.GLASS),
                 new ItemStack(Items.BLAZE_POWDER),
-                new ItemStack(ModItems.kamiresource,1,2)));
+                new ItemStack(ModItems.kamiresource, 1, 2)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "sky_pearl"), new InfusionRecipe(
                 "TT_WARP_SERIES@0",
                 new ItemStack(ModItems.sky_pearl),
@@ -500,5 +502,37 @@ public class ModRecipes {
                 new ItemStack(ModItems.kamiresource),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(Items.FEATHER)));
+        Item[] stacks = new Item[]{ModItems.chlorophyte_helmet, ModItems.chlorophyte_chestplate, ModItems.chlorophyte_leggings};
+
+        for (Item item : stacks) {
+            addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "air_upgrade" + item.getTranslationKey()), new InfusionRecipe(
+                    "",
+                    new Object[]{"kami_upgrade", new NBTTagByte((byte) 1)},
+                    1, new AspectList().add(Aspect.AIR, 1),
+                    item,
+                    new ItemStack(Items.FEATHER),
+                    new ItemStack(Items.FEATHER)));
+            addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "water_upgrade" + item.getTranslationKey()), new InfusionRecipe(
+                    "",
+                    new Object[]{"kami_upgrade", new NBTTagByte((byte) 0)},
+                    1, new AspectList().add(Aspect.WATER, 1),
+                    item,
+                    new ItemStack(Items.SNOWBALL),
+                    new ItemStack(Items.SNOWBALL)));
+            addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "fire_upgrade" + item.getTranslationKey()), new InfusionRecipe(
+                    "",
+                    new Object[]{"kami_upgrade", new NBTTagByte((byte) 2)},
+                    1, new AspectList().add(Aspect.FIRE, 1),
+                    item,
+                    new ItemStack(Items.FLINT),
+                    new ItemStack(Items.FLINT)));
+            addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "earth_upgrade" + item.getTranslationKey()), new InfusionRecipe(
+                    "",
+                    new Object[]{"kami_upgrade", new NBTTagByte((byte) 3)},
+                    1, new AspectList().add(Aspect.EARTH, 1),
+                    item,
+                    new ItemStack(Items.APPLE),
+                    new ItemStack(Items.APPLE)));
+        }
     }
 }

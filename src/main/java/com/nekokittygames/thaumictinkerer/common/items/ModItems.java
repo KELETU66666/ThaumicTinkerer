@@ -21,6 +21,7 @@ import thaumcraft.api.ThaumcraftMaterials;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHOR;
 import static com.nekokittygames.thaumictinkerer.common.utils.MiscUtils.nullz;
 
 @SuppressWarnings("WeakerAccess")
@@ -64,6 +65,10 @@ public class ModItems {
     public static final Item cat_amulet = new ItemCatAmulet();
     public static final Item sky_pearl = new ItemSkyPearl();
     public static final Item placement_mirror = new ItemPlacementMirror();
+
+    public static final Item chlorophyte_helmet = new ItemChlorophyteArmor("chlorophyte_helmet", MATERIAL_ICHOR, 1, EntityEquipmentSlot.HEAD);
+    public static final Item chlorophyte_chestplate =new ItemChlorophyteArmor("chlorophyte_chestplate", MATERIAL_ICHOR, 1, EntityEquipmentSlot.CHEST);
+    public static final Item chlorophyte_leggings = new ItemChlorophyteArmor("chlorophyte_leggings", MATERIAL_ICHOR, 1, EntityEquipmentSlot.LEGS);
 
     //public static final ItemFormRevealer form_revealer = nullz();
 

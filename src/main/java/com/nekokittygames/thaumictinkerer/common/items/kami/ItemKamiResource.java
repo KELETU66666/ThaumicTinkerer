@@ -42,6 +42,9 @@ public class ItemKamiResource extends TTItem {
                 if (stack.getMetadata() == 6) {
                     return 6.0F;
                 }
+                if (stack.getMetadata() == 7) {
+                    return 7;
+                }
                 return 0.0F;
             }
         });
@@ -58,7 +61,7 @@ public class ItemKamiResource extends TTItem {
             return;
         }
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 7; i++) {
             items.add(new ItemStack(this, 1, i));
         }
     }

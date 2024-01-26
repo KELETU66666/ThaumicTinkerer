@@ -8,6 +8,12 @@ item.thaumictinkerer:share_book.0=A Goldfish's Diary
 item.thaumictinkerer:black_quartz.name=Smokey Quartz
 item.thaumictinkerer:connector.name=Transvector Binder
 
+item.chlorophyte_helmet.name=Chlorophyte Mask
+item.chlorophyte_chestplate.name=Chlorophyte Plate Mail
+item.chlorophyte_leggings.name=Chlorophyte Greaves
+
+tile.thaumictinkerer:chlorophyte_ore.name=Chlorophyte Ore
+
 item.thaumictinkerer:energetic_nitor.name=Energetic Nitor
 item.thaumictinkerer:form_revealer.name=Multiblock Guide
 item.thaumictinkerer:spellbinding_cloth.name=Spellbinding Cloth
@@ -26,6 +32,7 @@ item.thaumictinkerer:kamiresource.2.name=Ichor
 item.thaumictinkerer:kamiresource.3.name=Ichorium Ingot
 item.thaumictinkerer:kamiresource.4.name=Ichor Cloth
 item.thaumictinkerer:kamiresource.5.name=Ichorium Nugget
+item.thaumictinkerer:kamiresource.6.name=Chlorophyte Ingot
 
 item.thaumictinkerer:block_talisman.name=Black Hole Ring
 item.thaumictinkerer:cat_amulet.name=Feline Amulet

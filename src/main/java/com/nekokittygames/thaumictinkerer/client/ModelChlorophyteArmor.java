@@ -100,10 +100,10 @@ public class ModelChlorophyteArmor extends ModelCustomArmor {
 		helm2.setRotationPoint(0.0F, 0.0F, 0.0F);
 		yelv_.addChild(helm2);
 		helm2.cubeList.add(new ModelBox(helm2, 0, 0, -4.5F, -14.0F, -4.5F, 9, 3, 9, 0.0F, false));
-		helm2.cubeList.add(new ModelBox(helm2, 0, 14, -5.0F, -7.0F, -5.0F, 4, 4, 1, 0.0F, false));
-		helm2.cubeList.add(new ModelBox(helm2, 0, 18, -5.0F, -12.0F, -5.0F, 4, 4, 1, 0.0F, false));
-		helm2.cubeList.add(new ModelBox(helm2, 0, 14, 1.0F, -7.0F, -5.0F, 4, 4, 1, 0.0F, true));
-		helm2.cubeList.add(new ModelBox(helm2, 0, 18, 1.0F, -12.0F, -5.0F, 4, 4, 1, 0.0F, true));
+		helm2.cubeList.add(new ModelBox(helm2, 0, 14, -4.5F, -7.0F, -5.0F, 4, 4, 1, 0.0F, false));
+		helm2.cubeList.add(new ModelBox(helm2, 0, 18, -4.5F, -12.0F, -5.0F, 4, 4, 1, 0.0F, false));
+		helm2.cubeList.add(new ModelBox(helm2, 0, 14, 0.5F, -7.0F, -5.0F, 4, 4, 1, 0.0F, true));
+		helm2.cubeList.add(new ModelBox(helm2, 0, 18, 0.5F, -12.0F, -5.0F, 4, 4, 1, 0.0F, true));
 		helm2.cubeList.add(new ModelBox(helm2, 10, 13, -4.0F, -13.0F, 4.0F, 8, 9, 1, 0.0F, false));
 		helm2.cubeList.add(new ModelBox(helm2, 0, 33, -5.0F, -13.0F, -4.0F, 1, 9, 9, 0.0F, false));
 		helm2.cubeList.add(new ModelBox(helm2, 0, 33, 4.0F, -13.0F, -4.0F, 1, 9, 9, 0.0F, true));
@@ -499,10 +499,10 @@ public class ModelChlorophyteArmor extends ModelCustomArmor {
 		bipedHead.addChild(helm);
 		bipedBody.cubeList.clear();
 		if (f < 1.0f) {
-			bipedBody.addChild(Cuirass);
+			bipedBody.addChild(yao_dai);
 		}
 		else {
-			bipedBody.addChild(Cuirass);
+			bipedBody.addChild(body);
 		}
 		bipedRightArm.cubeList.clear();
 		bipedRightArm.addChild(right_jianjia);
