@@ -34,7 +34,7 @@ public abstract class TTItem extends Item {
         item.setTranslationKey(regName.toString());
     }
 
-    private boolean isInCreativeTab() {
+    protected boolean isInCreativeTab() {
         return true;
     }
 

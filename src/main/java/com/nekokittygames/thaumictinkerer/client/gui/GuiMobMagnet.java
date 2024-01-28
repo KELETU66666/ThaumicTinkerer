@@ -71,7 +71,7 @@ public class GuiMobMagnet extends GuiMagnet {
      */
     @Override
     protected void actionPerformed(GuiButton button) {
-       super.actionPerformed(button);
+        super.actionPerformed(button);
 
         //mobMagnet.adult = buttonListMM.get(0).enabled;
         mobMagnet.setPullAdults(buttonListMM.get(2).isButtonEnabled());

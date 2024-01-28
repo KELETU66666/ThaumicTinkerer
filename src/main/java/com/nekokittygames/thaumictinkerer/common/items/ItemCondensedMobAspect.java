@@ -5,6 +5,7 @@
 package com.nekokittygames.thaumictinkerer.common.items;
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
+import com.nekokittygames.thaumictinkerer.client.libs.LibClientMisc;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,10 +24,10 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class ItemMobAspect extends TTItem {
+public class ItemCondensedMobAspect extends ItemMobAspect {
     public static String ASPECT_NAME="aspectName";
-    public ItemMobAspect(String name) {
-        super(name);
+    public ItemCondensedMobAspect() {
+        super("condensed_mob_aspect");
     }
 
     @Override
@@ -45,25 +46,6 @@ public class ItemMobAspect extends TTItem {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        super.addInformation(stack, worldIn, tooltip, flagIn);
-        if(stack.hasTagCompound() && stack.getTagCompound().hasKey(ASPECT_NAME)) {
-            Aspect aspect=Aspect.getAspect(stack.getTagCompound().getString(ASPECT_NAME));
-            if(aspect!=null) {
-                tooltip.add(I18n.format("thaumictinkerer.mobaspect.type", aspect.getName()));
-            }
-            else
-            {
-                tooltip.add(I18n.format("thaumictinkerer.mobaspect.invalid"));
-            }
-        }
-        else {
-            tooltip.add(I18n.format("thaumictinkerer.mobaspect.invalid"));
-        }
-    }
-
-    @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab))
         {
@@ -78,22 +60,5 @@ public class ItemMobAspect extends TTItem {
                 items.add(itemStack);
             }
         }
-    }
-
-    public static ItemStack setAspectType(ItemStack stack, Aspect aspect) {
-        NBTTagCompound cmp=stack.getTagCompound();
-        if(cmp==null)
-            cmp=new NBTTagCompound();
-        cmp.setString(ASPECT_NAME,aspect.getTag());
-        stack.setTagCompound(cmp);
-        return stack;
-    }
-
-    public static Aspect getAspectType(ItemStack stack) {
-        NBTTagCompound cmp=stack.getTagCompound();
-        if(cmp==null)
-            return null;
-        String aspectName=cmp.getString(ASPECT_NAME);
-        return Aspect.getAspect(aspectName);
     }
 }

@@ -20,6 +20,7 @@ import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.loot.LootTableHandler;
 import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTInkererCreativeTab;
+import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTinkererAspectCreativeTab;
 import com.nekokittygames.thaumictinkerer.common.multiblocks.MultiblockManager;
 import com.nekokittygames.thaumictinkerer.common.packets.PacketHandler;
 import com.nekokittygames.thaumictinkerer.common.proxy.ITTProxy;
@@ -67,6 +68,7 @@ public class ThaumicTinkerer {
   public static Logger logger;
 
   private static CreativeTabs tab;
+  private static CreativeTabs tabAspects;
 
   @SidedProxy(serverSide = "com.nekokittygames.thaumictinkerer.common.proxy.CommonProxy", clientSide = "com.nekokittygames.thaumictinkerer.client.proxy.ClientProxy")
   public static ITTProxy proxy;
@@ -87,9 +89,18 @@ public class ThaumicTinkerer {
     FluidRegistry.enableUniversalBucket();
   }
 
+  public static CreativeTabs getTabAspects() {
+    return tabAspects;
+  }
+
+  public static void setTabAspects(CreativeTabs tabAspects) {
+    ThaumicTinkerer.tabAspects = tabAspects;
+  }
+
   @EventHandler
   public void preinit(FMLPreInitializationEvent event) {
     tab = new ThaumicTInkererCreativeTab();
+    tabAspects = new ThaumicTinkererAspectCreativeTab();
     logger = event.getModLog();
     proxy.preInit(event);
     if (Loader.isModLoaded("tconstruct")) {
@@ -109,26 +120,20 @@ public class ThaumicTinkerer {
 
   @EventHandler
   public void processIMC(FMLInterModComms.IMCEvent event) {
-    for (FMLInterModComms.IMCMessage message : event.getMessages()) {
-      if (message.key.equalsIgnoreCase("addDislocateBlacklist") && message.isStringMessage()) {
+    for(FMLInterModComms.IMCMessage message:event.getMessages()) {
+      if(message.key.equalsIgnoreCase("addDislocateBlacklist") && message.isStringMessage())
+      {
         ThaumicTinkererAPI.getDislocationBlacklist().add(message.getStringValue());
       }
-      if (message.key.equalsIgnoreCase("addTabletBlacklist") && message.isStringMessage()) {
+      if(message.key.equalsIgnoreCase("addTabletBlacklist") && message.isStringMessage())
+      {
         ThaumicTinkererAPI.getAnimationTabletBlacklist().add(message.getStringValue());
-      }
-      if (message.key.equalsIgnoreCase("addMobAspect") && message.isNBTMessage()) {
-        MobAspects.getAspects().put(EntityEndermite.class, new MobAspect(EntityEndermite.class, new AspectList()));
       }
     }
   }
 
   @EventHandler
   public void init(FMLInitializationEvent event) {
-    try {
-      MultiblockManager.initMultiblocks();
-    } catch (URISyntaxException | IOException e) {
-      e.printStackTrace();
-    }
     proxy.init(event);
     ResearchCategories.registerCategory("THAUMIC_TINKERER", null, new AspectList(), new ResourceLocation("thaumictinkerer", "textures/items/share_book.png"), new ResourceLocation("thaumictinkerer", "textures/misc/sky1.png"), new ResourceLocation("thaumictinkerer", "textures/misc/sky1.png"));
     ThaumcraftApi.registerResearchLocation(new ResourceLocation("thaumictinkerer", "research/misc"));
@@ -143,6 +148,7 @@ public class ThaumicTinkerer {
     proxy.registerRenderers();
     initFoci();
     MinecraftForge.EVENT_BUS.register(LootTableHandler.class);
+    MobAspects.checkAspects();
     //IDustTrigger.registerDustTrigger(ModBlocks.osmotic_enchanter);
 
   }

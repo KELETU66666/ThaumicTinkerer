@@ -1,7 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.items.Kami;
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
-import com.nekokittygames.thaumictinkerer.client.ModelIchoriumFortressArmor;
+import com.nekokittygames.thaumictinkerer.client.rendering.ModelIchoriumFortressArmor;
 import com.nekokittygames.thaumictinkerer.common.items.CustomArmorHelper;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
@@ -58,22 +58,8 @@ public class ItemIchoriumFortressArmor extends ItemArmor implements IGoggles, IS
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ItemIchoriumFortressArmor && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ItemIchoriumFortressArmor && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ItemIchoriumFortressArmor) {
             if (player.ticksExisted % 200 == 0 && player.world.isDaytime() && player.world.canBlockSeeSky(new BlockPos(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ)))) {
-                if(!player.world.isDaytime() && !(itemStack.getTagCompound() != null && itemStack.getTagCompound().getByte("kami_upgrade") == 4))
-                    return;
-
-                float healAmount = 1;
-
-                if(itemStack.getTagCompound() != null)
-                    if( itemStack.getTagCompound().getByte("kami_upgrade") == 5)
-                        healAmount = 0;
-                    else if ( itemStack.getTagCompound().getByte("kami_upgrade") == 4) {
-                        healAmount = 2;
-                    }
-
-                player.heal(healAmount / 2);
-                player.getFoodStats().addStats((int) healAmount, healAmount / 2);
-                if(this.getDamage(itemStack) < this.getMaxDamage(itemStack))
-                    this.setDamage(itemStack, itemStack.getItemDamage() - 1);
+                player.heal(0.5F);
+                player.getFoodStats().addStats(1, 0.5F);
                }
         }
 
@@ -204,8 +190,37 @@ public class ItemIchoriumFortressArmor extends ItemArmor implements IGoggles, IS
     }
 
     @Override
-    public ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage, int slot) {
-        return new ArmorProperties(0, getArmorMaterial().getDamageReductionAmount(armorType) * 0.0425, Integer.MAX_VALUE);
+    public ISpecialArmor.ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage, int slot) {
+        int priority = 0;
+        double ratio = this.damageReduceAmount / 25.0D;
+        if (source.isMagicDamage()) {
+            priority = 1;
+            ratio = this.damageReduceAmount / 35.0D;
+        } else if (source.isFireDamage() || source.isExplosion()) {
+            priority = 1;
+            ratio = this.damageReduceAmount / 20.0D;
+        } else if (source.isUnblockable()) {
+            priority = 0;
+            ratio = 0.0D;
+        }
+        ISpecialArmor.ArmorProperties ap = new ISpecialArmor.ArmorProperties(priority, ratio, armor.getMaxDamage() + 1 - armor.getItemDamage());
+        if (player instanceof EntityPlayer) {
+            double set = 0.750D;
+            int q = 0;
+            for (int a = 1; a < 4; a++) {
+                ItemStack piece = ((EntityPlayer) player).inventory.armorInventory.get(a);
+                if (piece != null && !piece.isEmpty() && piece.getItem() instanceof ItemIchoriumFortressArmor) {
+                    set += 0.150D;
+                    q++;
+                    if (q <= 1) {
+                        ap.Armor++;
+                        ap.Toughness++;
+                    }
+                }
+            }
+            ratio *= set;
+        }
+        return ap;
     }
 
     @Override
@@ -213,9 +228,9 @@ public class ItemIchoriumFortressArmor extends ItemArmor implements IGoggles, IS
         return getArmorMaterial().getDamageReductionAmount(armorType);
     }
 
-    @Override
-    public void damageArmor(EntityLivingBase entityLivingBase, @NotNull ItemStack itemStack, DamageSource damageSource, int i, int i1) {
-
+    public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot) {
+        if (source != DamageSource.FALL)
+            stack.damageItem(damage, entity);
     }
 
     @Override

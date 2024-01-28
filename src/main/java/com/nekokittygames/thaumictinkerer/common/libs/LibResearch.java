@@ -9,7 +9,7 @@ public class LibResearch {
     public static final String PRISMARINE="TT_PRISMARINE";
     public static final String CORPOREAL_MAGNET ="TT_THAUMIC_MAGNETS";
     public static final String KINETIC_MAGNET = CORPOREAL_MAGNET +"@1";
-    public static final String CLEANSER = "TT_CLEANSER";
+    public static final String CLEANSER = "TT_CLEANING_TALISMAN";
 
     public static final String DISSIMULATION = "TT_DISSIMULATION";
 
@@ -21,4 +21,8 @@ public class LibResearch {
     public static final String ENERGETIC_NITOR = "TT_ENERGETIC_NITOR";
 
     public static final String ICHORIUM_TOOLS = "TT_ICHORIUMTOOLS";
+
+    public static final String SUMMONING = "TT_SUMMONING";
+    public static final String BLOOD_SWORD = "TT_BLOOD_SWORD";
+    public static final String CLEANING_TALISMAN = "TT_CLEANING_TALISMAN";
 }

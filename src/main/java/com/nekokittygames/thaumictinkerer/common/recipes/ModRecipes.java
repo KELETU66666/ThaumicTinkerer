@@ -3,6 +3,7 @@ package com.nekokittygames.thaumictinkerer.common.recipes;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.compat.botania.BotaniaCompat;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
+import com.nekokittygames.thaumictinkerer.common.items.ItemMobAspect;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.libs.LibOreDict;
@@ -585,5 +586,17 @@ public class ModRecipes {
                     new ItemStack(Items.APPLE),
                     new ItemStack(Items.APPLE)));
         }
+        for(Aspect aspect: Aspect.aspects.values()) {
+            ItemStack output=new ItemStack(ModItems.condensed_mob_aspect);
+            ItemMobAspect.setAspectType(output, aspect);
+            ItemStack input = new ItemStack(ModItems.mob_aspect);
+            ItemMobAspect.setAspectType(input, aspect);
+            addInfusionCraftingRecipe(
+                    new ResourceLocation(LibRecipes.CONDENSED_MOB_SOUL.getNamespace(),LibRecipes.CONDENSED_MOB_SOUL.getPath()+aspect.getTag()),
+                    new InfusionRecipe(
+                            LibResearch.SUMMONING,output,2,new AspectList().add(aspect,10),input,input,input,input,input,input,input,input,input
+                    ));
+        }
+        addInfusionCraftingRecipe(LibRecipes.BLOOD_SWORD, new InfusionRecipe(LibResearch.SUMMONING,new ItemStack(ModItems.blood_sword),3,new AspectList().add(Aspect.DARKNESS,5).add(Aspect.SOUL,10).add(Aspect.MAN,6).add(Aspect.DEATH,10),new ItemStack(ItemsTC.thaumiumSword),new ItemStack(Items.ROTTEN_FLESH),new ItemStack(Items.PORKCHOP),new ItemStack(Items.BEEF),new ItemStack(Items.BONE),new ItemStack(Items.DIAMOND),new ItemStack(Items.GHAST_TEAR)));
     }
 }

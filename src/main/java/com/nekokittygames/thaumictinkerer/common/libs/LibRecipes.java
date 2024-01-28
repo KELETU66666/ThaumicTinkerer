@@ -25,4 +25,7 @@ public class LibRecipes {
     public static final ResourceLocation SHADOW_GAS = new ResourceLocation(MOD_ID, "gas_light");
     public static final ResourceLocation LIGHT_GAS = new ResourceLocation(MOD_ID, "gas_shadow");
     public static final ResourceLocation GAS_REMOVER = new ResourceLocation(MOD_ID, "gas_remover");
+
+    public static final ResourceLocation CONDENSED_MOB_SOUL = new ResourceLocation(MOD_ID,"condensed_mob_soul_");
+    public static final ResourceLocation BLOOD_SWORD = new ResourceLocation(MOD_ID,"blood_sword");
 }

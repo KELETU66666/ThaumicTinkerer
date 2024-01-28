@@ -4,6 +4,7 @@
 
 package com.nekokittygames.thaumictinkerer.client.proxy;
 
+import com.nekokittygames.thaumictinkerer.client.misc.AspectColouror;
 import com.nekokittygames.thaumictinkerer.client.misc.Shaders;
 import com.nekokittygames.thaumictinkerer.client.rendering.special.multi.NitorRenderer;
 import com.nekokittygames.thaumictinkerer.client.rendering.tileentities.*;
@@ -64,6 +65,7 @@ public class ClientProxy implements ITTProxy {
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiProxy());
 
         Minecraft.getMinecraft().getItemColors().registerItemColorHandler((s, t) -> Color.HSBtoRGB(0.75F, ((float) s.getMaxDamage() - (float) s.getItemDamage()) / s.getMaxDamage() * 0.5F, 1F), ModItems.spellbinding_cloth);
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new AspectColouror(), ModItems.condensed_mob_aspect,ModItems.mob_aspect);
     }
 
     /**

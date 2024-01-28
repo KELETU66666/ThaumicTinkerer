@@ -1,19 +1,28 @@
-package com.nekokittygames.thaumictinkerer.client;// Made with Blockbench 4.9.3
+package com.nekokittygames.thaumictinkerer.client.rendering;// Made with Blockbench 4.9.3
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
 
 
 import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemIchoriumFortressArmor;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.MathHelper;
 import org.lwjgl.opengl.GL11;
+import thaumcraft.api.ThaumcraftApiHelper;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.items.ItemsTC;
 import thaumcraft.client.renderers.models.gear.ModelCustomArmor;
+import thaumcraft.common.items.resources.ItemCrystalEssence;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class ModelIchoriumFortressArmor extends ModelCustomArmor {
 	private final ModelRenderer helm;
@@ -83,6 +92,7 @@ public class ModelIchoriumFortressArmor extends ModelCustomArmor {
 	private final ModelRenderer houfang_zhuangjia2;
 	private final ModelRenderer cube_r23;
 	private static HashMap<Integer, Integer> hasSet;
+	private static HashMap<Integer, Integer> hasUpgrade;
 
 	public ModelIchoriumFortressArmor(float f) {
 		super(f, 0, 128, 64);
@@ -525,20 +535,12 @@ public class ModelIchoriumFortressArmor extends ModelCustomArmor {
 				ItemStack piece = ((EntityLivingBase)entity).getItemStackFromSlot(EntityEquipmentSlot.values()[a + 1]);
 				if (piece != null && piece.getItem() instanceof ItemIchoriumFortressArmor) {
 					++set;
-					//if (a == 4) {
-					//	if (piece.hasTagCompound() && piece.getTagCompound().hasKey("mask")) {
-					//		ModelChlorophyteArmor.hasMask.put(entity.getEntityId(), piece.getTagCompound().getInteger("mask"));
-					//	}
-					//	else {
-					//		ModelChlorophyteArmor.hasMask.remove(entity.getEntityId());
-					//	}
-					//	if (piece.hasTagCompound() && piece.getTagCompound().hasKey("goggles")) {
-					//		ModelChlorophyteArmor.hasGoggles.put(entity.getEntityId(), true);
-					//	}
-					//	else {
-					//		ModelChlorophyteArmor.hasGoggles.remove(entity.getEntityId());
-					//	}
-					//}
+					if (piece.hasTagCompound() && piece.getTagCompound().hasKey("kami_upgrade")) {
+						this.hasUpgrade.put(entity.getEntityId(), piece.getTagCompound().getInteger("kami_upgrade"));
+					}
+					else {
+						ModelIchoriumFortressArmor.hasUpgrade.remove(entity.getEntityId());
+					}
 				}
 			}
 			if (set > 0) {
@@ -551,8 +553,12 @@ public class ModelIchoriumFortressArmor extends ModelCustomArmor {
 	}
 
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+		float ticks = (float) Objects.requireNonNull(Minecraft.getMinecraft().getRenderViewEntity()).ticksExisted + f3;
+
 		checkSet(entity);
 		int set = ModelIchoriumFortressArmor.hasSet.containsKey(entity.getEntityId()) ? ModelIchoriumFortressArmor.hasSet.get(entity.getEntityId()) : -1;
+		int upgrade = ModelIchoriumFortressArmor.hasUpgrade.containsKey(entity.getEntityId()) ? ModelIchoriumFortressArmor.hasUpgrade.get(entity.getEntityId()) : -1;
+
 		cube_r14.isHidden = (set < 3);
 		book_r1.isHidden = (set < 2);
 		cube_r7_2.isHidden = (set < 3);
@@ -614,5 +620,6 @@ public class ModelIchoriumFortressArmor extends ModelCustomArmor {
 
 	static {
 		ModelIchoriumFortressArmor.hasSet = new HashMap<Integer, Integer>();
+		ModelIchoriumFortressArmor.hasUpgrade = new HashMap<Integer, Integer>();
 	}
 }

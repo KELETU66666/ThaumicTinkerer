@@ -36,7 +36,8 @@ public class ModItems {
     public static final ItemEnergeticNitor energetic_nitor = nullz();
     public static final ItemSpellbindingCloth spellbinding_cloth=nullz();
     public static final ItemBloodSword blood_sword=nullz();
-    public static final ItemMobAspect mob_aspect=nullz();
+    public static final ItemCondensedMobAspect condensed_mob_aspect=new ItemCondensedMobAspect();
+    public static final ItemMobAspect mob_aspect=new ItemMobAspect("mob_aspect");
     public static final Item gas_remover = new ItemGasRemover();
     public static final ItemGas gas_shadow_item = nullz();
     public static final ItemGas gas_light_item = nullz();
@@ -97,7 +98,8 @@ public class ModItems {
                     new ItemGasRemover(),
                     new ItemSpellbindingCloth(),
                     new ItemBloodSword(),
-                    new ItemMobAspect(),
+                    new ItemMobAspect("mob_aspect"),
+                    new ItemCondensedMobAspect(),
                     new ItemKamiResource(),
                     new ItemProtoclay(),
                     new ItemIchorPouch(),

@@ -18,13 +18,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import thaumcraft.api.capabilities.IPlayerKnowledge;
 import thaumcraft.api.capabilities.ThaumcraftCapabilities;
+import thaumcraft.api.research.ResearchCategories;
+import thaumcraft.api.research.ResearchCategory;
 import thaumcraft.common.lib.CommandThaumcraft;
 
 import javax.annotation.Nullable;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ItemShareBook extends TTItem {
     private static final String TAG_PLAYER = "player";
@@ -48,6 +49,19 @@ public class ItemShareBook extends TTItem {
         ItemNBTHelper.getItemTag(stack).removeTag("research");
     }
 
+    protected static void setPlayerObservations(ItemStack stack, EntityPlayer player) {
+        NBTTagCompound cmp = ItemNBTHelper.getItemTag(stack);
+        NBTTagList list = new NBTTagList();
+        for (ResearchCategory category: ResearchCategories.researchCategories.values()){
+            int obs=ThaumcraftCapabilities.getKnowledge(player).getKnowledgeRaw(IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, category);
+            NBTTagCompound obsCmp=new NBTTagCompound();
+            obsCmp.setString("category",category.key);
+            obsCmp.setInteger("amount",obs);
+            list.appendTag(obsCmp);
+        }
+        cmp.setTag("observations",list);
+    }
+
     private static void setPlayerResearch(ItemStack stack, EntityPlayer playername) {
         Set<String> researchesDone = ThaumcraftCapabilities.getKnowledge(playername).getResearchList();
         NBTTagCompound cmp = ItemNBTHelper.getItemTag(stack);
@@ -68,6 +82,7 @@ public class ItemShareBook extends TTItem {
                 if (name.endsWith(NON_ASIGNED)) {
                     setPlayerName(item, playerIn.getGameProfile().getName());
                     setPlayerResearch(item, playerIn);
+                    setPlayerObservations(item,playerIn);
                     if (!worldIn.isRemote)
                         playerIn.sendStatusMessage(new TextComponentTranslation("ttmisc.shareTome.write"), true);
                 } else {
@@ -77,6 +92,12 @@ public class ItemShareBook extends TTItem {
                         for (String researchkey : researchesDone) {
                             CommandThaumcraft.giveRecursiveResearch(playerIn, researchkey);
                             ThaumcraftCapabilities.getKnowledge(playerIn).sync((EntityPlayerMP) playerIn);
+                        }
+                        Map<String,Integer> observations = getPlayerObservations(item);
+                        for(String category:observations.keySet()) {
+                            int curAmmount=ThaumcraftCapabilities.getKnowledge(playerIn).getKnowledgeRaw(IPlayerKnowledge.EnumKnowledgeType.OBSERVATION,ResearchCategories.getResearchCategory(category));
+                            int amtToAdd=Math.abs(observations.get(category) - curAmmount);
+                            ThaumcraftCapabilities.getKnowledge(playerIn).addKnowledge(IPlayerKnowledge.EnumKnowledgeType.OBSERVATION,ResearchCategories.getResearchCategory(category),amtToAdd);
                         }
                     } else {
                         playerIn.sendStatusMessage(new TextComponentTranslation(("ttmisc.shareTome.sync")), true);
@@ -112,5 +133,19 @@ public class ItemShareBook extends TTItem {
             retVals.add(list.getStringTagAt(i));
         }
         return retVals;
+    }
+
+    private Map<String,Integer> getPlayerObservations(ItemStack stack) {
+        Map<String,Integer> retVals = new HashMap<>();
+        NBTTagCompound cmp = ItemNBTHelper.getItemTag(stack);
+        if (!cmp.hasKey("observations"))
+            return retVals;
+        NBTTagList list = cmp.getTagList("observations", Constants.NBT.TAG_COMPOUND);
+        for(int i=0;i<list.tagCount();i++) {
+            NBTTagCompound listCmp=list.getCompoundTagAt(i);
+            retVals.put(listCmp.getString("category"),listCmp.getInteger("amount"));
+        }
+        return retVals;
+
     }
 }

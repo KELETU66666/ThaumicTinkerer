@@ -63,7 +63,16 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     private int progress;
     private int cooldown;
 
+    public boolean isCheckSurroundings() {
+        return checkSurroundings;
+    }
 
+    public TileEntityEnchanter setCheckSurroundings(boolean checkSurroundings) {
+        this.checkSurroundings = checkSurroundings;
+        return this;
+    }
+
+    private boolean checkSurroundings;
 
     private int auraVisServer=0;
     private boolean working = false;
@@ -619,8 +628,8 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
         if (TTConfig.ClassicEnchanter) {
             checkPillars();
         } else {
-            if (!MultiblockManager.checkMultiblockCombined(world, getPos(), MULTIBLOCK_LOCATION))
-                working = false;
+            if (checkSurroundings)
+                working=checkLocation();
         }
     }
 

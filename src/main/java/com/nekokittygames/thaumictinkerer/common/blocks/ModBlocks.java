@@ -54,7 +54,7 @@ public class ModBlocks {
     public static final BlockBedrockPortal bedrock_portal=nullz();
     public static final BlockWarpGate warp_gate=new BlockWarpGate();
     public static final BlockChlorophyteOre chlorophyte_ore=new BlockChlorophyteOre();
-
+    public static final BlockSummon summoner=nullz();
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
     public static class RegistrationHandler {
         public static final Set<ItemBlock> ITEM_BLOCKS = new HashSet<>();
@@ -85,6 +85,7 @@ public class ModBlocks {
                     new BlockBlackQuartz(),
                     new BlockAnimationTablet(),
                     new BlockDummyNitor(),
+                    new BlockSummon(),
                     new BlockIchorBlock(),
                     new BlockBedrockPortal("bedrock_portal", Material.PORTAL),
                     new BlockWarpGate(),
@@ -117,6 +118,7 @@ public class ModBlocks {
                     new ItemBlock(enchantment_pillar),
                     new ItemBlock(animation_tablet),
                     new ItemBlock(black_quartz_block),
+                    new ItemBlock(summoner),
                     new ItemBlock(ichor_block),
                     new ItemBlock(bedrock_portal),
                     new ItemBlock(warp_gate),
@@ -146,6 +148,7 @@ public class ModBlocks {
             registerTileEntity(TileEntityAnimationTablet.class, LibBlockNames.ANIMATION_TABLET);
             registerTileEntity(TileBedrockPortal.class, LibBlockNames.BEDROCK_PORTAL);
             registerTileEntity(TileWarpGate.class, LibBlockNames.WARP_GATE);
+            registerTileEntity(TileEntitySummon.class,LibBlockNames.SUMMONER);
         }
 
         private static void registerTileEntity(Class<? extends TileEntity> clazz, String name) {
