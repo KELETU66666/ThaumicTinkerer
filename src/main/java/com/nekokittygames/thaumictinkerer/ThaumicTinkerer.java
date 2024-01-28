@@ -145,9 +145,6 @@ public class ThaumicTinkerer {
     MinecraftForge.EVENT_BUS.register(LootTableHandler.class);
     //IDustTrigger.registerDustTrigger(ModBlocks.osmotic_enchanter);
 
-    GameRegistry.addSmelting(new ItemStack(ModBlocks.chlorophyte_ore), new ItemStack(ModItems.kamiresource, 1, 7), 1);
-
-
   }
 
   private void initFoci() {

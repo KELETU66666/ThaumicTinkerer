@@ -1,5 +1,6 @@
 package com.nekokittygames.thaumictinkerer.common.misc;
 
+import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
@@ -36,7 +37,6 @@ public final class RegistryHandler {
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         OreDictionary.registerOre("ingotIchorium", new ItemStack(ModItems.kamiresource, 1, 3));
         OreDictionary.registerOre("nuggetIchorium", new ItemStack(ModItems.kamiresource, 1, 5));
-        OreDictionary.registerOre("ingotChlorophyte", new ItemStack(ModItems.kamiresource, 1, 6));
-        OreDictionary.registerOre("nuggetChlorophyte", new ItemStack(ModItems.kamiresource, 1, 7));
+        OreDictionary.registerOre("oreChlorophyte", ModBlocks.chlorophyte_ore);
     }
 }

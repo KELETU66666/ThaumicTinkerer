@@ -21,7 +21,7 @@ import thaumcraft.api.ThaumcraftMaterials;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_CHLOROPHYTE;
+import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHORIUM_FORTRESS;
 import static com.nekokittygames.thaumictinkerer.common.utils.MiscUtils.nullz;
 
 @SuppressWarnings("WeakerAccess")
@@ -66,9 +66,9 @@ public class ModItems {
     public static final Item sky_pearl = new ItemSkyPearl();
     public static final Item placement_mirror = new ItemPlacementMirror();
 
-    public static final Item chlorophyte_helmet = new ItemChlorophyteArmor("chlorophyte_helmet", MATERIAL_CHLOROPHYTE, 1, EntityEquipmentSlot.HEAD);
-    public static final Item chlorophyte_chestplate =new ItemChlorophyteArmor("chlorophyte_chestplate", MATERIAL_CHLOROPHYTE, 1, EntityEquipmentSlot.CHEST);
-    public static final Item chlorophyte_leggings = new ItemChlorophyteArmor("chlorophyte_leggings", MATERIAL_CHLOROPHYTE, 1, EntityEquipmentSlot.LEGS);
+    public static final Item ichorium_fortress_helmet = new ItemIchoriumFortressArmor("ichorium_fortress_helmet", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.HEAD);
+    public static final Item ichorium_fortress_chestplate =new ItemIchoriumFortressArmor("ichorium_fortress_chestplate", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.CHEST);
+    public static final Item ichorium_fortress_leggings = new ItemIchoriumFortressArmor("ichorium_fortress_leggings", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.LEGS);
 
     //public static final ItemFormRevealer form_revealer = nullz();
 
@@ -77,7 +77,7 @@ public class ModItems {
         public static final Set<Item> ITEMS = new HashSet<>();
         public static final Item.ToolMaterial MATERIAL_ICHORIUM= EnumHelper.addToolMaterial("ICHOR", 4, -1, 10F, 5F, 25);
         public static final ItemArmor.ArmorMaterial MATERIAL_ICHOR = EnumHelper.addArmorMaterial("ichor", LibMisc.MOD_ID + ":ichor", -1, new int[]{3, 6, 8, 3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 3.0F);
-        public static final ItemArmor.ArmorMaterial MATERIAL_CHLOROPHYTE = EnumHelper.addArmorMaterial("chlorophyte", LibMisc.MOD_ID + ":chlorophyte", 600, new int[]{4, 7, 9, 4}, 24, SoundEvents.BLOCK_GRASS_PLACE, 6.0F);
+        public static final ItemArmor.ArmorMaterial MATERIAL_ICHORIUM_FORTRESS = EnumHelper.addArmorMaterial("ichorium_fortress", LibMisc.MOD_ID + ":ichorium_fortress", 600, new int[]{4, 7, 9, 4}, 24, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 6.0F);
         /**
          * Register this mod's {@link Item}s.
          *
@@ -122,9 +122,9 @@ public class ModItems {
                     new ItemBlockTalisman(),
                     new ItemRevealingHelm("revealing_helm", ThaumcraftMaterials.ARMORMAT_THAUMIUM, 1, EntityEquipmentSlot.HEAD, ThaumicTinkerer.getTab()),
                     new ItemSkyPearl(),
-                    new ItemChlorophyteArmor("chlorophyte_helmet", MATERIAL_CHLOROPHYTE, 1, EntityEquipmentSlot.HEAD),
-                    new ItemChlorophyteArmor("chlorophyte_chestplate", MATERIAL_CHLOROPHYTE, 1, EntityEquipmentSlot.CHEST),
-                    new ItemChlorophyteArmor("chlorophyte_leggings", MATERIAL_CHLOROPHYTE, 1, EntityEquipmentSlot.LEGS)
+                    new ItemIchoriumFortressArmor("ichorium_fortress_helmet", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.HEAD),
+                    new ItemIchoriumFortressArmor("ichorium_fortress_chestplate", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.CHEST),
+                    new ItemIchoriumFortressArmor("ichorium_fortress_leggings", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.LEGS)
                     // new ItemFormRevealer()
             };
             final IForgeRegistry<Item> registry = event.getRegistry();

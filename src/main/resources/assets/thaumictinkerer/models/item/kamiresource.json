@@ -33,18 +33,6 @@
                 "meta": 5
             },
             "model": "thaumictinkerer:item/ichor_nugget"
-        },
-        {
-            "predicate": {
-                "meta": 6
-            },
-            "model": "thaumictinkerer:item/chlorophyte_ingot"
-        },
-        {
-            "predicate": {
-                "meta": 7
-            },
-            "model": "thaumictinkerer:item/chlorophyte_nugget"
         }
     ]
 }

@@ -502,52 +502,58 @@ public class ModRecipes {
                 new ItemStack(ModItems.kamiresource),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(Items.FEATHER)));
+        /*
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "chlorophyte_ore"), new InfusionRecipe(
                 "TT_CHLOROPHYTE@0",
                 new ItemStack(ModBlocks.chlorophyte_ore),
                 8,
                 new AspectList().add(Aspect.PLANT, 250).add(Aspect.METAL, 250).add(Aspect.CRAFT, 125),
-                new ItemStack(Items.NETHER_STAR),
-                new ItemStack(ModItems.gas_light_item),
-                new ItemStack(Items.EMERALD),
-                new ItemStack(ModItems.gas_shadow_item),
-                new ItemStack(ItemsTC.causalityCollapser)));
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ChlorophyteFortressHelm"), new InfusionRecipe(
-                "TT_CHLOROPHYTE",
-                new ItemStack(ModItems.chlorophyte_helmet),
+                new ItemStack(Blocks.EMERALD_ORE),
+                new ItemStack(BlocksTC.lampGrowth),
+                new ItemStack(BlocksTC.shimmerleaf),
+                new ItemStack(BlocksTC.lampGrowth),
+                new ItemStack(BlocksTC.cinderpearl),
+                new ItemStack(BlocksTC.lampGrowth),
+                new ItemStack(BlocksTC.vishroom),
+                new ItemStack(BlocksTC.lampGrowth),
+                new ItemStack(Items.NETHER_STAR)));
+         */
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "IchoriumFortressHelm"), new InfusionRecipe(
+                "TT_ICHORIUM_FORTRESS",
+                new ItemStack(ModItems.ichorium_fortress_helmet),
                 13,
                 new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 40).add(Aspect.ENERGY, 50),
                 new ItemStack(ItemsTC.fortressHelm, 1, 32767),
-                "ingotChlorophyte",
-                "ingotChlorophyte",
+                "ingotIchorium",
+                "ingotIchorium",
                 new ItemStack(Items.GOLD_INGOT),
                 new ItemStack(Items.GOLD_INGOT),
                 new ItemStack(Items.EMERALD)));
 
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ChlorophyteFortressChest"), new InfusionRecipe(
-                "TT_CHLOROPHYTE",
-                new ItemStack(ModItems.chlorophyte_chestplate),
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "IchoriumFortressChest"), new InfusionRecipe(
+                "TT_ICHORIUM_FORTRESS",
+                new ItemStack(ModItems.ichorium_fortress_chestplate),
                 13, new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 60).add(Aspect.ENERGY, 50),
                 new ItemStack(ItemsTC.fortressChest, 1, 32767),
-                "ingotChlorophyte",
-                "ingotChlorophyte",
-                "ingotChlorophyte",
-                "ingotChlorophyte",
+                "ingotIchorium",
+                "ingotIchorium",
+                "ingotIchorium",
+                "ingotIchorium",
                 new ItemStack(Items.GOLD_INGOT),
                 "leather"));
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ChlorophyteFortressLegs"), new InfusionRecipe(
-                "TT_CHLOROPHYTE",
-                new ItemStack(ModItems.chlorophyte_leggings),
+        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "IchoriumFortressLegs"), new InfusionRecipe(
+                "TT_ICHORIUM_FORTRESS",
+                new ItemStack(ModItems.ichorium_fortress_leggings),
                 13,
                 new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 50).add(Aspect.ENERGY, 50),
                 new ItemStack(ItemsTC.fortressLegs, 1, 32767),
-                "ingotChlorophyte",
-                "ingotChlorophyte",
-                "ingotChlorophyte",
+                "ingotIchorium",
+                "ingotIchorium",
+                "ingotIchorium",
                 new ItemStack(Items.GOLD_INGOT),
                 "leather"));
 
-        Item[] stacks = new Item[]{ModItems.chlorophyte_helmet, ModItems.chlorophyte_chestplate, ModItems.chlorophyte_leggings};
+        Item[] stacks = new Item[]{ModItems.ichorium_fortress_helmet, ModItems.ichorium_fortress_chestplate, ModItems.ichorium_fortress_leggings};
 
         for (Item item : stacks) {
             addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "air_upgrade" + item.getTranslationKey()), new InfusionRecipe(

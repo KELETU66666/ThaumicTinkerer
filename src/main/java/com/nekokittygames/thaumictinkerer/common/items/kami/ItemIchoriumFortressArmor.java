@@ -1,7 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.items.Kami;
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
-import com.nekokittygames.thaumictinkerer.client.ModelChlorophyteArmor;
+import com.nekokittygames.thaumictinkerer.client.ModelIchoriumFortressArmor;
 import com.nekokittygames.thaumictinkerer.common.items.CustomArmorHelper;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
@@ -29,21 +29,21 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 import thaumcraft.api.items.IGoggles;
-import thaumcraft.api.items.IVisDiscountGear;
+import thaumcraft.api.items.IWarpingGear;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.codechicken.lib.vec.Vector3;
 import thaumcraft.common.lib.events.PlayerEvents;
 
 import java.util.List;
 
-public class ItemChlorophyteArmor extends ItemArmor implements IGoggles, ISpecialArmor, IVisDiscountGear {
+public class ItemIchoriumFortressArmor extends ItemArmor implements IGoggles, ISpecialArmor, IWarpingGear {
 
     ModelBiped model1;
     ModelBiped model2;
     ModelBiped model;
-    private final int[] discounts = new int[]{0, 0, 3, 4, 4, 4};
+    private final int[] warps = new int[]{0, 0, 2, 3, 3, 2};
 
-    public ItemChlorophyteArmor(String name, ArmorMaterial armorMaterial, int renderIndex, EntityEquipmentSlot armorSlot) {
+    public ItemIchoriumFortressArmor(String name, ArmorMaterial armorMaterial, int renderIndex, EntityEquipmentSlot armorSlot) {
         super(armorMaterial, renderIndex, armorSlot);
         model1 = null;
         model2 = null;
@@ -56,8 +56,7 @@ public class ItemChlorophyteArmor extends ItemArmor implements IGoggles, ISpecia
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-
-        if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ItemChlorophyteArmor && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ItemChlorophyteArmor && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ItemChlorophyteArmor) {
+        if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ItemIchoriumFortressArmor && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ItemIchoriumFortressArmor && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ItemIchoriumFortressArmor) {
             if (player.ticksExisted % 200 == 0 && player.world.isDaytime() && player.world.canBlockSeeSky(new BlockPos(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ)))) {
                 if(!player.world.isDaytime() && !(itemStack.getTagCompound() != null && itemStack.getTagCompound().getByte("kami_upgrade") == 4))
                     return;
@@ -119,7 +118,7 @@ public class ItemChlorophyteArmor extends ItemArmor implements IGoggles, ISpecia
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (stack.hasTagCompound() && stack.getTagCompound().hasKey("kami_upgrade")) {
-            tooltip.add(TextFormatting.GOLD + I18n.format("item.chlorophyte.upgrade." + stack.getTagCompound().getInteger("kami_upgrade")));
+            tooltip.add(TextFormatting.GOLD + I18n.format("item.ichorium_fortress.upgrade." + stack.getTagCompound().getInteger("kami_upgrade")));
         }
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
@@ -190,16 +189,16 @@ public class ItemChlorophyteArmor extends ItemArmor implements IGoggles, ISpecia
     }
 
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        return "thaumictinkerer:textures/models/armor/chlorophyte_armor.png";
+        return "thaumictinkerer:textures/models/armor/ichorium_fortress_armor.png";
     }
 
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
         if (model1 == null) {
-            model1 = new ModelChlorophyteArmor(1.0f);
+            model1 = new ModelIchoriumFortressArmor(1.0f);
         }
         if (model2 == null) {
-            model2 = new ModelChlorophyteArmor(0.5f);
+            model2 = new ModelIchoriumFortressArmor(0.5f);
         }
         return model = CustomArmorHelper.getCustomArmorModel(entityLiving, itemStack, armorSlot, model, model1, model2);
     }
@@ -220,7 +219,7 @@ public class ItemChlorophyteArmor extends ItemArmor implements IGoggles, ISpecia
     }
 
     @Override
-    public int getVisDiscount(ItemStack itemStack, EntityPlayer entityPlayer) {
-        return discounts[armorType.ordinal()];
+    public int getWarp(ItemStack itemStack, EntityPlayer entityPlayer) {
+        return warps[armorType.ordinal()];
     }
 }

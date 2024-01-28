@@ -561,48 +561,30 @@
       ]
     },
     {
-      "key": "TT_CHLOROPHYTE",
-      "name": "thaumictinkerer.research.chlorophyte.title",
+      "key": "TT_ICHORIUM_FORTRESS",
+      "name": "thaumictinkerer.research.ichorium_fortress.title",
       "category": "THAUMIC_TINKERER",
       "icons": [
-        "thaumictinkerer:kamiresource;1;6"
+        "thaumictinkerer:ichorium_fortress_helmet"
       ],
-      "parents": [
-        "ESSENTIATRANSPORT","IMPROVEDSMELTING2","POTIONSPRAYER", "SANESOAP", "LIQUIDDEATH", "BOTTLETAINT", "ARCANESPA", "EVERFULLURN", "METALPURIFICATION", "POTIONSPRAYER",
-        "FOCUSADVANCED", "FOCUSPLAN", "FOCUSRIFT", "FOCUSSPLIT", "RECHARGEPEDESTAL", "VISAMULET", "WORKBENCHCHARGER", "FOCUSPOUCH",
-        "INFUSIONBOOST", "RUNICSHIELDING", "FORTRESSMASK", "VERDANTCHARMS", "CURIOSITYBAND", "PAVINGSTONES",
-        "JARBRAIN", "GOLEMLOGISTICS", "GOLEMVISION", "GOLEMFLYER", "GOLEMCOMBATADV", "SEALLUMBER", "SEALHARVEST", "SEALBUTCHER","SEALSTORE",
-        "FLUXCLEANUP", "RIFTCLOSER",
-        "~LEVITATOR", "~BELLOWS", "~MIRRORHAND", "~MIRRORESSENTIA", "~LAMPGROWTH",  "~LAMPFERTILITY", "~ARCANEPATTERNCRAFTER", "~ARCANEBORE", "~ADVANCEDTURRET", "~GRAPPLEGUN", "~VISGENERATOR"
-      ],"meta":["ROUND"],
+      "parents": ["TT_ICHOR"],
       "location": [
-        3,
-        5
+        6,
+        1
       ],
       "stages": [
         {
-          "text": "thaumictinkerer.research.chlorophyte.text",
-          "required_craft": [
-            "thaumictinkerer:kamiresource;1;6"
-          ],
+          "text": "thaumictinkerer.research.ichorium_fortress.text",
           "required_knowledge": [
             "THEORY;BASICS;2","THEORY;ARTIFICE;1","THEORY;ALCHEMY;1","THEORY;INFUSION;1","THEORY;AUROMANCY;1"
           ],
-          "recipes": ["thaumictinkerer:chlorophyte_ore","thaumictinkerer:chlorophyte_nugget_to_ingot","thaumictinkerer:chlorophyte_ingot_to_nugget"]
-        },
-        {
-          "text": "thaumictinkerer.research.chlorophyte.text.2",
-          "required_item": [
-            "thaumictinkerer:kamiresource;1;6"
-          ],
           "required_craft": [
             "thaumcraft:fortress_helm","thaumcraft:fortress_chest","thaumcraft:fortress_legs"
-          ],
-          "recipes": ["thaumictinkerer:chlorophyte_ore","thaumictinkerer:chlorophyte_nugget_to_ingot","thaumictinkerer:chlorophyte_ingot_to_nugget"]
+          ]
         },
         {
-          "text": "thaumictinkerer.research.chlorophyte.complete.text",
-          "recipes": ["thaumictinkerer:chlorophyte_ore","thaumictinkerer:chlorophyte_nugget_to_ingot","thaumictinkerer:chlorophyte_ingot_to_nugget","thaumictinkerer:ChlorophyteFortressHelm","thaumictinkerer:ChlorophyteFortressChest","thaumictinkerer:ChlorophyteFortressLegs"]
+          "text": "thaumictinkerer.research.ichorium_fortress.complete.text",
+          "recipes": ["thaumictinkerer:IchoriumFortressHelm","thaumictinkerer:IchoriumFortressChest","thaumictinkerer:IchoriumFortressLegs"]
         }
       ]
     }

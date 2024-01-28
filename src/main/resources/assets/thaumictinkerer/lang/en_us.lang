@@ -8,9 +8,9 @@ item.thaumictinkerer:share_book.0=A Goldfish's Diary
 item.thaumictinkerer:black_quartz.name=Smokey Quartz
 item.thaumictinkerer:connector.name=Transvector Binder
 
-item.chlorophyte_helmet.name=Chlorophyte Mask
-item.chlorophyte_chestplate.name=Chlorophyte Plate Mail
-item.chlorophyte_leggings.name=Chlorophyte Greaves
+item.ichorium_fortress_helmet.name=Ichorium Fortress Mask
+item.ichorium_fortress_chestplate.name=Ichorium Fortress Plate Mail
+item.ichorium_fortress_leggings.name=Ichorium Fortress Greaves
 
 tile.thaumictinkerer:chlorophyte_ore.name=Chlorophyte Ore
 
@@ -32,8 +32,6 @@ item.thaumictinkerer:kamiresource.2.name=Ichor
 item.thaumictinkerer:kamiresource.3.name=Ichorium Ingot
 item.thaumictinkerer:kamiresource.4.name=Ichor Cloth
 item.thaumictinkerer:kamiresource.5.name=Ichorium Nugget
-item.thaumictinkerer:kamiresource.6.name=Chlorophyte Ingot
-item.thaumictinkerer:kamiresource.7.name=Chlorophyte Nugget
 
 item.thaumictinkerer:block_talisman.name=Black Hole Ring
 item.thaumictinkerer:cat_amulet.name=Feline Amulet
@@ -219,10 +217,9 @@ thaumictinkerer.research.energetic_nitor.title=Hyperenergetic Nitor
 thaumictinkerer.research.energetic_nitor.0=One cannot deny the Nitor is useful. However, having to place it down before I see anything is annoying. I wonder, could I somehow make it visible from my palm if I were to make it more energetic?
 thaumictinkerer.research.energetic_nitor.1=Adding in more Energy and Light Essentia seems to have done the trick. I have managed to create a more powerful nitor - this Hyperenergetic Nitor burns with a visible light from my hand, so much so that it will even leave a trail as I move.
 
-thaumictinkerer.research.chlorophyte.title=Chlorophyte
-thaumictinkerer.research.chlorophyte.text=[WIP]
-thaumictinkerer.research.chlorophyte.text.2=[WIP]
-thaumictinkerer.research.chlorophyte.complete.text=[WIP]
+thaumictinkerer.research.ichorium_fortress.title=Ichorium Fortress Armor
+thaumictinkerer.research.ichorium_fortress.text=[WIP]
+thaumictinkerer.research.ichorium_fortress.complete.text=[WIP]
 
 thaumictinkerer.research.dimensionalshard.title=Dimensional Shards
 thaumictinkerer.research.dimensionalshard.text=Thaumaturges of the Fourth Age spoke of a mythical substance called "Ichor", able to forge some of the most powerful Tools and Armor available to any Thaumaturge who could manage to create it.<BR>I had thought this process was impossible to replicate, until i discovered that whatever Dimensional Shards were being described in the scraps of Research i found seem to still exist. Supposedly, they suddenly stopped coalescing for Thaumaturges late into the Fourth Age, and yet, somehow, they have returned in modern times...<BR>I should gather a sample of these Shards to see if Ichor can be replicated nowadays.
@@ -332,12 +329,12 @@ enchantment.shatter=Shatter
 enchantment.tunnel=Tunnel
 enchantment.autosmelt=Auto Smelt
 
-item.chlorophyte.upgrade.0=§bAqua
-item.chlorophyte.upgrade.1=§eAer
-item.chlorophyte.upgrade.2=§gIgnis
-item.chlorophyte.upgrade.3=§aTerra
-item.chlorophyte.upgrade.4=§fOrdo
-item.chlorophyte.upgrade.5=§hPerditio
+item.ichorium_fortress.upgrade.0=§bAqua
+item.ichorium_fortress.upgrade.1=§eAer
+item.ichorium_fortress.upgrade.2=§gIgnis
+item.ichorium_fortress.upgrade.3=§aTerra
+item.ichorium_fortress.upgrade.4=§fOrdo
+item.ichorium_fortress.upgrade.5=§hPerditio
 #Misc
 
 ttmisc.differentDim=Different Dimension
