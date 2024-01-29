@@ -59,6 +59,8 @@ tile.thaumictinkerer:enchantment_pillar.name=Enchanting Pillar
 tile.thaumictinkerer:black_quartz_block.name=Black Quartz Block
 tile.thaumictinkerer:example.name=Placeholder Block
 tile.thaumictinkerer:ichor_block.name=Ichor Block
+tile.thaumictinkerer:summoner.name=Tablet of Necromancy
+
 tile.bedrock_portal.name=Bedrock Portal
 
 item.ichorium_sword.name=Ichorium Sword
@@ -191,6 +193,10 @@ thaumictinkerer.research.revealing_helm.complete.text==As it turns out, goggles 
 thaumictinkerer.research.cleanser.title=Talisman of Remidium
 thaumictinkerer.research.cleanser.0=The undead practitioners of the other, older type of magic get annoying. Those poison potions they fling about don't seem to be the normal kind of magic. It starts to make you wonder though, what could you do if you got hold of one of theese, potions, and researched it?
 thaumictinkerer.research.cleanser.1=The undead practitioners of the other, older type of magic get annoying. Those poison potions they fling about don't seem to be the normal kind of magic. It starts to make you wonder though, what could you do if you got hold of one of theese, potions, and researched it? <BR> After a few days grueling work you come up with a new Talisman. While you couldn't yet reproduce the effects of the potions with true magic, you were able to create a talisman that wipes away the potion effects off of yourself at the cost of your durability.<BR> You just activate it, and place it upon yourself as an amulet, and everytime you come across a potion effect, it will clear it at the cost of itself. It seems to even work against some true magic effects, though at greater cost to itself.
+
+thaumictinkerer.research.summoning.title=Mob Summoning
+thaumictinkerer.research.summoning.0=You are able to use the souls gained from a Cursed spirits blade in order to summon mobs. Place three pedestals around a Tablet of Necromancy. On the pedestals, place three soul aspects. Different types of soul aspects give different types of mobs. Every mob has a different composition.
+thaumictinkerer.research.summoning.1=You are able to use the souls gained from a Cursed spirits blade in order to summon mobs. Place three pedestals around a Tablet of Necromancy. On the pedestals, place three soul aspects. Different types of soul aspects give different types of mobs. Every mob has a different composition. By creating Infused Soul Aspects, you are able to summon mobs without consuming Soul Aspects. Summoning using Infused Soul Aspects is much slower than normal.
 
 thaumictinkerer.research.gases.title=Gaseous
 thaumictinkerer.research.gases.0=You have studied life and the body and found that through the application of magic you can protect yourself from harmful outside influences by redirecting these effects to a construct.

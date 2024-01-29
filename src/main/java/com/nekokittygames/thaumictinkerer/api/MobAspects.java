@@ -21,6 +21,7 @@ import thaumcraft.common.entities.monster.EntityWisp;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class MobAspects {
     private static  final HashMap<Class<?>,MobAspect> aspects=new HashMap<>();
@@ -45,8 +46,8 @@ public class MobAspects {
         putAspect(EntityHorse.class,"Horse",new AspectList().add(Aspect.BEAST,2).add(Aspect.AIR,1));
         putAspect(EntityIronGolem.class,"VillagerGolem",new AspectList().add(Aspect.METAL,2).add(Aspect.MAN,1),0.3f,0.0f);
         putSlimeAspect(EntityMagmaCube.class,"LavaSlime",new AspectList().add(Aspect.FIRE,1).add(Aspect.WATER,2));
-        putAspect(EntityMooshroom.class, "MushroomCow",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.PLANT,1));
-        putAspect(EntityOcelot.class,"Ozelot",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.ELDRITCH,1));
+        putAspect(EntityMooshroom.class, "Mooshroom",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.PLANT,1));
+        putAspect(EntityOcelot.class,"Ocelot",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.ELDRITCH,1));
         putAspect(EntityPig.class,"Pig",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.MOTION,1));
         putAspect(EntityPigZombie.class, "PigZombie",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.BEAST,1).add(Aspect.FIRE,1));
         putAspect(EntitySheep.class,"Sheep",new AspectList().add(Aspect.EARTH,2).add(Aspect.BEAST,1));
@@ -86,13 +87,23 @@ public class MobAspects {
     public static MobAspect getByAspects(AspectList aspectList) {
         for(MobAspect mobAspect2: aspects.values()) {
             AspectList checkAspects = mobAspect2.getAspects();
+
             boolean same = true;
+
             for (Aspect aspect : aspectList.getAspects()) {
                 if (checkAspects.getAmount(aspect) != aspectList.getAmount(aspect))
                     same = false;
             }
-            if (same)
-                return mobAspect2;
+            if (same) {
+                if (aspectList.getAspects().length == 1 && aspectList.getAmount(aspectList.getAspects()[0]) == 3)
+                    return mobAspect2;
+                else if (aspectList.getAspects().length == 2 && (aspectList.getAmount(aspectList.getAspects()[0]) == 2 || aspectList.getAmount(aspectList.getAspects()[1]) == 2))
+                    return mobAspect2;
+                else if (aspectList.getAspects().length == 3)
+                    return mobAspect2;
+                else
+                    return null;
+            }
         }
         return null;
     }

@@ -54,7 +54,7 @@ public class TileEntitySummon extends TileEntityThaumicTinkerer implements ITick
             for (int x = pos.getX() - radius; x < pos.getX() + radius; x++) {
                 for (int z = pos.getZ() - radius; z < pos.getZ() + radius; z++) {
                     TileEntity tile = world.getTileEntity(new BlockPos(x, pos.getY(), z));
-                    if (!pedastels.contains(tile) && tile instanceof TilePedestal && ((TilePedestal) tile).getStackInSlot(0) != null && ((TilePedestal) tile).getStackInSlot(0).getItem() instanceof ItemMobAspect) {
+                    if (!pedastels.contains(tile) && tile instanceof TilePedestal && ((TilePedestal) tile).getStackInSlot(0) != ItemStack.EMPTY && ((TilePedestal) tile).getStackInSlot(0).getItem() instanceof ItemMobAspect) {
                             pedastels.add((TilePedestal) tile);
                     }
                 }

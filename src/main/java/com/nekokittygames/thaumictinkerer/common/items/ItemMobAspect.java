@@ -90,6 +90,9 @@ public class ItemMobAspect extends TTItem {
     }
 
     public static Aspect getAspectType(ItemStack stack) {
+        if(stack == ItemStack.EMPTY)
+            return null;
+
         NBTTagCompound cmp=stack.getTagCompound();
         if(cmp==null)
             return null;

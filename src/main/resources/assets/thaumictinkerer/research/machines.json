@@ -198,19 +198,16 @@
       "parents": [
         "TT_CLEANING_TALISMAN"
       ],
-      "siblings": [],
       "meta": [
       ],
       "location": [
         -3,
-        2
+        4
       ],
       "stages": [
         {
           "text": "thaumictinkerer.research.summoning.0",
-          "required_item": [
-            "minecraft:potion;1"
-          ]
+          "required_knowledge":["THEORY;THAUMIC_TINKERER;1","THEORY;INFUSION;1"]
         },
         {
           "text": "thaumictinkerer.research.summoning.1",

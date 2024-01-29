@@ -15,8 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockSummon extends TTTileEntity {
-    public static final AxisAlignedBB AXIS_ALIGNED_BB=new AxisAlignedBB(0.0f,0.0f,0.0f,1.0f,(1f/16f)*2f,1.0f);
+public class BlockSummon extends TTTileEntity<TileEntitySummon> {
     public BlockSummon() {
         super(LibBlockNames.SUMMONER,Material.ROCK,true);
     }
@@ -41,13 +40,12 @@ public class BlockSummon extends TTTileEntity {
         return false;
     }
 
-    @Override
-    public AxisAlignedBB getBoundingBox(IBlockState p_185496_1_, IBlockAccess p_185496_2_, BlockPos p_185496_3_) {
-        return AXIS_ALIGNED_BB;
+    public boolean isFullBlock(IBlockState p_isFullCube_1_) {
+        return false;
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState p_185496_1_, IBlockAccess p_185496_2_, BlockPos p_185496_3_) {
-        return AXIS_ALIGNED_BB;
+    public AxisAlignedBB getBoundingBox(IBlockState p_185496_1_, IBlockAccess p_185496_2_, BlockPos p_185496_3_) {
+        return new AxisAlignedBB(0.0f,0.0f,0.0f,1.0f,(1f/16f)*2f,1.0f);
     }
 }
