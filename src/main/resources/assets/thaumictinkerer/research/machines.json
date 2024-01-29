@@ -192,7 +192,7 @@
       "key": "TT_SUMMONING",
       "name": "thaumictinkerer.research.summoning.title",
       "icons": [
-        "thaumictinkerer:transvector_interface"
+        "thaumictinkerer:summoner"
       ],
       "category": "THAUMIC_TINKERER",
       "parents": [
@@ -212,7 +212,7 @@
         {
           "text": "thaumictinkerer.research.summoning.1",
           "recipes": [
-            "thaumictinkerer:blood_sword"
+            "thaumictinkerer:blood_sword", "thaumictinkerer:summoner"
           ]
         }
       ]

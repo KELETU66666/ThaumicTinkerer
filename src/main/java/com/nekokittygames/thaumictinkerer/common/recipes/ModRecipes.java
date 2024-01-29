@@ -264,6 +264,16 @@ public class ModRecipes {
                 "C C",
                 "C C",
                 'C', new ItemStack(ModItems.kamiresource,1,4)));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "summoner"), new ShapedArcaneRecipe(
+                defaultGroup,
+                "TT_SUMMONING",
+                150,
+                new AspectList().add(Aspect.AIR, 1).add(Aspect.WATER, 1).add(Aspect.ORDER, 1).add(Aspect.EARTH, 1).add(Aspect.FIRE, 1).add(Aspect.ENTROPY, 1),
+                new ItemStack(ModBlocks.summoner),
+                "AAA",
+                "OOO",
+                'A', new ItemStack(BlocksTC.stoneArcane),
+                'O', new ItemStack(Blocks.OBSIDIAN)));
     }
 
     private static void initializeInfusionRecipes() {
