@@ -1,9 +1,10 @@
 package com.nekokittygames.thaumictinkerer.common.items.Kami;
 
 import com.nekokittygames.thaumictinkerer.client.misc.ModelWings;
-import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
+import com.nekokittygames.thaumictinkerer.common.items.ItemEnergeticNitor;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,8 +21,8 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -36,10 +37,12 @@ import thaumcraft.common.lib.events.PlayerEvents;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.WeakHashMap;
 
 public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
 
-    public static List<String> playersWith1Step = new ArrayList();
+    public static List<String> playersWith1Step = new ArrayList<>();
+    private static final WeakHashMap<EntityLivingBase, Object> armorModels = new WeakHashMap<>();
 
     public ItemKamiArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(name, materialIn, renderIndexIn, equipmentSlotIn);
@@ -89,6 +92,24 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
             player.world.setBlockState(player.getPosition().down(), Blocks.GRASS.getDefaultState(), 2);
     }
 
+    private void setNearBrightNitor(EntityPlayer player) {
+
+        int x = (int) Math.floor(player.posX);
+        int y = (int) player.posY + 1;
+        int z = (int) Math.floor(player.posZ);
+
+        float yaw = MathHelper.wrapDegrees(player.rotationYaw + 90F) * (float) Math.PI / 180F;
+        Vector3 lookVector = new Vector3(Math.cos(yaw), Math.sin(yaw), 0).normalize();
+        Vector3 newVector = new Vector3(lookVector.x, lookVector.y, 0);
+
+        for (int i = 0; i < 5; i++) {
+            newVector = newVector.add(lookVector);
+
+            int x1 = x + (int) newVector.x;
+            int z1 = z + (int) newVector.y;
+            ItemEnergeticNitor.setBlock(new BlockPos(x1, y, z1), player.world);
+        }
+    }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
@@ -143,6 +164,7 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
                             player.extinguish();
                         }
                     }
+                    setNearBrightNitor(player);
                 }
             }
             break;
@@ -168,7 +190,7 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
     @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
-        return armorType == EntityEquipmentSlot.CHEST ? new ModelWings() :null;
+        return (ModelWings) armorModels.computeIfAbsent(entityLiving, ignored -> new ModelWings());
     }
 
     @Override
@@ -207,26 +229,11 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (stack.getItemDamage() == 1) {
             tooltip.add(TextFormatting.RED +
-                    I18n.translateToLocal("tip.awakenarmor.name1"));
+                    I18n.format("tip.awakenarmor.name1"));
         } else {
             tooltip.add(TextFormatting.DARK_GREEN +
-                    I18n.translateToLocal("tip.awakenarmor.name0"));
+                    I18n.format("tip.awakenarmor.name0"));
         }
         super.addInformation(stack, worldIn, tooltip, flagIn);
-    }
-
-    public void setBlock(BlockPos pos, World world, EntityPlayer player) {
-        ItemStack itemStack = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-        if ((world.isAirBlock(pos) || world.getBlockState(pos).equals(ModBlocks.nitor_vapor.getDefaultState())) && !world.isRemote && itemStack.getItem() instanceof ItemKamiArmor && itemStack.getItemDamage() != 1) {
-            world.setBlockState(pos, ModBlocks.nitor_vapor.getDefaultState());
-        }
-    }
-
-    @Override
-    public void onUpdate(ItemStack par1ItemStack, World world, Entity entity, int par4, boolean par5) {
-        if (entity instanceof EntityPlayer && par1ItemStack.getItemDamage() != 1) {
-            BlockPos pos = new BlockPos(entity.posX, entity.posY, entity.posZ).up();
-            setBlock(pos, world, (EntityPlayer) entity);
-        }
     }
 }
