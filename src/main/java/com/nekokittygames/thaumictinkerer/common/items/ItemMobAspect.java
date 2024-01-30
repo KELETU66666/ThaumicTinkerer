@@ -5,7 +5,6 @@
 package com.nekokittygames.thaumictinkerer.common.items;
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
-import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,6 +15,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.aspects.IEssentiaContainerItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -23,7 +24,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class ItemMobAspect extends TTItem {
+public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
     public static String ASPECT_NAME="aspectName";
     public ItemMobAspect(String name) {
         super(name);
@@ -98,5 +99,25 @@ public class ItemMobAspect extends TTItem {
             return null;
         String aspectName=cmp.getString(ASPECT_NAME);
         return Aspect.getAspect(aspectName);
+    }
+
+    public AspectList getAspects(ItemStack itemstack) {
+        if (itemstack.hasTagCompound()) {
+            AspectList aspects = new AspectList();
+            aspects.readFromNBT(itemstack.getTagCompound());
+            return (aspects.size() > 0) ? aspects : null;
+        }
+        return null;
+    }
+
+    public void setAspects(ItemStack itemstack, AspectList aspects) {
+        if (!itemstack.hasTagCompound())
+            itemstack.setTagCompound(new NBTTagCompound());
+        aspects.writeToNBT(itemstack.getTagCompound());
+    }
+
+    @Override
+    public boolean ignoreContainedAspects() {
+        return false;
     }
 }
