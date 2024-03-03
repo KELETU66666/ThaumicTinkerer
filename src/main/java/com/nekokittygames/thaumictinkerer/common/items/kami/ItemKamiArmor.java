@@ -190,7 +190,7 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
     @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
-        return (ModelWings) armorModels.computeIfAbsent(entityLiving, ignored -> new ModelWings());
+        return armorSlot == EntityEquipmentSlot.CHEST ? (ModelWings) armorModels.computeIfAbsent(entityLiving, ignored -> new ModelWings()) : super.getArmorModel(entityLiving, itemStack, armorSlot, _default);
     }
 
     @Override
