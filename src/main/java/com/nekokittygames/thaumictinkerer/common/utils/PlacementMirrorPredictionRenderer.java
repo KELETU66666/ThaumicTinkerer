@@ -2,10 +2,10 @@
  * This class was created by <Vazkii>. It's distributed as
  * part of the Botania Mod. Get the Source Code in github:
  * https://github.com/Vazkii/Botania
- * 
+ *
  * Botania is Open Source and distributed under the
  * Botania License: http://botaniamod.net/license.php
- * 
+ *
  * File Created @ [27/10/2016, 17:55:20 (GMT)]
  */
 package com.nekokittygames.thaumictinkerer.common.utils;
@@ -62,8 +62,9 @@ public final class PlacementMirrorPredictionRenderer {
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
 			for(BlockPos coord : coords)
-				renderBlockAt(block, meta, coord);
-			
+				if(stack != ItemStack.EMPTY)
+					renderBlockAt(block, meta, coord);
+
 			ShaderHelper.releaseShader();
 			GL11.glPopMatrix();
 		}
@@ -79,7 +80,7 @@ public final class PlacementMirrorPredictionRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(-renderPosX, -renderPosY, -renderPosZ);
 		GlStateManager.disableDepth();
-		
+
 		GlStateManager.pushMatrix();
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
