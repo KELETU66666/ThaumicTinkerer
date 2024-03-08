@@ -11,9 +11,9 @@
 package com.nekokittygames.thaumictinkerer.common.utils;
 
 import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemPlacementMirror;
+import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.GlStateManager;
@@ -28,7 +28,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import org.lwjgl.opengl.GL11;
-import thaumcraft.client.lib.ender.ShaderHelper;
 
 import java.util.List;
 
@@ -54,24 +53,26 @@ public final class PlacementMirrorPredictionRenderer {
 	private static void renderPlayerLook(EntityPlayer player, ItemStack stack) {
 		BlockPos[] coords = ItemPlacementMirror.getBlocksToPlace(stack, player);
 		if (ItemPlacementMirror.hasBlocks(stack, player, coords)) {
-			Block block = ItemPlacementMirror.getBlock(stack);
-			int meta = ItemPlacementMirror.getBlockMeta(stack);
+			ItemStack block = new ItemStack(
+					ItemPlacementMirror.getBlock(stack),
+					1,
+					ItemPlacementMirror.getBlockMeta(stack));
+			BlockPos lastCoords = new BlockPos(0, 0, 0);
 
 			GL11.glPushMatrix();
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-			for(BlockPos coord : coords)
-				if(stack != ItemStack.EMPTY)
-					renderBlockAt(block, meta, coord);
-
-			ShaderHelper.releaseShader();
+			for (BlockPos coord : coords) {
+				renderBlockAt(block, coord, lastCoords);
+				lastCoords = coord;
+			}
 			GL11.glPopMatrix();
 		}
 	}
 
-	private static void renderBlockAt(Block block, int meta, BlockPos pos) {
-		IBlockState state = block.getStateFromMeta(meta);
+	private static void renderBlockAt(ItemStack block, BlockPos pos, BlockPos last) {
+		if (block == ItemStack.EMPTY) return;
 
 		double renderPosX = Minecraft.getMinecraft().getRenderManager().renderPosX;
 		double renderPosY = Minecraft.getMinecraft().getRenderManager().renderPosY;
@@ -89,7 +90,7 @@ public final class PlacementMirrorPredictionRenderer {
 		BlockRendererDispatcher brd = Minecraft.getMinecraft().getBlockRendererDispatcher();
 		GlStateManager.translate(pos.getX(), pos.getY(), pos.getZ() + 1);
 		GlStateManager.color(1, 1, 1, 1);
-		brd.renderBlockBrightness(state, 1.0F);
+		brd.renderBlockBrightness(Block.getBlockFromItem(block.getItem()).getStateFromMeta(block.getItemDamage()), 1.0F);
 
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		GlStateManager.enableDepth();
