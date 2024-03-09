@@ -513,22 +513,6 @@ public class ModRecipes {
                 new ItemStack(ModItems.kamiresource),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(Items.FEATHER)));
-        /*
-        ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "chlorophyte_ore"), new InfusionRecipe(
-                "TT_CHLOROPHYTE@0",
-                new ItemStack(ModBlocks.chlorophyte_ore),
-                8,
-                new AspectList().add(Aspect.PLANT, 250).add(Aspect.METAL, 250).add(Aspect.CRAFT, 125),
-                new ItemStack(Blocks.EMERALD_ORE),
-                new ItemStack(BlocksTC.lampGrowth),
-                new ItemStack(BlocksTC.shimmerleaf),
-                new ItemStack(BlocksTC.lampGrowth),
-                new ItemStack(BlocksTC.cinderpearl),
-                new ItemStack(BlocksTC.lampGrowth),
-                new ItemStack(BlocksTC.vishroom),
-                new ItemStack(BlocksTC.lampGrowth),
-                new ItemStack(Items.NETHER_STAR)));
-         */
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "IchoriumFortressHelm"), new InfusionRecipe(
                 "TT_ICHORIUM_FORTRESS",
                 new ItemStack(ModItems.ichorium_fortress_helmet),
@@ -570,31 +554,39 @@ public class ModRecipes {
             addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "air_upgrade" + item.getTranslationKey()), new InfusionRecipe(
                     "",
                     new Object[]{"kami_upgrade", new NBTTagByte((byte) 1)},
-                    1, new AspectList().add(Aspect.AIR, 1),
+                    1, new AspectList().add(Aspect.AIR, 125),
                     item,
-                    new ItemStack(Items.FEATHER),
-                    new ItemStack(Items.FEATHER)));
+                    new ItemStack(Items.ELYTRA),
+                    new ItemStack(ModItems.kamiresource, 1 , 4),
+                    new ItemStack(Items.NETHER_STAR),
+                    new ItemStack(ModItems.kamiresource, 1 , 4)));
             addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "water_upgrade" + item.getTranslationKey()), new InfusionRecipe(
                     "",
                     new Object[]{"kami_upgrade", new NBTTagByte((byte) 0)},
-                    1, new AspectList().add(Aspect.WATER, 1),
+                    1, new AspectList().add(Aspect.WATER, 125),
                     item,
-                    new ItemStack(Items.SNOWBALL),
-                    new ItemStack(Items.SNOWBALL)));
+                    new ItemStack(BlocksTC.everfullUrn),
+                    new ItemStack(ModItems.kamiresource, 1 , 4),
+                    new ItemStack(Items.NETHER_STAR),
+                    new ItemStack(ModItems.kamiresource, 1 , 4)));
             addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "fire_upgrade" + item.getTranslationKey()), new InfusionRecipe(
                     "",
                     new Object[]{"kami_upgrade", new NBTTagByte((byte) 2)},
-                    1, new AspectList().add(Aspect.FIRE, 1),
+                    1, new AspectList().add(Aspect.FIRE, 125),
                     item,
-                    new ItemStack(Items.FLINT),
-                    new ItemStack(Items.FLINT)));
+                    new ItemStack(ModItems.energetic_nitor),
+                    new ItemStack(ModItems.kamiresource, 1 , 4),
+                    new ItemStack(Items.NETHER_STAR),
+                    new ItemStack(ModItems.kamiresource, 1 , 4)));
             addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "earth_upgrade" + item.getTranslationKey()), new InfusionRecipe(
                     "",
                     new Object[]{"kami_upgrade", new NBTTagByte((byte) 3)},
-                    1, new AspectList().add(Aspect.EARTH, 1),
+                    1, new AspectList().add(Aspect.EARTH, 125),
                     item,
-                    new ItemStack(Items.APPLE),
-                    new ItemStack(Items.APPLE)));
+                    new ItemStack(BlocksTC.grassAmbient),
+                    new ItemStack(ModItems.kamiresource, 1 , 4),
+                    new ItemStack(Items.NETHER_STAR),
+                    new ItemStack(ModItems.kamiresource, 1 , 4)));
         }
         for(Aspect aspect: Aspect.aspects.values()) {
             ItemStack output=new ItemStack(ModItems.condensed_mob_aspect);

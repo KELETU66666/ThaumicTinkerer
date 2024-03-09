@@ -162,6 +162,9 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     }
 
     public void appendEnchant(int enchant) {
+        if(enchantments.contains(enchant))
+            return;
+
         enchantments.add(enchant);
         refreshEnchants();
         sendUpdates();
