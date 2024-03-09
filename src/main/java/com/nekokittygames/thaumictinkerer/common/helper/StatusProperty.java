@@ -4,7 +4,6 @@
 
 package com.nekokittygames.thaumictinkerer.common.helper;
 
-import static com.nekokittygames.thaumictinkerer.common.libs.LibMisc.MOD_ID;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
@@ -13,6 +12,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import static com.nekokittygames.thaumictinkerer.common.libs.LibMisc.MOD_ID;
 
 public class StatusProperty  implements IItemPropertyGetter {
 

@@ -2,7 +2,6 @@ package com.nekokittygames.thaumictinkerer.common.tileentity;
 
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
-import static com.nekokittygames.thaumictinkerer.common.helper.OreDictHelper.oreDictCheck;
 import com.nekokittygames.thaumictinkerer.common.helper.Tuple4Int;
 import com.nekokittygames.thaumictinkerer.common.libs.LibOreDict;
 import net.minecraft.block.material.MapColor;
@@ -45,6 +44,8 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static com.nekokittygames.thaumictinkerer.common.helper.OreDictHelper.oreDictCheck;
 
 public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements ITickable, IInventory {
     private static final ResourceLocation MULTIBLOCK_LOCATION = new ResourceLocation("thaumictinkerer", "osmotic_enchanter");

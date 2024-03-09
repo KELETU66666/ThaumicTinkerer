@@ -2,7 +2,6 @@ package com.nekokittygames.thaumictinkerer.common.blocks;
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityMagnet;
-import static net.minecraft.block.BlockPistonBase.getFacing;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
@@ -19,6 +18,8 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
+
+import static net.minecraft.block.BlockPistonBase.getFacing;
 
 public abstract class BlockMagnet<T extends TileEntityMagnet> extends TTTileEntity<T>  {
     private static final PropertyDirection FACING = PropertyDirection.create("facing");

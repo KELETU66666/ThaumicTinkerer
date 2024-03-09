@@ -5,9 +5,7 @@ import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.items.Kami.*;
 import com.nekokittygames.thaumictinkerer.common.items.Kami.Tools.*;
 import com.nekokittygames.thaumictinkerer.common.items.Kami.ichorpouch.ItemIchorPouch;
-import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHORIUM_FORTRESS;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
-import static com.nekokittygames.thaumictinkerer.common.utils.MiscUtils.nullz;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -22,6 +20,9 @@ import thaumcraft.api.ThaumcraftMaterials;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHORIUM_FORTRESS;
+import static com.nekokittygames.thaumictinkerer.common.utils.MiscUtils.nullz;
 
 @SuppressWarnings("WeakerAccess")
 @GameRegistry.ObjectHolder(LibMisc.MOD_ID)

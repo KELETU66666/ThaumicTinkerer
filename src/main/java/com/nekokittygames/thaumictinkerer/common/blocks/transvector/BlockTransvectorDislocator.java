@@ -4,7 +4,6 @@ import com.nekokittygames.thaumictinkerer.common.blocks.TTCamoBlock;
 import com.nekokittygames.thaumictinkerer.common.libs.LibBlockNames;
 import com.nekokittygames.thaumictinkerer.common.tileentity.transvector.TileEntityTransvectorDislocator;
 import net.minecraft.block.Block;
-import static net.minecraft.block.BlockPistonBase.getFacing;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
@@ -20,6 +19,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Random;
+
+import static net.minecraft.block.BlockPistonBase.getFacing;
 
 public class BlockTransvectorDislocator extends TTCamoBlock<TileEntityTransvectorDislocator> {
 

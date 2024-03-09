@@ -37,6 +37,5 @@ public final class RegistryHandler {
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         OreDictionary.registerOre("ingotIchorium", new ItemStack(ModItems.kamiresource, 1, 3));
         OreDictionary.registerOre("nuggetIchorium", new ItemStack(ModItems.kamiresource, 1, 5));
-        OreDictionary.registerOre("oreChlorophyte", ModBlocks.chlorophyte_ore);
     }
 }

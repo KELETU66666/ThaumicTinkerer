@@ -11,6 +11,7 @@
 package com.nekokittygames.thaumictinkerer.common.utils;
 
 import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemPlacementMirror;
+import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
