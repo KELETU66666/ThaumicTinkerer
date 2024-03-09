@@ -2,6 +2,7 @@ package com.nekokittygames.thaumictinkerer.common.blocks;
 
 import com.nekokittygames.thaumictinkerer.common.libs.LibBlockNames;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityRepairer;
+import static net.minecraft.block.BlockPistonBase.getFacing;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
@@ -16,8 +17,6 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import static net.minecraft.block.BlockPistonBase.getFacing;
 
 public class BlockRepairer extends TTTileEntity<TileEntityRepairer> {
     public static final PropertyDirection FACING = PropertyDirection.create("facing");

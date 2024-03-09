@@ -7,19 +7,12 @@ import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemIchoriumFortress
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.MathHelper;
 import org.lwjgl.opengl.GL11;
-import thaumcraft.api.ThaumcraftApiHelper;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.items.ItemsTC;
 import thaumcraft.client.renderers.models.gear.ModelCustomArmor;
-import thaumcraft.common.items.resources.ItemCrystalEssence;
 
 import java.util.HashMap;
 import java.util.Objects;

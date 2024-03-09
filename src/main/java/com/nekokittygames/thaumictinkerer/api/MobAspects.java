@@ -21,7 +21,6 @@ import thaumcraft.common.entities.monster.EntityWisp;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class MobAspects {
     private static  final HashMap<Class<?>,MobAspect> aspects=new HashMap<>();

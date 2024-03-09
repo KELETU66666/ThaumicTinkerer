@@ -12,6 +12,7 @@ import com.nekokittygames.thaumictinkerer.common.tileentity.Kami.TileWarpGate;
 import com.nekokittygames.thaumictinkerer.common.tileentity.*;
 import com.nekokittygames.thaumictinkerer.common.tileentity.transvector.TileEntityTransvectorDislocator;
 import com.nekokittygames.thaumictinkerer.common.tileentity.transvector.TileEntityTransvectorInterface;
+import static com.nekokittygames.thaumictinkerer.common.utils.MiscUtils.nullz;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -26,8 +27,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import static com.nekokittygames.thaumictinkerer.common.utils.MiscUtils.nullz;
 
 @SuppressWarnings("WeakerAccess")
 @GameRegistry.ObjectHolder(LibMisc.MOD_ID)

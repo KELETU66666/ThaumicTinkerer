@@ -1,8 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.libs;
 
-import net.minecraft.util.ResourceLocation;
-
 import static com.nekokittygames.thaumictinkerer.common.libs.LibMisc.MOD_ID;
+import net.minecraft.util.ResourceLocation;
 
 public class LibRecipes {
     public static final ResourceLocation OSMOTIC_ENCHANTER_MB=new ResourceLocation(MOD_ID,"osmotic_enchanter_mb");

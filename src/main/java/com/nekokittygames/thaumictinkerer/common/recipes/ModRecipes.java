@@ -1,6 +1,8 @@
 package com.nekokittygames.thaumictinkerer.common.recipes;
 
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
+import static com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks.black_quartz_block;
+import static com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks.ichor_block;
 import com.nekokittygames.thaumictinkerer.common.compat.botania.BotaniaCompat;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
 import com.nekokittygames.thaumictinkerer.common.items.ItemMobAspect;
@@ -24,6 +26,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import thaumcraft.api.ThaumcraftApi;
+import static thaumcraft.api.ThaumcraftApi.*;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -36,10 +39,6 @@ import thaumcraft.common.items.casters.ItemFocus;
 import thaumcraft.common.items.resources.ItemCrystalEssence;
 
 import java.util.Objects;
-
-import static com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks.black_quartz_block;
-import static com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks.ichor_block;
-import static thaumcraft.api.ThaumcraftApi.*;
 
 public class ModRecipes {
 

@@ -4,6 +4,7 @@
 
 package com.nekokittygames.thaumictinkerer.client.proxy;
 
+import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
 import com.nekokittygames.thaumictinkerer.client.misc.AspectColouror;
 import com.nekokittygames.thaumictinkerer.client.misc.Shaders;
 import com.nekokittygames.thaumictinkerer.client.rendering.special.multi.NitorRenderer;
@@ -27,8 +28,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.common.blocks.misc.BlockNitor;
 
 import java.awt.*;
-
-import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
 
 /**
  * Client side proxy

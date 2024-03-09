@@ -1,6 +1,5 @@
 package com.nekokittygames.thaumictinkerer;
 
-import com.nekokittygames.thaumictinkerer.api.MobAspect;
 import com.nekokittygames.thaumictinkerer.api.MobAspects;
 import com.nekokittygames.thaumictinkerer.api.ThaumicTinkererAPI;
 import com.nekokittygames.thaumictinkerer.client.rendering.special.RenderTileWarpGate;
@@ -16,12 +15,10 @@ import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectDislocate;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectEfreetFlame;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
-import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.loot.LootTableHandler;
 import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTInkererCreativeTab;
 import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTinkererAspectCreativeTab;
-import com.nekokittygames.thaumictinkerer.common.multiblocks.MultiblockManager;
 import com.nekokittygames.thaumictinkerer.common.packets.PacketHandler;
 import com.nekokittygames.thaumictinkerer.common.proxy.ITTProxy;
 import com.nekokittygames.thaumictinkerer.common.research.theorycraft.AidBlackQuartz;
@@ -29,9 +26,7 @@ import com.nekokittygames.thaumictinkerer.common.research.theorycraft.CardExperi
 import com.nekokittygames.thaumictinkerer.common.tileentity.Kami.TileWarpGate;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.entity.monster.EntityEndermite;
 import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -58,9 +53,6 @@ import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ScanEntity;
 import thaumcraft.api.research.ScanningManager;
 import thaumcraft.api.research.theorycraft.TheorycraftManager;
-
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 
 @Mod(modid = LibMisc.MOD_ID, name = LibMisc.MOD_NAME, version = LibMisc.MOD_VERSION, dependencies = LibMisc.MOD_DEPENDENCIES)
