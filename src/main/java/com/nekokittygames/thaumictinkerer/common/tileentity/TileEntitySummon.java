@@ -49,18 +49,18 @@ public class TileEntitySummon extends TileEntityThaumicTinkerer implements ITick
     }
 
     List<TilePedestal> getPedastels(){
-        ArrayList<TilePedestal> pedastels=new ArrayList<>();
+        ArrayList<TilePedestal> pedestels=new ArrayList<>();
         for (int radius = 1; radius < 6; radius++) {
             for (int x = pos.getX() - radius; x < pos.getX() + radius; x++) {
                 for (int z = pos.getZ() - radius; z < pos.getZ() + radius; z++) {
                     TileEntity tile = world.getTileEntity(new BlockPos(x, pos.getY(), z));
-                    if (!pedastels.contains(tile) && tile instanceof TilePedestal && ((TilePedestal) tile).getStackInSlot(0) != ItemStack.EMPTY && ((TilePedestal) tile).getStackInSlot(0).getItem() instanceof ItemMobAspect) {
-                            pedastels.add((TilePedestal) tile);
+                    if (!pedestels.contains(tile) && tile instanceof TilePedestal && ((TilePedestal) tile).getStackInSlot(0) != ItemStack.EMPTY && ((TilePedestal) tile).getStackInSlot(0).getItem() instanceof ItemMobAspect) {
+                            pedestels.add((TilePedestal) tile);
                     }
                 }
             }
         }
-        return pedastels;
+        return pedestels;
     }
 
     @Override

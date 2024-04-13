@@ -113,7 +113,8 @@ public class TileEntityRepairer extends TileEntityThaumicTinkerer implements ITi
                             TiConCompat.fixDamage(stack, essentia);
                             sendUpdates();
                             if (dmgLastTick != 0 && dmgLastTick != damage) {
-                                FXDispatcher.INSTANCE.sparkle((float) (pos.getX() + 0.25 + Math.random() / 2F), (float) (pos.getY() + 1 + Math.random() / 2F), (float) (pos.getZ() + 0.25 + Math.random() / 2F), 1.0f, 1.0f, 0.0f);
+                                if(world.isRemote)
+                                    FXDispatcher.INSTANCE.sparkle((float) (pos.getX() + 0.25 + Math.random() / 2F), (float) (pos.getY() + 1 + Math.random() / 2F), (float) (pos.getZ() + 0.25 + Math.random() / 2F), 1.0f, 1.0f, 0.0f);
                                 tookLastTick = true;
                             } else
                                 tookLastTick = false;
@@ -135,7 +136,8 @@ public class TileEntityRepairer extends TileEntityThaumicTinkerer implements ITi
                 stack.setItemDamage(Math.max(0, stack.getItemDamage() - essentia));
                 sendUpdates();
                 if (dmgLastTick != 0 && dmgLastTick != damage) {
-                    FXDispatcher.INSTANCE.sparkle((float) (pos.getX() + 0.25 + Math.random() / 2F), (float) (pos.getY() + 1 + Math.random() / 2F), (float) (pos.getZ() + 0.25 + Math.random() / 2F), 1.0f, 1.0f, 0.0f);
+                    if(world.isRemote)
+                        FXDispatcher.INSTANCE.sparkle((float) (pos.getX() + 0.25 + Math.random() / 2F), (float) (pos.getY() + 1 + Math.random() / 2F), (float) (pos.getZ() + 0.25 + Math.random() / 2F), 1.0f, 1.0f, 0.0f);
                     tookLastTick = true;
                 } else
                     tookLastTick = false;
