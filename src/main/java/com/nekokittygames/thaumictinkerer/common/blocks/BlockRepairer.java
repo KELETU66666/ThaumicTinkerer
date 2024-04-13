@@ -73,9 +73,6 @@ public class BlockRepairer extends TTTileEntity<TileEntityRepairer> {
                 if (repairer.isItemValidForSlot(0, playerStack)) {
                     repairer.getInventory().insertItem(0, playerStack.copy(), false);
                     playerStack.setCount(playerStack.getCount() - 1);
-                    if (playerStack.isEmpty()) {
-                        playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, ItemStack.EMPTY);
-                    }
                     repairer.markDirty();
                     return true;
                 }
