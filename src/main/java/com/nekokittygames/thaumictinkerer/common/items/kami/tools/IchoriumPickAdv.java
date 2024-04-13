@@ -74,14 +74,14 @@ public class IchoriumPickAdv extends IchoriumPick implements IAdvancedTool
         IBlockState state = world.getBlockState(pos);
         state.getBlock().equals(ModBlocks.bedrock_portal);
 
-        if (y <= 253 && world.getBlockState(pos).getBlock().equals(Blocks.BEDROCK) && player.dimension == TTConfig.BedRockDimensionID) {
+        if (y > 3 && y <= 253 && world.getBlockState(pos).getBlock().equals(Blocks.BEDROCK) && player.dimension == TTConfig.BedRockDimensionID) {
             world.setBlockToAir(pos);
         }
         if (world.getBlockState(pos).getBlock() == Blocks.BEDROCK && ((player.dimension == 0 && y < 3) || (y > 253 && player.dimension == TTConfig.BedRockDimensionID)))
         {
             world.setBlockState(pos, ModBlocks.bedrock_portal.getDefaultState());
         }return false;
-   }
+    }
 
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
