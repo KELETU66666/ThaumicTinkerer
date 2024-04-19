@@ -6,7 +6,8 @@
     "3": "thaumictinkerer:blocks/magnet/item/inner_side",
     "4": "thaumictinkerer:blocks/magnet/item/inner_end",
     "5": "thaumictinkerer:blocks/magnet/item/outer_side",
-    "6": "thaumictinkerer:blocks/magnet/item/outer_end"
+    "6": "thaumictinkerer:blocks/magnet/item/outer_end",
+    "particle": "thaumictinkerer:blocks/magnet/item/back_back"
   },
   "elements": [
     {
