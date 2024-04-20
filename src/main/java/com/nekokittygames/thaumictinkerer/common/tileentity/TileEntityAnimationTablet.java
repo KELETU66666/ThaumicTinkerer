@@ -362,9 +362,9 @@ public class TileEntityAnimationTablet extends TileEntityThaumicTinkerer impleme
         Vec3d target;
         RayTraceResult trace;
         RayTraceResult traceEntity;
-        RayTraceResult toUse = null;
+        RayTraceResult toUse;
         FakePlayerUtils.setupFakePlayerForUse(getPlayer(), this.pos, facing, this.inventory.getStackInSlot(0).copy(), false);
-        base = new Vec3d(Objects.requireNonNull(player.get()).posX, player.get().posY, player.get().posZ);
+        base = new Vec3d(player.get().posX, player.get().posY, player.get().posZ);
 
         look = player.get().getLookVec();
         target = base.add(new Vec3d(look.x * 5, look.y * 5, look.z * 5));
@@ -380,7 +380,10 @@ public class TileEntityAnimationTablet extends TileEntityThaumicTinkerer impleme
             toUse = traceEntity.typeOfHit == RayTraceResult.Type.ENTITY && d1 > d2 ? traceEntity : trace;
         }
 
-        if (toUse.typeOfHit== RayTraceResult.Type.BLOCK && world.getBlockState(targetPos) == world.getBlockState(pos)) return;
+        if(pos != null && targetPos != null && world != null)
+            if (toUse.typeOfHit== RayTraceResult.Type.BLOCK)
+                if(world.getBlockState(targetPos) == world.getBlockState(pos))
+                    return;
         if (!rightClick) {
             if(detectEntity().size()>0)
             {
