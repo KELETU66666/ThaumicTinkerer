@@ -36,9 +36,8 @@ public class BlockAnimationTablet extends TTTileEntity<TileEntityAnimationTablet
         return  new AxisAlignedBB(0F, 0F, 0F, 1F, 1F / 16F * 2F, 1F);
     }
 
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        return  new AxisAlignedBB(0F, 0F, 0F, 1F, 1F / 16F * 2F, 1F);
+    public boolean isFullCube(IBlockState p_isFullCube_1_) {
+        return false;
     }
 
     @Override

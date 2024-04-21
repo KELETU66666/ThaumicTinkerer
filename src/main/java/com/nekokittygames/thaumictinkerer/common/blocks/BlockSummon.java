@@ -40,7 +40,8 @@ public class BlockSummon extends TTTileEntity<TileEntitySummon> {
         return false;
     }
 
-    public boolean isFullBlock(IBlockState p_isFullCube_1_) {
+    @Override
+    public boolean isFullCube(IBlockState p_isFullCube_1_) {
         return false;
     }
 
