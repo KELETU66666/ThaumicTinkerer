@@ -294,7 +294,7 @@ public class ModRecipes {
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "kami_helm"), new InfusionRecipe(
                 "TT_KAMIHELM",
                 new ItemStack(ModItems.kami_helm),
-                13,
+                32,
                 new AspectList().add(Aspect.WATER, 150).add(Aspect.AURA, 125).add(Aspect.MIND, 60).add(Aspect.LIFE, 60).add(Aspect.LIGHT, 250).add(Aspect.PROTECT, 125),
                 new ItemStack(ModItems.ichor_helm),
                 new ItemStack(Items.DIAMOND),
@@ -312,7 +312,7 @@ public class ModRecipes {
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "kami_chest"), new InfusionRecipe(
                 "TT_KAMICHEST",
                 new ItemStack(ModItems.kami_chest),
-                13,
+                32,
                 new AspectList().add(Aspect.AIR, 150).add(Aspect.PROTECT, 125).add(Aspect.FLIGHT, 125).add(Aspect.ORDER, 125).add(Aspect.LIGHT, 250).add(Aspect.ELDRITCH, 60),
                 new ItemStack(ModItems.ichor_chest),
                 new ItemStack(Items.DIAMOND),
@@ -330,7 +330,7 @@ public class ModRecipes {
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "kami_legs"), new InfusionRecipe(
                 "TT_KAMILEGS",
                 new ItemStack(ModItems.kami_legs),
-                13,
+                32,
                 new AspectList().add(Aspect.AIR, 150).add(Aspect.PROTECT, 125).add(Aspect.FLIGHT, 125).add(Aspect.ORDER, 125).add(Aspect.LIGHT, 250).add(Aspect.ELDRITCH, 60),
                 new ItemStack(ModItems.ichor_legs),
                 new ItemStack(Items.DIAMOND),
@@ -338,7 +338,7 @@ public class ModRecipes {
                 new ItemStack(ModItems.kamiresource, 1, 2),
                 new ItemStack(ItemsTC.thaumonomicon),
                 new ItemStack(Items.CHORUS_FRUIT_POPPED),
-                new ItemStack(Items.GOLDEN_CHESTPLATE),
+                new ItemStack(Items.GOLDEN_LEGGINGS),
                 PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.FIRE_RESISTANCE),
                 new ItemStack(Objects.requireNonNull(ModItems.energetic_nitor)),
                 new ItemStack(BlocksTC.lampArcane),
@@ -348,7 +348,7 @@ public class ModRecipes {
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "kami_boots"), new InfusionRecipe(
                 "TT_KAMIBOOTS",
                 new ItemStack(ModItems.kami_boots),
-                13,
+                32,
                 new AspectList().add(Aspect.EARTH, 150).add(Aspect.PROTECT, 125).add(Aspect.TOOL, 125).add(Aspect.MOTION, 125).add(Aspect.LIGHT, 250).add(Aspect.PLANT, 60).add(Aspect.FLIGHT, 60),
                 new ItemStack(ModItems.ichor_boots),
                 new ItemStack(Items.DIAMOND),
@@ -357,7 +357,7 @@ public class ModRecipes {
                 new ItemStack(ItemsTC.thaumonomicon),
                 new ItemStack(Items.CHORUS_FRUIT_POPPED),
                 new ItemStack(Items.GOLDEN_BOOTS),
-                new ItemStack(BlocksTC.grassAmbient),
+                new ItemStack(Blocks.GRASS),
                 new ItemStack(Items.WHEAT_SEEDS),
                 new ItemStack(BlocksTC.lampGrowth),
                 new ItemStack(ItemsTC.turretPlacer, 1, 2),
@@ -366,7 +366,7 @@ public class ModRecipes {
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_pick_adv"), new InfusionRecipe(
                 "TT_ICHOR_PICK_ADV",
                 new ItemStack(ModItems.ichorium_pick_adv),
-                13,
+                40,
                 new AspectList().add(Aspect.FIRE, 150).add(Aspect.DESIRE, 60).add(Aspect.METAL, 125).add(Aspect.TOOL, 250).add(Aspect.SENSES, 60).add(Aspect.EARTH, 125),
                 new ItemStack(ModItems.ichorium_pick),
                 new ItemStack(ModItems.kamiresource, 1, 3),
@@ -384,7 +384,7 @@ public class ModRecipes {
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_shovel_adv"), new InfusionRecipe(
                 "TT_ICHOR_SHOVEL_ADV",
                 new ItemStack(ModItems.ichorium_shovel_adv),
-                13,
+                40,
                 new AspectList().add(Aspect.TOOL, 250).add(Aspect.SENSES, 60).add(Aspect.EARTH, 125).add(Aspect.TRAP, 60),
                 new ItemStack(ModItems.ichorium_shovel),
                 new ItemStack(ModItems.kamiresource, 1, 3),
@@ -402,7 +402,7 @@ public class ModRecipes {
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_axe_adv"), new InfusionRecipe(
                 "TT_ICHOR_AXE_ADV",
                 new ItemStack(ModItems.ichorium_axe_adv),
-                13,
+                40,
                 new AspectList().add(Aspect.WATER, 150).add(Aspect.PLANT, 125).add(Aspect.TOOL, 250).add(Aspect.SENSES, 60),
                 new ItemStack(ModItems.ichorium_axe),
                 new ItemStack(ModItems.kamiresource, 1, 3),
@@ -420,7 +420,7 @@ public class ModRecipes {
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_sword_adv"), new InfusionRecipe(
                 "TT_ICHOR_SWORD_ADV",
                 new ItemStack(ModItems.ichorium_sword_adv),
-                13,
+                40,
                 new AspectList().add(Aspect.AIR, 150).add(Aspect.DESIRE, 250).add(Aspect.ORDER, 60).add(Aspect.ENERGY, 125).add(Aspect.CRYSTAL, 60).add(Aspect.SOUL, 125).add(Aspect.AVERSION, 125),
                 new ItemStack(ModItems.ichorium_sword),
                 new ItemStack(ModItems.kamiresource, 1, 3),
@@ -516,7 +516,7 @@ public class ModRecipes {
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "IchoriumFortressHelm"), new InfusionRecipe(
                 "TT_ICHORIUM_FORTRESS",
                 new ItemStack(ModItems.ichorium_fortress_helmet),
-                13,
+                40,
                 new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 40).add(Aspect.ENERGY, 50),
                 new ItemStack(ItemsTC.fortressHelm, 1, 32767),
                 "ingotIchorium",
@@ -528,7 +528,7 @@ public class ModRecipes {
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "IchoriumFortressChest"), new InfusionRecipe(
                 "TT_ICHORIUM_FORTRESS",
                 new ItemStack(ModItems.ichorium_fortress_chestplate),
-                13, new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 60).add(Aspect.ENERGY, 50),
+                40, new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 60).add(Aspect.ENERGY, 50),
                 new ItemStack(ItemsTC.fortressChest, 1, 32767),
                 "ingotIchorium",
                 "ingotIchorium",
@@ -539,7 +539,7 @@ public class ModRecipes {
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "IchoriumFortressLegs"), new InfusionRecipe(
                 "TT_ICHORIUM_FORTRESS",
                 new ItemStack(ModItems.ichorium_fortress_leggings),
-                13,
+                40,
                 new AspectList().add(Aspect.PLANT, 500).add(Aspect.METAL, 100).add(Aspect.PROTECT, 50).add(Aspect.ENERGY, 50),
                 new ItemStack(ItemsTC.fortressLegs, 1, 32767),
                 "ingotIchorium",

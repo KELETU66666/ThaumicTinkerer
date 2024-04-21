@@ -7,7 +7,7 @@
     "4": "thaumictinkerer:blocks/magnet/mob/inner_end",
     "5": "thaumictinkerer:blocks/magnet/mob/outer_side",
     "6": "thaumictinkerer:blocks/magnet/mob/outer_end",
-    "particle": ""
+    "particle": "thaumictinkerer:blocks/magnet/item/back_back"
   },
   "elements": [
     {
