@@ -10,7 +10,6 @@ import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityAnimationT
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -85,21 +84,20 @@ public class TileEntityAnimationTabletRenderer extends TileEntitySpecialRenderer
             if (!Minecraft.getMinecraft().getRenderItem().shouldRenderItemIn3D(customitem.getItem())) {
                 GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
             }
-            GlStateManager.disableLighting();
-
-            GlStateManager.pushAttrib();
-            RenderHelper.enableStandardItemLighting();
+            //GlStateManager.disableLighting();
+//
+            //GlStateManager.pushAttrib();
+            //RenderHelper.enableStandardItemLighting();
             Minecraft.getMinecraft().getRenderItem().renderItem(customitem.getItem(), ItemCameraTransforms.TransformType.GROUND);
-            RenderHelper.disableStandardItemLighting();
-            GlStateManager.popAttrib();
-            GlStateManager.enableLighting();
+            //RenderHelper.disableStandardItemLighting();
+            //GlStateManager.popAttrib();
+            //GlStateManager.enableLighting();
             GlStateManager.popMatrix();
         }
         GlStateManager.popMatrix();
 
 
     }
-
 
     /**
      * Renders overlay over the tablet
