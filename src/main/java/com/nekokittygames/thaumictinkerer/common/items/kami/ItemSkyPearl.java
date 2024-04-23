@@ -14,7 +14,7 @@ package com.nekokittygames.thaumictinkerer.common.items.Kami;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.items.TTItem;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
-import com.nekokittygames.thaumictinkerer.common.misc.ItemNBTHelper;
+import com.nekokittygames.thaumictinkerer.common.utils.ItemNBTHelper;
 import com.nekokittygames.thaumictinkerer.common.misc.MiscHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;

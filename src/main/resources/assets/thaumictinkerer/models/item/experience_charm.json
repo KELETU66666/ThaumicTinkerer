@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumictinkerer:items/experience_charm/off"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "active": 1
+      },
+      "model": "thaumictinkerer:item/experience_charm_active"
+    }
+  ]
+}

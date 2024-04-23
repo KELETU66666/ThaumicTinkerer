@@ -4,7 +4,8 @@ import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import com.nekokittygames.thaumictinkerer.common.items.TTItem;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
-import com.nekokittygames.thaumictinkerer.common.misc.ItemNBTHelper;
+
+import com.nekokittygames.thaumictinkerer.common.utils.ItemNBTHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;

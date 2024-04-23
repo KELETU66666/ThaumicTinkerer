@@ -30,6 +30,7 @@ public class ModItems {
 
     public static final ItemShareBook share_book = nullz();
     public static final ItemCleansingTalisman cleaning_talisman = nullz();
+    public static final ItemXPTalisman experience_charm = new ItemXPTalisman();
     public static final ItemBlackQuartz black_quartz = nullz();
     public static final ItemConnector connector = nullz();
     public static final ItemSoulMould soul_mould = nullz();
@@ -66,7 +67,6 @@ public class ModItems {
     public static final Item cat_amulet = new ItemCatAmulet();
     public static final Item sky_pearl = new ItemSkyPearl();
     public static final Item placement_mirror = new ItemPlacementMirror();
-
     public static final Item ichorium_fortress_helmet = new ItemIchoriumFortressArmor("ichorium_fortress_helmet", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.HEAD);
     public static final Item ichorium_fortress_chestplate =new ItemIchoriumFortressArmor("ichorium_fortress_chestplate", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.CHEST);
     public static final Item ichorium_fortress_leggings = new ItemIchoriumFortressArmor("ichorium_fortress_leggings", MATERIAL_ICHORIUM_FORTRESS, 1, EntityEquipmentSlot.LEGS);
@@ -97,6 +97,7 @@ public class ModItems {
                     new ItemGas(ModBlocks.light_gas),
                     new ItemGasRemover(),
                     new ItemSpellbindingCloth(),
+                    new ItemXPTalisman(),
                     new ItemBloodSword(),
                     new ItemMobAspect("mob_aspect"),
                     new ItemCondensedMobAspect(),

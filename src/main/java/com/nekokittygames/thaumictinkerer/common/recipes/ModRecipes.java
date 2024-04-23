@@ -281,6 +281,18 @@ public class ModRecipes {
         addInfusionCraftingRecipe(LibRecipes.CLEANSER, new InfusionRecipe(LibResearch.CLEANSER, new ItemStack(Objects.requireNonNull(ModItems.cleaning_talisman)), 1, new AspectList().add(Aspect.MAN, 20).add(Aspect.TOOL, 20).add(Aspect.LIFE, 20), new ItemStack(Items.ENDER_PEARL), Items.GHAST_TEAR, "quartzDark", "quartzDark", "quartzDark", "quartzDark", "nitor"));
         addInfusionCraftingRecipe(LibRecipes.ENCHANTER, new InfusionRecipe(LibResearch.ENCHANTER, new ItemStack(Objects.requireNonNull(ModBlocks.osmotic_enchanter)), 1, new AspectList().add(Aspect.ELDRITCH, 20).add(Aspect.MIND, 10).add(Aspect.ENERGY, 20).add(Aspect.MAGIC, 50).add(Aspect.VOID, 20), new ItemStack(Blocks.ENCHANTING_TABLE), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Objects.requireNonNull(ModItems.spellbinding_cloth)), new ItemStack(ItemsTC.ingots, 1, 0), new ItemStack(ItemsTC.ingots, 1, 0)));
         addInfusionCraftingRecipe(LibRecipes.REPAIRER, new InfusionRecipe(LibResearch.REPAIRER, new ItemStack(Objects.requireNonNull(ModBlocks.repairer)), 1, new AspectList().add(Aspect.CRAFT, 20).add(Aspect.TOOL, 15).add(Aspect.ORDER, 10).add(Aspect.MAGIC, 15), new ItemStack(BlocksTC.metalBlockThaumium), "plankWood", new ItemStack(Items.LEATHER), new ItemStack(ItemsTC.fabric), new ItemStack(ItemsTC.ingots, 1, 0), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GOLD_INGOT), new ItemStack(Items.DIAMOND), new ItemStack(Blocks.COBBLESTONE)));
+
+        addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "experience_charm"), new InfusionRecipe(
+                "TT_EXPERIENCE_CHARM",
+                new ItemStack(ModItems.experience_charm),
+                6,
+                new AspectList().add(Aspect.DESIRE, 65).add(Aspect.EXCHANGE, 30).add(Aspect.BEAST, 30).add(Aspect.MECHANISM, 10),
+                new ItemStack(Items.GOLD_INGOT),
+                new ItemStack(Items.QUARTZ),
+                new ItemStack(Items.QUARTZ),
+                new ItemStack(ItemsTC.brain),
+                new ItemStack(Items.DIAMOND)));
+
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_block"), new InfusionRecipe(
                 "TT_ICHOR@1",
                 new ItemStack(Objects.requireNonNull(ichor_block)),
@@ -596,7 +608,7 @@ public class ModRecipes {
             addInfusionCraftingRecipe(
                     new ResourceLocation(LibRecipes.CONDENSED_MOB_SOUL.getNamespace(),LibRecipes.CONDENSED_MOB_SOUL.getPath()+aspect.getTag()),
                     new InfusionRecipe(
-                            LibResearch.SUMMONING,output,2,new AspectList().add(aspect,10),input,input,input,input,input,input,input,input,input
+                            LibResearch.SUMMONING,output,2,new AspectList().add(aspect,30),input,input,input,input,input,input,input,input,input
                     ));
         }
         addInfusionCraftingRecipe(LibRecipes.BLOOD_SWORD, new InfusionRecipe(LibResearch.SUMMONING,new ItemStack(ModItems.blood_sword),3,new AspectList().add(Aspect.DARKNESS,5).add(Aspect.SOUL,10).add(Aspect.MAN,6).add(Aspect.DEATH,10),new ItemStack(ItemsTC.thaumiumSword),new ItemStack(Items.ROTTEN_FLESH),new ItemStack(Items.PORKCHOP),new ItemStack(Items.BEEF),new ItemStack(Items.BONE),new ItemStack(Items.DIAMOND),new ItemStack(Items.GHAST_TEAR)));

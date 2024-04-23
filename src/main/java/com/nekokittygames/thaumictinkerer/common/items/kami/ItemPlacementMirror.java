@@ -4,7 +4,7 @@ import com.nekokittygames.thaumictinkerer.common.items.Kami.Tools.ToolHandler;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.items.TTItem;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
-import com.nekokittygames.thaumictinkerer.common.misc.ItemNBTHelper;
+import com.nekokittygames.thaumictinkerer.common.utils.ItemNBTHelper;
 import com.nekokittygames.thaumictinkerer.common.utils.ToolModeHUDHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

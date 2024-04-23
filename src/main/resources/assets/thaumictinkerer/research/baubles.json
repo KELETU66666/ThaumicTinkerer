@@ -30,6 +30,37 @@
           ]
         }
       ]
+    },
+    {
+      "key": "TT_EXPERIENCE_CHARM",
+      "name": "thaumictinkerer.research.xpcharm.title",
+      "icons": [
+        "thaumictinkerer:experience_charm"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "parents": [
+        "TT_CLEANING_TALISMAN"
+      ],
+      "siblings": [],
+      "location": [
+        2,
+        5
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.xpcharm.0",
+          "required_knowledge": ["THEORY;BASICS;1", "THEORY;INFUSION;1"],
+          "required_item": [
+            "minecraft:experience_bottle"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.xpcharm.1",
+          "recipes": [
+            "thaumictinkerer:experience_charm"
+          ]
+        }
+      ]
     }
   ]
 }

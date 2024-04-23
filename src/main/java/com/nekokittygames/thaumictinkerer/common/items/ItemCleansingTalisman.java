@@ -19,7 +19,7 @@ import baubles.api.BaublesApi;
 import baubles.api.IBauble;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
-import com.nekokittygames.thaumictinkerer.common.misc.ItemNBTHelper;
+import com.nekokittygames.thaumictinkerer.common.utils.ItemNBTHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;

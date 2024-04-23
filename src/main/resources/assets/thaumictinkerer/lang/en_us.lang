@@ -27,6 +27,7 @@ item.thaumictinkerer:gas_light_item.name=Light Gas Phial
 item.thaumictinkerer:gas_remover.name=Gas Remover
 
 item.thaumictinkerer:cleaning_talisman.name=Cleansing Charm
+item.thaumictinkerer:experience_charm.name=XP Talisman
 
 item.thaumictinkerer:kamiresource.0.name=Ender Shard
 item.thaumictinkerer:kamiresource.1.name=Nether Shard
@@ -225,6 +226,10 @@ thaumictinkerer.research.energetic_nitor.title=Hyperenergetic Nitor
 thaumictinkerer.research.energetic_nitor.0=One cannot deny the Nitor is useful. However, having to place it down before I see anything is annoying. I wonder, could I somehow make it visible from my palm if I were to make it more energetic?
 thaumictinkerer.research.energetic_nitor.1=Adding in more Energy and Light Essentia seems to have done the trick. I have managed to create a more powerful nitor - this Hyperenergetic Nitor burns with a visible light from my hand, so much so that it will even leave a trail as I move.
 
+thaumictinkerer.research.xpcharm.title=Talisman of Withhold
+thaumictinkerer.research.xpcharm.0=After knowing that Zombie Brains have the ability to store experience, you have created a talisman that mimics that behaviour, not to a perfect extent though.
+thaumictinkerer.research.xpcharm.1=After knowing that Zombie Brains have the ability to store experience, you have created a talisman that mimics that behaviour, not to a perfect extent though.<BR><BR>To switch the ability to store experience, you need to shift-right-click on the talisman. When the talisman is enabled, it'll absorb any nearby experience orbs, those can be transformed back into usable experience by right clicking with a glass bottle in your inventory, turning that bottle into a Bottle o' Enchanting. It must be worn in your amulet slot to take effect.
+
 thaumictinkerer.research.ichorium_fortress.title=Ichorium Fortress Armor
 thaumictinkerer.research.ichorium_fortress.text=[WIP]
 thaumictinkerer.research.ichorium_fortress.complete.text=[WIP]
@@ -344,6 +349,10 @@ item.ichorium_fortress.upgrade.3=§aTerra
 item.ichorium_fortress.upgrade.4=§fOrdo
 item.ichorium_fortress.upgrade.5=§hPerditio
 #Misc
+
+ttmisc.full=Full
+ttmisc.notAbsorbing=Not Absorbing
+ttmisc.absorbing=Absorbing
 
 ttmisc.differentDim=Different Dimension
 ttmisc.distance=Distance
