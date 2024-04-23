@@ -68,7 +68,7 @@ public class ItemCatAmulet extends TTItem implements IBauble {
 
     @Override
     public BaubleType getBaubleType(ItemStack itemstack) {
-        return BaubleType.AMULET;
+        return BaubleType.CHARM;
     }
 
     @Override
