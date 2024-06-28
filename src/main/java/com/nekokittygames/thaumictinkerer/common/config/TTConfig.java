@@ -42,6 +42,9 @@ public class TTConfig {
     @Config.LangKey("thaumictinkerer.config.ticon.compatibility")
     public static boolean TiConCompatibility = true;
 
+    @Config.Comment("Can Energetic Nitor and Kami Leggings glow")
+    @Config.Name("Enable Nitor Vapor")
+    public static boolean EnableNitorVapor = true;
 
     @Config.Comment("Are Shaders allowed? This effects purely cosmetic visual effects like the transparency for multiblock placeholder")
     @Config.Name("Shaders Enabled")

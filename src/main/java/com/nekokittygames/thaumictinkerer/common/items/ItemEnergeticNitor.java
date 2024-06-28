@@ -1,6 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.items;
 
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
+import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -14,7 +15,7 @@ public class ItemEnergeticNitor extends TTItem {
     }
 
     public static void setBlock(BlockPos pos, World world) {
-        if ((world.isAirBlock(pos) || world.getBlockState(pos).equals(ModBlocks.nitor_vapor)) && !world.isRemote) {
+        if (TTConfig.EnableNitorVapor && (world.isAirBlock(pos) || world.getBlockState(pos).equals(ModBlocks.nitor_vapor)) && !world.isRemote) {
             world.setBlockState(pos, ModBlocks.nitor_vapor.getDefaultState());
         }
     }

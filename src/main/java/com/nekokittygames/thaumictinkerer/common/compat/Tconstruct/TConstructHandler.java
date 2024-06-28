@@ -17,42 +17,29 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.library.utils.HarvestLevels;
 import slimeknights.tconstruct.tools.TinkerTraits;
 
 public class TConstructHandler {
 
-    public static final Fluid fluidIchorium = new TTFluid("molten_ichorium", new ResourceLocation("tconstruct:blocks/fluids/molten_metal"), new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow")).setColor(0xB26507).setLuminosity(15).setTemperature(1700);
-
+    public static final Fluid fluidIchorium = new TTFluid("molten_ichorium", new ResourceLocation("tconstruct:blocks/fluids/molten_metal"), new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow")).setColor(0xFFB26507).setLuminosity(15).setTemperature(1700);
     public static final AbstractTrait traitInstantBreak = new TraitInstantBreak();
-
-    public static final AbstractTrait traitWritableAdv = new TraitWritableAdv(1);
-
-    public static final AbstractTrait traitWritableAdv2 = new TraitWritableAdv(2);
-
-    public static final AbstractTrait traitAuraStrike = new TraitAuraStrike();
-
-    @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        FluidRegistry.registerFluid(fluidIchorium);
-        FluidRegistry.addBucketForFluid(fluidIchorium);
-    }
 
     public static void preInit(FMLPreInitializationEvent e){
 
         MinecraftForge.EVENT_BUS.register(traitInstantBreak);
-        MinecraftForge.EVENT_BUS.register(traitAuraStrike);
 
         if (TinkerRegistry.getMaterial("ichorium") == Material.UNKNOWN) {
             Material ichorium = new Material("ichorium", 0xB26507);
             ichorium.setCraftable(false).setCastable(true);
             ichorium.setFluid(fluidIchorium);
-            ichorium.addTrait(traitInstantBreak, MaterialTypes.HEAD).addTrait(traitAuraStrike, MaterialTypes.HEAD).addTrait(TinkerTraits.magnetic2, MaterialTypes.HEAD).addTrait(traitWritableAdv2, MaterialTypes.HEAD);
-            ichorium.addTrait(traitWritableAdv);
+            ichorium.addTrait(traitInstantBreak, MaterialTypes.HEAD).addTrait(TinkerTraits.magnetic2, MaterialTypes.HEAD).addTrait(TinkerTraits.writable2, MaterialTypes.HEAD);
+            ichorium.addTrait(TinkerTraits.writable);
 
             if (e.getSide() == Side.CLIENT)
                 setMetalMaterialRenderInfo(ichorium, 0xB26507, 0.7f, 0f, 0.1f);
 
-            TinkerRegistry.addMaterialStats(ichorium, new HeadMaterialStats(6375, 32, TTConfig.IWeaponDamage, 10), new HandleMaterialStats(TTConfig.IWeaponDamage, 650), new ExtraMaterialStats(2200), new BowMaterialStats(TTConfig.IWeaponDamage, 6.5f, 7));
+            TinkerRegistry.addMaterialStats(ichorium, new HeadMaterialStats(6375, 32, TTConfig.IWeaponDamage, HarvestLevels.COBALT), new HandleMaterialStats(TTConfig.IWeaponDamage, 650), new ExtraMaterialStats(2200), new BowMaterialStats(TTConfig.IWeaponDamage, 6.5f, 7));
 
             MaterialIntegration mi = new MaterialIntegration(ichorium, fluidIchorium);
             mi.oreSuffix = "Ichorium";

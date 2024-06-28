@@ -7,9 +7,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
-
-public class TTFluid extends Fluid{
+public class TTFluid extends Fluid {
 
     int mapColor = 0xFFFFFFFF;
     static float overlayAlpha = 0.2F;
@@ -17,9 +17,8 @@ public class TTFluid extends Fluid{
     static SoundEvent fillSound = SoundEvents.ITEM_BUCKET_FILL;
     static Material material = Material.WATER;
 
-    public TTFluid(String fluidName, ResourceLocation still, ResourceLocation flowing){
+    public TTFluid(String fluidName, ResourceLocation still, ResourceLocation flowing) {
         super(fluidName, still, flowing);
-        this.block = null;
         FluidRegistry.registerFluid(this);
         FluidRegistry.addBucketForFluid(this);
     }
@@ -30,52 +29,59 @@ public class TTFluid extends Fluid{
     }
 
     @Override
-    public int getColor(){
+    public int getColor() {
         return mapColor;
     }
 
-    public TTFluid setColor(int parColor){
+    public TTFluid setColor(int parColor) {
         mapColor = parColor;
         return this;
     }
 
-    public float getAlpha(){
+    public float getAlpha() {
         return overlayAlpha;
     }
 
-    public TTFluid setAlpha(float parOverlayAlpha){
+    public TTFluid setAlpha(float parOverlayAlpha) {
         overlayAlpha = parOverlayAlpha;
         return this;
     }
 
     @Override
-    public TTFluid setEmptySound(SoundEvent parSound){
+    public TTFluid setEmptySound(SoundEvent parSound) {
         emptySound = parSound;
         return this;
     }
 
     @Override
-    public SoundEvent getEmptySound(){
+    public SoundEvent getEmptySound() {
         return emptySound;
     }
 
     @Override
-    public TTFluid setFillSound(SoundEvent parSound){
+    public TTFluid setFillSound(SoundEvent parSound) {
         fillSound = parSound;
         return this;
     }
 
     @Override
-    public SoundEvent getFillSound(){
+    public SoundEvent getFillSound() {
         return fillSound;
     }
 
-    public TTFluid setMaterial(Material parMaterial){
+    public TTFluid setMaterial(Material parMaterial) {
         material = parMaterial;
         return this;
     }
 
-    public Material getMaterial(){
+    public Material getMaterial() {
         return material;
+    }
+
+    @Override
+    public boolean doesVaporize(FluidStack fluidStack) {
+        if (block == null)
+            return false;
+        return block.getDefaultState().getMaterial() == getMaterial();
     }
 }

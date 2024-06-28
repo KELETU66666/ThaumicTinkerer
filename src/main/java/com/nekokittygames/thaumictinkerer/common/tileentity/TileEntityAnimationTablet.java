@@ -43,7 +43,7 @@ public class TileEntityAnimationTablet extends TileEntityThaumicTinkerer impleme
     private boolean rightClick;
     private int progress;
     private int swingMod = 3;
-    private EnumFacing facing;
+    private EnumFacing facing = EnumFacing.NORTH;
     private boolean active;
     private int ticksExisted;
     private float curBlockDamageMP;
@@ -89,7 +89,7 @@ public class TileEntityAnimationTablet extends TileEntityThaumicTinkerer impleme
     }
 
     public EnumFacing getFacing() {
-        return facing;
+        return facing == null ? EnumFacing.NORTH : facing;
     }
 
     public void setFacing(EnumFacing facing) {
