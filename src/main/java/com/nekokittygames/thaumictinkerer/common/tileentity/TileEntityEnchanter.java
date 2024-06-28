@@ -3,6 +3,7 @@ package com.nekokittygames.thaumictinkerer.common.tileentity;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.helper.Tuple4Int;
+import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.libs.LibOreDict;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
@@ -54,7 +55,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     private static final String TAG_CACHED_ENCHANTS = "cachedEnchants";
     private static final String TAG_WORKING = "working";
     private static final String TAG_PROGRESS = "progress";
-    private static final String TAG_AURA="aura";
+    private static final String TAG_AURA = "aura";
     private List<Integer> enchantments = new ArrayList<>();
     private List<Integer> levels = new ArrayList<>();
 
@@ -73,7 +74,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
     private boolean checkSurroundings;
 
-    private int auraVisServer=0;
+    private int auraVisServer = 0;
     private boolean working = false;
     // old stytle multiblock
     private List<Tuple4Int> pillars = new ArrayList<>();
@@ -115,6 +116,8 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     }
 
     private static boolean canApply(ItemStack itemStack, Enchantment enchantment, List<Enchantment> currentEnchants, boolean checkConflicts) {
+        if (TTConfig.balancedEnchanter && !(enchantment.getRegistryName().getNamespace().equals(LibMisc.MOD_ID) || enchantment.getRegistryName().getNamespace().equals("minecraft")))
+            return false;
         if (ArrayUtils.contains(TTConfig.blacklistedEnchants, Enchantment.getEnchantmentID(enchantment)))
             return false;
         if (!enchantment.canApply(itemStack) || !Objects.requireNonNull(enchantment.type).canEnchantItem(itemStack.getItem()) || currentEnchants.contains(enchantment))
@@ -161,7 +164,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     }
 
     public void appendEnchant(int enchant) {
-        if(enchantments.contains(enchant))
+        if (enchantments.contains(enchant))
             return;
 
         enchantments.add(enchant);
@@ -203,125 +206,123 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
         refreshEnchants();
     }
 
-    public void BreakPillars()
-    {
-        if(world.getBlockState(pos.north(3)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.north(3),BlocksTC.stoneArcane.getDefaultState());
-        if(world.getBlockState(pos.north(3).up(1)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.north(3).up(1),BlocksTC.stoneArcane.getDefaultState());
-        world.setBlockState(pos.north(3).up(2),BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
+    public void BreakPillars() {
+        if (world.getBlockState(pos.north(3)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.north(3), BlocksTC.stoneArcane.getDefaultState());
+        if (world.getBlockState(pos.north(3).up(1)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.north(3).up(1), BlocksTC.stoneArcane.getDefaultState());
+        world.setBlockState(pos.north(3).up(2), BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
 
-        if(world.getBlockState(pos.east(3)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.east(3),BlocksTC.stoneArcane.getDefaultState());
-        if(world.getBlockState(pos.east(3).up(1)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.east(3).up(1),BlocksTC.stoneArcane.getDefaultState());
-        world.setBlockState(pos.east(3).up(2),BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
+        if (world.getBlockState(pos.east(3)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.east(3), BlocksTC.stoneArcane.getDefaultState());
+        if (world.getBlockState(pos.east(3).up(1)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.east(3).up(1), BlocksTC.stoneArcane.getDefaultState());
+        world.setBlockState(pos.east(3).up(2), BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
 
-        if(world.getBlockState(pos.south(3)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.south(3),BlocksTC.stoneArcane.getDefaultState());
-        if(world.getBlockState(pos.south(3).up(1)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.south(3).up(1),BlocksTC.stoneArcane.getDefaultState());
-        world.setBlockState(pos.south(3).up(2),BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
+        if (world.getBlockState(pos.south(3)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.south(3), BlocksTC.stoneArcane.getDefaultState());
+        if (world.getBlockState(pos.south(3).up(1)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.south(3).up(1), BlocksTC.stoneArcane.getDefaultState());
+        world.setBlockState(pos.south(3).up(2), BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
 
-        if(world.getBlockState(pos.west(3)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.west(3),BlocksTC.stoneArcane.getDefaultState());
-        if(world.getBlockState(pos.west(3).up(1)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.west(3).up(1),BlocksTC.stoneArcane.getDefaultState());
-        world.setBlockState(pos.west(3).up(2),BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
+        if (world.getBlockState(pos.west(3)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.west(3), BlocksTC.stoneArcane.getDefaultState());
+        if (world.getBlockState(pos.west(3).up(1)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.west(3).up(1), BlocksTC.stoneArcane.getDefaultState());
+        world.setBlockState(pos.west(3).up(2), BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
 
-        if(world.getBlockState(pos.north(2).east(2)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.north(2).east(2),BlocksTC.stoneArcane.getDefaultState());
-        if(world.getBlockState(pos.north(2).east(2).up(1)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.north(2).east(2).up(1),BlocksTC.stoneArcane.getDefaultState());
-        world.setBlockState(pos.north(2).east(2).up(2),BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
+        if (world.getBlockState(pos.north(2).east(2)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.north(2).east(2), BlocksTC.stoneArcane.getDefaultState());
+        if (world.getBlockState(pos.north(2).east(2).up(1)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.north(2).east(2).up(1), BlocksTC.stoneArcane.getDefaultState());
+        world.setBlockState(pos.north(2).east(2).up(2), BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
 
-        if(world.getBlockState(pos.south(2).east(2)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.south(2).east(2),BlocksTC.stoneArcane.getDefaultState());
-        if(world.getBlockState(pos.south(2).east(2).up(1)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.south(2).east(2).up(1),BlocksTC.stoneArcane.getDefaultState());
-        world.setBlockState(pos.south(2).east(2).up(2),BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
+        if (world.getBlockState(pos.south(2).east(2)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.south(2).east(2), BlocksTC.stoneArcane.getDefaultState());
+        if (world.getBlockState(pos.south(2).east(2).up(1)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.south(2).east(2).up(1), BlocksTC.stoneArcane.getDefaultState());
+        world.setBlockState(pos.south(2).east(2).up(2), BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
 
-        if(world.getBlockState(pos.north(2).west(2)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.north(2).west(2),BlocksTC.stoneArcane.getDefaultState());
-        if(world.getBlockState(pos.north(2).west(2).up(1)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.north(2).west(2).up(1),BlocksTC.stoneArcane.getDefaultState());
-        world.setBlockState(pos.north(2).west(2).up(2),BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
+        if (world.getBlockState(pos.north(2).west(2)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.north(2).west(2), BlocksTC.stoneArcane.getDefaultState());
+        if (world.getBlockState(pos.north(2).west(2).up(1)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.north(2).west(2).up(1), BlocksTC.stoneArcane.getDefaultState());
+        world.setBlockState(pos.north(2).west(2).up(2), BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
 
-        if(world.getBlockState(pos.south(2).west(2)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.south(2).west(2),BlocksTC.stoneArcane.getDefaultState());
-        if(world.getBlockState(pos.south(2).west(2).up(1)).getBlock()==ModBlocks.enchantment_pillar)
-            world.setBlockState(pos.south(2).west(2).up(1),BlocksTC.stoneArcane.getDefaultState());
-        world.setBlockState(pos.south(2).west(2).up(2),BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
+        if (world.getBlockState(pos.south(2).west(2)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.south(2).west(2), BlocksTC.stoneArcane.getDefaultState());
+        if (world.getBlockState(pos.south(2).west(2).up(1)).getBlock() == ModBlocks.enchantment_pillar)
+            world.setBlockState(pos.south(2).west(2).up(1), BlocksTC.stoneArcane.getDefaultState());
+        world.setBlockState(pos.south(2).west(2).up(2), BlocksTC.nitor.get(EnumDyeColor.YELLOW).getDefaultState());
     }
 
-    public boolean checkLocation()
-    {
+    public boolean checkLocation() {
         boolean valid;
         valid = world.getBlockState(pos.north(3)).getBlock() == ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.east(3)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.south(3)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.west(3)).getBlock()== ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.east(3)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.south(3)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.west(3)).getBlock() == ModBlocks.enchantment_pillar;
 
-        valid = valid && world.getBlockState(pos.north(2).east(2)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.south(2).east(2)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.south(2).west(2)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.north(2).west(2)).getBlock()== ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.north(2).east(2)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.south(2).east(2)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.south(2).west(2)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.north(2).west(2)).getBlock() == ModBlocks.enchantment_pillar;
 
-        valid = valid && world.getBlockState(pos.north(3).up(1)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.east(3).up(1)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.south(3).up(1)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.west(3).up(1)).getBlock()== ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.north(3).up(1)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.east(3).up(1)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.south(3).up(1)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.west(3).up(1)).getBlock() == ModBlocks.enchantment_pillar;
 
-        valid = valid && world.getBlockState(pos.north(2).east(2).up(1)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.south(2).east(2).up(1)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.south(2).west(2).up(1)).getBlock()== ModBlocks.enchantment_pillar;
-        valid = valid && world.getBlockState(pos.north(2).west(2).up(1)).getBlock()== ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.north(2).east(2).up(1)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.south(2).east(2).up(1)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.south(2).west(2).up(1)).getBlock() == ModBlocks.enchantment_pillar;
+        valid = valid && world.getBlockState(pos.north(2).west(2).up(1)).getBlock() == ModBlocks.enchantment_pillar;
 
-        int oreDictNum=OreDictionary.getOreID(LibOreDict.BLACK_QUARTZ_BLOCK);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).north(1)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).north(2)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).south(1)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).south(2)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).east(1)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).east(2)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).west(1)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).west(2)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).north(1).east(1)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).north(1).west(1)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).south(1).east(1)),oreDictNum);
-        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).south(1).west(1)),oreDictNum);
+        int oreDictNum = OreDictionary.getOreID(LibOreDict.BLACK_QUARTZ_BLOCK);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).north(1)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).north(2)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).south(1)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).south(2)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).east(1)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).east(2)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).west(1)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).west(2)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).north(1).east(1)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).north(1).west(1)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).south(1).east(1)), oreDictNum);
+        valid = valid && oreDictCheck(world.getBlockState(pos.down(1).south(1).west(1)), oreDictNum);
 
-        valid = valid && world.getBlockState(pos.down(1).north(3)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).north(3).east(1)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).north(3).west(1)).getBlock()==BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(3)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(3).east(1)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(3).west(1)).getBlock() == BlocksTC.stoneArcaneBrick;
 
-        valid = valid && world.getBlockState(pos.down(1).north(2).east(1)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).north(2).east(2)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).north(2).west(1)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).north(2).west(2)).getBlock()==BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(2).east(1)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(2).east(2)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(2).west(1)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(2).west(2)).getBlock() == BlocksTC.stoneArcaneBrick;
 
-        valid = valid && world.getBlockState(pos.down(1).north(1).east(2)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).north(1).east(3)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).north(1).west(2)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).north(1).west(3)).getBlock()==BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(1).east(2)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(1).east(3)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(1).west(2)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).north(1).west(3)).getBlock() == BlocksTC.stoneArcaneBrick;
 
-        valid = valid && world.getBlockState(pos.down(1).east(3)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).west(3)).getBlock()==BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).east(3)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).west(3)).getBlock() == BlocksTC.stoneArcaneBrick;
 
-        valid = valid && world.getBlockState(pos.down(1).south(3)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).south(3).east(1)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).south(3).west(1)).getBlock()==BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(3)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(3).east(1)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(3).west(1)).getBlock() == BlocksTC.stoneArcaneBrick;
 
-        valid = valid && world.getBlockState(pos.down(1).south(2).east(1)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).south(2).east(2)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).south(2).west(1)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).south(2).west(2)).getBlock()==BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(2).east(1)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(2).east(2)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(2).west(1)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(2).west(2)).getBlock() == BlocksTC.stoneArcaneBrick;
 
-        valid = valid && world.getBlockState(pos.down(1).south(1).east(2)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).south(1).east(3)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).south(1).west(2)).getBlock()==BlocksTC.stoneArcaneBrick;
-        valid = valid && world.getBlockState(pos.down(1).south(1).west(3)).getBlock()==BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(1).east(2)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(1).east(3)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(1).west(2)).getBlock() == BlocksTC.stoneArcaneBrick;
+        valid = valid && world.getBlockState(pos.down(1).south(1).west(3)).getBlock() == BlocksTC.stoneArcaneBrick;
         return valid;
 
     }
@@ -339,7 +340,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
     @Override
     public boolean isEmpty() {
-        return inventory.getStackInSlot(0)==ItemStack.EMPTY;
+        return inventory.getStackInSlot(0) == ItemStack.EMPTY;
     }
 
     @Override
@@ -349,9 +350,8 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
     @Override
     public ItemStack decrStackSize(int index, int count) {
-        ItemStack itemStack= ItemStackHelper.getAndSplit(Arrays.asList(inventory.getStackInSlot(0)),index,count);
-        if (!itemStack.isEmpty())
-        {
+        ItemStack itemStack = ItemStackHelper.getAndSplit(Arrays.asList(inventory.getStackInSlot(0)), index, count);
+        if (!itemStack.isEmpty()) {
             this.markDirty();
         }
 
@@ -360,13 +360,13 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
     @Override
     public ItemStack removeStackFromSlot(int index) {
-        ItemStack itemStack= ItemStackHelper.getAndRemove(Arrays.asList(inventory.getStackInSlot(0)),index);
+        ItemStack itemStack = ItemStackHelper.getAndRemove(Arrays.asList(inventory.getStackInSlot(0)), index);
         return itemStack;
     }
 
     @Override
     public void setInventorySlotContents(int index, ItemStack stack) {
-        this.inventory.setStackInSlot(index,stack);
+        this.inventory.setStackInSlot(index, stack);
     }
 
     @Override
@@ -412,7 +412,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
     @Override
     public void clear() {
-        inventory.setStackInSlot(0,ItemStack.EMPTY);
+        inventory.setStackInSlot(0, ItemStack.EMPTY);
     }
 
     public ItemStackHandler getInventory() {
@@ -427,7 +427,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
         nbttagcompound.setIntArray(TAG_CACHED_ENCHANTS, cachedEnchantments.stream().mapToInt(i -> i).toArray());
         nbttagcompound.setInteger(TAG_PROGRESS, progress);
         nbttagcompound.setBoolean(TAG_WORKING, working);
-        nbttagcompound.setInteger(TAG_AURA,auraVisServer);
+        nbttagcompound.setInteger(TAG_AURA, auraVisServer);
     }
 
     @Override
@@ -449,8 +449,8 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
         }
         if (nbttagcompound.hasKey(TAG_WORKING))
             working = nbttagcompound.getBoolean(TAG_WORKING);
-        if(nbttagcompound.hasKey(TAG_AURA))
-            auraVisServer=nbttagcompound.getInteger(TAG_AURA);
+        if (nbttagcompound.hasKey(TAG_AURA))
+            auraVisServer = nbttagcompound.getInteger(TAG_AURA);
     }
 
     @Override
@@ -487,7 +487,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
             if (tool == ItemStack.EMPTY) {
                 working = false;
                 progress = 0;
-                world.playSound( (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, SoundsTC.craftfail, SoundCategory.BLOCKS, 0.5F, 1.0F,false);
+                world.playSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundsTC.craftfail, SoundCategory.BLOCKS, 0.5F, 1.0F, false);
                 return;
             }
 
@@ -506,7 +506,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
                 newEnchant(percenDone);
             }
 
-            if(!TTConfig.ClassicEnchanter)
+            if (!TTConfig.ClassicEnchanter)
                 playCorrectSound(percenDone);
 
             if (progress > 20 * 15) {
@@ -516,7 +516,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
                     }
                 }
 
-                world.playSound( (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, SoundsTC.wand, SoundCategory.BLOCKS, 0.5F, 1.0F,false);
+                world.playSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundsTC.wand, SoundCategory.BLOCKS, 0.5F, 1.0F, false);
                 progress = 0;
                 working = false;
                 cooldown = 28;
@@ -534,40 +534,41 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
         Vec3d targetPos;
         // test
         if (percentDone >= 0.0f && percentDone <= 0.5f) {
-            targetPos=curPos.add(points[0]);
+            targetPos = curPos.add(points[0]);
             world.playSound((double) targetPos.x + 0.5D, (double) targetPos.y + 0.5D, (double) targetPos.z + 0.5D, SoundsTC.jacobs, SoundCategory.BLOCKS, 0.5F, 1.0F, true);
         }
-        if (percentDone >= 12.4f && percentDone <=12.7f){
-            targetPos=curPos.add(points[1]);
+        if (percentDone >= 12.4f && percentDone <= 12.7f) {
+            targetPos = curPos.add(points[1]);
             world.playSound((double) targetPos.x + 0.5D, (double) targetPos.y + 0.5D, (double) targetPos.z + 0.5D, SoundsTC.jacobs, SoundCategory.BLOCKS, 0.5F, 1.0F, true);
         }
-        if (percentDone >= 24.7f && percentDone <=25.4f){
-            targetPos=curPos.add(points[2]);
+        if (percentDone >= 24.7f && percentDone <= 25.4f) {
+            targetPos = curPos.add(points[2]);
             world.playSound((double) targetPos.x + 0.5D, (double) targetPos.y + 0.5D, (double) targetPos.z + 0.5D, SoundsTC.jacobs, SoundCategory.BLOCKS, 0.5F, 1.0F, true);
         }
-        if (percentDone >= 37.3f && percentDone <=37.6f){
-            targetPos=curPos.add(points[3]);
+        if (percentDone >= 37.3f && percentDone <= 37.6f) {
+            targetPos = curPos.add(points[3]);
             world.playSound((double) targetPos.x + 0.5D, (double) targetPos.y + 0.5D, (double) targetPos.z + 0.5D, SoundsTC.jacobs, SoundCategory.BLOCKS, 0.5F, 1.0F, true);
         }
-        if (percentDone >= 49.7f && percentDone <=50.1f){
-            targetPos=curPos.add(points[4]);
+        if (percentDone >= 49.7f && percentDone <= 50.1f) {
+            targetPos = curPos.add(points[4]);
             world.playSound((double) targetPos.x + 0.5D, (double) targetPos.y + 0.5D, (double) targetPos.z + 0.5D, SoundsTC.jacobs, SoundCategory.BLOCKS, 0.5F, 1.0F, true);
         }
-        if (percentDone >= 61.3f && percentDone <=61.7f){
-            targetPos=curPos.add(points[5]);
+        if (percentDone >= 61.3f && percentDone <= 61.7f) {
+            targetPos = curPos.add(points[5]);
             world.playSound((double) targetPos.x + 0.5D, (double) targetPos.y + 0.5D, (double) targetPos.z + 0.5D, SoundsTC.jacobs, SoundCategory.BLOCKS, 0.5F, 1.0F, true);
         }
-        if (percentDone >= 74.6f && percentDone <=75.1f){
-            targetPos=curPos.add(points[6]);
+        if (percentDone >= 74.6f && percentDone <= 75.1f) {
+            targetPos = curPos.add(points[6]);
             world.playSound((double) targetPos.x + 0.5D, (double) targetPos.y + 0.5D, (double) targetPos.z + 0.5D, SoundsTC.jacobs, SoundCategory.BLOCKS, 0.5F, 1.0F, true);
         }
-        if (percentDone >= 87.5f && percentDone <=88.0f){
-            targetPos=curPos.add(points[7]);
+        if (percentDone >= 87.5f && percentDone <= 88.0f) {
+            targetPos = curPos.add(points[7]);
             world.playSound((double) targetPos.x + 0.5D, (double) targetPos.y + 0.5D, (double) targetPos.z + 0.5D, SoundsTC.jacobs, SoundCategory.BLOCKS, 0.5F, 1.0F, true);
         }
-        if (percentDone >= 99.6f && percentDone <=100.3f)
-            world.playSound( (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, SoundsTC.brain, SoundCategory.BLOCKS, 0.25F, 1.0F,false);
+        if (percentDone >= 99.6f && percentDone <= 100.3f)
+            world.playSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundsTC.brain, SoundCategory.BLOCKS, 0.25F, 1.0F, false);
     }
+
     private void newEnchant(float percenDone) {
 
         if (percenDone >= 0) {
@@ -631,7 +632,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
             checkPillars();
         } else {
             if (checkSurroundings)
-                working=checkLocation();
+                working = checkLocation();
         }
     }
 
@@ -725,7 +726,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
     public int getEnchantmentVisCost() {
         List<Enchantment> enchantmentObjects = enchantments.stream().map(Enchantment::getEnchantmentByID).collect(Collectors.toList());
-        int visAmount=0;
+        int visAmount = 0;
         for (int i = 0, enchantmentObjectsSize = enchantmentObjects.size(); i < enchantmentObjectsSize; i++) {
             Enchantment enchantment = enchantmentObjects.get(i);
 
@@ -745,66 +746,66 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
         }
         return visAmount;
     }
+
     public List<ItemStack> getEnchantmentCost() {
         List<ItemStack> costs = new ArrayList<>();
         Map<Aspect, Integer> costItems = new HashMap<>();
         List<Enchantment> enchantmentObjects = enchantments.stream().map(Enchantment::getEnchantmentByID).collect(Collectors.toList());
-        int visAmount=0;
+        int visAmount = 0;
         for (int i = 0, enchantmentObjectsSize = enchantmentObjects.size(); i < enchantmentObjectsSize; i++) {
             Enchantment enchantment = enchantmentObjects.get(i);
 
-            switch(enchantment.getRarity())
-            {
+            switch (enchantment.getRarity()) {
                 case COMMON:
-                    visAmount+=50*getLevels().get(i);
+                    visAmount += 50 * getLevels().get(i);
                     break;
                 case UNCOMMON:
-                    visAmount+=90*getLevels().get(i);
+                    visAmount += 90 * getLevels().get(i);
                     break;
                 case RARE:
-                    visAmount+=120*getLevels().get(i);
+                    visAmount += 120 * getLevels().get(i);
                     break;
                 case VERY_RARE:
-                    visAmount+=300*getLevels().get(i);
+                    visAmount += 300 * getLevels().get(i);
             }
             switch (Objects.requireNonNull(enchantment.type)) {
                 case ARMOR:
                 case ARMOR_LEGS:
 
-                    addAmountTo(costItems, Aspect.PROTECT, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.PROTECT, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case ARMOR_FEET:
-                    addAmountTo(costItems, Aspect.PROTECT, (int)Math.pow(2,getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.MOTION, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.PROTECT, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.MOTION, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case ARMOR_CHEST:
-                    addAmountTo(costItems, Aspect.PROTECT, (int)Math.pow(2,getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.LIFE, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.PROTECT, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.LIFE, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case ARMOR_HEAD:
-                    addAmountTo(costItems, Aspect.PROTECT, (int)Math.pow(2,getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.MIND, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.PROTECT, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.MIND, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case DIGGER:
-                    addAmountTo(costItems, Aspect.ENTROPY, (int)Math.pow(2,getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.TOOL, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.ENTROPY, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.TOOL, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case BREAKABLE:
-                    addAmountTo(costItems, Aspect.ENTROPY, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.ENTROPY, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case WEARABLE:
-                    addAmountTo(costItems, Aspect.MAN, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.MAN, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case WEAPON:
-                    addAmountTo(costItems, Aspect.DEATH, (int)Math.pow(2,getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.AVERSION, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.DEATH, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.AVERSION, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case BOW:
-                    addAmountTo(costItems, Aspect.DEATH, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.DEATH, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 case FISHING_ROD:
-                    addAmountTo(costItems, Aspect.BEAST, (int)Math.pow(2,getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.WATER, (int)Math.pow(2,getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.BEAST, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.WATER, (int) Math.pow(2, getLevels().get(i)));
                     break;
                 default:
                     break;
@@ -813,14 +814,14 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
 
         for (Aspect item : costItems.keySet()) {
-            ItemStack crystal = new ItemStack(ItemsTC.crystalEssence,costItems.get(item));
+            ItemStack crystal = new ItemStack(ItemsTC.crystalEssence, costItems.get(item));
             ((ItemCrystalEssence) crystal.getItem()).setAspects(crystal, new AspectList().add(item, 1));
             costs.add(crystal);
         }
         return costs;
     }
 
-    private void addAmountTo(Map<Aspect, Integer> costItems, Aspect crystalEssence,int amount) {
+    private void addAmountTo(Map<Aspect, Integer> costItems, Aspect crystalEssence, int amount) {
         if (costItems.containsKey(crystalEssence))
             costItems.put(crystalEssence, costItems.get(crystalEssence) + amount);
         else
@@ -838,17 +839,17 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
             //if (this.world.getBlockState(this.getPos().up()).getBlock() != BlocksTC.arcaneWorkbenchCharger) {
             //    t = (int) AuraHandler.getVis(this.getWorld(), this.getPos());
             //} else {
-                int sx = this.pos.getX() >> 4;
-                int sz = this.pos.getZ() >> 4;
+            int sx = this.pos.getX() >> 4;
+            int sz = this.pos.getZ() >> 4;
 
-                for(int xx = -1; xx <= 1; ++xx) {
-                    for(int zz = -1; zz <= 1; ++zz) {
-                        AuraChunk ac = AuraHandler.getAuraChunk(this.world.provider.getDimension(), sx + xx, sz + zz);
-                        if (ac != null) {
-                            t = (int)((float)t + ac.getVis());
-                        }
+            for (int xx = -1; xx <= 1; ++xx) {
+                for (int zz = -1; zz <= 1; ++zz) {
+                    AuraChunk ac = AuraHandler.getAuraChunk(this.world.provider.getDimension(), sx + xx, sz + zz);
+                    if (ac != null) {
+                        t = (int) ((float) t + ac.getVis());
                     }
                 }
+            }
             //}
 
             this.auraVisServer = t;
@@ -859,26 +860,26 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     public void spendAura(int vis) {
         if (!this.getWorld().isRemote) {
             //if (this.world.getBlockState(this.getPos().up()).getBlock() == BlocksTC.arcaneWorkbenchCharger) {
-                int q = vis;
-                int z = Math.max(1, vis / 9);
-                int attempts = 0;
+            int q = vis;
+            int z = Math.max(1, vis / 9);
+            int attempts = 0;
 
-                while (q > 0) {
-                    ++attempts;
+            while (q > 0) {
+                ++attempts;
 
-                    for (int xx = -1; xx <= 1; ++xx) {
-                        for (int zz = -1; zz <= 1; ++zz) {
-                            if (z > q) {
-                                z = q;
-                            }
+                for (int xx = -1; xx <= 1; ++xx) {
+                    for (int zz = -1; zz <= 1; ++zz) {
+                        if (z > q) {
+                            z = q;
+                        }
 
-                            q = (int) ((float) q - AuraHandler.drainVis(this.getWorld(), this.getPos().add(xx * 16, 0, zz * 16), (float) z, false));
-                            if (q <= 0 || attempts > 1000) {
-                                return;
-                            }
+                        q = (int) ((float) q - AuraHandler.drainVis(this.getWorld(), this.getPos().add(xx * 16, 0, zz * 16), (float) z, false));
+                        if (q <= 0 || attempts > 1000) {
+                            return;
                         }
                     }
                 }
+            }
             //} else {
             //    AuraHandler.drainVis(this.getWorld(), this.getPos(), (float) vis, false);
             //}

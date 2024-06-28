@@ -30,16 +30,16 @@ public class TConstructHandler {
         MinecraftForge.EVENT_BUS.register(traitInstantBreak);
 
         if (TinkerRegistry.getMaterial("ichorium") == Material.UNKNOWN) {
-            Material ichorium = new Material("ichorium", 0xB26507);
+            Material ichorium = new Material("ichorium", 0xA75110);
             ichorium.setCraftable(false).setCastable(true);
             ichorium.setFluid(fluidIchorium);
             ichorium.addTrait(traitInstantBreak, MaterialTypes.HEAD).addTrait(TinkerTraits.magnetic2, MaterialTypes.HEAD).addTrait(TinkerTraits.writable2, MaterialTypes.HEAD);
             ichorium.addTrait(TinkerTraits.writable);
 
             if (e.getSide() == Side.CLIENT)
-                setMetalMaterialRenderInfo(ichorium, 0xB26507, 0.7f, 0f, 0.1f);
+                setMetalMaterialRenderInfo(ichorium, 0xA75110, 0.7f, 0f, 0.1f);
 
-            TinkerRegistry.addMaterialStats(ichorium, new HeadMaterialStats(6375, 32, TTConfig.IWeaponDamage, HarvestLevels.COBALT), new HandleMaterialStats(TTConfig.IWeaponDamage, 650), new ExtraMaterialStats(2200), new BowMaterialStats(TTConfig.IWeaponDamage, 6.5f, 7));
+            TinkerRegistry.addMaterialStats(ichorium, new HeadMaterialStats(6375, 32, TTConfig.IWeaponDamage, HarvestLevels.COBALT), new HandleMaterialStats(2, 650), new ExtraMaterialStats(550), new BowMaterialStats(TTConfig.IWeaponDamage, 6.5f, 7));
 
             MaterialIntegration mi = new MaterialIntegration(ichorium, fluidIchorium);
             mi.oreSuffix = "Ichorium";

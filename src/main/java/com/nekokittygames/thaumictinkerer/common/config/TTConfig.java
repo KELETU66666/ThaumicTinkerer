@@ -69,6 +69,10 @@ public class TTConfig {
     @Config.Name("Blacklisted Enchants")
     public static int[] blacklistedEnchants = new int[]{71, 10};
 
+    @Config.Comment("Osmotic Enchanter only can enchants vanilla and tinkerer enchantments")
+    @Config.Name("Enchanter WhiteList Mode")
+    public static boolean balancedEnchanter = true;
+
     @Config.LangKey("Dimensional shard drop rate")
     @Config.Comment("Change dimensional shard drop rate, The higher the value the higher the drop rate")
     @Config.RangeInt(min = -1, max = 64)

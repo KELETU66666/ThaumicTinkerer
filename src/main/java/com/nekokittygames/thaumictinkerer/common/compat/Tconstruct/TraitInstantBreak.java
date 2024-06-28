@@ -25,8 +25,8 @@ public class TraitInstantBreak extends AbstractTrait {
 
     public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event) {
         ItemStack stack = event.getEntityPlayer().getHeldItem(EnumHand.MAIN_HAND);
-        if(stack.getItem() instanceof Pickaxe)
-        event.setNewSpeed(Float.MAX_VALUE);
+        if (stack.getItem() instanceof Pickaxe)
+            event.setNewSpeed(Float.MAX_VALUE);
     }
 
 }
