@@ -9,7 +9,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.casters.FocusEffect;
 import thaumcraft.api.casters.NodeSetting;
 import thaumcraft.api.casters.Trajectory;
-import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.codechicken.lib.vec.Vector3;
 
 import javax.annotation.Nullable;
@@ -18,7 +17,7 @@ import java.util.List;
 public class FocusEffectTelekenesis extends FocusEffect {
     @Override
     public boolean execute(RayTraceResult paramRayTraceResult, @Nullable Trajectory paramTrajectory, float paramFloat, int paramInt) {
-        if ( paramRayTraceResult.typeOfHit!= RayTraceResult.Type.BLOCK)
+        if (paramRayTraceResult.typeOfHit != RayTraceResult.Type.BLOCK)
             return false;
         if (paramTrajectory == null)
             return false;
@@ -32,7 +31,7 @@ public class FocusEffectTelekenesis extends FocusEffect {
         if (!entities.isEmpty()) {
             for (EntityItem item : entities) {
                 MiscHelper.setEntityMotionFromVector(item, target, 0.3333F);
-                FXDispatcher.INSTANCE.sparkle((float) item.posX, (float) item.posY, (float) item.posZ, 0, 0, 0);
+                //FXDispatcher.INSTANCE.sparkle((float) item.posX, (float) item.posY, (float) item.posZ, 0, 0, 0);
             }
         }
 
