@@ -92,7 +92,7 @@ item.revealing_helm.name=Helmet of Revealing
 thaumictinkerer.TELEKENESIS.name=Telekenesis
 thaumictinkerer.dislocation.name=Dislocation
 thaumictinkerer.efreetflame.name=Efreet's Flame
-thaumictinkerer.TELEKENESIS.text=Attracts items towards the cast point. When the effect is cast while sneaking, it'll push away items instead.
+thaumictinkerer.TELEKENESIS.text=Attracts items towards the point of impact. When the effect is cast while sneaking, it'll push away items instead.
 thaumictinkerer.dislocation.text=Stores a block in the world inside the focus. Casting again will place the stored block at your desired location.
 thaumictinkerer.efreetflame.text=[WIP] Efreet's Flame
 thaumictinkerer.mobaspect.type=Aspect: %s
@@ -167,7 +167,7 @@ thaumictinkerer.research.form_revealer.0=As I learn more about Thaumaturgy, I fi
 
 thaumictinkerer.research.TT_TELEKENESIS.title=Focus Effect: Telekinesis
 thaumictinkerer.research.TT_TELEKENESIS.0=After watching how creatures and items alike drift in water I started to wonder, what if I had a stream of magical energy that could do so?
-thaumictinkerer.research.TT_TELEKENESIS.1=I have managed to create a focal pattern that creates a light stream of magic infused with Vis. When I cast this effect towards the ground, all nearby items will float towards the impact point. If I were sneaking while doing this, it will instead cause the items to flee from that point.
+thaumictinkerer.research.TT_TELEKENESIS.1=I have managed to create a focal pattern that creates a light stream of magic infused with Vis. When I cast this effect towards the ground, all nearby items will float towards the point of impact. If I were sneaking while doing this, it will instead cause the items to flee from that point.
 
 thaumictinkerer.research.TT_DISLOCATE.title=Focus Effect: Dislocation
 thaumictinkerer.research.DISLOCATE.0=After so much work was put into discovering how to exchange blocks, I noticed sometimes there would be a delay before the block appears when being swapped. I wonder what would happen if I look into this more?
