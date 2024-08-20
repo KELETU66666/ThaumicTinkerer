@@ -81,7 +81,7 @@ item.kami_chest.name=Robes of the Stratosphere
 item.kami_legs.name=Leggings of the Burning Mantle
 item.kami_boots.name=Boots of the Horizontal Shield
 
-item.ichorium_pick_adv.name=Awakened Ichorium Pick
+item.ichorium_pick_adv.name=Awakened Ichorium Pickaxe
 item.ichorium_axe_adv.name=Awakened Ichorium Axe
 item.ichorium_shovel_adv.name=Awakened Ichorium Shovel
 item.ichorium_sword_adv.name=Awakened Ichorium Sword
@@ -288,8 +288,8 @@ thaumictinkerer.research.kamiboots.text=Surely, there must be a way to get more 
 thaumictinkerer.research.kamiboots.complete.text=It seems to be possible to infuse the boots with the aspect of Terra, granting me improved speed and jumping, as well as swifter mining, and growing grass atop any dirt I walk on.
 
 thaumictinkerer.research.blackhole_ring.title=Black Hole Ring
-thaumictinkerer.research.blackhole_ring.text=[WIP]
-thaumictinkerer.research.blackhole_ring.complete.text=[WIP] This ring can be set to condense any block, by right clicking with it in world in the type of block you want to have it be set to, when enabled via right click will absorb any excess (over 1 stack) of that block in your inventory, and make sure at least one stack stays there. The contents can be stored in any inventory by right clicking it, or placed in world as if they were normal blocks.<BR><BR>It can store over 2 billion of the same block. Guess cobblestone clogging the space isn't an issue. If the ring is empty, it can be shift right clicked into another block to change its binding.
+thaumictinkerer.research.blackhole_ring.text=While mining is not that hard at all, having an excessive amount of cobblestone I don't need dropped all over the ground is quite annoying, and this is still a problem even with portable storage items.<BR>There surely has to be a way to take care of this...
+thaumictinkerer.research.blackhole_ring.complete.text=At long last! This powerful ring can be set to condense any block, I simply need to right-click a block with it to attune it. After that, I can sneak and right-click to activate it, excess copies of the block goes straight towards the ring and I can right-click anywhere to place that block.<BR>The ring can hold upwards to over 2 billion of that block! It comes with a catch however, the ring can only be attuned to one block at a time, but once the ring is empty again, I am free to attune it to another block of my choosing.
 
 thaumictinkerer.research.proto_clay.title=Proto Clay
 thaumictinkerer.research.proto_clay.text=You grew tired of having to constantly swap your tools.
@@ -383,7 +383,7 @@ fluid.molten_ichorium=Molten Ichorium
 enchantment.thaumictinkerer.ascentboost.desc=Increases jump height.
 enchantment.thaumictinkerer.autosmelt.desc=Greatly increases the tool's mining speed on blocks made out of a wood material, but greatly decreases the tool's mining speed on blocks made out of any other material.
 enchantment.thaumictinkerer.desintegrate.desc=Increases the tool's mining speed on blocks made out of a soft material like dirt, but also decreases the tool's mining speed on blocks made out of a hard material like stone. The tool will take double damage per use.
-enchantment.thaumictinkerer.dispersedstrikes.desc=Increases damage when the target is hit for the first time. Subsequent hits on the same target will be reduced however.
+enchantment.thaumictinkerer.dispersedstrikes.desc=Increases damage when the target is hit for the first time. Subsequent hits on the same target will be decreased however.
 enchantment.thaumictinkerer.finalstrike.desc=There is a chance to deal a critical blow each time the target is hit.
 enchantment.thaumictinkerer.focusedstrike.desc=Decreases damage when the target is hit for the first time. Subsequent hits on the same target will be increased however.
 enchantment.thaumictinkerer.pounce.desc=Increases damage dealt while in the air.
