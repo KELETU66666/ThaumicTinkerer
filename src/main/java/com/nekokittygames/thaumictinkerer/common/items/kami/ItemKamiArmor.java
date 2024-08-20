@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.WeakHashMap;
 
-public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
+public class ItemKamiArmor extends ItemIchorArmor implements IGoggles {
 
     public static List<String> playersWith1Step = new ArrayList<>();
     private static final WeakHashMap<EntityLivingBase, Object> armorModels = new WeakHashMap<>();
@@ -76,8 +76,7 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
                     bonus *= 1.25f;
                 }
                 player.moveRelative(0.0f, 0.0f, bonus, 1.0f);
-            }
-            else {
+            } else {
                 if (player.isInWater()) {
                     player.moveRelative(0.0f, 0.0f, 0.075F, 1.0f);
                 }
@@ -134,7 +133,7 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         switch (armorType) {
             case HEAD: {
-                if(itemStack.getItemDamage() != 1){
+                if (itemStack.getItemDamage() != 1) {
                     player.setAir(300);
                     if (player.getEntityWorld().getBlockState(player.getPosition().up()).getBlock() == Blocks.WATER || player.getEntityWorld().getBlockState(player.getPosition().up()).getBlock() == Blocks.FLOWING_WATER) {
                         player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, true, false));
@@ -145,11 +144,12 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
                     if (food > 0 && food < 18 && player.shouldHeal()
                             && player.ticksExisted % 80 == 0)
                         player.heal(1F);
-                }}
+                }
+            }
             break;
 
             case CHEST: {
-                if(itemStack.getItemDamage() != 1) {
+                if (itemStack.getItemDamage() != 1) {
                     player.getEntityData().setBoolean("can_fly", true);
                     doProjectileEffect(player);
                 }
@@ -204,7 +204,7 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles{
             for (Entity potion : projectiles) {
                 Vector3 motionVec = new Vector3(potion.motionX, potion.motionY, potion.motionZ).normalize().multiply(Math.sqrt((potion.posX - mp.posX) * (potion.posX - mp.posX) + (potion.posY - mp.posY) * (potion.posY - mp.posY) + (potion.posZ - mp.posZ) * (potion.posZ - mp.posZ)) * 2);
 
-                if(mp.world.isRemote)
+                if (mp.world.isRemote)
                     for (int i = 0; i < 6; i++)
                         FXDispatcher.INSTANCE.sparkle((float) potion.posX, (float) potion.posY, (float) potion.posZ, 6, 0, 0);
 
