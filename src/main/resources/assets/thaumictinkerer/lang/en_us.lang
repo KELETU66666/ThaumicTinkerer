@@ -341,7 +341,7 @@ enchantment.focusedstrikes=Focused Strike
 enchantment.quickdraw=Quick Draw
 enchantment.shatter=Shatter
 enchantment.tunnel=Tunnel
-enchantment.autosmelt=Auto Smelt
+enchantment.autosmelt=Flaming Touch
 
 item.ichorium_fortress.upgrade.0=§bAqua
 item.ichorium_fortress.upgrade.1=§eAer
@@ -370,27 +370,27 @@ ttmisc.noTeleport=The Celestial Gateway in the destination does not accept incom
 
 #Tinkers Compat
 modifier.instantbreak.name=Geocentric Disintegration
-modifier.instantbreak.desc=§oSabotage Maniacs !§r\nDigger made of this material can dig regardless of the hardness of the block.
+modifier.instantbreak.desc=§oSabotage Maniacs!§r\nDigger made of this material can dig regardless of the hardness of the block.
 modifier.writableadv.name=World of Artisanship
-modifier.writableadv.desc=§oArtisanship !§r\nYou get 2 extra Modifiers!
+modifier.writableadv.desc=§oArtisanship!§r\nYou get 2 extra Modifiers!
 modifier.aurastrike.name=Aura Strike
-modifier.aurastrike.desc=§oThe Wrath of Aura !§r\nAttack to release vis, when vis is high enough, absorb vis to traumatize the target and form a shield.
+modifier.aurastrike.desc=§oThe Wrath of Aura!§r\nAttack to release Vis, when Vis is high enough, absorb Vis to traumatize the target and form a shield.
 
 material.ichorium.name=Ichorium
 fluid.molten_ichorium=Molten Ichorium
 
 #Enchanting Description
 enchantment.thaumictinkerer.ascentboost.desc=Increases jump height.
-enchantment.thaumictinkerer.autosmelt.desc=???
-enchantment.thaumictinkerer.desintegrate.desc=[WIP]
-enchantment.thaumictinkerer.dispersedstrikes.desc=Hitting different targets deals increased damage.
-enchantment.thaumictinkerer.finalstrike.desc=On hit, there is a chance to deal a critical blow.
-enchantment.thaumictinkerer.focusedstrike.desc=Hitting the same target deals increased damage.
+enchantment.thaumictinkerer.autosmelt.desc=Greatly increases the tool's mining speed on blocks made out of a wood material, but greatly decreases the tool's mining speed on blocks made out of any other material.
+enchantment.thaumictinkerer.desintegrate.desc=Increases the tool's mining speed on blocks made out of a soft material like dirt, but also decreases the tool's mining speed on blocks made out of a hard material like stone. The tool will take double damage per use.
+enchantment.thaumictinkerer.dispersedstrikes.desc=Increases damage when the target is hit for the first time. Subsequent hits on the same target will be reduced however.
+enchantment.thaumictinkerer.finalstrike.desc=There is a chance to deal a critical blow each time the target is hit.
+enchantment.thaumictinkerer.focusedstrike.desc=Decreases damage when the target is hit for the first time. Subsequent hits on the same target will be increased however.
 enchantment.thaumictinkerer.pounce.desc=Increases damage dealt while in the air.
-enchantment.thaumictinkerer.quickdraw.desc=Draws bow faster.
-enchantment.thaumictinkerer.shatter.desc=Increases the tool's mining speed.
-enchantment.thaumictinkerer.shockwave.desc=Falling deals damage to nearby mobs.
-enchantment.thaumictinkerer.slowfall.desc=Slows the owner's fall from great heights.
-enchantment.thaumictinkerer.tunnel.desc=[WIP]
-enchantment.thaumictinkerer.valiance.desc=If the attacker has less health than the target, the attacker deals increased damage.
-enchantment.thaumictinkerer.vamprisim.desc=Hitting a target heals the attacker.
+enchantment.thaumictinkerer.quickdraw.desc=Increases the bow's drawing speed.
+enchantment.thaumictinkerer.shatter.desc=Greatly increases the tool's mining speed on strong blocks.
+enchantment.thaumictinkerer.shockwave.desc=Falling and hitting the ground produces shockwaves, which deals damage to nearby targets.
+enchantment.thaumictinkerer.slowfall.desc=Slows the player's fall. The effect is disabled while sneaking.
+enchantment.thaumictinkerer.tunnel.desc=Increases the tool's mining speed while mining in a straight line.
+enchantment.thaumictinkerer.valiance.desc=Increases damage dealt while the player has less health than the target.
+enchantment.thaumictinkerer.vamprisim.desc=Hitting a target heals the player.
