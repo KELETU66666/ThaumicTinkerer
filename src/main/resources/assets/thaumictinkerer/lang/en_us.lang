@@ -380,7 +380,7 @@ material.ichorium.name=Ichorium
 fluid.molten_ichorium=Molten Ichorium
 
 #Enchanting Description
-enchantment.thaumictinkerer.ascentboost.desc=Increases jump height.
+enchantment.thaumictinkerer.ascentboost.desc=Increases the player's jump height.
 enchantment.thaumictinkerer.autosmelt.desc=Greatly increases the tool's mining speed on blocks made out of a wood material, but greatly decreases the tool's mining speed on blocks made out of any other material.
 enchantment.thaumictinkerer.desintegrate.desc=Increases the tool's mining speed on blocks made out of a soft material like dirt, but also decreases the tool's mining speed on blocks made out of a hard material like stone. The tool will take double damage per use.
 enchantment.thaumictinkerer.dispersedstrikes.desc=Increases damage when the target is hit for the first time. Subsequent hits on the same target will be decreased however.
