@@ -81,7 +81,7 @@ item.kami_chest.name=Robes of the Stratosphere
 item.kami_legs.name=Leggings of the Burning Mantle
 item.kami_boots.name=Boots of the Horizontal Shield
 
-item.ichorium_pick_adv.name=Awakened Ichorium Pick
+item.ichorium_pick_adv.name=Awakened Ichorium Pickaxe
 item.ichorium_axe_adv.name=Awakened Ichorium Axe
 item.ichorium_shovel_adv.name=Awakened Ichorium Shovel
 item.ichorium_sword_adv.name=Awakened Ichorium Sword
@@ -92,8 +92,8 @@ item.revealing_helm.name=Helmet of Revealing
 thaumictinkerer.TELEKENESIS.name=Telekenesis
 thaumictinkerer.dislocation.name=Dislocation
 thaumictinkerer.efreetflame.name=Efreet's Flame
-thaumictinkerer.TELEKENESIS.text=[WIP] Telekenesis
-thaumictinkerer.dislocation.text=[WIP] Dislocation
+thaumictinkerer.TELEKENESIS.text=Attracts items towards the point of impact. When the effect is cast while sneaking, it'll push away items instead.
+thaumictinkerer.dislocation.text=Stores a block in the world inside the focus. Casting again will place the stored block at your desired location.
 thaumictinkerer.efreetflame.text=[WIP] Efreet's Flame
 thaumictinkerer.mobaspect.type=Aspect: %s
 thaumictinkerer.mobaspect.invalid=Invalid Aspect
@@ -167,11 +167,11 @@ thaumictinkerer.research.form_revealer.0=As I learn more about Thaumaturgy, I fi
 
 thaumictinkerer.research.TT_TELEKENESIS.title=Focus Effect: Telekinesis
 thaumictinkerer.research.TT_TELEKENESIS.0=After watching how creatures and items alike drift in water I started to wonder, what if I had a stream of magical energy that could do so?
-thaumictinkerer.research.TT_TELEKENESIS.1=I have managed to create a focal pattern that creates a light stream of magic infused with vis,  if I add this pattern to a bolt and right click on the ground, all nearby items will float towards that point. Crouching will instead cause the items to flee from that point.
+thaumictinkerer.research.TT_TELEKENESIS.1=I have managed to create a focal pattern that creates a light stream of magic infused with Vis. When I cast this effect towards the ground, all nearby items will float towards the point of impact. If I were sneaking while doing this, it will instead cause the items to flee from that point.
 
 thaumictinkerer.research.TT_DISLOCATE.title=Focus Effect: Dislocation
 thaumictinkerer.research.DISLOCATE.0=After so much work was put into discovering how to exchange blocks, I noticed sometimes there would be a delay before the block appears when being swapped. I wonder what would happen if I look into this more?
-thaumictinkerer.research.DISLOCATE.1=Success! After some experimentation, many lost blocks of cobblestone, and an invasion of endermen or two, I substituted permutatio for desiderium, so the effect desired to hold on longer, and now I have a pattern that can temporarily store blocks to move them.<BR>Once applied to a focus, left click on a block to store it within the focus, then left click again to place the block.
+thaumictinkerer.research.DISLOCATE.1=Success! After some experimentation, many lost blocks of cobblestone, and an invasion of endermen or two, I substituted Permutatio for Desiderium, so the effect desired to hold on longer, and now I have a pattern that can temporarily store blocks to move them.<BR>Once applied to a focus, cast the effect on a block to store it within the focus, then simply cast again on the desired location to place the block.
 thaumictinkerer.research.EFREET_FLAME.title=Focus Effect: Efreet's Flame
 thaumictinkerer.research.EFREET_FLAME.0=[WIP]
 thaumictinkerer.research.EFREET_FLAME.1=[WIP]
@@ -288,8 +288,8 @@ thaumictinkerer.research.kamiboots.text=Surely, there must be a way to get more 
 thaumictinkerer.research.kamiboots.complete.text=It seems to be possible to infuse the boots with the aspect of Terra, granting me improved speed and jumping, as well as swifter mining, and growing grass atop any dirt I walk on.
 
 thaumictinkerer.research.blackhole_ring.title=Black Hole Ring
-thaumictinkerer.research.blackhole_ring.text=[WIP]
-thaumictinkerer.research.blackhole_ring.complete.text=[WIP] This ring can be set to condense any block, by right clicking with it in world in the type of block you want to have it be set to, when enabled via right click will absorb any excess (over 1 stack) of that block in your inventory, and make sure at least one stack stays there. The contents can be stored in any inventory by right clicking it, or placed in world as if they were normal blocks.<BR><BR>It can store over 2 billion of the same block. Guess cobblestone clogging the space isn't an issue. If the ring is empty, it can be shift right clicked into another block to change its binding.
+thaumictinkerer.research.blackhole_ring.text=While mining is not that hard at all, having an excessive amount of cobblestone I don't need dropped all over the ground is quite annoying, and this is still a problem even with portable storage items.<BR>There surely has to be a way to take care of this...
+thaumictinkerer.research.blackhole_ring.complete.text=At long last! This powerful ring can be set to condense any block, I simply need to right-click a block with it to attune it. After that, I can sneak and right-click to activate it, excess copies of the block goes straight towards the ring and I can right-click anywhere to place that block.<BR>The ring can hold upwards to over 2 billion of that block! It comes with a catch however, the ring can only be attuned to one block at a time, but once the ring is empty again, I am free to attune it to another block of my choosing.
 
 thaumictinkerer.research.proto_clay.title=Proto Clay
 thaumictinkerer.research.proto_clay.text=You grew tired of having to constantly swap your tools.
@@ -341,7 +341,7 @@ enchantment.focusedstrikes=Focused Strike
 enchantment.quickdraw=Quick Draw
 enchantment.shatter=Shatter
 enchantment.tunnel=Tunnel
-enchantment.autosmelt=Auto Smelt
+enchantment.autosmelt=Flaming Touch
 
 item.ichorium_fortress.upgrade.0=§bAqua
 item.ichorium_fortress.upgrade.1=§eAer
@@ -370,27 +370,27 @@ ttmisc.noTeleport=The Celestial Gateway in the destination does not accept incom
 
 #Tinkers Compat
 modifier.instantbreak.name=Geocentric Disintegration
-modifier.instantbreak.desc=§oSabotage Maniacs !§r\nDigger made of this material can dig regardless of the hardness of the block.
+modifier.instantbreak.desc=§oSabotage Maniacs!§r\nDigger made of this material can dig regardless of the hardness of the block.
 modifier.writableadv.name=World of Artisanship
-modifier.writableadv.desc=§oArtisanship !§r\nYou get 2 extra Modifiers!
+modifier.writableadv.desc=§oArtisanship!§r\nYou get 2 extra Modifiers!
 modifier.aurastrike.name=Aura Strike
-modifier.aurastrike.desc=§oThe Wrath of Aura !§r\nAttack to release vis, when vis is high enough, absorb vis to traumatize the target and form a shield.
+modifier.aurastrike.desc=§oThe Wrath of Aura!§r\nAttack to release Vis, when Vis is high enough, absorb Vis to traumatize the target and form a shield.
 
 material.ichorium.name=Ichorium
 fluid.molten_ichorium=Molten Ichorium
 
 #Enchanting Description
-enchantment.thaumictinkerer.ascentboost.desc=Increases jump height.
-enchantment.thaumictinkerer.autosmelt.desc=???
-enchantment.thaumictinkerer.desintegrate.desc=[WIP]
-enchantment.thaumictinkerer.dispersedstrikes.desc=Hitting different targets deals increased damage.
-enchantment.thaumictinkerer.finalstrike.desc=On hit, there is a chance to deal a critical blow.
-enchantment.thaumictinkerer.focusedstrike.desc=Hitting the same target deals increased damage.
+enchantment.thaumictinkerer.ascentboost.desc=Increases the player's jump height.
+enchantment.thaumictinkerer.autosmelt.desc=Greatly increases the tool's mining speed on blocks made out of a wood material, but greatly decreases the tool's mining speed on blocks made out of any other material.
+enchantment.thaumictinkerer.desintegrate.desc=Increases the tool's mining speed on blocks made out of a soft material like dirt, but also decreases the tool's mining speed on blocks made out of a hard material like stone. The tool will take double damage per use.
+enchantment.thaumictinkerer.dispersedstrikes.desc=Increases damage when the target is hit for the first time. Subsequent hits on the same target will be decreased however.
+enchantment.thaumictinkerer.finalstrike.desc=There is a chance to deal a critical blow each time the target is hit.
+enchantment.thaumictinkerer.focusedstrike.desc=Decreases damage when the target is hit for the first time. Subsequent hits on the same target will be increased however.
 enchantment.thaumictinkerer.pounce.desc=Increases damage dealt while in the air.
-enchantment.thaumictinkerer.quickdraw.desc=Draws bow faster.
-enchantment.thaumictinkerer.shatter.desc=Increases the tool's mining speed.
-enchantment.thaumictinkerer.shockwave.desc=Falling deals damage to nearby mobs.
-enchantment.thaumictinkerer.slowfall.desc=Slows the owner's fall from great heights.
-enchantment.thaumictinkerer.tunnel.desc=[WIP]
-enchantment.thaumictinkerer.valiance.desc=If the attacker has less health than the target, the attacker deals increased damage.
-enchantment.thaumictinkerer.vamprisim.desc=Hitting a target heals the attacker.
+enchantment.thaumictinkerer.quickdraw.desc=Increases the bow's drawing speed.
+enchantment.thaumictinkerer.shatter.desc=Greatly increases the tool's mining speed on strong blocks.
+enchantment.thaumictinkerer.shockwave.desc=Falling and hitting the ground produces shockwaves, which deals damage to nearby targets.
+enchantment.thaumictinkerer.slowfall.desc=Slows the player's fall. The effect is disabled while sneaking.
+enchantment.thaumictinkerer.tunnel.desc=Increases the tool's mining speed while mining in a straight line.
+enchantment.thaumictinkerer.valiance.desc=Increases damage dealt while the player has less health than the target.
+enchantment.thaumictinkerer.vamprisim.desc=Hitting a target heals the player.
