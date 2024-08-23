@@ -136,7 +136,7 @@ thaumictinkerer.enchanter.badmb=The Multiblock is not fully formed
 ttmisc.debug.redstone=Redstone Recieved: %s
 
 
-tc.research_category.THAUMIC_TINKERER=Thaumic Tinkerer
+tc.research_category.THAUMIC_TINKERER=Thaumic Tinkering
 research.!Ocelot.text=Scan an ocelot
 
 thaumictinkerer.research.share_tome.title=Tome of Knowledge Sharing
