@@ -555,36 +555,9 @@
         {
           "text": "thaumictinkerer.research.warp_series.complete.text",
           "recipes": [
-            "thaumictinkerer:sky_pearl", "thaumictinkerer:warp_gate"
+            "thaumictinkerer:sky_pearl",
+            "thaumictinkerer:warp_gate"
           ]
-        }
-      ]
-    },
-    {
-      "key": "TT_ICHORIUM_FORTRESS",
-      "name": "thaumictinkerer.research.ichorium_fortress.title",
-      "category": "THAUMIC_TINKERER",
-      "icons": [
-        "thaumictinkerer:ichorium_fortress_helmet"
-      ],
-      "parents": ["TT_ICHOR"],
-      "location": [
-        6,
-        1
-      ],
-      "stages": [
-        {
-          "text": "thaumictinkerer.research.ichorium_fortress.text",
-          "required_knowledge": [
-            "THEORY;BASICS;2","THEORY;ARTIFICE;1","THEORY;ALCHEMY;1","THEORY;INFUSION;1","THEORY;AUROMANCY;1"
-          ],
-          "required_craft": [
-            "thaumcraft:fortress_helm","thaumcraft:fortress_chest","thaumcraft:fortress_legs"
-          ]
-        },
-        {
-          "text": "thaumictinkerer.research.ichorium_fortress.complete.text",
-          "recipes": ["thaumictinkerer:IchoriumFortressHelm","thaumictinkerer:IchoriumFortressChest","thaumictinkerer:IchoriumFortressLegs"]
         }
       ]
     }

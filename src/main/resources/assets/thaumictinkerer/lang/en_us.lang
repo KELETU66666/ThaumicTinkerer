@@ -8,10 +8,6 @@ item.thaumictinkerer:share_book.0=A Goldfish's Diary
 item.thaumictinkerer:black_quartz.name=Smokey Quartz
 item.thaumictinkerer:connector.name=Transvector Binder
 
-item.ichorium_fortress_helmet.name=Ichorium Fortress Mask
-item.ichorium_fortress_chestplate.name=Ichorium Fortress Plate Mail
-item.ichorium_fortress_leggings.name=Ichorium Fortress Greaves
-
 tile.thaumictinkerer:chlorophyte_ore.name=Chlorophyte Ore
 
 item.thaumictinkerer:energetic_nitor.name=Energetic Nitor
@@ -231,10 +227,6 @@ thaumictinkerer.research.xpcharm.title=Talisman of Withhold
 thaumictinkerer.research.xpcharm.0=After knowing that Zombie Brains have the ability to store experience, you have created a talisman that mimics that behaviour, not to a perfect extent though.
 thaumictinkerer.research.xpcharm.1=After knowing that Zombie Brains have the ability to store experience, you have created a talisman that mimics that behaviour, not to a perfect extent though.<BR>To switch the ability to store experience, you need to shift-right-click on the talisman. When the talisman is enabled, it'll absorb any nearby experience orbs, those can be transformed back into usable experience by right clicking with a glass bottle in your inventory, turning that bottle into a Bottle o' Enchanting. It must be worn in your amulet slot to take effect.
 
-thaumictinkerer.research.ichorium_fortress.title=Ichorium Fortress Armor
-thaumictinkerer.research.ichorium_fortress.text=[WIP]
-thaumictinkerer.research.ichorium_fortress.complete.text=[WIP]
-
 thaumictinkerer.research.dimensionalshard.title=Dimensional Shards
 thaumictinkerer.research.dimensionalshard.text=Thaumaturges of the Fourth Age spoke of a mythical substance called "Ichor", able to forge some of the most powerful Tools and Armor available to any Thaumaturge who could manage to create it.<BR>I had thought this process was impossible to replicate, until I discovered that whatever Dimensional Shards were being described in the scraps of Research I found seem to still exist. Supposedly, they suddenly stopped coalescing for Thaumaturges late into the Fourth Age, and yet, somehow, they have returned in modern times...<BR>I should gather a sample of these Shards to see if Ichor can be replicated nowadays.
 thaumictinkerer.research.dimensionalshard.complete.text=The prospect of creating this mythical "Ichor" is promising and seems possible, but I am not sure how I can replicate it as of yet, such will require further Research.<BR>These Dimensional Shards may also have other applications, though there was nothing that the Fourth Age scraps described, Fourth Age Thaumaturges were likely too fixated on Ichor.
@@ -343,12 +335,6 @@ enchantment.shatter=Shatter
 enchantment.tunnel=Tunnel
 enchantment.autosmelt=Flaming Touch
 
-item.ichorium_fortress.upgrade.0=§bAqua
-item.ichorium_fortress.upgrade.1=§eAer
-item.ichorium_fortress.upgrade.2=§gIgnis
-item.ichorium_fortress.upgrade.3=§aTerra
-item.ichorium_fortress.upgrade.4=§fOrdo
-item.ichorium_fortress.upgrade.5=§hPerditio
 #Misc
 
 ttmisc.full=Full
