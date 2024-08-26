@@ -90,7 +90,7 @@ thaumictinkerer.dislocation.name=Dislocation
 thaumictinkerer.efreetflame.name=Efreet's Flame
 thaumictinkerer.TELEKENESIS.text=Attracts items towards the point of impact. When the effect is cast while sneaking, it'll push away items instead.
 thaumictinkerer.dislocation.text=Stores a block in the world inside the focus. Casting again will place the stored block at your desired location.
-thaumictinkerer.efreetflame.text=Smelts blocks in the world as if it were a furnace.
+thaumictinkerer.efreetflame.text=Smelts blocks in the world as if it were a furnace. Does not work on dropped items.
 thaumictinkerer.mobaspect.type=Aspect: %s
 thaumictinkerer.mobaspect.invalid=Invalid Aspect
 
