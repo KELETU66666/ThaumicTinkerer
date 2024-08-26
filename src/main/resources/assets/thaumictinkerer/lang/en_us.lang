@@ -90,7 +90,7 @@ thaumictinkerer.dislocation.name=Dislocation
 thaumictinkerer.efreetflame.name=Efreet's Flame
 thaumictinkerer.TELEKENESIS.text=Attracts items towards the point of impact. When the effect is cast while sneaking, it'll push away items instead.
 thaumictinkerer.dislocation.text=Stores a block in the world inside the focus. Casting again will place the stored block at your desired location.
-thaumictinkerer.efreetflame.text=[WIP] Efreet's Flame
+thaumictinkerer.efreetflame.text=Smelts blocks in the world as if it were a furnace.
 thaumictinkerer.mobaspect.type=Aspect: %s
 thaumictinkerer.mobaspect.invalid=Invalid Aspect
 
@@ -169,8 +169,8 @@ thaumictinkerer.research.TT_DISLOCATE.title=Focus Effect: Dislocation
 thaumictinkerer.research.DISLOCATE.0=After so much work was put into discovering how to exchange blocks, I noticed sometimes there would be a delay before the block appears when being swapped. I wonder what would happen if I look into this more?
 thaumictinkerer.research.DISLOCATE.1=Success! After some experimentation, many lost blocks of cobblestone, and an invasion of endermen or two, I substituted Permutatio for Desiderium, so the effect desired to hold on longer, and now I have a pattern that can temporarily store blocks to move them.<BR>Once applied to a focus, cast the effect on a block to store it within the focus, then simply cast again on the desired location to place the block.
 thaumictinkerer.research.EFREET_FLAME.title=Focus Effect: Efreet's Flame
-thaumictinkerer.research.EFREET_FLAME.0=[WIP]
-thaumictinkerer.research.EFREET_FLAME.1=[WIP]
+thaumictinkerer.research.EFREET_FLAME.0=While smelting items in multiple furnaces isn't that much of a hassle, my patience wears thin with having to maintain so many of them. If I could smelt items on the go, it'll also save me various trips back home. Auromancy should do the trick here...
+thaumictinkerer.research.EFREET_FLAME.1=It turns out it wasn't that difficult to figure out how to make the perfect focus effect for smelting. This effect that I call the Efreet's Flame, will smelt on the go as long as I cast it on a block that can be smelted.<BR>I must also be wary that this won't work on dropped items. Still, this is perfect for ores and logs.  
 
 thaumictinkerer.research.prismarine.title=Aquatic Alchemy
 thaumictinkerer.research.prismarine.0=With simple glass panes, I can artificially make my own Prismarine as I so desire. It will be quite useful for future researches.
