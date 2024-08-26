@@ -12,23 +12,23 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.casters.FocusEffect;
+import thaumcraft.api.casters.ICaster;
 import thaumcraft.api.casters.Trajectory;
-import thaumcraft.common.items.casters.ItemCaster;
 
 @SuppressWarnings("deprecation")
 public class FocusEffectEfreetFlame extends FocusEffect {
 
 
-@Override
+    @Override
     public boolean execute(RayTraceResult target, Trajectory trajectory, float finalPower, int num) {
         if (target.typeOfHit == RayTraceResult.Type.BLOCK) {
             ItemStack casterStack = ItemStack.EMPTY;
             getPackage().getCaster().getHeldItemMainhand();
-            if (getPackage().getCaster().getHeldItemMainhand().getItem() instanceof ItemCaster) {
+            if (this.getPackage().getCaster().getHeldItemMainhand() != ItemStack.EMPTY && this.getPackage().getCaster().getHeldItemMainhand().getItem() instanceof ICaster) {
                 casterStack = getPackage().getCaster().getHeldItemMainhand();
             } else {
                 getPackage().getCaster().getHeldItemOffhand();
-                if (getPackage().getCaster().getHeldItemOffhand().getItem() instanceof ItemCaster) {
+                if (this.getPackage().getCaster().getHeldItemOffhand() != ItemStack.EMPTY && this.getPackage().getCaster().getHeldItemOffhand().getItem() instanceof ICaster) {
                     casterStack = getPackage().getCaster().getHeldItemOffhand();
                 }
             }
@@ -37,27 +37,26 @@ public class FocusEffectEfreetFlame extends FocusEffect {
 
             if (casterStack.isEmpty())
                 return false;
-            if(ReplaceBlock(getPackage().world, (EntityPlayerMP) getPackage().getCaster(),pos,target.sideHit,EnumHand.MAIN_HAND,pos.getX(), pos.getY(), pos.getZ())==EnumActionResult.SUCCESS)
-            return true;
+            if (ReplaceBlock(getPackage().world, (EntityPlayerMP) getPackage().getCaster(), pos, target.sideHit, EnumHand.MAIN_HAND, pos.getX(), pos.getY(), pos.getZ()) == EnumActionResult.SUCCESS)
+                return true;
         }
         return false;
     }
 
-    private static EnumActionResult ReplaceBlock(World world, EntityPlayerMP entityPlayerMP, BlockPos pos, EnumFacing side, EnumHand hand, float hitX, float hitY, float hitZ)
-    {
+    private static EnumActionResult ReplaceBlock(World world, EntityPlayerMP entityPlayerMP, BlockPos pos, EnumFacing side, EnumHand hand, float hitX, float hitY, float hitZ) {
         IBlockState state = world.getBlockState(pos);
-            ItemStack toSmelt = state.getBlock().getPickBlock(state, new RayTraceResult(RayTraceResult.Type.BLOCK, new Vec3d(hitX, hitY, hitZ), side, pos), world, pos, entityPlayerMP);
-            ItemStack result = FurnaceRecipes.instance().getSmeltingResult(toSmelt);
-            if(result.getItem() instanceof ItemBlock) {
-                IBlockState toPlace = ((ItemBlock) result.getItem()).getBlock().getStateForPlacement(world, pos, side, hitX, hitY, hitZ, result.getItemDamage(), entityPlayerMP, hand);
-                if (world.setBlockState(pos, toPlace, 3)) {
-                    world.playSound(entityPlayerMP, pos, new SoundEvent(new ResourceLocation("block.fire.ignite")), SoundCategory.BLOCKS, 1, 1);
-                    if (!world.isRemote) {
-                        return EnumActionResult.FAIL;
-                    }
-                    return EnumActionResult.SUCCESS;
+        ItemStack toSmelt = state.getBlock().getPickBlock(state, new RayTraceResult(RayTraceResult.Type.BLOCK, new Vec3d(hitX, hitY, hitZ), side, pos), world, pos, entityPlayerMP);
+        ItemStack result = FurnaceRecipes.instance().getSmeltingResult(toSmelt);
+        if (result.getItem() instanceof ItemBlock) {
+            IBlockState toPlace = ((ItemBlock) result.getItem()).getBlock().getStateForPlacement(world, pos, side, hitX, hitY, hitZ, result.getItemDamage(), entityPlayerMP, hand);
+            if (world.setBlockState(pos, toPlace, 3)) {
+                world.playSound(entityPlayerMP, pos, new SoundEvent(new ResourceLocation("block.fire.ignite")), SoundCategory.BLOCKS, 1, 1);
+                if (!world.isRemote) {
+                    return EnumActionResult.FAIL;
                 }
+                return EnumActionResult.SUCCESS;
             }
+        }
         return EnumActionResult.PASS;
     }
 
