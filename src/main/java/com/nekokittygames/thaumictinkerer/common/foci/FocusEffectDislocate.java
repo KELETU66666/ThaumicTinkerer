@@ -23,10 +23,18 @@ import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.casters.FocusEffect;
 import thaumcraft.api.casters.ICaster;
 import thaumcraft.api.casters.Trajectory;
+import thaumcraft.client.fx.ParticleEngine;
+import thaumcraft.client.fx.particles.FXGeneric;
+import thaumcraft.common.lib.SoundsTC;
+import thaumcraft.common.lib.network.PacketHandler;
+import thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 import thaumcraft.common.lib.utils.BlockUtils;
 
 import javax.annotation.Nullable;
@@ -45,6 +53,8 @@ public class FocusEffectDislocate extends FocusEffect {
 
     @Override
     public boolean execute(RayTraceResult rayTraceResult, @Nullable Trajectory trajectory, float v, int i) {
+        this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.hhon, SoundCategory.PLAYERS, 0.8F, 0.85F + (float) (this.getPackage().getCaster().world.rand.nextGaussian() * 0.05F));
+
         if (rayTraceResult == null)
             return false;
         if (rayTraceResult.typeOfHit != RayTraceResult.Type.BLOCK)
@@ -52,74 +62,73 @@ public class FocusEffectDislocate extends FocusEffect {
 
         BlockPos pos = rayTraceResult.getBlockPos();
 
-         IBlockState blockState = this.getPackage().world.getBlockState(pos);
-          TileEntity tileEntity = this.getPackage().world.getTileEntity(pos);
-           ItemStack casterStack = ItemStack.EMPTY;
-            if (this.getPackage().getCaster().getHeldItemMainhand() != ItemStack.EMPTY && this.getPackage().getCaster().getHeldItemMainhand().getItem() instanceof ICaster) {
-                casterStack = this.getPackage().getCaster().getHeldItemMainhand();
-            } else if (this.getPackage().getCaster().getHeldItemOffhand() != ItemStack.EMPTY && this.getPackage().getCaster().getHeldItemOffhand().getItem() instanceof ICaster) {
-                casterStack = this.getPackage().getCaster().getHeldItemOffhand();
-            }
-            if (casterStack == null)
-                return false;
-            if (casterStack == ItemStack.EMPTY)
-                return false;
-
-            ItemStack focus = ((ICaster) casterStack.getItem()).getFocusStack(casterStack);
-            if (getPackage().getCaster() instanceof EntityPlayer && ((EntityPlayer) getPackage().getCaster()).canPlayerEdit(pos, rayTraceResult.sideHit, casterStack)) {
-                IBlockState stateStored = getStoredState(focus);
-                if (stateStored != null) {
-                    switch (rayTraceResult.sideHit) {
-                        case UP:
-                            pos = pos.up();
-                            break;
-                            case DOWN:
-                                pos = pos.down();
-                                break;
-                                case NORTH:
-                                    pos = pos.north();
-                                    break;
-                                    case EAST:
-                                        pos = pos.east();
-                                        break;
-                                        case SOUTH:
-                                            pos = pos.south();
-                                            break;
-                                            case WEST:
-                                                pos = pos.west();
-                                                break;
-                                                default:
-                                                    break;
-                    }
-                    if (blockState.getBlock().canPlaceBlockOnSide(getPackage().world, pos, rayTraceResult.sideHit) && !getPackage().world.isRemote) {
-                        //getPackage().world.setBlockState(pos, stateStored, 1 | 2);
-                        NBTTagCompound tileCmp = getStackTileEntity(focus);
-                        if(PlaceBlock(getPackage().world, (EntityPlayerMP) getPackage().getCaster(),pos,rayTraceResult.sideHit,EnumHand.MAIN_HAND,stateStored,tileCmp)==EnumActionResult.SUCCESS)
-                            clearPickedBlock(focus);
-
-                    }
-                } else if (!blockState.getBlock().isAir(blockState, getPackage().world, pos) && !BlockUtils.isPortableHoleBlackListed(blockState) && !ThaumicTinkererAPI.getDislocationBlacklist().contains(blockState.getBlock().getClass().getName()) && !getPackage().world.isRemote) {
-                    storePickedBlock(blockState, tileEntity, focus);
-
-                    if (BreakBlock(getPackage().world, (EntityPlayerMP) getPackage().getCaster(), pos) == EnumActionResult.FAIL)
-                        clearPickedBlock(focus);
-                }
-            }
+        IBlockState blockState = this.getPackage().world.getBlockState(pos);
+        TileEntity tileEntity = this.getPackage().world.getTileEntity(pos);
+        ItemStack casterStack = ItemStack.EMPTY;
+        if (this.getPackage().getCaster().getHeldItemMainhand() != ItemStack.EMPTY && this.getPackage().getCaster().getHeldItemMainhand().getItem() instanceof ICaster) {
+            casterStack = this.getPackage().getCaster().getHeldItemMainhand();
+        } else if (this.getPackage().getCaster().getHeldItemOffhand() != ItemStack.EMPTY && this.getPackage().getCaster().getHeldItemOffhand().getItem() instanceof ICaster) {
+            casterStack = this.getPackage().getCaster().getHeldItemOffhand();
+        }
+        if (casterStack == null)
             return false;
+        if (casterStack == ItemStack.EMPTY)
+            return false;
+
+        ItemStack focus = ((ICaster) casterStack.getItem()).getFocusStack(casterStack);
+        if (getPackage().getCaster() instanceof EntityPlayer && ((EntityPlayer) getPackage().getCaster()).canPlayerEdit(pos, rayTraceResult.sideHit, casterStack)) {
+            IBlockState stateStored = getStoredState(focus);
+            if (stateStored != null) {
+                switch (rayTraceResult.sideHit) {
+                    case UP:
+                        pos = pos.up();
+                        break;
+                    case DOWN:
+                        pos = pos.down();
+                        break;
+                    case NORTH:
+                        pos = pos.north();
+                        break;
+                    case EAST:
+                        pos = pos.east();
+                        break;
+                    case SOUTH:
+                        pos = pos.south();
+                        break;
+                    case WEST:
+                        pos = pos.west();
+                        break;
+                    default:
+                        break;
+                }
+                if (blockState.getBlock().canPlaceBlockOnSide(getPackage().world, pos, rayTraceResult.sideHit) && !getPackage().world.isRemote) {
+                    //getPackage().world.setBlockState(pos, stateStored, 1 | 2);
+                    NBTTagCompound tileCmp = getStackTileEntity(focus);
+                    if (PlaceBlock(getPackage().world, (EntityPlayerMP) getPackage().getCaster(), pos, rayTraceResult.sideHit, EnumHand.MAIN_HAND, stateStored, tileCmp) == EnumActionResult.SUCCESS)
+                        clearPickedBlock(focus);
+
+                }
+            } else if (!blockState.getBlock().isAir(blockState, getPackage().world, pos) && !BlockUtils.isPortableHoleBlackListed(blockState) && !ThaumicTinkererAPI.getDislocationBlacklist().contains(blockState.getBlock().getClass().getName()) && !getPackage().world.isRemote) {
+                storePickedBlock(blockState, tileEntity, focus);
+
+                if (BreakBlock(getPackage().world, (EntityPlayerMP) getPackage().getCaster(), pos) == EnumActionResult.FAIL)
+                    clearPickedBlock(focus);
+            }
+        }
+        return false;
     }
 
-    private static EnumActionResult PlaceBlock(World world, EntityPlayerMP entityPlayerMP, BlockPos pos, EnumFacing side, EnumHand hand,IBlockState state, NBTTagCompound tileCmp)
-    {
+    private static EnumActionResult PlaceBlock(World world, EntityPlayerMP entityPlayerMP, BlockPos pos, EnumFacing side, EnumHand hand, IBlockState state, NBTTagCompound tileCmp) {
         world.captureBlockSnapshots = true;
-        world.setBlockState(pos,state,1 | 2);
+        world.setBlockState(pos, state, 1 | 2);
         if (tileCmp != null && !tileCmp.isEmpty()) {
             TileEntity tile1 = TileEntity.create(world, tileCmp);
             Objects.requireNonNull(tile1).setPos(pos);
             world.setTileEntity(pos, tile1);
         }
-        world.captureBlockSnapshots=false;
+        world.captureBlockSnapshots = false;
         BlockEvent.PlaceEvent placeEvent = null;
-        List<BlockSnapshot> blockSnapshots = (List)world.capturedBlockSnapshots.clone();
+        List<BlockSnapshot> blockSnapshots = (List) world.capturedBlockSnapshots.clone();
         world.capturedBlockSnapshots.clear();
         if (blockSnapshots.size() > 1) {
             placeEvent = ForgeEventFactory.onPlayerMultiBlockPlace(entityPlayerMP, blockSnapshots, side, hand);
@@ -133,8 +142,8 @@ public class FocusEffectDislocate extends FocusEffect {
         if (placeEvent != null && placeEvent.isCanceled()) {
             ret = EnumActionResult.FAIL;
 
-            for(var18 = Lists.reverse(blockSnapshots).iterator(); var18.hasNext(); world.restoringBlockSnapshots = false) {
-                snap = (BlockSnapshot)var18.next();
+            for (var18 = Lists.reverse(blockSnapshots).iterator(); var18.hasNext(); world.restoringBlockSnapshots = false) {
+                snap = (BlockSnapshot) var18.next();
                 world.restoringBlockSnapshots = true;
                 snap.restore(true, false);
             }
@@ -142,8 +151,8 @@ public class FocusEffectDislocate extends FocusEffect {
             int updateFlag;
             IBlockState oldBlock;
             IBlockState newBlock;
-            for(var18 = blockSnapshots.iterator(); var18.hasNext(); world.markAndNotifyBlock(snap.getPos(), null, oldBlock, newBlock, updateFlag)) {
-                snap = (BlockSnapshot)var18.next();
+            for (var18 = blockSnapshots.iterator(); var18.hasNext(); world.markAndNotifyBlock(snap.getPos(), null, oldBlock, newBlock, updateFlag)) {
+                snap = (BlockSnapshot) var18.next();
                 updateFlag = snap.getFlag();
                 oldBlock = snap.getReplacedBlock();
                 newBlock = world.getBlockState(snap.getPos());
@@ -152,7 +161,7 @@ public class FocusEffectDislocate extends FocusEffect {
                 }
             }
 
-            ret=EnumActionResult.SUCCESS;
+            ret = EnumActionResult.SUCCESS;
         }
         return ret;
     }
@@ -183,7 +192,7 @@ public class FocusEffectDislocate extends FocusEffect {
         if (tileEntity != null) {
             tileEntity.writeToNBT(cmp);
         }
-        ThaumicTinkerer.logger.info("Storing a "+ blockName +" with metadata "+metadata+" With NBT: "+ cmp);
+        ThaumicTinkerer.logger.info("Storing a " + blockName + " with metadata " + metadata + " With NBT: " + cmp);
         ItemNBTHelper.getItemTag(focus).setTag(TAG_TILE_CMP, cmp);
         ItemNBTHelper.setBool(focus, TAG_AVAILABLE, true);
 
@@ -218,8 +227,18 @@ public class FocusEffectDislocate extends FocusEffect {
     }
 
     @Override
-    public void renderParticleFX(World world, double v, double v1, double v2, double v3, double v4, double v5) {
-        // Empty
+    @SideOnly(Side.CLIENT)
+    public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
+        final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
+        pp.setMaxAge(9);
+        pp.setRBGColorF(0.25f + world.rand.nextFloat() * 0.25F, 0.25F + world.rand.nextFloat() * 0.25F, 0.25F + world.rand.nextFloat() * 0.25F);
+        pp.setAlphaF(new float[]{0.0F, 0.6F, 0.6F, 0.0F});
+        pp.setGridSize(64);
+        pp.setParticles(448, 9, 1);
+        pp.setScale(new float[]{0.5F, 0.25F});
+        pp.setGravity((float) (world.rand.nextGaussian() * 0.009F));
+        pp.setRandomMovementScale(0.0025F, 0.0025F, 0.0025F);
+        ParticleEngine.addEffect(world, (Particle) pp);
     }
 
     @Override
