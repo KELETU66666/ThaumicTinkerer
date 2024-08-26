@@ -85,7 +85,7 @@ item.ichorium_sword_adv.name=Awakened Ichorium Sword
 item.thaumictinkerer:proto_clay.name=Proto Clay
 item.revealing_helm.name=Helmet of Revealing
 
-thaumictinkerer.TELEKENESIS.name=Telekenesis
+thaumictinkerer.TELEKENESIS.name=Telekinesis
 thaumictinkerer.dislocation.name=Dislocation
 thaumictinkerer.efreetflame.name=Efreet's Flame
 thaumictinkerer.TELEKENESIS.text=Attracts items towards the point of impact. When the effect is cast while sneaking, it'll push away items instead.
@@ -208,8 +208,8 @@ thaumictinkerer.research.repairer.title=Thaumic Restorer
 thaumictinkerer.research.repairer.0=After finding out one mixture of Essentia could disenchant, but damage tools, I started to wonder, could another fix them?<BR>Turns out it can. If I take my new Thaumic Restorer and put the tool in, then pump in the correct Essentia for the tool, it will let the tool regain it's natural durability. It's handy that the ever-useful goggles let me see which type is needed.
 
 thaumictinkerer.research.magnet.title=Thaumic Magnets
-thaumictinkerer.research.magnet.0=Putting a focus containing my new telekenesis effect into a framework of greatwood and iron, I get a device that attracts or repels items dependent on the redstone signal. With some clever adjustment, I can also filter which items it should attract or repel.<BR>I get the feeling there is a way to magnify this pull, to effect more then just dropped items.
-thaumictinkerer.research.magnet.1=Putting a focus containing my new telekenesis effect into a framework of greatwood and iron, I get a device that attracts or repels items dependent on the redstone signal. With some clever adjustment, I can also filter which items it should attract or repel. <BR> Substituting iron for thaumium, and adding more vis, seems to magnify the effect, not items now, but creatures will be attracted or repeled. I obviously can't place a creature in the device to filter it, but I can catch the essence of their soul using a modified ender pearl, and that seems to do just as well a filter.
+thaumictinkerer.research.magnet.0=Putting a focus containing my new Telekinesis effect into a framework of greatwood and iron, I get a device that attracts or repels items dependent on the redstone signal. With some clever adjustment, I can also filter which items it should attract or repel.<BR>I get the feeling there is a way to magnify this pull, to effect more then just dropped items.
+thaumictinkerer.research.magnet.1=Putting a focus containing my new Telekinesis effect into a framework of greatwood and iron, I get a device that attracts or repels items dependent on the redstone signal. With some clever adjustment, I can also filter which items it should attract or repel.<BR> Substituting iron for thaumium, and adding more vis, seems to magnify the effect, not items now, but creatures will be attracted or repeled. I obviously can't place a creature in the device to filter it, but I can catch the essence of their soul using a modified ender pearl, and that seems to do just as well a filter.
 
 thaumictinkerer.research.enchanter.title=Osmotic Enchanter
 thaumictinkerer.research.enchanter.0=Infusion seems more familiar the more I look at it. Something about how it pulls in magic and infuses such a large amount into an object to give it new properties makes me think it could be related to enchantment of an item in some way. If I investigate infusion more I wonder if I can find the link?
