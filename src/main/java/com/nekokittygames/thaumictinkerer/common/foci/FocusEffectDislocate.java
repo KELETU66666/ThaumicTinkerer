@@ -11,10 +11,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -23,7 +20,6 @@ import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
@@ -33,8 +29,6 @@ import thaumcraft.api.casters.Trajectory;
 import thaumcraft.client.fx.ParticleEngine;
 import thaumcraft.client.fx.particles.FXGeneric;
 import thaumcraft.common.lib.SoundsTC;
-import thaumcraft.common.lib.network.PacketHandler;
-import thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 import thaumcraft.common.lib.utils.BlockUtils;
 
 import javax.annotation.Nullable;
@@ -53,7 +47,7 @@ public class FocusEffectDislocate extends FocusEffect {
 
     @Override
     public boolean execute(RayTraceResult rayTraceResult, @Nullable Trajectory trajectory, float v, int i) {
-        this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.hhon, SoundCategory.PLAYERS, 0.8F, 0.85F + (float) (this.getPackage().getCaster().world.rand.nextGaussian() * 0.05F));
+        this.getPackage().world.playSound(null, rayTraceResult.hitVec.x, rayTraceResult.hitVec.y, rayTraceResult.hitVec.z, SoundsTC.hhon, SoundCategory.PLAYERS, 0.8F, 0.85F + (float) (this.getPackage().getCaster().world.rand.nextGaussian() * 0.05F));
 
         if (rayTraceResult == null)
             return false;
@@ -232,13 +226,13 @@ public class FocusEffectDislocate extends FocusEffect {
         final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         pp.setMaxAge(9);
         pp.setRBGColorF(0.25f + world.rand.nextFloat() * 0.25F, 0.25F + world.rand.nextFloat() * 0.25F, 0.25F + world.rand.nextFloat() * 0.25F);
-        pp.setAlphaF(new float[]{0.0F, 0.6F, 0.6F, 0.0F});
+        pp.setAlphaF(0.0F, 0.6F, 0.6F, 0.0F);
         pp.setGridSize(64);
         pp.setParticles(448, 9, 1);
-        pp.setScale(new float[]{0.5F, 0.25F});
+        pp.setScale(0.5F, 0.25F);
         pp.setGravity((float) (world.rand.nextGaussian() * 0.009F));
         pp.setRandomMovementScale(0.0025F, 0.0025F, 0.0025F);
-        ParticleEngine.addEffect(world, (Particle) pp);
+        ParticleEngine.addEffect(world, pp);
     }
 
     @Override
