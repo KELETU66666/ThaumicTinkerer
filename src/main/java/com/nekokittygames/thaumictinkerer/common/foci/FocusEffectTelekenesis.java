@@ -1,8 +1,9 @@
 package com.nekokittygames.thaumictinkerer.common.foci;
 
 import com.nekokittygames.thaumictinkerer.common.misc.MiscHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -26,8 +27,8 @@ import java.util.List;
 public class FocusEffectTelekenesis extends FocusEffect {
     @Override
     public boolean execute(RayTraceResult paramRayTraceResult, @Nullable Trajectory paramTrajectory, float paramFloat, int paramInt) {
-        PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0D));
-        this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.scan, SoundCategory.PLAYERS, 0.7F, 1.4F + (float) (this.getPackage().getCaster().world.rand.nextGaussian() * 0.05F));
+        PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(paramRayTraceResult.hitVec.x, paramRayTraceResult.hitVec.y, paramRayTraceResult.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), paramRayTraceResult.hitVec.x, paramRayTraceResult.hitVec.y, paramRayTraceResult.hitVec.z, 64.0D));
+        this.getPackage().world.playSound(null, paramRayTraceResult.hitVec.x, paramRayTraceResult.hitVec.y, paramRayTraceResult.hitVec.z, SoundsTC.scan, SoundCategory.PLAYERS, 0.7F, 1.4F + (float) (this.getPackage().getCaster().world.rand.nextGaussian() * 0.05F));
 
         if (paramRayTraceResult.typeOfHit != RayTraceResult.Type.BLOCK)
             return false;
@@ -66,13 +67,13 @@ public class FocusEffectTelekenesis extends FocusEffect {
         final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         pp.setMaxAge(9);
         pp.setRBGColorF(0.25f + world.rand.nextFloat() * 0.25F, 0.25F + world.rand.nextFloat() * 0.25F, 0.25F + world.rand.nextFloat() * 0.25F);
-        pp.setAlphaF(new float[]{0.0F, 0.6F, 0.6F, 0.0F});
+        pp.setAlphaF(0.0F, 0.6F, 0.6F, 0.0F);
         pp.setGridSize(64);
         pp.setParticles(448, 9, 1);
-        pp.setScale(new float[]{0.5F, 0.25F});
+        pp.setScale(0.5F, 0.25F);
         pp.setGravity((float) (world.rand.nextGaussian() * 0.009F));
         pp.setRandomMovementScale(0.0025F, 0.0025F, 0.0025F);
-        ParticleEngine.addEffect(world, (Particle) pp);
+        ParticleEngine.addEffect(world, pp);
     }
 
     @Override
