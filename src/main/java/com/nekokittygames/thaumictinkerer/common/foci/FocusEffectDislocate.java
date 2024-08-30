@@ -219,6 +219,11 @@ public class FocusEffectDislocate extends FocusEffect {
         state = Objects.requireNonNull(block).getStateFromMeta(metadata);
         return state;
     }
+	
+    @Override
+    public void onCast(Entity caster) {
+        caster.world.playSound(null, caster.getPosition().up(), SoundsTC.hhoff, SoundCategory.PLAYERS, 0.8F, 0.45F + (float) (caster.world.rand.nextGaussian() * 0.05F));
+    }
 
     @Override
     @SideOnly(Side.CLIENT)
