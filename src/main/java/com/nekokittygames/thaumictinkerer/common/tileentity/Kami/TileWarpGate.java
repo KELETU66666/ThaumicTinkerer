@@ -100,7 +100,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
         for (EntityPlayer player : players)
             for(int i = -1;i < 1;i++)
                 for(int k = -1;k < 1;k++)
-                    if (player != null && player.isSneaking() && world.getTileEntity(player.getPosition().down().add(i, 0, k)) == this) {
+                    if (player != null && player.isSneaking() && world.getTileEntity(player.getPosition().down().add(i, 0, k)) == this && world.getTileEntity(player.getPosition().down()) == this) {
                         player.openGui(ThaumicTinkerer.instance, 2, world, pos.getX(), pos.getY(), pos.getZ());
             break;
         }
