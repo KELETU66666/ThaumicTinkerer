@@ -1,12 +1,12 @@
 /**
  * This class was created by <Vazkii>. It's distributed as part of the ThaumicTinkerer Mod.
- *
+ * <p>
  * ThaumicTinkerer is Open Source and distributed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0
  * License (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
- *
+ * <p>
  * ThaumicTinkerer is a Derivative Work on Thaumcraft 4. Thaumcraft 4 (c) Azanor 2012
  * (http://www.minecraftforum.net/topic/1585216-)
- *
+ * <p>
  * File Created @ [Jan 10, 2014, 3:56:13 PM (GMT)]
  */
 package com.nekokittygames.thaumictinkerer.common.tileentity.Kami;
@@ -44,7 +44,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
     boolean teleportedThisTick = false;
     ItemStack[] inventorySlots = new ItemStack[10];
 
-    public TileWarpGate (){
+    public TileWarpGate() {
         Arrays.fill(inventorySlots, ItemStack.EMPTY);
     }
 
@@ -57,7 +57,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
         if (tile != null && tile instanceof TileWarpGate) {
             TileWarpGate destGate = (TileWarpGate) tile;
             if (!destGate.locked) {
-                if(player.world.isRemote) {
+                if (player.world.isRemote) {
                     player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 1F);
 
                     for (int i = 0; i < 20; i++)
@@ -68,11 +68,11 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
                                 6, 3, 3);
                 }
 
-                    player.dismountRidingEntity();
-                    if (player instanceof EntityPlayerMP)
-                        player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
+                player.dismountRidingEntity();
+                if (player instanceof EntityPlayerMP)
+                    player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
 
-                if(player.world.isRemote) {
+                if (player.world.isRemote) {
                     for (int i = 0; i < 20; i++)
                         FXDispatcher.INSTANCE.sparkle(
                                 (float) player.posX + player.world.rand.nextFloat() - 0.5F,
@@ -83,8 +83,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
                 player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 0.1F);
                 return true;
-            } else
-                if (!player.world.isRemote) player.sendMessage(new TextComponentString("ttmisc.noTeleport"));
+            } else if (!player.world.isRemote) player.sendMessage(new TextComponentString("ttmisc.noTeleport"));
         } else if (!player.world.isRemote) player.sendMessage(new TextComponentString("ttmisc.noDest"));
 
         return false;
@@ -92,18 +91,19 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     @Override
     public void update() {
-        List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos.getX(), pos.getY() + 1, pos.getZ(), pos.getX() + 1, pos.getY() + 1.5, pos.getZ() + 1));
-
-        if(world.isBlockLoaded(pos))
+        if (world.isBlockLoaded(pos))
             world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
 
+        List<EntityPlayer> players = world.getEntitiesWithinAABB(
+                EntityPlayer.class,
+                new AxisAlignedBB(pos.getX(), pos.getY() + 1, pos.getZ(), pos.getX() + 1, pos.getY() + 1.5, pos.getZ() + 1));
+
+        EntityPlayer clientPlayer = ThaumicTinkerer.proxy.getClientPlayer();
         for (EntityPlayer player : players)
-            for(int i = -1;i < 1;i++)
-                for(int k = -1;k < 1;k++)
-                    if (player != null && player.isSneaking() && world.getTileEntity(player.getPosition().down().add(i, 0, k)) == this && world.getTileEntity(player.getPosition().down()) == this) {
-                        player.openGui(ThaumicTinkerer.instance, 2, world, pos.getX(), pos.getY(), pos.getZ());
-            break;
-        }
+            if (player != null && player == clientPlayer && player.isSneaking()) {
+                player.openGui(ThaumicTinkerer.instance, 2, world, pos.getX(), pos.getY(), pos.getZ());
+                break;
+            }
 
         teleportedThisTick = false;
     }
@@ -171,7 +171,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     @Override
     public boolean isEmpty() {
-        return inventorySlots==null;
+        return inventorySlots == null;
     }
 
     @Override
@@ -202,7 +202,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     @Override
     public ItemStack removeStackFromSlot(int i) {
-        ItemStack itemStack= ItemStackHelper.getAndRemove(Arrays.asList(inventorySlots),i);
+        ItemStack itemStack = ItemStackHelper.getAndRemove(Arrays.asList(inventorySlots), i);
         return itemStack;
     }
 
@@ -223,10 +223,12 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
     }
 
     @Override
-    public void openInventory(EntityPlayer var1) {}
+    public void openInventory(EntityPlayer var1) {
+    }
 
     @Override
-    public void closeInventory(EntityPlayer var1) {}
+    public void closeInventory(EntityPlayer var1) {
+    }
 
     @Override
     public boolean isItemValidForSlot(int i, ItemStack itemstack) {
@@ -253,12 +255,12 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     }
 
-   @Override
-   public SPacketUpdateTileEntity getUpdatePacket() {
-       NBTTagCompound nbttagcompound = new NBTTagCompound();
-       writeCustomNBT(nbttagcompound);
-       return new SPacketUpdateTileEntity(pos, -999, nbttagcompound);
-   }
+    @Override
+    public SPacketUpdateTileEntity getUpdatePacket() {
+        NBTTagCompound nbttagcompound = new NBTTagCompound();
+        writeCustomNBT(nbttagcompound);
+        return new SPacketUpdateTileEntity(pos, -999, nbttagcompound);
+    }
 
     @Override
     public void onDataPacket(NetworkManager manager, SPacketUpdateTileEntity packet) {

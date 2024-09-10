@@ -1,5 +1,6 @@
 package com.nekokittygames.thaumictinkerer.common.proxy;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -14,4 +15,5 @@ public interface ITTProxy {
 
     void preInit(FMLPreInitializationEvent event);
 
+    EntityPlayer getClientPlayer();
 }

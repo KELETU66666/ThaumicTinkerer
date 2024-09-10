@@ -6,6 +6,7 @@ package com.nekokittygames.thaumictinkerer.client.proxy;
 
 import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
 import com.nekokittygames.thaumictinkerer.client.misc.AspectColouror;
+import com.nekokittygames.thaumictinkerer.client.misc.ClientHelper;
 import com.nekokittygames.thaumictinkerer.client.misc.Shaders;
 import com.nekokittygames.thaumictinkerer.client.rendering.special.multi.NitorRenderer;
 import com.nekokittygames.thaumictinkerer.client.rendering.tileentities.*;
@@ -86,5 +87,10 @@ public class ClientProxy implements ITTProxy {
     @Override
     public String localize(String translationKey, Object... args) {
         return I18n.format(translationKey, args);
+    }
+
+    @Override
+    public EntityPlayer getClientPlayer() {
+        return ClientHelper.clientPlayer();
     }
 }

@@ -5,6 +5,7 @@
 package com.nekokittygames.thaumictinkerer.client.misc;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RenderItem;
@@ -23,6 +24,14 @@ import java.util.List;
 public class ClientHelper {
 
     private static RenderItem renderItem;
+
+    public static Minecraft minecraft() {
+        return Minecraft.getMinecraft();
+    }
+
+    public static EntityPlayerSP clientPlayer() {
+        return minecraft().player;
+    }
 
     /**
      * Gets the {@link RenderItem} , caching it if needed
