@@ -13,7 +13,6 @@ import java.util.function.Predicate;
 
 public class TileEntityMobMagnet extends TileEntityMagnet {
 
-
     private boolean pullAdults = true;
 
     public boolean isPullAdults() {
@@ -24,8 +23,9 @@ public class TileEntityMobMagnet extends TileEntityMagnet {
         this.pullAdults = pullAdults;
         sendUpdates();
     }
+
     @Override
-    protected boolean isItemValidForSlot(int index, ItemStack stack) {
+    public boolean isItemValidForSlot(int index, ItemStack stack) {
         return stack.getItem() instanceof ItemSoulMould;
     }
 

@@ -22,7 +22,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 
-public abstract class TileEntityMagnet extends TileEntityThaumicTinkerer implements ITickable {
+public abstract class TileEntityMagnet extends TileEntityInventoryTinkerer implements ITickable {
+
+    public TileEntityMagnet() {
+        super(1);
+    }
 
     protected abstract <T extends Entity> java.util.function.Predicate selectedEntities();
 
@@ -125,7 +129,7 @@ public abstract class TileEntityMagnet extends TileEntityThaumicTinkerer impleme
     }
     protected abstract boolean filterEntity(Entity entity);
 
-    protected abstract boolean isItemValidForSlot(int index, ItemStack itemstack);
+    public abstract boolean isItemValidForSlot(int index, ItemStack itemstack);
 
     @Override
     public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {

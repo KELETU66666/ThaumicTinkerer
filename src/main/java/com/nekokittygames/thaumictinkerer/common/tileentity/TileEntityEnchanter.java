@@ -2,6 +2,7 @@ package com.nekokittygames.thaumictinkerer.common.tileentity;
 
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
+import static com.nekokittygames.thaumictinkerer.common.helper.OreDictHelper.oreDictCheck;
 import com.nekokittygames.thaumictinkerer.common.helper.Tuple4Int;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.libs.LibOreDict;
@@ -23,6 +24,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -46,8 +48,6 @@ import java.util.List;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.nekokittygames.thaumictinkerer.common.helper.OreDictHelper.oreDictCheck;
-
 public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements ITickable, IInventory {
     private static final ResourceLocation MULTIBLOCK_LOCATION = new ResourceLocation("thaumictinkerer", "osmotic_enchanter");
     private static final String TAG_ENCHANTS = "enchantsIntArray";
@@ -70,6 +70,16 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     public TileEntityEnchanter setCheckSurroundings(boolean checkSurroundings) {
         this.checkSurroundings = checkSurroundings;
         return this;
+    }
+
+    @Nullable
+    public ITextComponent getDisplayName() {
+        return null;
+    }
+
+    @Override
+    public boolean isUsableByPlayer(EntityPlayer player) {
+        return world.getTileEntity(pos) == this && player.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 64;
     }
 
     private boolean checkSurroundings;
@@ -372,11 +382,6 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     @Override
     public int getInventoryStackLimit() {
         return 1;
-    }
-
-    @Override
-    public boolean isUsableByPlayer(EntityPlayer player) {
-        return true;
     }
 
     @Override

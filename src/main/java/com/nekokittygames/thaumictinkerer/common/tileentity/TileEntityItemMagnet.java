@@ -8,7 +8,6 @@ import java.util.function.Predicate;
 
 public class TileEntityItemMagnet extends TileEntityMagnet {
 
-
     @Override
     public <T extends Entity> Predicate selectedEntities() {
         return o -> o instanceof EntityItem && filterEntity((Entity) o) && filterItem(((EntityItem)o).getItem());
@@ -27,12 +26,16 @@ public class TileEntityItemMagnet extends TileEntityMagnet {
     }
 
     @Override
-    protected boolean isItemValidForSlot(int index, ItemStack itemstack) {
+    public boolean isItemValidForSlot(int index, ItemStack itemstack) {
         return true;
     }
 
     @Override
     public boolean respondsToPulses() {
         return false;
+    }
+
+    public int getInventoryStackLimit() {
+        return 64;
     }
 }

@@ -1,5 +1,6 @@
 package com.nekokittygames.thaumictinkerer.common.proxy;
 
+import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
 import com.nekokittygames.thaumictinkerer.common.dim.OreClusterGenerator;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,8 +18,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectEventProxy;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.AspectRegistryEvent;
-
-import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
 
 public class CommonProxy implements ITTProxy {
 

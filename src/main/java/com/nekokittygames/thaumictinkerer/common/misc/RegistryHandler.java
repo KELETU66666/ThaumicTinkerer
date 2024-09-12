@@ -1,6 +1,5 @@
 package com.nekokittygames.thaumictinkerer.common.misc;
 
-import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;

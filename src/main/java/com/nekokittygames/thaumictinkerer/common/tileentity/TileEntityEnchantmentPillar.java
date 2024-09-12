@@ -5,9 +5,4 @@ public class TileEntityEnchantmentPillar extends TileEntityThaumicTinkerer {
     public boolean respondsToPulses() {
         return false;
     }
-
-
-
-
-
 }

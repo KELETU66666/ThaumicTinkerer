@@ -2,14 +2,10 @@ package com.nekokittygames.thaumictinkerer.common.compat.Tconstruct;
 
 import com.nekokittygames.thaumictinkerer.common.compat.Tconstruct.fluid.TTFluid;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
-import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.library.MaterialIntegration;

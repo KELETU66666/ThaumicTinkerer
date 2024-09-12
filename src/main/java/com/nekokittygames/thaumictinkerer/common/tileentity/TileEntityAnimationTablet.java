@@ -36,7 +36,7 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.function.Consumer;
 
-public class TileEntityAnimationTablet extends TileEntityThaumicTinkerer implements ITickable, Consumer<ItemStack> {
+public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer implements ITickable, Consumer<ItemStack> {
 
     private static final int SWING_SPEED = 3;
     private static final int MAX_DEGREE = 45;
@@ -71,6 +71,10 @@ public class TileEntityAnimationTablet extends TileEntityThaumicTinkerer impleme
             return super.insertItem(slot, stack, simulate);
         }
     };
+
+    public TileEntityAnimationTablet() {
+        super(1);
+    }
 
     public int getTicksExisted() {
         return ticksExisted;
@@ -116,7 +120,7 @@ public class TileEntityAnimationTablet extends TileEntityThaumicTinkerer impleme
         this.progress = progress;
     }
 
-    private boolean isItemValidForSlot(int index, ItemStack stack) {
+    public boolean isItemValidForSlot(int index, ItemStack stack) {
         return true;
     }
 

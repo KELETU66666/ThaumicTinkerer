@@ -1,6 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.containers;
 
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityMagnet;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -21,6 +22,11 @@ public class MagnetContainer extends ThaumicTContainer<TileEntityMagnet> {
      */
     public MagnetContainer(IInventory playerInventory, TileEntityMagnet tileEntity) {
         super(playerInventory, tileEntity);
+    }
+
+    @Override
+    public boolean canInteractWith(EntityPlayer entityplayer) {
+        return tileEntity.isUsableByPlayer(entityplayer);
     }
 
     /**

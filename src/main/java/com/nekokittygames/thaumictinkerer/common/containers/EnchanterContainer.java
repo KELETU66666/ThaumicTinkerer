@@ -25,6 +25,11 @@ public class EnchanterContainer extends ThaumicTContainer<TileEntityEnchanter> {
         tileEntity.openInventory(player);
     }
 
+    @Override
+    public boolean canInteractWith(EntityPlayer entityplayer) {
+        return tileEntity.isUsableByPlayer(entityplayer);
+    }
+
     /**
      * Adds the Enchanter's slots
      */

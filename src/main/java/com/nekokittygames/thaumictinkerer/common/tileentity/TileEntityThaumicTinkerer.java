@@ -1,9 +1,13 @@
 package com.nekokittygames.thaumictinkerer.common.tileentity;
 
+import baubles.common.network.PacketHandler;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import thaumcraft.common.lib.network.tiles.PacketTileToClient;
 
 import javax.annotation.Nullable;
 
@@ -27,6 +31,17 @@ public abstract class TileEntityThaumicTinkerer extends TileEntity {
 
     public void writeExtraNBT(NBTTagCompound nbttagcompound) {
         nbttagcompound.setBoolean("redstone", redstonePowered);
+    }
+
+    public void sendMessageToClient(NBTTagCompound nbt, @Nullable EntityPlayerMP player) {
+        if (player == null) {
+            if (getWorld() != null) {
+                PacketHandler.INSTANCE.sendToAllAround(new PacketTileToClient(getPos(), nbt), new NetworkRegistry.TargetPoint(getWorld().provider.getDimension(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 128.0));
+            }
+        }
+        else {
+            PacketHandler.INSTANCE.sendTo(new PacketTileToClient(getPos(), nbt), player);
+        }
     }
 
     @Override

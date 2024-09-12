@@ -1,6 +1,7 @@
 package com.nekokittygames.thaumictinkerer.common.containers;
 
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityAnimationTablet;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -22,6 +23,11 @@ public class AnimationTabletContainer extends ThaumicTContainer<TileEntityAnimat
      */
     public AnimationTabletContainer(IInventory playerInventory, TileEntityAnimationTablet tileEntity) {
         super(playerInventory, tileEntity);
+    }
+
+    @Override
+    public boolean canInteractWith(EntityPlayer entityplayer) {
+        return tileEntity.isUsableByPlayer(entityplayer);
     }
 
     /**
