@@ -2,11 +2,10 @@ package com.nekokittygames.thaumictinkerer.common.items.Kami.Tools;
 
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
+import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHORIUM;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
-
-import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHORIUM;
 
 public class IchoriumShovel extends ItemSpade  {
     public IchoriumShovel(String name) {

@@ -2,11 +2,10 @@ package com.nekokittygames.thaumictinkerer.common.items.Kami.Tools;
 
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
+import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHORIUM;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-
-import static com.nekokittygames.thaumictinkerer.common.items.ModItems.RegistrationHandler.MATERIAL_ICHORIUM;
 
 public class IchoriumSword extends ItemSword  {
     public IchoriumSword(String name) {

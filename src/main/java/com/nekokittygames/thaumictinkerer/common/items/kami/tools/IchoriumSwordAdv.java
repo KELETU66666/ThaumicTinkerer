@@ -11,6 +11,7 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import static net.minecraft.entity.SharedMonsterAttributes.ATTACK_DAMAGE;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -34,8 +35,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.List;
-
-import static net.minecraft.entity.SharedMonsterAttributes.ATTACK_DAMAGE;
 
 public class IchoriumSwordAdv extends Item 
 {
