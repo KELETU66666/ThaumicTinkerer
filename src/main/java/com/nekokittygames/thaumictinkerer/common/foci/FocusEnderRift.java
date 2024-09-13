@@ -21,25 +21,25 @@ import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.network.PacketHandler;
 import thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
 
-public class FocusCelestialTeleport extends FocusEffect {
+public class FocusEnderRift extends FocusEffect {
     @Override
     public Aspect getAspect() {
-        return Aspect.MOTION;
+        return Aspect.ELDRITCH;
     }
 
     @Override
     public String getKey() {
-        return "thaumictinkerer.celestialteleport";
+        return "thaumictinkerer.enderrift";
     }
 
     @Override
     public int getComplexity() {
-        return 35;
+        return 25;
     }
 
     @Override
     public String getResearch() {
-        return "TT_CELESTIAL_TELEPORT";
+        return "TT_ENDER_RIFT";
     }
 
     @Override
@@ -48,29 +48,8 @@ public class FocusCelestialTeleport extends FocusEffect {
         PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0D));
         this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.wand, SoundCategory.PLAYERS, 0.33F, 5.0F + (float) (this.getPackage().world.rand.nextGaussian() * 0.05F));
 
-        if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit != null) {
-            if (Integer.MAX_VALUE - num > 60) {
-                ItemStack stackToCount = ItemStack.EMPTY;
-                for (int i = 0; i < 9; i++) {
-                    ItemStack stackInSlot = ((EntityPlayer) base).inventory.getStackInSlot(i);
-                    if (stackInSlot != null && stackInSlot.getItem() instanceof ItemSkyPearl && ItemSkyPearl.isAttuned(stackInSlot)) {
-                        stackToCount = stackInSlot;
-                        break;
-                    }
-                }
-
-                if (stackToCount != null) {
-                    int dim = ItemSkyPearl.getDim(stackToCount);
-                    if (dim == base.dimension) {
-                        int x = ItemSkyPearl.getX(stackToCount);
-                        int y = ItemSkyPearl.getY(stackToCount);
-                        int z = ItemSkyPearl.getZ(stackToCount);
-
-                        if (target.entityHit instanceof EntityLivingBase)
-                            TileWarpGate.teleportEntity((EntityLivingBase) target.entityHit, new BlockPos(x, y, z));
-                    }
-                }
-            }
+        if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit instanceof EntityPlayer && base instanceof EntityPlayer) {
+            ((EntityPlayer) base).displayGUIChest(((EntityPlayer) target.entityHit).getInventoryEnderChest());
         }
 
         return false;

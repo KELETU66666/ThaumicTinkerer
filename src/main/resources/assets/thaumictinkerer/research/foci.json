@@ -19,7 +19,8 @@
         {
           "text": "thaumictinkerer.research.TT_TELEKENESIS.0",
           "required_knowledge": [
-            "THEORY;AUROMANCY;1","THEORY;THAUMIC_TINKERER;1"
+            "THEORY;AUROMANCY;1",
+            "THEORY;THAUMIC_TINKERER;1"
           ]
         },
         {
@@ -47,11 +48,77 @@
         {
           "text": "thaumictinkerer.research.DISLOCATE.0",
           "required_knowledge": [
-            "THEORY;AUROMANCY;1","THEORY;THAUMIC_TINKERER;1"
+            "THEORY;AUROMANCY;1",
+            "THEORY;THAUMIC_TINKERER;1"
           ]
         },
         {
           "text": "thaumictinkerer.research.DISLOCATE.1"
+        }
+      ]
+    },
+    {
+      "key": "TT_EFREET_FLAME",
+      "name": "thaumictinkerer.research.EFREET_FLAME.title",
+      "icons": [
+        "focus:thaumictinkerer.efreetflame"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "location": [
+        -7,
+        -3
+      ],
+      "parents": [
+        "BASEAUROMANCY",
+        "FOCUSBREAK",
+        "TT_AUROMANCY"
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.EFREET_FLAME.0",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1",
+            "THEORY;THAUMIC_TINKERER;1"
+          ],
+          "required_item": [
+            "thaumcraft:nitor_yellow"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.EFREET_FLAME.1"
+        }
+      ]
+    },
+    {
+      "key": "TT_ENDER_RIFT",
+      "name": "thaumictinkerer.research.ENDER_RIFT.title",
+      "icons": [
+        "focus:thaumictinkerer.enderrift"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "location": [
+        -5,
+        -1
+      ],
+      "parents": [
+        "BASEAUROMANCY",
+        "FOCUSRIFT",
+        "TT_AUROMANCY"
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.ENDER_RIFT.0",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;1",
+            "THEORY;ARTIFICE;1",
+            "THEORY;THAUMIC_TINKERER;1"
+          ],
+          "required_item": [
+            "minecraft:ender_chest"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.ENDER_RIFT.1"
         }
       ]
     }

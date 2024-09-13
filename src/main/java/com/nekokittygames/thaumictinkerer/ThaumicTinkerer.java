@@ -12,10 +12,7 @@ import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.dim.ModDimensions;
 import com.nekokittygames.thaumictinkerer.common.dim.OreClusterGenerator;
 import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
-import com.nekokittygames.thaumictinkerer.common.foci.FocusCelestialTeleport;
-import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectDislocate;
-import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectEfreetFlame;
-import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
+import com.nekokittygames.thaumictinkerer.common.foci.*;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.loot.LootTableHandler;
 import com.nekokittygames.thaumictinkerer.common.misc.ThaumicTInkererCreativeTab;
@@ -152,6 +149,7 @@ public class ThaumicTinkerer {
         }
         FocusEngine.registerElement(FocusEffectEfreetFlame.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/efreetflame.png"), 25565230);
         FocusEngine.registerElement(FocusCelestialTeleport.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/celestial_teleport.png"),  0x22F5FF);
+        FocusEngine.registerElement(FocusEnderRift.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/ender_rift.png"), 0x2B3D3F);
     }
 
     @Mod.EventBusSubscriber
