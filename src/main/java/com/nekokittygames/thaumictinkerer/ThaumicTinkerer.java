@@ -12,6 +12,7 @@ import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.dim.ModDimensions;
 import com.nekokittygames.thaumictinkerer.common.dim.OreClusterGenerator;
 import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
+import com.nekokittygames.thaumictinkerer.common.foci.FocusCelestialTeleport;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectDislocate;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectEfreetFlame;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
@@ -139,7 +140,6 @@ public class ThaumicTinkerer {
         initFoci();
         MinecraftForge.EVENT_BUS.register(LootTableHandler.class);
         MobAspects.checkAspects();
-        //IDustTrigger.registerDustTrigger(ModBlocks.osmotic_enchanter);
 
     }
 
@@ -151,6 +151,7 @@ public class ThaumicTinkerer {
             FocusEngine.registerElement(FocusEffectTelekenesis.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/telekenesis.png"), 13566207);
         }
         FocusEngine.registerElement(FocusEffectEfreetFlame.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/efreetflame.png"), 25565230);
+        FocusEngine.registerElement(FocusCelestialTeleport.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/celestial_teleport.png"),  0x22F5FF);
     }
 
     @Mod.EventBusSubscriber

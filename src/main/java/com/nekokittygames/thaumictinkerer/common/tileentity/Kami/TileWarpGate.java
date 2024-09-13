@@ -14,6 +14,7 @@ package com.nekokittygames.thaumictinkerer.common.tileentity.Kami;
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
 import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemSkyPearl;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
@@ -29,6 +30,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.Constants;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.SoundsTC;
@@ -46,6 +49,47 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     public TileWarpGate() {
         Arrays.fill(inventorySlots, ItemStack.EMPTY);
+    }
+
+    public static boolean teleportEntity(EntityLivingBase player, BlockPos coords) {
+        int x = coords.getX();
+        int y = coords.getY();
+        int z = coords.getZ();
+
+        TileEntity tile = player.world.getTileEntity(coords);
+        if (tile != null && tile instanceof TileWarpGate) {
+            TileWarpGate destGate = (TileWarpGate) tile;
+            if (!destGate.locked) {
+                if (player.world.isRemote) {
+                    player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 1F);
+
+                    for (int i = 0; i < 20; i++)
+                        FXDispatcher.INSTANCE.sparkle(
+                                (float) player.posX + player.world.rand.nextFloat() - 0.5F,
+                                (float) player.posY + player.world.rand.nextFloat(),
+                                (float) player.posZ + player.world.rand.nextFloat() - 0.5F,
+                                6, 3, 3);
+                }
+
+                player.dismountRidingEntity();
+                if (player.world instanceof WorldServer)
+                    player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
+
+                if (player.world.isRemote) {
+                    for (int i = 0; i < 20; i++)
+                        FXDispatcher.INSTANCE.sparkle(
+                                (float) player.posX + player.world.rand.nextFloat() - 0.5F,
+                                (float) player.posY + player.world.rand.nextFloat(),
+                                (float) player.posZ + player.world.rand.nextFloat() - 0.5F,
+                                6, 3, 3);
+                }
+
+                player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 0.1F);
+                return true;
+            } else if (!player.world.isRemote) player.sendMessage(new TextComponentTranslation("ttmisc.noTeleport"));
+        } else if (!player.world.isRemote) player.sendMessage(new TextComponentTranslation("ttmisc.noDest"));
+
+        return false;
     }
 
     public static boolean teleportPlayer(EntityPlayer player, BlockPos coords) {
