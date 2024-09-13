@@ -556,6 +556,7 @@
           "text": "thaumictinkerer.research.warp_series.complete.text",
           "recipes": [
             "thaumictinkerer:sky_pearl",
+            "thaumictinkerer:sky_pearl_dupe",
             "thaumictinkerer:warp_gate"
           ]
         }
@@ -582,12 +583,11 @@
         {
           "text": "thaumictinkerer.research.CELESTIAL_TELEPORT.0",
           "required_knowledge": [
-            "THEORY;AUROMANCY;1",
-            "THEORY;ARTIFICE;1",
-            "THEORY;THAUMIC_TINKERER;1"
+            "THEORY;AUROMANCY;2",
+            "THEORY;THAUMIC_TINKERER;2"
           ],
           "required_item": [
-            "minecraft:ender_chest"
+            "thaumictinkerer:sky_pearl"
           ]
         },
         {

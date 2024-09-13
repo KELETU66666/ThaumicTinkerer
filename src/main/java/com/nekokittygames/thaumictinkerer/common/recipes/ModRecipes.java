@@ -111,7 +111,7 @@ public class ModRecipes {
     }
 
     private static void initializeCraftingRecipes(IForgeRegistry<IRecipe> registry) {
-        registry.register(new SpellClothRecipe().setRegistryName(LibMisc.MOD_ID,"spellbinding_cloth"));
+        registry.register(new SpellClothRecipe().setRegistryName(LibMisc.MOD_ID, "spellbinding_cloth"));
     }
 
     private static void initializeArcaneRecipes() {
@@ -160,24 +160,24 @@ public class ModRecipes {
                 "TT_ICHOR",
                 750,
                 new AspectList().add(Aspect.AIR, 10).add(Aspect.WATER, 10).add(Aspect.ORDER, 10).add(Aspect.EARTH, 10).add(Aspect.FIRE, 10).add(Aspect.ENTROPY, 10),
-                new ItemStack(ModItems.kamiresource,3,4),
+                new ItemStack(ModItems.kamiresource, 3, 4),
                 "CCC",
                 "III",
                 "DDD",
                 'C', new ItemStack(ItemsTC.fabric),
-                'I', new ItemStack(ModItems.kamiresource,1,2),
+                'I', new ItemStack(ModItems.kamiresource, 1, 2),
                 'D', new ItemStack(Items.DIAMOND)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_ingot"), new ShapedArcaneRecipe(
                 defaultGroup,
                 "TT_ICHOR",
                 500,
                 new AspectList().add(Aspect.AIR, 5).add(Aspect.WATER, 5).add(Aspect.ORDER, 5).add(Aspect.EARTH, 5).add(Aspect.FIRE, 5).add(Aspect.ENTROPY, 5),
-                new ItemStack(ModItems.kamiresource,1,3),
+                new ItemStack(ModItems.kamiresource, 1, 3),
                 " T ",
                 "IDI",
                 " I ",
                 'T', new ItemStack(ItemsTC.ingots, 1, 0),
-                'I', new ItemStack(ModItems.kamiresource,1,2),
+                'I', new ItemStack(ModItems.kamiresource, 1, 2),
                 'D', new ItemStack(Items.DIAMOND)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_sword"), new ShapedArcaneRecipe(
                 defaultGroup,
@@ -188,7 +188,7 @@ public class ModRecipes {
                 "I",
                 "I",
                 "S",
-                'I', new ItemStack(ModItems.kamiresource,1,3),
+                'I', new ItemStack(ModItems.kamiresource, 1, 3),
                 'S', new ItemStack(BlocksTC.logSilverwood)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_pick"), new ShapedArcaneRecipe(
                 defaultGroup,
@@ -199,7 +199,7 @@ public class ModRecipes {
                 "III",
                 " S ",
                 " S ",
-                'I', new ItemStack(ModItems.kamiresource,1,3),
+                'I', new ItemStack(ModItems.kamiresource, 1, 3),
                 'S', new ItemStack(BlocksTC.logSilverwood)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_shovel"), new ShapedArcaneRecipe(
                 defaultGroup,
@@ -210,7 +210,7 @@ public class ModRecipes {
                 "I",
                 "S",
                 "S",
-                'I', new ItemStack(ModItems.kamiresource,1,3),
+                'I', new ItemStack(ModItems.kamiresource, 1, 3),
                 'S', new ItemStack(BlocksTC.logSilverwood)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_axe"), new ShapedArcaneRecipe(
                 defaultGroup,
@@ -221,7 +221,7 @@ public class ModRecipes {
                 "II",
                 "IS",
                 " S",
-                'I', new ItemStack(ModItems.kamiresource,1,3),
+                'I', new ItemStack(ModItems.kamiresource, 1, 3),
                 'S', new ItemStack(BlocksTC.logSilverwood)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_helm"), new ShapedArcaneRecipe(
                 defaultGroup,
@@ -231,7 +231,7 @@ public class ModRecipes {
                 new ItemStack(ModItems.ichor_helm),
                 "CCC",
                 "C C",
-                'C', new ItemStack(ModItems.kamiresource,1,4)));
+                'C', new ItemStack(ModItems.kamiresource, 1, 4)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_chest"), new ShapedArcaneRecipe(
                 defaultGroup,
                 "TT_ICHORARMOR",
@@ -241,7 +241,7 @@ public class ModRecipes {
                 "C C",
                 "CCC",
                 "CCC",
-                'C', new ItemStack(ModItems.kamiresource,1,4)));
+                'C', new ItemStack(ModItems.kamiresource, 1, 4)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_legs"), new ShapedArcaneRecipe(
                 defaultGroup,
                 "TT_ICHORARMOR",
@@ -251,7 +251,7 @@ public class ModRecipes {
                 "CCC",
                 "C C",
                 "C C",
-                'C', new ItemStack(ModItems.kamiresource,1,4)));
+                'C', new ItemStack(ModItems.kamiresource, 1, 4)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichor_boots"), new ShapedArcaneRecipe(
                 defaultGroup,
                 "TT_ICHORARMOR",
@@ -260,7 +260,19 @@ public class ModRecipes {
                 new ItemStack(ModItems.ichor_boots),
                 "C C",
                 "C C",
-                'C', new ItemStack(ModItems.kamiresource,1,4)));
+                'C', new ItemStack(ModItems.kamiresource, 1, 4)));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "sky_pearl_dupe"), new ShapedArcaneRecipe(
+                defaultGroup,
+                "TT_WARP_SERIES",
+                300,
+                new AspectList().add(Aspect.AIR, 10).add(Aspect.WATER, 10).add(Aspect.ORDER, 10).add(Aspect.EARTH, 10).add(Aspect.FIRE, 10).add(Aspect.ENTROPY, 10),
+                new ItemStack(ModItems.sky_pearl, 2),
+                "DCD",
+                "DED",
+                "DDD",
+                'C', new ItemStack(ModItems.sky_pearl),
+                'D', "gemDiamond",
+                'E', new ItemStack(Items.ENDER_PEARL)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "summoner"), new ShapedArcaneRecipe(
                 defaultGroup,
                 "TT_SUMMONING",
@@ -523,17 +535,17 @@ public class ModRecipes {
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(Items.FEATHER)));
 
-        for(Aspect aspect: Aspect.aspects.values()) {
-            ItemStack output=new ItemStack(ModItems.condensed_mob_aspect);
+        for (Aspect aspect : Aspect.aspects.values()) {
+            ItemStack output = new ItemStack(ModItems.condensed_mob_aspect);
             ItemMobAspect.setAspectType(output, aspect);
             ItemStack input = new ItemStack(ModItems.mob_aspect);
             ItemMobAspect.setAspectType(input, aspect);
             addInfusionCraftingRecipe(
-                    new ResourceLocation(LibRecipes.CONDENSED_MOB_SOUL.getNamespace(),LibRecipes.CONDENSED_MOB_SOUL.getPath()+aspect.getTag()),
+                    new ResourceLocation(LibRecipes.CONDENSED_MOB_SOUL.getNamespace(), LibRecipes.CONDENSED_MOB_SOUL.getPath() + aspect.getTag()),
                     new InfusionRecipe(
-                            LibResearch.SUMMONING,output,2,new AspectList().add(aspect,30),input,input,input,input,input,input,input,input,input
+                            LibResearch.SUMMONING, output, 2, new AspectList().add(aspect, 30), input, input, input, input, input, input, input, input, input
                     ));
         }
-        addInfusionCraftingRecipe(LibRecipes.BLOOD_SWORD, new InfusionRecipe(LibResearch.SUMMONING,new ItemStack(ModItems.blood_sword),3,new AspectList().add(Aspect.DARKNESS,5).add(Aspect.SOUL,10).add(Aspect.MAN,6).add(Aspect.DEATH,10),new ItemStack(ItemsTC.thaumiumSword),new ItemStack(Items.ROTTEN_FLESH),new ItemStack(Items.PORKCHOP),new ItemStack(Items.BEEF),new ItemStack(Items.BONE),new ItemStack(Items.DIAMOND),new ItemStack(Items.GHAST_TEAR)));
+        addInfusionCraftingRecipe(LibRecipes.BLOOD_SWORD, new InfusionRecipe(LibResearch.SUMMONING, new ItemStack(ModItems.blood_sword), 3, new AspectList().add(Aspect.DARKNESS, 5).add(Aspect.SOUL, 10).add(Aspect.MAN, 6).add(Aspect.DEATH, 10), new ItemStack(ItemsTC.thaumiumSword), new ItemStack(Items.ROTTEN_FLESH), new ItemStack(Items.PORKCHOP), new ItemStack(Items.BEEF), new ItemStack(Items.BONE), new ItemStack(Items.DIAMOND), new ItemStack(Items.GHAST_TEAR)));
     }
 }
