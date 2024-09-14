@@ -32,7 +32,7 @@ public class ModItems {
     public static final ItemBlackQuartz black_quartz = nullz();
     public static final ItemConnector connector = nullz();
     public static final ItemSoulMould soul_mould = nullz();
-    public static final ItemEnergeticNitor energetic_nitor = nullz();
+    public static final ItemEnergeticNitor energetic_nitor = new ItemEnergeticNitor();
     public static final ItemSpellbindingCloth spellbinding_cloth=nullz();
     public static final ItemBloodSword blood_sword=nullz();
     public static final ItemCondensedMobAspect condensed_mob_aspect=new ItemCondensedMobAspect();

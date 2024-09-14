@@ -31,33 +31,36 @@ public class MobAspects {
     }
 
     static {
-        putAspect(EntitySnowman.class,"SnowMan",new AspectList().add(Aspect.WATER,2).add(Aspect.MAN,1));
         putAspect(EntityBat.class,"Bat",new AspectList().add(Aspect.AIR,2).add(Aspect.FLIGHT,1));
-        putAspect(EntityBlaze.class,"Blaze",new AspectList().add(Aspect.FIRE,3));
-        putAspect(EntityBrainyZombie.class,"BrainyZombie",new AspectList().add(Aspect.MAGIC,1).add(Aspect.UNDEAD,1).add(Aspect.DARKNESS,1),"thaumcraft");
-        putAspect(EntityFireBat.class,"Firebat",new AspectList().add(Aspect.FLIGHT,1).add(Aspect.FIRE,1).add(Aspect.MAGIC,1),"thaumcraft");
-        putAspect(EntityCaveSpider.class,"CaveSpider",new AspectList().add(Aspect.BEAST,1).add(Aspect.DEATH,2));
         putAspect(EntityChicken.class,"Chicken",new AspectList().add(Aspect.LIFE,1).add(Aspect.FLIGHT,1).add(Aspect.BEAST,1));
         putAspect(EntityCow.class,"Cow",new AspectList().add(Aspect.BEAST,2).add(Aspect.EARTH,1));
-        putAspect(EntityCreeper.class,"Creeper",new AspectList().add(Aspect.MAGIC,1).add(Aspect.BEAST,1).add(Aspect.ELDRITCH,1));
-        putAspect(EntityEnderman.class,"Enderman",new AspectList().add(Aspect.ELDRITCH,2).add(Aspect.MAN,1),0.3f,0.0f);
-        putAspect(EntityGhast.class,"Ghast",new AspectList().add(Aspect.FIRE,1).add(Aspect.FLIGHT,2),0.1f,0.2f);
         putAspect(EntityHorse.class,"Horse",new AspectList().add(Aspect.BEAST,2).add(Aspect.AIR,1));
         putAspect(EntityIronGolem.class,"VillagerGolem",new AspectList().add(Aspect.METAL,2).add(Aspect.MAN,1),0.3f,0.0f);
-        putSlimeAspect(EntityMagmaCube.class,"LavaSlime",new AspectList().add(Aspect.FIRE,1).add(Aspect.WATER,2));
         putAspect(EntityMooshroom.class, "Mooshroom",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.PLANT,1));
         putAspect(EntityOcelot.class,"Ocelot",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.ELDRITCH,1));
         putAspect(EntityPig.class,"Pig",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.MOTION,1));
-        putAspect(EntityPigZombie.class, "PigZombie",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.BEAST,1).add(Aspect.FIRE,1));
         putAspect(EntitySheep.class,"Sheep",new AspectList().add(Aspect.EARTH,2).add(Aspect.BEAST,1));
+        putAspect(EntitySquid.class, "Squid",new AspectList().add(Aspect.WATER,3));
+        putAspect(EntitySnowman.class,"SnowMan",new AspectList().add(Aspect.WATER,2).add(Aspect.MAN,1));
+        putAspect(EntityIronGolem.class,"Villager",new AspectList().add(Aspect.MAN,3),0.3f,0.0f);
+        putAspect(EntityWolf.class, "Wolf",new AspectList().add(Aspect.BEAST,3));
+
+        putAspect(EntityBrainyZombie.class,"BrainyZombie",new AspectList().add(Aspect.MAGIC,1).add(Aspect.UNDEAD,1).add(Aspect.DARKNESS,1),"thaumcraft");
+        putAspect(EntityBlaze.class,"Blaze",new AspectList().add(Aspect.FIRE,3));
+        putAspect(EntityCaveSpider.class,"CaveSpider",new AspectList().add(Aspect.BEAST,1).add(Aspect.DEATH,2));
+        putAspect(EntityCreeper.class,"Creeper",new AspectList().add(Aspect.MAGIC,1).add(Aspect.BEAST,1).add(Aspect.ELDRITCH,1));
+        putAspect(EntityEnderman.class,"Enderman",new AspectList().add(Aspect.ELDRITCH,2).add(Aspect.MAN,1),0.3f,0.0f);
+        putAspect(EntityFireBat.class,"Firebat",new AspectList().add(Aspect.FLIGHT,1).add(Aspect.FIRE,1).add(Aspect.MAGIC,1),"thaumcraft");
+        putAspect(EntityGhast.class,"Ghast",new AspectList().add(Aspect.FIRE,1).add(Aspect.FLIGHT,2),0.1f,0.2f);
+        putSlimeAspect(EntityMagmaCube.class,"LavaSlime",new AspectList().add(Aspect.FIRE,1).add(Aspect.WATER,2));
+        putAspect(EntityPigZombie.class, "PigZombie",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.BEAST,1).add(Aspect.FIRE,1));
         putAspect(EntitySilverfish.class, "Silverfish",new AspectList().add(Aspect.METAL,2).add(Aspect.EARTH,1));
         putAspect(EntitySkeleton.class, "Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.TOOL,1));
+        putAspect(EntitySkeleton.class, "Wither_Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.AVERSION,1));
         putSlimeAspect(EntitySlime.class, "Slime",new AspectList().add(Aspect.WATER,2).add(Aspect.BEAST,1));
         putAspect(EntitySpider.class, "Spider",new AspectList().add(Aspect.BEAST,1).add(Aspect.UNDEAD,2));
-        putAspect(EntitySquid.class, "Squid",new AspectList().add(Aspect.WATER,3));
         putAspect(EntityWisp.class, "Wisp",new AspectList().add(Aspect.AIR,1).add(Aspect.MAGIC,2),"thaumcraft");
         putAspect(EntityWitch.class, "Witch",new AspectList().add(Aspect.MAGIC,1).add(Aspect.UNDEAD,1).add(Aspect.ELDRITCH,1));
-        putAspect(EntityWolf.class, "Wolf",new AspectList().add(Aspect.BEAST,3));
         putAspect(EntityZombie.class, "Zombie",new AspectList().add(Aspect.MAN,1).add(Aspect.UNDEAD,2));
         //put
     }

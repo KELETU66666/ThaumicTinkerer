@@ -95,7 +95,7 @@ public class ModRecipes {
         addCrucibleRecipe(LibRecipes.PRISMARINE, new CrucibleRecipe(LibResearch.PRISMARINE, new ItemStack(Items.PRISMARINE_SHARD), "paneGlass", new AspectList().add(Aspect.WATER, 5).add(Aspect.EARTH, 5)));
         addCrucibleRecipe(LibRecipes.SOUL_MOLD, new CrucibleRecipe(LibResearch.CORPOREAL_MAGNET, new ItemStack(Objects.requireNonNull(ModItems.soul_mould)), new ItemStack(Items.ENDER_PEARL), new AspectList().add(Aspect.BEAST, 5).add(Aspect.MIND, 10).add(Aspect.SENSES, 10)));
         addCrucibleRecipe(LibRecipes.SPELLBINDING_CLOTH, new CrucibleRecipe(LibResearch.SPELLBINDING_CLOTH, new ItemStack(Objects.requireNonNull(ModItems.spellbinding_cloth)), new ItemStack(ItemsTC.fabric), new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.ENTROPY, 6).add(Aspect.MAGIC, 10)));
-        addCrucibleRecipe(LibRecipes.ENERGETIC_NITOR, new CrucibleRecipe(LibResearch.ENERGETIC_NITOR, new ItemStack(Objects.requireNonNull(ModItems.energetic_nitor)), "nitor", new AspectList().add(Aspect.FIRE, 10).add(Aspect.AIR, 10).add(Aspect.LIGHT, 25).add(Aspect.ENERGY, 25)));
+        addCrucibleRecipe(LibRecipes.ENERGETIC_NITOR, new CrucibleRecipe(LibResearch.ENERGETIC_NITOR, new ItemStack(ModItems.energetic_nitor), "nitor", new AspectList().add(Aspect.FIRE, 10).add(Aspect.AIR, 10).add(Aspect.LIGHT, 25).add(Aspect.ENERGY, 25)));
         addCrucibleRecipe(LibRecipes.LIGHT_GAS, new CrucibleRecipe(
                 "TT_GAS",
                 new ItemStack(ModItems.gas_light_item),
