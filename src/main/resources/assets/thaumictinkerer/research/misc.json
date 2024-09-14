@@ -79,8 +79,8 @@
       ],
       "siblings": [],
       "location": [
-        2,
-        0
+        -1,
+        -1
       ],
       "stages": [
         {
@@ -110,8 +110,8 @@
       ],
       "siblings": [],
       "location": [
-        0,
-        -2
+        -3,
+        -1
       ],
       "stages": [
         {
@@ -135,12 +135,13 @@
       "category": "THAUMIC_TINKERER",
       "parents": [
         "UNLOCKINFUSION",
-        "TT_AUROMANCY"
+        "TT_SHARE_TOME",
+        "~TT_AUROMANCY"
       ],
       "siblings": [],
       "location": [
         -3,
-        0
+        1
       ],
       "stages": [
         {
@@ -164,7 +165,7 @@
       "icons": [ "thaumictinkerer:dissimulation" ],
       "category": "THAUMIC_TINKERER",
       "parents": [ "TT_PRISMARINE" ],
-      "location": [ 0, -4 ],
+      "location": [ -4, -2 ],
       "stages": [
         {
           "text": "thaumictinkerer.research.dissimulation.0",
@@ -191,8 +192,8 @@
       ],
       "siblings": [],
       "location": [
-        -2,
-         -2
+        0,
+        -5
       ],
       "stages": [
         {
@@ -242,8 +243,8 @@
         "TT_PRISMARINE"
       ],
       "location": [
-        2,
-        -4
+        -4,
+        0
       ],
       "stages": [
         {
@@ -272,8 +273,8 @@
         "TT_GAS"
       ],
       "location": [
-        2,
-        -6
+        -6,
+        0
       ],
       "stages": [
         {

@@ -11,8 +11,8 @@
         "TT_DIMENSIONALSHARD"
       ],"meta":["SPIKY","HIDDEN"],
       "location": [
-        5,
-        -3
+        3,
+        0
       ],
       "stages": [
         {
@@ -52,8 +52,8 @@
         "~LEVITATOR", "~BELLOWS", "~MIRRORHAND", "~MIRRORESSENTIA", "~LAMPGROWTH",  "~LAMPFERTILITY", "~ARCANEPATTERNCRAFTER", "~ARCANEBORE", "~ADVANCEDTURRET", "~GRAPPLEGUN", "~VISGENERATOR"
       ],"meta":["ROUND"],
       "location": [
-        3,
-        -3
+        2,
+        1
       ],
       "stages": [
         {
@@ -82,8 +82,8 @@
         "TT_ICHOR"
       ],"meta":["HIDDEN"],
       "location": [
-        7,
-        -1
+        5,
+        0
       ],
       "stages": [
         {
@@ -108,11 +108,11 @@
         "thaumictinkerer:kamiresource;1;4"
       ],
       "parents": [
-        "TT_ICHOR"
+        "TT_ICHORIUMTOOLS"
       ],"meta":["HIDDEN"],
       "location": [
-        7,
-        -5
+        5,
+        -4
       ],
       "stages": [
         {
@@ -140,8 +140,8 @@
         "TT_ICHORARMOR"
       ],"meta":["HIDDEN"],
       "location": [
-        4,
-        -7
+        2,
+        -6
       ],
       "stages": [
         {
@@ -164,7 +164,7 @@
       "parents": [
         "TT_ICHORARMOR"
       ],"meta":["HIDDEN"],
-      "location": [6,-7
+      "location": [4,-6
       ],
       "stages": [
         {
@@ -191,8 +191,8 @@
         "TT_ICHORARMOR"
       ],"meta":["HIDDEN"],
       "location": [
-        8,
-        -7
+        6,
+        -6
       ],
       "stages": [
         {
@@ -219,8 +219,8 @@
         "TT_ICHORARMOR"
       ],"meta":["HIDDEN"],
       "location": [
-        10,
-        -7
+        8,
+        -6
       ],
       "stages": [
         {
@@ -247,8 +247,8 @@
         "TT_ICHORIUMTOOLS"
       ],"meta":["HIDDEN", "REVERSE"],
       "location": [
-        9,
-        -2
+        7,
+        -1
       ],
       "stages": [
         {
@@ -277,8 +277,8 @@
         "TT_ICHORIUMTOOLS"
       ],"meta":["HIDDEN", "REVERSE"],
       "location": [
-        9,
-        -4
+        7,
+        -3
       ],
       "stages": [
         {
@@ -307,8 +307,8 @@
         "TT_ICHORIUMTOOLS"
       ],"meta":["HIDDEN", "REVERSE"],
       "location": [
-        9,
-        0
+        7,
+        1
       ],
       "stages": [
         {
@@ -341,8 +341,8 @@
         "REVERSE"
       ],
       "location": [
-        9,
-        2
+        7,
+        3
       ],
       "stages": [
         {
@@ -377,8 +377,8 @@
         "REVERSE"
       ],
       "location": [
-        11,
-        -3
+        9,
+        -2
       ],
       "stages": [
         {
@@ -410,8 +410,8 @@
         "REVERSE"
       ],
       "location": [
-        11,
-        -1
+        9,
+        0
       ],
       "stages": [
         {
@@ -440,8 +440,8 @@
         "TT_ICHOR"
       ],
       "location": [
-        5,
-        -1
+        4,
+        -2
       ],
       "stages": [
         {
@@ -469,12 +469,13 @@
         "thaumictinkerer:cat_amulet"
       ],
       "parents": [
-        "TT_ICHOR"
+        "TT_ICHOR",
+        "TT_CLEANING_TALISMAN"
       ],
       "location": [
         3,
-        -5
-      ],"meta": ["REVERSE"],
+        4
+      ],"meta": ["REVERSE", "HIDDEN"],
       "stages": [
         {
           "text": "thaumictinkerer.research.cat_amulet.text",
@@ -504,8 +505,8 @@
         "TT_BLACKHOLE_RING"
       ],
       "location": [
-        13,
-        -3
+        11,
+        -2
       ],
       "stages": [
         {
@@ -536,8 +537,8 @@
         "TT_ICHOR"
       ],
       "location": [
-        4,
-        0
+        2,
+        -2
       ],
       "stages": [
         {
@@ -571,13 +572,13 @@
       "meta": ["HIDDEN"],
       "category": "THAUMIC_TINKERER",
       "location": [
-        -7,
-        -1
+        1,
+        -4
       ],
       "parents": [
         "BASEAUROMANCY",
         "TT_AUROMANCY",
-        "~TT_WARP_SERIES"
+        "TT_WARP_SERIES"
       ],
       "stages": [
         {

@@ -8,8 +8,8 @@
       ],
       "category": "THAUMIC_TINKERER",
       "location": [
-        -3,
-        -3
+        -1,
+        -4
       ],
       "parents": [
         "BASEAUROMANCY",
@@ -36,8 +36,8 @@
       ],
       "category": "THAUMIC_TINKERER",
       "location": [
-        -5,
-        -3
+        -1,
+        -6
       ],
       "parents": [
         "BASEAUROMANCY",
@@ -65,8 +65,8 @@
       ],
       "category": "THAUMIC_TINKERER",
       "location": [
-        -7,
-        -3
+        1,
+        -6
       ],
       "parents": [
         "BASEAUROMANCY",
@@ -97,8 +97,8 @@
       ],
       "category": "THAUMIC_TINKERER",
       "location": [
-        -5,
-        -1
+        -3,
+        -6
       ],
       "parents": [
         "BASEAUROMANCY",
