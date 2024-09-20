@@ -39,7 +39,7 @@ public class ModBlocks {
     public static final BlockRepairer repairer = nullz();
     public static final BlockItemMagnet magnet = nullz();
     public static final BlockMobMagnet mob_magnet = nullz();
-    public static final BlockNitorVapor nitor_vapor = nullz();
+    public static final BlockNitorGas nitor_vapor = nullz();
     public static final BlockGaseousShadow shadow_gas = new BlockGaseousShadow();
     public static final BlockGaseousLight light_gas = new BlockGaseousLight();
     public static final BlockExample example = nullz();
@@ -73,7 +73,7 @@ public class ModBlocks {
                     new BlockRepairer(),
                     new BlockItemMagnet(),
                     new BlockMobMagnet(),
-                    new BlockNitorVapor(),
+                    new BlockNitorGas(),
                     new BlockGaseousLight(),
                     new BlockGaseousShadow(),
                     new BlockExample(),

@@ -40,6 +40,11 @@ public class EnchanterContainer extends ThaumicTContainer<TileEntityEnchanter> {
         int y = 32;
         this.addSlotToContainer(new SlotItemHandler(itemHandler, 0, x, y) {
             @Override
+            public boolean isItemValid(@Nonnull ItemStack stack){
+                return stack.isItemEnchantable();
+            }
+
+            @Override
             public void onSlotChange(@Nonnull ItemStack p_75220_1_, @Nonnull ItemStack p_75220_2_) {
                 tileEntity.sendUpdates();
                 super.onSlotChange(p_75220_1_, p_75220_2_);

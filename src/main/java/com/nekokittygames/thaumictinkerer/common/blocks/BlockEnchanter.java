@@ -38,18 +38,17 @@ public class BlockEnchanter extends TTTileEntity<TileEntityEnchanter> {
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 // Only execute on the server
-        if (world.isRemote) {
-            return true;
+        if (!world.isRemote) {
+            TileEntity te = world.getTileEntity(pos);
+            if (!(te instanceof TileEntityEnchanter)) {
+                return false;
+            }
+            if (((TileEntityEnchanter) te).checkLocation() && !((TileEntityEnchanter) te).isWorking())
+                player.openGui(ThaumicTinkerer.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
+            else
+                player.sendStatusMessage(new TextComponentString(TextFormatting.DARK_RED + TextFormatting.BOLD.toString() + ThaumicTinkerer.proxy.localize("ttmisc.enchanter.incomplete")), true);
         }
-        TileEntity te = world.getTileEntity(pos);
-        if (!(te instanceof TileEntityEnchanter)) {
-            return false;
-        }
-        if(((TileEntityEnchanter)te).checkLocation() && !((TileEntityEnchanter)te).isWorking())
-            player.openGui(ThaumicTinkerer.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());
-        else
-            player.sendStatusMessage(new TextComponentString(TextFormatting.DARK_RED + TextFormatting.BOLD.toString() + ThaumicTinkerer.proxy.localize("ttmisc.enchanter.incomplete")), true);
-        return super.onBlockActivated(world, pos, state, player, hand, facing, hitX, hitY, hitZ);
+        return true;
     }
 
     @Override
