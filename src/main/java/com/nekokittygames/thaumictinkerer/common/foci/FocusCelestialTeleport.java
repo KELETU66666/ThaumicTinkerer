@@ -17,6 +17,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.casters.FocusEffect;
 import thaumcraft.api.casters.Trajectory;
+import thaumcraft.client.fx.ParticleEngine;
+import thaumcraft.client.fx.particles.FXGeneric;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.network.PacketHandler;
 import thaumcraft.common.lib.network.fx.PacketFXFocusPartImpact;
@@ -84,15 +86,14 @@ public class FocusCelestialTeleport extends FocusEffect {
     @Override
     @SideOnly(Side.CLIENT)
     public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
-        //final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
-        //int color = 9039872;
-        //pp.setAlphaF(0.7F);
-        //pp.setGravity(-0.2F);
-        //pp.setMaxAge(7 + world.rand.nextInt(5));
-        //pp.setParticles(575, 8, 8);
-        //pp.setRBGColorF(((color >> 16) & 0xFF) / 255.0F, ((color >> 8) & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
-        //pp.setSlowDown(0.75D);
-        //pp.setScale((float) (0.1F + world.rand.nextGaussian() * 0.2F), 2.0F);
-        //ParticleEngine.addEffect(world, pp);
+        final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, motionX, motionY, motionZ);
+        pp.setMaxAge(16 + world.rand.nextInt(16));
+        pp.setParticles(384 + world.rand.nextInt(16), 1, 1);
+        pp.setSlowDown(0.75D);
+        pp.setAlphaF(new float[]{1.0F, 0.0F});
+        pp.setScale(new float[]{(float) (0.7F + world.rand.nextGaussian() * 0.3F)});
+        pp.setRBGColorF(0.25F, 0.25F, 1.0F);
+        pp.setRandomMovementScale(0.01F, 0.01F, 0.01F);
+        ParticleEngine.addEffectWithDelay(world, (Particle) pp, 0);
     }
 }
