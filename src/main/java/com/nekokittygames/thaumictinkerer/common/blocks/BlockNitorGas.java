@@ -14,10 +14,12 @@ package com.nekokittygames.thaumictinkerer.common.blocks;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibBlockNames;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -89,12 +91,17 @@ public class BlockNitorGas extends BlockGas {
 
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return state.getBlock().getMetaFromState(world.getBlockState(pos)) == 1 ? 15 : 12;
+        return this.getMetaFromState(state) == 1 ? 15 : 12;
     }
 
     @Override
     public void onBlockAdded(World par1World, BlockPos pos, IBlockState state) {
         if (!par1World.isRemote)
             par1World.scheduleBlockUpdate(pos, this, tickRate(par1World), 3);
+    }
+
+    @Override
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+        return BlockFaceShape.UNDEFINED;
     }
 }

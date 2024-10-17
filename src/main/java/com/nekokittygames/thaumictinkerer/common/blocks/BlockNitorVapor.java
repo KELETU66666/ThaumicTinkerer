@@ -28,7 +28,6 @@ public class BlockNitorVapor extends BlockGas {
     @Override
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
-        //return super.getBlockFaceShape(worldIn, state, pos, face);
     }
 
 
