@@ -7,7 +7,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,18 +14,16 @@ import static net.minecraft.entity.SharedMonsterAttributes.ATTACK_DAMAGE;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Enchantments;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
@@ -36,12 +33,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IchoriumSwordAdv extends Item 
-{
+public class IchoriumSwordAdv extends ItemSword {
     boolean ignoreLeftClick = false;
 
     public IchoriumSwordAdv(String name, CreativeTabs tab, ToolMaterial material) {
-        super();
+        super(material);
         setTranslationKey(name);
         setRegistryName(name);
         maxStackSize = 1;
@@ -60,7 +56,7 @@ public class IchoriumSwordAdv extends Item
             }
         });
 
-        
+
     }
 
     @Override
@@ -98,11 +94,10 @@ public class IchoriumSwordAdv extends Item
 
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        if (player.isSneaking())     {
+        if (player.isSneaking()) {
             NBTTagCompound nbtTagCompound = stack.getTagCompound();
 
-            if (nbtTagCompound == null)
-            {
+            if (nbtTagCompound == null) {
                 nbtTagCompound = new NBTTagCompound();
                 stack.setTagCompound(nbtTagCompound);
             }
@@ -115,74 +110,44 @@ public class IchoriumSwordAdv extends Item
 
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 1){
+        if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 1) {
             tooltip.add(TextFormatting.RED +
-                    I18n.translateToLocal("tip.awakensword.name1"));}
-        else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2){
+                    I18n.translateToLocal("tip.awakensword.name1"));
+        } else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {
             tooltip.add(TextFormatting.BLUE +
-                    I18n.translateToLocal("tip.awakensword.name2"));}
-        else{tooltip.add(TextFormatting.DARK_GREEN +
-                I18n.translateToLocal("tip.awakensword.name0"));}
+                    I18n.translateToLocal("tip.awakensword.name2"));
+        } else {
+            tooltip.add(TextFormatting.DARK_GREEN +
+                    I18n.translateToLocal("tip.awakensword.name0"));
+        }
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
-    
 
     @Override
-    public float getDestroySpeed(ItemStack stack, IBlockState state)
-    {
+    public float getDestroySpeed(ItemStack stack, IBlockState state) {
         Block block = state.getBlock();
 
-        if (block == Blocks.WEB)
-        {
+        if (block == Blocks.WEB) {
             return 15.0F;
-        }
-        else
-        {
+        } else {
             Material material = state.getMaterial();
             return material != Material.PLANTS && material != Material.VINE && material != Material.CORAL && material != Material.LEAVES && material != Material.GOURD ? 1.0F : 1.5F;
         }
     }
 
     @Override
-    public boolean canHarvestBlock(IBlockState blockIn)
-    {
-        return blockIn.getBlock() == Blocks.WEB;
-    }
-
-    public boolean canDestroyBlockInCreative(World world, BlockPos pos, ItemStack stack, EntityPlayer player)
-    {
-        return false;
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public boolean isFull3D()
-    {
-        return true;
-    }
-
-    @Override
-    public int getItemEnchantability()
-    {
+    public int getItemEnchantability() {
         return 22;
     }
 
     @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment)
-    {
-        return !enchantment.equals(Enchantments.SWEEPING) && (enchantment.type == EnumEnchantmentType.WEAPON);
-    }
-
-    @Override
-    public boolean getIsRepairable(ItemStack repairingItem, ItemStack material)
-    {
+    public boolean getIsRepairable(ItemStack repairingItem, ItemStack material) {
         return false;
     }
 
     @Override
-    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
-    {
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack) {
         if (equipmentSlot != EntityEquipmentSlot.MAINHAND) {
             return super.getAttributeModifiers(equipmentSlot, stack);
         }
@@ -192,8 +157,8 @@ public class IchoriumSwordAdv extends Item
             damage = 5;
 
         Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
-                multimap.put(ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", damage, 0));
-                multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
+        multimap.put(ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", damage, 0));
+        multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
 
         return multimap;
     }
