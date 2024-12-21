@@ -1,7 +1,6 @@
 package com.nekokittygames.thaumictinkerer.common.foci;
 
 import com.nekokittygames.thaumictinkerer.common.items.Kami.ItemSkyPearl;
-import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.tileentity.Kami.TileWarpGate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -86,14 +85,14 @@ public class FocusCelestialTeleport extends FocusEffect {
     @Override
     @SideOnly(Side.CLIENT)
     public void renderParticleFX(World world, double posX, double posY, double posZ, double velX, double velY, double velZ) {
-        final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, motionX, motionY, motionZ);
+        final FXGeneric pp = new FXGeneric(world, posX, posY, posZ, velX, velY, velZ);
         pp.setMaxAge(16 + world.rand.nextInt(16));
         pp.setParticles(384 + world.rand.nextInt(16), 1, 1);
         pp.setSlowDown(0.75D);
-        pp.setAlphaF(new float[]{1.0F, 0.0F});
-        pp.setScale(new float[]{(float) (0.7F + world.rand.nextGaussian() * 0.3F)});
+        pp.setAlphaF(1.0F, 0.0F);
+        pp.setScale((float) (0.7F + world.rand.nextGaussian() * 0.3F));
         pp.setRBGColorF(0.25F, 0.25F, 1.0F);
         pp.setRandomMovementScale(0.01F, 0.01F, 0.01F);
-        ParticleEngine.addEffectWithDelay(world, (Particle) pp, 0);
+        ParticleEngine.addEffectWithDelay(world, pp, 0);
     }
 }

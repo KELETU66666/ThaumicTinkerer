@@ -59,7 +59,7 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles {
         if (armor.getItemDamage() == 1)
             return;
 
-        player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 2, 1, true, false));
+        player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 100, 1, true, false));
 
         if (player.world.isRemote)
             player.stepHeight = player.isSneaking() ? 0.5F : 1F;
@@ -158,7 +158,7 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles {
             case LEGS: {
                 if (itemStack.getItemDamage() != 1) {
                     if (player.getActivePotionEffect(MobEffects.FIRE_RESISTANCE) == null || player.getActivePotionEffect(MobEffects.FIRE_RESISTANCE).getDuration() <= 1) {
-                        player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 1, 0, false, false));
+                        player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 20, 0, false, false));
                         if (player.isBurning()) {
                             player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 1, true, false));
                             player.extinguish();

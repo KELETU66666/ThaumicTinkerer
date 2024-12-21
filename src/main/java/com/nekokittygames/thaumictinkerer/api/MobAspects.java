@@ -53,7 +53,7 @@ public class MobAspects {
         putAspect(EntityFireBat.class,"Firebat",new AspectList().add(Aspect.FLIGHT,1).add(Aspect.FIRE,1).add(Aspect.MAGIC,1),"thaumcraft");
         putAspect(EntityGhast.class,"Ghast",new AspectList().add(Aspect.FIRE,1).add(Aspect.FLIGHT,2),0.1f,0.2f);
         putSlimeAspect(EntityMagmaCube.class,"LavaSlime",new AspectList().add(Aspect.FIRE,1).add(Aspect.WATER,2));
-        putAspect(EntityPigZombie.class, "PigZombie",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.BEAST,1).add(Aspect.FIRE,1));
+        putAspect(EntityPigZombie.class, "Zombie_Pigman",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.BEAST,1).add(Aspect.FIRE,1));
         putAspect(EntitySilverfish.class, "Silverfish",new AspectList().add(Aspect.METAL,2).add(Aspect.EARTH,1));
         putAspect(EntitySkeleton.class, "Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.TOOL,1));
         putAspect(EntitySkeleton.class, "Wither_Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.AVERSION,1));
@@ -89,7 +89,6 @@ public class MobAspects {
     public static MobAspect getByAspects(AspectList aspectList) {
         for(MobAspect mobAspect2: aspects.values()) {
             AspectList checkAspects = mobAspect2.getAspects();
-
             boolean same = true;
 
             for (Aspect aspect : aspectList.getAspects()) {

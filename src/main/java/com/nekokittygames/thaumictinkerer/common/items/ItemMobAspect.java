@@ -5,6 +5,7 @@
 package com.nekokittygames.thaumictinkerer.common.items;
 
 import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
+import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntitySummon;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -40,6 +41,9 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
         return stack.getTagCompound() != null ? stack.getTagCompound().getString(ASPECT_NAME) : "aer";
     }
 
+    public static boolean isInfused(ItemStack item) {
+        return item.getItem() instanceof ItemCondensedMobAspect;
+    }
 
     public Set<String> GetVariants() {
         return Aspect.aspects.keySet();
@@ -81,6 +85,16 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
         }
     }
 
+    public static boolean lastUsedTabletMatches(ItemStack stack, TileEntitySummon tablet) {
+        if (stack.getTagCompound() == null) {
+            return true;
+        }
+
+        return (stack.getTagCompound().getInteger("LastX") == tablet.getPos().getX() &&
+                stack.getTagCompound().getInteger("LastY") == tablet.getPos().getY() &&
+                stack.getTagCompound().getInteger("LastZ") == tablet.getPos().getZ());
+    }
+
     public static ItemStack setAspectType(ItemStack stack, Aspect aspect) {
         NBTTagCompound cmp=stack.getTagCompound();
         if(cmp==null)
@@ -88,6 +102,15 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
         cmp.setString(ASPECT_NAME,aspect.getTag());
         stack.setTagCompound(cmp);
         return stack;
+    }
+
+    public static void markLastUsedTablet(ItemStack stack, TileEntitySummon tablet) {
+        if (stack.getTagCompound() == null) {
+            stack.setTagCompound(new NBTTagCompound());
+        }
+        stack.getTagCompound().setInteger("LastX", tablet.getPos().getX());
+        stack.getTagCompound().setInteger("LastY", tablet.getPos().getY());
+        stack.getTagCompound().setInteger("LastZ", tablet.getPos().getZ());
     }
 
     public static Aspect getAspectType(ItemStack stack) {

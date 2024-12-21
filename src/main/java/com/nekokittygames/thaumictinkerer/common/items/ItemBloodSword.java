@@ -32,6 +32,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 
 import javax.annotation.Nullable;
+import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class ItemBloodSword extends ItemSword {
@@ -80,6 +81,7 @@ public class ItemBloodSword extends ItemSword {
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", DAMAGE, 0));
             multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", 0.25D, 1));
+            multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(UUID.fromString("66666666-2333-1234-CBAD-BCCE9785ACA6"), "Movement Speed", 0.25, 2));
         }
 
         return multimap;
