@@ -95,6 +95,10 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
                 stack.getTagCompound().getInteger("LastZ") == tablet.getPos().getZ());
     }
 
+    public static boolean isReadyForSummon(ItemStack stack, long currentTime) {
+        return stack.getTagCompound() == null || stack.getTagCompound().getLong("NextSummonTime") <= currentTime;
+    }
+
     public static ItemStack setAspectType(ItemStack stack, Aspect aspect) {
         NBTTagCompound cmp=stack.getTagCompound();
         if(cmp==null)
@@ -111,6 +115,13 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
         stack.getTagCompound().setInteger("LastX", tablet.getPos().getX());
         stack.getTagCompound().setInteger("LastY", tablet.getPos().getY());
         stack.getTagCompound().setInteger("LastZ", tablet.getPos().getZ());
+    }
+
+    public static void markNextSummon(ItemStack stack, long nextTime){
+        if (stack.getTagCompound() == null) {
+            stack.setTagCompound(new NBTTagCompound());
+        }
+        stack.getTagCompound().setLong("NextSummonTime", nextTime);
     }
 
     public static Aspect getAspectType(ItemStack stack) {
