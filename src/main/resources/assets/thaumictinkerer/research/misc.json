@@ -127,6 +127,48 @@
       ]
     },
     {
+      "key": "TT_INFUSED_CROPS",
+      "name": "thaumictinkerer.research.infused_seeds.title",
+      "icons": [
+        "thaumictinkerer:infused_aer_fruit"
+      ],
+      "category": "THAUMIC_TINKERER",
+      "parents": [
+        "TT_PRISMARINE", "TT_SUMMONING"
+      ],
+      "siblings": [],
+      "location": [
+        -8,
+        2
+      ],
+      "stages": [
+        {
+          "text": "thaumictinkerer.research.infused_seeds.0",
+          "required_knowledge": ["THEORY;BASICS;2", "THEORY;ALCHEMY;2", "THEORY;INFUSION;2"],
+          "required_item":[
+            "thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'aer'}]}",
+            "thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'terra'}]}",
+            "thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'ignis'}]}",
+            "thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'aqua'}]}",
+            "thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'ordo'}]}",
+            "thaumcraft:crystal_essence;1;0;{Aspects:[{amount:1,key:'perditio'}]}",
+            "minecraft:wheat_seeds;10"
+          ]
+        },
+        {
+          "text": "thaumictinkerer.research.infused_seeds.1",
+          "recipes": [
+            "thaumictinkerer:infused_seeds_Aer",
+            "thaumictinkerer:infused_seeds_Ignis",
+            "thaumictinkerer:infused_seeds_Aqua",
+            "thaumictinkerer:infused_seeds_Terra",
+            "thaumictinkerer:infused_seeds_Perditio",
+            "thaumictinkerer:infused_seeds_Ordo"
+          ]
+        }
+      ]
+    },
+    {
       "key": "TT_SPELLBINDING_CLOTH",
       "name": "thaumictinkerer.research.spellbinding_cloth.title",
       "icons": [

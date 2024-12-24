@@ -28,4 +28,6 @@ public class LibBlockNames {
     public static final String WARP_GATE="warp_gate";
     public static final String CHLOROPHYTE_ORE="chlorophyte_ore";
     public static final String SUMMONER="summoner";
+    public static final String BLOCK_INFUSED_FARMLAND = "infused_farmland";
+    public static final String INFUSED_GRAIN_BLOCK = "infused_grain_block";
 }

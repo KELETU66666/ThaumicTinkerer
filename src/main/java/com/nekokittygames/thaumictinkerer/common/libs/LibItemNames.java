@@ -32,4 +32,5 @@ public class LibItemNames {
     public static final String SKY_PEARL = "sky_pearl";
     public static final String PLACEMENT_MIRROR = "placement_mirror";
     public static final String EXPERIENCE_CHARM = "experience_charm";
+    public static final String INFUSED_SEEDS = "infused_seeds";
 }

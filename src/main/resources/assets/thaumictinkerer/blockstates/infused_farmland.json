@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "moisture=0": { "model": "thaumictinkerer:infused_farmland" },
+    "moisture=1": { "model": "thaumictinkerer:infused_farmland" },
+    "moisture=2": { "model": "thaumictinkerer:infused_farmland" },
+    "moisture=3": { "model": "thaumictinkerer:infused_farmland" },
+    "moisture=4": { "model": "thaumictinkerer:infused_farmland" },
+    "moisture=5": { "model": "thaumictinkerer:infused_farmland" },
+    "moisture=6": { "model": "thaumictinkerer:infused_farmland" },
+    "moisture=7": { "model": "thaumictinkerer:infused_farmland" }
+  }
+}

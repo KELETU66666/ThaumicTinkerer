@@ -52,6 +52,8 @@ public class ModBlocks {
     public static final BlockBedrockPortal bedrock_portal=nullz();
     public static final BlockWarpGate warp_gate=new BlockWarpGate();
     public static final BlockSummon summoner=nullz();
+    public static final BlockInfusedGrain infused_grain= new BlockInfusedGrain();
+    public static final Block infused_farmland=new BlockInfusedFarmland();
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
     public static class RegistrationHandler {
         public static final Set<ItemBlock> ITEM_BLOCKS = new HashSet<>();
@@ -85,7 +87,9 @@ public class ModBlocks {
                     new BlockSummon(),
                     new BlockIchorBlock(),
                     new BlockBedrockPortal("bedrock_portal", Material.PORTAL),
-                    new BlockWarpGate()
+                    new BlockWarpGate(),
+                    infused_farmland,
+                    infused_grain
             };
             for(Block block:blocks) {
                 registry.register(block);
@@ -144,6 +148,8 @@ public class ModBlocks {
             registerTileEntity(TileBedrockPortal.class, LibBlockNames.BEDROCK_PORTAL);
             registerTileEntity(TileWarpGate.class, LibBlockNames.WARP_GATE);
             registerTileEntity(TileEntitySummon.class,LibBlockNames.SUMMONER);
+            registerTileEntity(TileInfusedFarmland.class,LibBlockNames.INFUSED_GRAIN_BLOCK);
+            registerTileEntity(TileInfusedGrain.class,LibBlockNames.BLOCK_INFUSED_FARMLAND);
         }
 
         private static void registerTileEntity(Class<? extends TileEntity> clazz, String name) {

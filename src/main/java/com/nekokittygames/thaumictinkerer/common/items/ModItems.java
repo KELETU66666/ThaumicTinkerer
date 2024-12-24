@@ -33,23 +33,23 @@ public class ModItems {
     public static final ItemConnector connector = nullz();
     public static final ItemSoulMould soul_mould = nullz();
     public static final ItemEnergeticNitor energetic_nitor = new ItemEnergeticNitor();
-    public static final ItemSpellbindingCloth spellbinding_cloth=nullz();
-    public static final ItemBloodSword blood_sword=nullz();
-    public static final ItemCondensedMobAspect condensed_mob_aspect=new ItemCondensedMobAspect();
-    public static final ItemMobAspect mob_aspect=new ItemMobAspect("mob_aspect");
+    public static final ItemSpellbindingCloth spellbinding_cloth = nullz();
+    public static final ItemBloodSword blood_sword = nullz();
+    public static final ItemCondensedMobAspect condensed_mob_aspect = new ItemCondensedMobAspect();
+    public static final ItemMobAspect mob_aspect = new ItemMobAspect("mob_aspect");
     public static final Item gas_remover = new ItemGasRemover();
     public static final ItemGas gas_shadow_item = nullz();
     public static final ItemGas gas_light_item = nullz();
 
-    public static final ItemKamiResource kamiresource=new ItemKamiResource();
+    public static final ItemKamiResource kamiresource = new ItemKamiResource();
     public static final IchoriumAxe ichorium_axe = null;
     public static final IchoriumSword ichorium_sword = null;
     public static final IchoriumShovel ichorium_shovel = null;
-    public static final IchoriumPick ichorium_pick= null;
+    public static final IchoriumPick ichorium_pick = null;
     public static final IchoriumAxeAdv ichorium_axe_adv = null;
     public static final IchoriumSwordAdv ichorium_sword_adv = null;
     public static final IchoriumShovelAdv ichorium_shovel_adv = null;
-    public static final IchoriumPickAdv ichorium_pick_adv= null;
+    public static final IchoriumPickAdv ichorium_pick_adv = null;
     public static final Item ichor_helm = null;
     public static final Item ichor_chest = null;
     public static final Item ichor_legs = null;
@@ -65,14 +65,43 @@ public class ModItems {
     public static final Item cat_amulet = new ItemCatAmulet();
     public static final Item sky_pearl = new ItemSkyPearl();
     public static final Item placement_mirror = new ItemPlacementMirror();
+    public static final ItemInfusedSeeds infused_seeds = new ItemInfusedSeeds();
+    public static final Item fruit_terra = new TTItem("infused_terra_fruit") {
+        @Override
+        protected boolean isInCreativeTab() {
+            return true;
+        }
+    };
+
+    public static final Item fruit_ignis = new TTItem("infused_ignis_fruit") {
+        @Override
+        protected boolean isInCreativeTab() {
+            return true;
+        }
+    };
+
+    public static final Item fruit_aqua = new TTItem("infused_aqua_fruit") {
+        @Override
+        protected boolean isInCreativeTab() {
+            return true;
+        }
+    };
+
+    public static final Item fruit_aer = new TTItem("infused_aer_fruit") {
+        @Override
+        protected boolean isInCreativeTab() {
+            return true;
+        }
+    };
 
     //public static final ItemFormRevealer form_revealer = nullz();
 
     @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
     public static class RegistrationHandler {
         public static final Set<Item> ITEMS = new HashSet<>();
-        public static final Item.ToolMaterial MATERIAL_ICHORIUM= EnumHelper.addToolMaterial("ICHOR", 4, -1, 10F, 5F, 25);
+        public static final Item.ToolMaterial MATERIAL_ICHORIUM = EnumHelper.addToolMaterial("ICHOR", 4, -1, 10F, 5F, 25);
         public static final ItemArmor.ArmorMaterial MATERIAL_ICHOR = EnumHelper.addArmorMaterial("ichor", LibMisc.MOD_ID + ":ichor", -1, new int[]{3, 6, 8, 3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 3.0F);
+
         /**
          * Register this mod's {@link Item}s.
          *
@@ -118,7 +147,12 @@ public class ModItems {
                     new ItemKamiArmor("kami_boots", MATERIAL_ICHOR, 1, EntityEquipmentSlot.FEET),
                     new ItemBlockTalisman(),
                     new ItemRevealingHelm("revealing_helm", ThaumcraftMaterials.ARMORMAT_THAUMIUM, 1, EntityEquipmentSlot.HEAD, ThaumicTinkerer.getTab()),
-                    new ItemSkyPearl()
+                    new ItemSkyPearl(),
+                    infused_seeds,
+                    fruit_terra,
+                    fruit_aer,
+                    fruit_aqua,
+                    fruit_ignis
                     // new ItemFormRevealer()
             };
             final IForgeRegistry<Item> registry = event.getRegistry();

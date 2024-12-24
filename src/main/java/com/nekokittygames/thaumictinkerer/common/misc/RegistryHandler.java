@@ -22,6 +22,11 @@ public final class RegistryHandler {
     @SubscribeEvent
     public static void registerAspects(AspectRegistryEvent event) {
         AspectEventProxy proxy = event.register;
+        proxy.registerComplexObjectTag(new ItemStack(ModItems.fruit_terra, 1, 0), new AspectList().add(Aspect.EARTH, 5));
+        proxy.registerComplexObjectTag(new ItemStack(ModItems.fruit_aer, 1, 0), new AspectList().add(Aspect.AIR, 5));
+        proxy.registerComplexObjectTag(new ItemStack(ModItems.fruit_ignis, 1, 0), new AspectList().add(Aspect.FIRE, 5));
+        proxy.registerComplexObjectTag(new ItemStack(ModItems.fruit_aqua, 1, 0), new AspectList().add(Aspect.WATER, 5));
+
         proxy.registerComplexObjectTag(new ItemStack(ModItems.kamiresource, 1, 1), new AspectList().add(Aspect.FIRE, 2).add(Aspect.UNDEAD, 2).add(Aspect.DEATH, 2));
         proxy.registerComplexObjectTag(new ItemStack(ModItems.kamiresource, 1, 0), new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.DESIRE, 2).add(Aspect.DARKNESS, 2));
     }

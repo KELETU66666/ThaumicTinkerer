@@ -1,0 +1,44 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "thaumictinkerer:items/seed_generic"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "meta": 1
+      },
+      "model": "thaumictinkerer:item/seed_aer"
+    },
+    {
+      "predicate": {
+        "meta": 2
+      },
+      "model": "thaumictinkerer:item/seed_ignis"
+    },
+    {
+      "predicate": {
+        "meta": 3
+      },
+      "model": "thaumictinkerer:item/seed_aqua"
+    },
+    {
+      "predicate": {
+        "meta": 4
+      },
+      "model": "thaumictinkerer:item/seed_terra"
+    },
+    {
+      "predicate": {
+        "meta": 5
+      },
+      "model": "thaumictinkerer:item/seed_perditio"
+    },
+    {
+      "predicate": {
+        "meta": 6
+      },
+      "model": "thaumictinkerer:item/seed_ordo"
+    }
+  ]
+}

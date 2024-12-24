@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 
 import java.util.Set;
 import java.util.SortedSet;
@@ -48,6 +49,7 @@ public class ItemCondensedMobAspect extends ItemMobAspect {
                     cmp=new NBTTagCompound();
                 cmp.setString(ASPECT_NAME,aspect);
                 itemStack.setTagCompound(cmp);
+                ModItems.mob_aspect.setAspects(itemStack, new AspectList().add(Aspect.getAspect(aspect), 1));
                 items.add(itemStack);
             }
         }

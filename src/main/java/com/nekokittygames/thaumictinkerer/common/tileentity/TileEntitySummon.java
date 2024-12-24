@@ -8,12 +8,12 @@ import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
 import com.nekokittygames.thaumictinkerer.api.MobAspect;
 import com.nekokittygames.thaumictinkerer.api.MobAspects;
 import com.nekokittygames.thaumictinkerer.common.items.ItemMobAspect;
+import static com.nekokittygames.thaumictinkerer.common.items.ItemMobAspect.ASPECT_NAME;
 import com.nekokittygames.thaumictinkerer.common.utils.CombinationGenerator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.ResourceLocation;
@@ -26,8 +26,6 @@ import thaumcraft.common.tiles.crafting.TilePedestal;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import static com.nekokittygames.thaumictinkerer.common.items.ItemMobAspect.ASPECT_NAME;
 
 public class TileEntitySummon extends TileEntityThaumicTinkerer implements ITickable {
     @Override

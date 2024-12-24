@@ -3,6 +3,7 @@ package com.nekokittygames.thaumictinkerer;
 import com.nekokittygames.thaumictinkerer.api.MobAspects;
 import com.nekokittygames.thaumictinkerer.api.ThaumicTinkererAPI;
 import com.nekokittygames.thaumictinkerer.client.rendering.special.RenderTileWarpGate;
+import com.nekokittygames.thaumictinkerer.common.blocks.AspectCropLootManager;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.commands.CommandDumpEnchants;
 import com.nekokittygames.thaumictinkerer.common.commands.CommandRefreshMultiblocks;
@@ -35,10 +36,7 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLInterModComms;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -138,6 +136,11 @@ public class ThaumicTinkerer {
         MinecraftForge.EVENT_BUS.register(LootTableHandler.class);
         MobAspects.checkAspects();
 
+    }
+
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        AspectCropLootManager.populateLootMap();
     }
 
     private void initFoci() {

@@ -5,11 +5,12 @@
 package com.nekokittygames.thaumictinkerer.client.proxy;
 
 import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
-import com.nekokittygames.thaumictinkerer.client.misc.AspectColouror;
+import com.nekokittygames.thaumictinkerer.client.misc.AspectColors;
 import com.nekokittygames.thaumictinkerer.client.misc.ClientHelper;
 import com.nekokittygames.thaumictinkerer.client.misc.Shaders;
 import com.nekokittygames.thaumictinkerer.client.rendering.special.multi.NitorRenderer;
 import com.nekokittygames.thaumictinkerer.client.rendering.tileentities.*;
+import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
 import com.nekokittygames.thaumictinkerer.common.commands.CommandThaumicTinkererClient;
 import com.nekokittygames.thaumictinkerer.common.intl.MultiBlockPreviewRendering;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
@@ -65,7 +66,9 @@ public class ClientProxy implements ITTProxy {
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiProxy());
 
         Minecraft.getMinecraft().getItemColors().registerItemColorHandler((s, t) -> Color.HSBtoRGB(0.75F, ((float) s.getMaxDamage() - (float) s.getItemDamage()) / s.getMaxDamage() * 0.5F, 1F), ModItems.spellbinding_cloth);
-        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new AspectColouror(), ModItems.condensed_mob_aspect,ModItems.mob_aspect);
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new AspectColors(), ModItems.condensed_mob_aspect,ModItems.mob_aspect);
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new AspectColors(), ModItems.infused_seeds);
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new AspectColors(), ModBlocks.infused_grain);
     }
 
     /**

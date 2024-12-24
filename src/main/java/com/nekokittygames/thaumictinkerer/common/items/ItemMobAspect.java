@@ -26,7 +26,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
-    public static String ASPECT_NAME="aspectName";
+    public static String ASPECT_NAME = "aspectName";
+
     public ItemMobAspect(String name) {
         super(name);
     }
@@ -53,33 +54,30 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        if(stack.hasTagCompound() && stack.getTagCompound().hasKey(ASPECT_NAME)) {
-            Aspect aspect=Aspect.getAspect(stack.getTagCompound().getString(ASPECT_NAME));
-            if(aspect!=null) {
+        if (stack.hasTagCompound() && stack.getTagCompound().hasKey(ASPECT_NAME)) {
+            Aspect aspect = Aspect.getAspect(stack.getTagCompound().getString(ASPECT_NAME));
+            if (aspect != null) {
                 tooltip.add(I18n.format("thaumictinkerer.mobaspect.type", aspect.getName()));
-            }
-            else
-            {
+            } else {
                 tooltip.add(I18n.format("thaumictinkerer.mobaspect.invalid"));
             }
-        }
-        else {
+        } else {
             tooltip.add(I18n.format("thaumictinkerer.mobaspect.invalid"));
         }
     }
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (this.isInCreativeTab(tab))
-        {
+        if (this.isInCreativeTab(tab)) {
             SortedSet<String> sortedAspects = new TreeSet<>(GetVariants());
-            for(String aspect:sortedAspects) {
-                ItemStack itemStack=new ItemStack(this);
-                NBTTagCompound cmp=itemStack.getTagCompound();
-                if(cmp==null)
-                    cmp=new NBTTagCompound();
-                cmp.setString(ASPECT_NAME,aspect);
+            for (String aspect : sortedAspects) {
+                ItemStack itemStack = new ItemStack(this);
+                NBTTagCompound cmp = itemStack.getTagCompound();
+                if (cmp == null)
+                    cmp = new NBTTagCompound();
+                cmp.setString(ASPECT_NAME, aspect);
                 itemStack.setTagCompound(cmp);
+                ModItems.mob_aspect.setAspects(itemStack, new AspectList().add(Aspect.getAspect(aspect), 1));
                 items.add(itemStack);
             }
         }
@@ -100,11 +98,12 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
     }
 
     public static ItemStack setAspectType(ItemStack stack, Aspect aspect) {
-        NBTTagCompound cmp=stack.getTagCompound();
-        if(cmp==null)
-            cmp=new NBTTagCompound();
-        cmp.setString(ASPECT_NAME,aspect.getTag());
+        NBTTagCompound cmp = stack.getTagCompound();
+        if (cmp == null)
+            cmp = new NBTTagCompound();
+        cmp.setString(ASPECT_NAME, aspect.getTag());
         stack.setTagCompound(cmp);
+        ModItems.mob_aspect.setAspects(stack, new AspectList().add(aspect, 1));
         return stack;
     }
 
@@ -125,16 +124,17 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
     }
 
     public static Aspect getAspectType(ItemStack stack) {
-        if(stack == ItemStack.EMPTY)
+        if (stack == ItemStack.EMPTY)
             return null;
 
-        NBTTagCompound cmp=stack.getTagCompound();
-        if(cmp==null)
+        NBTTagCompound cmp = stack.getTagCompound();
+        if (cmp == null)
             return null;
-        String aspectName=cmp.getString(ASPECT_NAME);
+        String aspectName = cmp.getString(ASPECT_NAME);
         return Aspect.getAspect(aspectName);
     }
 
+    @Override
     public AspectList getAspects(ItemStack itemstack) {
         if (itemstack.hasTagCompound()) {
             AspectList aspects = new AspectList();
@@ -144,6 +144,7 @@ public class ItemMobAspect extends TTItem implements IEssentiaContainerItem {
         return null;
     }
 
+    @Override
     public void setAspects(ItemStack itemstack, AspectList aspects) {
         if (!itemstack.hasTagCompound())
             itemstack.setTagCompound(new NBTTagCompound());

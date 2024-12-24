@@ -52,7 +52,7 @@ public class MobAspects {
         putAspect(EntityEnderman.class,"Enderman",new AspectList().add(Aspect.ELDRITCH,2).add(Aspect.MAN,1),0.3f,0.0f);
         putAspect(EntityFireBat.class,"Firebat",new AspectList().add(Aspect.FLIGHT,1).add(Aspect.FIRE,1).add(Aspect.MAGIC,1),"thaumcraft");
         putAspect(EntityGhast.class,"Ghast",new AspectList().add(Aspect.FIRE,1).add(Aspect.FLIGHT,2),0.1f,0.2f);
-        putSlimeAspect(EntityMagmaCube.class,"LavaSlime",new AspectList().add(Aspect.FIRE,1).add(Aspect.WATER,2));
+        putSlimeAspect(EntityMagmaCube.class,"Magma_Cube",new AspectList().add(Aspect.FIRE,1).add(Aspect.WATER,2));
         putAspect(EntityPigZombie.class, "Zombie_Pigman",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.BEAST,1).add(Aspect.FIRE,1));
         putAspect(EntitySilverfish.class, "Silverfish",new AspectList().add(Aspect.METAL,2).add(Aspect.EARTH,1));
         putAspect(EntitySkeleton.class, "Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.TOOL,1));

@@ -1,0 +1,6 @@
+{
+  "parent": "thaumictinkerer:block/crop_with_color",
+  "textures": {
+    "crop": "thaumictinkerer:blocks/crop_generic_2"
+  }
+}

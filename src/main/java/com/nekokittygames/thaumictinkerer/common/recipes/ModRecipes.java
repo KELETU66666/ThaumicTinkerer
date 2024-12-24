@@ -5,6 +5,7 @@ import static com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks.black_q
 import static com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks.ichor_block;
 import com.nekokittygames.thaumictinkerer.common.compat.botania.BotaniaCompat;
 import com.nekokittygames.thaumictinkerer.common.foci.FocusEffectTelekenesis;
+import com.nekokittygames.thaumictinkerer.common.items.ItemInfusedSeeds;
 import com.nekokittygames.thaumictinkerer.common.items.ItemMobAspect;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
@@ -291,6 +292,10 @@ public class ModRecipes {
         addInfusionCraftingRecipe(LibRecipes.ENCHANTER, new InfusionRecipe(LibResearch.ENCHANTER, new ItemStack(Objects.requireNonNull(ModBlocks.osmotic_enchanter)), 10, new AspectList().add(Aspect.ELDRITCH, 60).add(Aspect.MIND, 30).add(Aspect.ENERGY, 60).add(Aspect.MAGIC, 225).add(Aspect.VOID, 45), new ItemStack(Blocks.ENCHANTING_TABLE), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Blocks.OBSIDIAN), new ItemStack(Objects.requireNonNull(ModItems.spellbinding_cloth)), new ItemStack(ItemsTC.ingots, 1, 0), new ItemStack(ItemsTC.ingots, 1, 0)));
         addInfusionCraftingRecipe(LibRecipes.REPAIRER, new InfusionRecipe(LibResearch.REPAIRER, new ItemStack(Objects.requireNonNull(ModBlocks.repairer)), 4, new AspectList().add(Aspect.CRAFT, 60).add(Aspect.TOOL, 45).add(Aspect.ORDER, 30).add(Aspect.MAGIC, 30), new ItemStack(BlocksTC.metalBlockThaumium), "plankWood", new ItemStack(Items.LEATHER), new ItemStack(ItemsTC.fabric), new ItemStack(ItemsTC.ingots, 1, 0), new ItemStack(Items.IRON_INGOT), new ItemStack(Items.GOLD_INGOT), new ItemStack(Items.DIAMOND), new ItemStack(Blocks.COBBLESTONE)));
 
+        for (Aspect asp : Aspect.getPrimalAspects())
+            InfusedSeedsRecipes(asp);
+
+
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "experience_charm"), new InfusionRecipe(
                 "TT_EXPERIENCE_CHARM",
                 new ItemStack(ModItems.experience_charm),
@@ -547,5 +552,19 @@ public class ModRecipes {
                     ));
         }
         addInfusionCraftingRecipe(LibRecipes.BLOOD_SWORD, new InfusionRecipe(LibResearch.SUMMONING, new ItemStack(ModItems.blood_sword), 3, new AspectList().add(Aspect.DARKNESS, 5).add(Aspect.SOUL, 10).add(Aspect.MAN, 6).add(Aspect.DEATH, 10), new ItemStack(ItemsTC.thaumiumSword), new ItemStack(Items.ROTTEN_FLESH), new ItemStack(Items.PORKCHOP), new ItemStack(Items.BEEF), new ItemStack(Items.BONE), new ItemStack(Items.DIAMOND), new ItemStack(Items.GHAST_TEAR)));
+    }
+
+    public static void InfusedSeedsRecipes(Aspect asp) {
+        System.out.print(asp.getName());
+        addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "infused_seeds_" + asp.getName()), new InfusionRecipe(
+                "TT_INFUSED_CROPS",
+                ItemInfusedSeeds.getStackFromAspect(asp),
+                5,
+                new AspectList().add(asp, 100).add(Aspect.EXCHANGE, 100).add(Aspect.PLANT, 100),
+                Items.WHEAT_SEEDS,
+                ThaumcraftApiHelper.makeCrystal(asp),
+                ThaumcraftApiHelper.makeCrystal(asp),
+                ThaumcraftApiHelper.makeCrystal(asp),
+                ThaumcraftApiHelper.makeCrystal(asp)));
     }
 }

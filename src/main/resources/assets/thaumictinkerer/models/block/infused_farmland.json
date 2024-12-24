@@ -1,0 +1,8 @@
+{
+  "parent": "block/farmland",
+  "textures": {
+    "particle": "thaumictinkerer:blocks/infused_farmland",
+    "dirt": "minecraft:blocks/dirt",
+    "top": "thaumictinkerer:blocks/infused_farmland"
+  }
+}
