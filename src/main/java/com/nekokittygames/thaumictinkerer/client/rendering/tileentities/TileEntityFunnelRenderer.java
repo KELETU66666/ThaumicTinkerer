@@ -42,7 +42,7 @@ public class TileEntityFunnelRenderer extends TileEntitySpecialRenderer<TileEnti
     public void render(TileEntityFunnel te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         super.render(te, x, y, z, partialTicks, destroyStage, alpha);
         IBakedModel model = Minecraft.getMinecraft().getBlockRendererDispatcher().getModelForState(te.getWorld().getBlockState(new BlockPos(x, y, z)));
-        if (te.getInventory().getStackInSlot(0) != ItemStack.EMPTY && ((IEssentiaContainerItem) te.getInventory().getStackInSlot(0).getItem()).getAspects(te.getInventory().getStackInSlot(0)) != null && ((IEssentiaContainerItem) te.getInventory().getStackInSlot(0).getItem()).getAspects(te.getInventory().getStackInSlot(0)).size() > 0) {
+        if (te.getInventory() != null && te.getInventory().getStackInSlot(0) != ItemStack.EMPTY && ((IEssentiaContainerItem) te.getInventory().getStackInSlot(0).getItem()).getAspects(te.getInventory().getStackInSlot(0)) != null && ((IEssentiaContainerItem) te.getInventory().getStackInSlot(0).getItem()).getAspects(te.getInventory().getStackInSlot(0)).size() > 0) {
             GL11.glPushMatrix();
             GL11.glDisable(2884);
             GL11.glTranslatef((float) x + 0.5F, (float) y + 0.01F, (float) z + 0.5F);
