@@ -17,6 +17,7 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IAspectContainer;
 import thaumcraft.api.aspects.IEssentiaContainerItem;
+import thaumcraft.common.blocks.essentia.BlockJarItem;
 import thaumcraft.common.tiles.essentia.TileJarFillable;
 
 import javax.annotation.Nonnull;
@@ -48,9 +49,10 @@ public class TileEntityFunnel extends TileEntityThaumicTinkerer implements IAspe
         }
     };
 
+    //TODO: add a config to enable player choice
     public boolean isItemValidForSlot(int index, ItemStack stack) {
         Item item = stack.getItem();
-        return item instanceof IEssentiaContainerItem;
+        return item instanceof BlockJarItem;
     }
 
     public int getSpeed() {

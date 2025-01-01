@@ -30,9 +30,8 @@ public class BlockEnchanter extends TTTileEntity<TileEntityEnchanter> {
         return new TileEntityEnchanter();
     }
 
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        return  new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D);
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D);
     }
 
     @Override
@@ -76,24 +75,23 @@ public class BlockEnchanter extends TTTileEntity<TileEntityEnchanter> {
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         TileEntity tileentity = worldIn.getTileEntity(pos);
         if (tileentity instanceof IInventory) {
-            InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentity);
+            InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory) tileentity);
             worldIn.updateComparatorOutputLevel(pos, this);
         }
         super.breakBlock(worldIn, pos, state);
     }
+
     @Override
-    public boolean hasComparatorInputOverride(IBlockState state)
-    {
+    public boolean hasComparatorInputOverride(IBlockState state) {
         return true;
     }
 
     @Override
-    public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos)
-    {
+    public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos) {
         TileEntity tileentity = worldIn.getTileEntity(pos);
         if (tileentity instanceof TileEntityEnchanter) {
-            TileEntityEnchanter tie= (TileEntityEnchanter) tileentity;
-            return tie.getInventory().getStackInSlot(0)== ItemStack.EMPTY?0:16;
+            TileEntityEnchanter tie = (TileEntityEnchanter) tileentity;
+            return tie.getInventory().getStackInSlot(0) == ItemStack.EMPTY ? 0 : 16;
         }
         return 0;
     }
