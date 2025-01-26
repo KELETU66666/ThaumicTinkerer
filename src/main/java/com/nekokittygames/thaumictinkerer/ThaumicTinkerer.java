@@ -12,6 +12,7 @@ import com.nekokittygames.thaumictinkerer.common.compat.botania.BotaniaCompat;
 import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.dim.ModDimensions;
 import com.nekokittygames.thaumictinkerer.common.dim.OreClusterGenerator;
+import com.nekokittygames.thaumictinkerer.common.dim.OreFrequency;
 import com.nekokittygames.thaumictinkerer.common.enchantments.TTEnchantments;
 import com.nekokittygames.thaumictinkerer.common.foci.*;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
@@ -141,6 +142,7 @@ public class ThaumicTinkerer {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         AspectCropLootManager.populateLootMap();
+        OreFrequency.init();
     }
 
     private void initFoci() {
