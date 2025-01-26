@@ -25,7 +25,7 @@ public class OreClusterGenerator implements IWorldGenerator {
             for (int k = 0; k < density; k++) {
                 int firstBlockXCoord = 16 * chunkX + random.nextInt(16);
                 int firstBlockZCoord = 16 * chunkZ + random.nextInt(16);
-                ItemStack itemStack = EnumOreFrequency.getRandomOre(random);
+                ItemStack itemStack = OreFrequency.getRandomOre(random);
                 for (int l = 0; l < 200; l++) {
                     int firstBlockYCoord = random.nextInt(245) + 6;
                     BlockPos pos = new BlockPos(firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);

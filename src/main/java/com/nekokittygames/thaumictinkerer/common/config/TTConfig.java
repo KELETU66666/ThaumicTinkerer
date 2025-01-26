@@ -1,6 +1,6 @@
 package com.nekokittygames.thaumictinkerer.common.config;
 
-
+import com.nekokittygames.thaumictinkerer.common.dim.OreFrequency;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
@@ -16,7 +16,6 @@ public class TTConfig {
     @Config.LangKey("thaumictinkerer.config.talisman")
     @Config.RangeInt(min = 0)
     public static int talismanUses = 100;
-
 
     @Config.Comment("This is the distance a block can be from a Transvector Interface")
     @Config.Name("Transvector Interface Distance")
@@ -54,12 +53,12 @@ public class TTConfig {
     @Config.Comment("Is the dislocation focus enabled?")
     @Config.Name("Dislocation Focus Enabled")
     @Config.RequiresMcRestart()
-    public static boolean DislocationFocusEnabled=true;
+    public static boolean DislocationFocusEnabled = true;
 
     @Config.Comment("Is the telekenesis focus enabled?")
     @Config.Name("Telekenesis Focus Enabled")
     @Config.RequiresMcRestart()
-    public static boolean TelekenesisFocusEnabled=true;
+    public static boolean TelekenesisFocusEnabled = true;
 
     @Config.Comment("Does the Osmotic Enchanter use the classic pillar structure")
     @Config.Name("Classic Enchanter")
@@ -90,6 +89,44 @@ public class TTConfig {
     @Config.RequiresMcRestart
     public static int BedRockDimensionID = 19;
 
+    @Config.Comment("Syntax: oreDictName,frequency")
+    @Config.Name("Bedrock Dimension Ores")
+    public static String[] BedRockDimensionOres = new String[]{
+            "oreAluminum,617",
+            "oreAmber,161",
+            "oreApatite,269",
+            "oreBlueTopaz,238",
+            "oreCertusQuartz,234",
+            "oreChimerite,270",
+            "oreCinnabar,172",
+            "oreCoal,2648",
+            "oreCopper,603",
+            "oreDiamond,67",
+            "oreEmerald,48",
+            "oreFzDarkIron,61",
+            "oreGold,164",
+            "oreInfusedAir,94",
+            "oreInfusedEarth,35",
+            "oreInfusedEntropy,53",
+            "oreInfusedFire,42",
+            "oreInfusedOrder,31",
+            "oreInfusedWater,27",
+            "oreIron,1503",
+            "oreLapis,57",
+            "oreLead,335",
+            "oreNickel,72",
+            "orePeridot,79",
+            "oreRedstone,364",
+            "oreRuby,57",
+            "oreSaltpeter,768",
+            "oreSapphire,70",
+            "oreSilver,416",
+            "oreSulfur,105",
+            "oreTin,507",
+            "oreUranium,112",
+            "oreVinteum,392"
+    };
+
     @Config.Comment("Ichorium ToolPart Base Damage")
     @Config.Name("Ichorium Weapon DamageBase")
     @Config.RangeInt(min = 0)
@@ -114,8 +151,8 @@ public class TTConfig {
         public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
             if (event.getModID().equals(LibMisc.MOD_ID)) {
                 ConfigManager.sync(LibMisc.MOD_ID, net.minecraftforge.common.config.Config.Type.INSTANCE);
+                OreFrequency.init();
             }
         }
     }
 }
-
