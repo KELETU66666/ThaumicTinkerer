@@ -83,8 +83,6 @@ public class TileEntityEnchanterRenderer extends TileEntitySpecialRenderer<TileE
                     ItemStack is = ThaumcraftApiHelper.makeCrystal(((ItemCrystalEssence) ItemsTC.crystalEssence).getAspects(te.getEnchantmentCost().get(a)).getAspects()[0]);
                     this.entityitem = new EntityItem(te.getWorld(), 0.0D, 0.0D, 0.0D, is);
                     this.entityitem.hoverStart = 0.0F;
-                    //this.renderRay(angle, a, bob, r, g, b, ticks);
-                    //this.renderRay(angle, (a + 1) * 5, bob, r, g, b, ticks);
                     RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
                     rendermanager.renderEntity(this.entityitem, 0.0D, 0.0D, 0.0D, 0.0F, 0.0F, false);
                     GL11.glPopMatrix();
