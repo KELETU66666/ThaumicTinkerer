@@ -756,61 +756,65 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
         List<ItemStack> costs = new ArrayList<>();
         Map<Aspect, Integer> costItems = new HashMap<>();
         List<Enchantment> enchantmentObjects = enchantments.stream().map(Enchantment::getEnchantmentByID).collect(Collectors.toList());
-        int visAmount = 0;
         for (int i = 0, enchantmentObjectsSize = enchantmentObjects.size(); i < enchantmentObjectsSize; i++) {
             Enchantment enchantment = enchantmentObjects.get(i);
-
-            switch (enchantment.getRarity()) {
-                case COMMON:
-                    visAmount += 50 * getLevels().get(i);
+            switch (enchantment.getName()) {
+                case "enchantment.mending":
+                    addAmountTo(costItems, Aspect.EXCHANGE, 320);
+                    addAmountTo(costItems, Aspect.DESIRE, 192);
                     break;
-                case UNCOMMON:
-                    visAmount += 90 * getLevels().get(i);
+                case "enchantment.frostWalker":
+                    addAmountTo(costItems, Aspect.COLD, 64 * getLevels().get(i));
                     break;
-                case RARE:
-                    visAmount += 120 * getLevels().get(i);
+                case "enchantment.pounce":
+                    addAmountTo(costItems, Aspect.BEAST, 32 * getLevels().get(i));
                     break;
-                case VERY_RARE:
-                    visAmount += 300 * getLevels().get(i);
+                case "enchantment.slowfall":
+                    addAmountTo(costItems, Aspect.FLIGHT, 24 * getLevels().get(i));
+                    break;
+                case "enchantment.looting":
+                case "enchantment.fortune":
+                    addAmountTo(costItems, Aspect.DESIRE, 24 * getLevels().get(i));
+                    break;
             }
             switch (Objects.requireNonNull(enchantment.type)) {
                 case ARMOR:
                 case ARMOR_LEGS:
-
-                    addAmountTo(costItems, Aspect.PROTECT, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.PROTECT, 16 * getLevels().get(i));
                     break;
                 case ARMOR_FEET:
-                    addAmountTo(costItems, Aspect.PROTECT, (int) Math.pow(2, getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.MOTION, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.PROTECT, 16 * getLevels().get(i));
+                    addAmountTo(costItems, Aspect.MOTION, 16 * getLevels().get(i));
                     break;
                 case ARMOR_CHEST:
-                    addAmountTo(costItems, Aspect.PROTECT, (int) Math.pow(2, getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.LIFE, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.PROTECT, 16 * getLevels().get(i));
+                    addAmountTo(costItems, Aspect.LIFE, 16 * getLevels().get(i));
                     break;
                 case ARMOR_HEAD:
-                    addAmountTo(costItems, Aspect.PROTECT, (int) Math.pow(2, getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.MIND, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.PROTECT, 16 * getLevels().get(i));
+                    addAmountTo(costItems, Aspect.MIND, 16 * getLevels().get(i));
                     break;
                 case DIGGER:
-                    addAmountTo(costItems, Aspect.ENTROPY, (int) Math.pow(2, getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.TOOL, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.ENTROPY, 16 * getLevels().get(i));
+                    addAmountTo(costItems, Aspect.TOOL, 16 * getLevels().get(i));
                     break;
                 case BREAKABLE:
-                    addAmountTo(costItems, Aspect.ENTROPY, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.ENTROPY, 16 * getLevels().get(i));
                     break;
                 case WEARABLE:
-                    addAmountTo(costItems, Aspect.MAN, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.MAN, 16 * getLevels().get(i));
                     break;
                 case WEAPON:
-                    addAmountTo(costItems, Aspect.DEATH, (int) Math.pow(2, getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.AVERSION, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.DEATH, 16 * getLevels().get(i));
+                    addAmountTo(costItems, Aspect.AVERSION, 16 * getLevels().get(i));
                     break;
                 case BOW:
-                    addAmountTo(costItems, Aspect.DEATH, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.DEATH, 16 * getLevels().get(i));
+                    addAmountTo(costItems, Aspect.ENERGY, 16 * getLevels().get(i));
                     break;
                 case FISHING_ROD:
-                    addAmountTo(costItems, Aspect.BEAST, (int) Math.pow(2, getLevels().get(i)));
-                    addAmountTo(costItems, Aspect.WATER, (int) Math.pow(2, getLevels().get(i)));
+                    addAmountTo(costItems, Aspect.BEAST, 16 * getLevels().get(i));
+                    addAmountTo(costItems, Aspect.WATER, 16 * getLevels().get(i));
                     break;
                 default:
                     break;
