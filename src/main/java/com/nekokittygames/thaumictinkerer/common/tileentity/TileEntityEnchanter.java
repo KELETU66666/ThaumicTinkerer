@@ -760,7 +760,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
             Enchantment enchantment = enchantmentObjects.get(i);
             switch (enchantment.getName()) {
                 case "enchantment.mending":
-                    addAmountTo(costItems, Aspect.EXCHANGE, 320);
+                    addAmountTo(costItems, Aspect.EXCHANGE, 256);
                     addAmountTo(costItems, Aspect.DESIRE, 192);
                     break;
                 case "enchantment.frostWalker":

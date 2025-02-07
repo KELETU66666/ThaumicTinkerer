@@ -30,6 +30,7 @@ import java.util.Objects;
 public class TileEntityEnchanterRenderer extends TileEntitySpecialRenderer<TileEntityEnchanter> {
 
     EntityItem entityitem = null;
+
     /**
      * renders the Enchanter
      *
@@ -46,11 +47,11 @@ public class TileEntityEnchanterRenderer extends TileEntitySpecialRenderer<TileE
         super.render(te, x, y, z, partialTicks, destroyStage, alpha);
         float ticks = (float) Objects.requireNonNull(Minecraft.getMinecraft().getRenderViewEntity()).ticksExisted + partialTicks;
         if (te.getInventory().getStackInSlot(0) != ItemStack.EMPTY) {
-            if(te.isWorking() && te.getEnchantmentCost().size()>0) {
+            if (te.isWorking() && te.getEnchantmentCost().size() > 0) {
                 int q = te.getEnchantmentCost().size();
-                float ang = (float)(360 / q);
+                float ang = (float) (360 / q);
 
-                for(int a = 0; a < q; ++a) {
+                for (int a = 0; a < q; ++a) {
                     float angle = ticks % 720.0F / 2.0F + ang * (float) a;
                     float bob = MathHelper.sin((ticks + (float) (a * 10)) / 12.0F) * 0.02F + 0.02F;
                     GL11.glPushMatrix();
@@ -63,7 +64,7 @@ public class TileEntityEnchanterRenderer extends TileEntitySpecialRenderer<TileE
                     GL11.glBlendFunc(770, 1);
                     GL11.glAlphaFunc(516, 0.003921569F);
                     GL11.glDepthMask(false);
-                    Color c = new Color(((ItemCrystalEssence)ItemsTC.crystalEssence).getAspects(te.getEnchantmentCost().get(a)).getAspects()[0].getColor());
+                    Color c = new Color(((ItemCrystalEssence) ItemsTC.crystalEssence).getAspects(te.getEnchantmentCost().get(a)).getAspects()[0].getColor());
                     float r = (float) c.getRed() / 255.0F;
                     float g = (float) c.getGreen() / 255.0F;
                     float b = (float) c.getBlue() / 255.0F;
@@ -79,7 +80,7 @@ public class TileEntityEnchanterRenderer extends TileEntitySpecialRenderer<TileE
                     GL11.glRotatef(angle, 0.0F, 1.0F, 0.0F);
                     GL11.glTranslatef(0.0F, bob, 0.4F);
                     GL11.glScaled(0.5D, 0.5D, 0.5D);
-                    ItemStack is = ThaumcraftApiHelper.makeCrystal(((ItemCrystalEssence)ItemsTC.crystalEssence).getAspects(te.getEnchantmentCost().get(a)).getAspects()[0]);
+                    ItemStack is = ThaumcraftApiHelper.makeCrystal(((ItemCrystalEssence) ItemsTC.crystalEssence).getAspects(te.getEnchantmentCost().get(a)).getAspects()[0]);
                     this.entityitem = new EntityItem(te.getWorld(), 0.0D, 0.0D, 0.0D, is);
                     this.entityitem.hoverStart = 0.0F;
                     //this.renderRay(angle, a, bob, r, g, b, ticks);
@@ -92,7 +93,7 @@ public class TileEntityEnchanterRenderer extends TileEntitySpecialRenderer<TileE
         }
 
         GlStateManager.pushMatrix();
-        GlStateManager.translate(x,y,z);
+        GlStateManager.translate(x, y, z);
         if (te.getInventory().getStackInSlot(0) != ItemStack.EMPTY) {
             EntityItem customitem = new EntityItem(te.getWorld(), 0.0d, 0.0d, 0.0d, te.getInventory().getStackInSlot(0).copy());
             customitem.getItem().setCount(1);
@@ -117,6 +118,7 @@ public class TileEntityEnchanterRenderer extends TileEntitySpecialRenderer<TileE
             GlStateManager.disableLighting();
             GlStateManager.pushAttrib();
             RenderHelper.enableStandardItemLighting();
+            GlStateManager.translate(0, 0, 0.25);
             Minecraft.getMinecraft().getRenderItem().renderItem(customitem.getItem(), ItemCameraTransforms.TransformType.FIXED);
             RenderHelper.disableStandardItemLighting();
             GlStateManager.popAttrib();
