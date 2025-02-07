@@ -397,7 +397,7 @@ public class ModRecipes {
                 new ItemStack(ModItems.ichorium_pick),
                 new ItemStack(ModItems.kamiresource, 1, 3),
                 new ItemStack(ModItems.kamiresource, 1, 2),
-                new ItemStack(ItemsTC.elementalPick),
+                ItemsTC.elementalPick,
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(Blocks.TNT),
                 new ItemStack(ItemsTC.clusters, 1, 6),
@@ -405,7 +405,7 @@ public class ModRecipes {
                 new ItemStack(ItemsTC.clusters, 1, 1),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(ItemsTC.mechanismComplex),
-                new ItemStack(ItemsTC.elementalPick),
+                ItemsTC.elementalPick,
                 new ItemStack(ModItems.kamiresource, 1, 4)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_shovel_adv"), new InfusionRecipe(
                 "TT_ICHOR_SHOVEL_ADV",
@@ -415,7 +415,7 @@ public class ModRecipes {
                 new ItemStack(ModItems.ichorium_shovel),
                 new ItemStack(ModItems.kamiresource, 1, 3),
                 new ItemStack(ModItems.kamiresource, 1, 2),
-                new ItemStack(ItemsTC.elementalShovel),
+                ItemsTC.elementalShovel,
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(Blocks.TNT),
                 new ItemStack(ItemsTC.clusters, 1, 6),
@@ -423,7 +423,7 @@ public class ModRecipes {
                 new ItemStack(ItemsTC.clusters, 1, 1),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(ItemsTC.mechanismComplex),
-                new ItemStack(ItemsTC.elementalShovel),
+                ItemsTC.elementalShovel,
                 new ItemStack(ModItems.kamiresource, 1, 4)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_axe_adv"), new InfusionRecipe(
                 "TT_ICHOR_AXE_ADV",
@@ -433,7 +433,7 @@ public class ModRecipes {
                 new ItemStack(ModItems.ichorium_axe),
                 new ItemStack(ModItems.kamiresource, 1, 3),
                 new ItemStack(ModItems.kamiresource, 1, 2),
-                new ItemStack(ItemsTC.elementalAxe),
+                ItemsTC.elementalAxe,
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(Blocks.TNT),
                 new ItemStack(ItemsTC.clusters, 1, 6),
@@ -441,7 +441,7 @@ public class ModRecipes {
                 new ItemStack(ItemsTC.clusters, 1, 1),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(ItemsTC.mechanismComplex),
-                new ItemStack(ItemsTC.elementalAxe),
+                ItemsTC.elementalAxe,
                 new ItemStack(ModItems.kamiresource, 1, 4)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "ichorium_sword_adv"), new InfusionRecipe(
                 "TT_ICHOR_SWORD_ADV",
@@ -451,7 +451,7 @@ public class ModRecipes {
                 new ItemStack(ModItems.ichorium_sword),
                 new ItemStack(ModItems.kamiresource, 1, 3),
                 new ItemStack(ModItems.kamiresource, 1, 2),
-                new ItemStack(ItemsTC.elementalSword),
+                ItemsTC.elementalSword,
                 new ItemStack(ItemsTC.mechanismComplex),
                 new ItemStack(Blocks.CACTUS),
                 new ItemStack(ItemsTC.clusters, 1, 6),
@@ -459,7 +459,7 @@ public class ModRecipes {
                 new ItemStack(ItemsTC.clusters, 1, 1),
                 new ItemStack(Items.DIAMOND),
                 new ItemStack(ItemsTC.mechanismComplex),
-                new ItemStack(ItemsTC.elementalSword),
+                ItemsTC.elementalSword,
                 new ItemStack(ModItems.kamiresource, 1, 4)));
         addInfusionCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "block_talisman"), new InfusionRecipe(
                 "TT_BLACKHOLE_RING",
