@@ -126,7 +126,8 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
     }
 
     private static boolean canApply(ItemStack itemStack, Enchantment enchantment, List<Enchantment> currentEnchants, boolean checkConflicts) {
-        if (TTConfig.balancedEnchanter && !(enchantment.getRegistryName().getNamespace().equals(LibMisc.MOD_ID) || enchantment.getRegistryName().getNamespace().equals("minecraft")))
+        String name = enchantment.getRegistryName().getNamespace();
+        if (TTConfig.balancedEnchanter && !(name.equals(LibMisc.MOD_ID) || name.equals("minecraft") || name.equals("forbiddenmagicre") || name.equals("planarartifice")))
             return false;
         if (ArrayUtils.contains(TTConfig.blacklistedEnchants, Enchantment.getEnchantmentID(enchantment)))
             return false;
@@ -775,6 +776,25 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
                 case "enchantment.looting":
                 case "enchantment.fortune":
                     addAmountTo(costItems, Aspect.DESIRE, 24 * getLevels().get(i));
+                    break;
+                case "enchantment.wrath":
+                    addAmountTo(costItems, Aspect.getAspect("ira"), 6 * getLevels().get(i));
+                    break;
+                case "enchantment.consuming":
+                    addAmountTo(costItems, Aspect.getAspect("desidia"), 32);
+                    break;
+                case "enchantment.curious":
+                case "enchantment.educational":
+                    addAmountTo(costItems, Aspect.MIND, 24 * getLevels().get(i));
+                    break;
+                case "enchantment.voidtouched":
+                    addAmountTo(costItems, Aspect.getAspect("invidia"), 64);
+                    break;
+                case "enchantment.aura_infusing":
+                    addAmountTo(costItems, Aspect.AURA, 8 * getLevels().get(i));
+                    break;
+                case "enchantment.transmutative":
+                    addAmountTo(costItems, Aspect.EXCHANGE, 12 * getLevels().get(i));
                     break;
             }
             switch (Objects.requireNonNull(enchantment.type)) {
