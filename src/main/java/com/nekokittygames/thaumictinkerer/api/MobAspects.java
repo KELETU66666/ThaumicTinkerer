@@ -55,8 +55,8 @@ public class MobAspects {
         putSlimeAspect(EntityMagmaCube.class,"Magma_Cube",new AspectList().add(Aspect.FIRE,1).add(Aspect.WATER,2));
         putAspect(EntityPigZombie.class, "Zombie_Pigman",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.BEAST,1).add(Aspect.FIRE,1));
         putAspect(EntitySilverfish.class, "Silverfish",new AspectList().add(Aspect.METAL,2).add(Aspect.EARTH,1));
-        putAspect(EntitySkeleton.class, "Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.TOOL,1));
-        putAspect(EntitySkeleton.class, "Wither_Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.AVERSION,1));
+        putAspect(EntitySkeleton.class, "Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.FLIGHT,1));
+        putAspect(EntityWitherSkeleton.class, "Wither_Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.AVERSION,1));
         putSlimeAspect(EntitySlime.class, "Slime",new AspectList().add(Aspect.WATER,2).add(Aspect.BEAST,1));
         putAspect(EntitySpider.class, "Spider",new AspectList().add(Aspect.BEAST,1).add(Aspect.UNDEAD,2));
         putAspect(EntityWisp.class, "Wisp",new AspectList().add(Aspect.AIR,1).add(Aspect.MAGIC,2),"thaumcraft");
