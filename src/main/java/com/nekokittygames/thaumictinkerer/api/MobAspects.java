@@ -23,63 +23,73 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 
 public class MobAspects {
-    private static  final HashMap<Class<?>,MobAspect> aspects=new HashMap<>();
+    private static final HashMap<Class<?>, MobAspect> aspects = new HashMap<>();
 
     @Contract(pure = true)
-    public static  HashMap<Class<?>, MobAspect> getAspects() {
+    public static HashMap<Class<?>, MobAspect> getAspects() {
         return aspects;
     }
 
     static {
-        putAspect(EntityBat.class,"Bat",new AspectList().add(Aspect.AIR,2).add(Aspect.FLIGHT,1));
-        putAspect(EntityChicken.class,"Chicken",new AspectList().add(Aspect.LIFE,1).add(Aspect.FLIGHT,1).add(Aspect.BEAST,1));
-        putAspect(EntityCow.class,"Cow",new AspectList().add(Aspect.BEAST,2).add(Aspect.EARTH,1));
-        putAspect(EntityHorse.class,"Horse",new AspectList().add(Aspect.BEAST,2).add(Aspect.AIR,1));
-        putAspect(EntityIronGolem.class,"VillagerGolem",new AspectList().add(Aspect.METAL,2).add(Aspect.MAN,1),0.3f,0.0f);
-        putAspect(EntityMooshroom.class, "Mooshroom",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.PLANT,1));
-        putAspect(EntityOcelot.class,"Ocelot",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.ELDRITCH,1));
-        putAspect(EntityPig.class,"Pig",new AspectList().add(Aspect.BEAST,1).add(Aspect.EARTH,1).add(Aspect.MOTION,1));
-        putAspect(EntitySheep.class,"Sheep",new AspectList().add(Aspect.EARTH,2).add(Aspect.BEAST,1));
-        putAspect(EntitySquid.class, "Squid",new AspectList().add(Aspect.WATER,3));
-        putAspect(EntitySnowman.class,"SnowMan",new AspectList().add(Aspect.WATER,2).add(Aspect.MAN,1));
-        putAspect(EntityIronGolem.class,"Villager",new AspectList().add(Aspect.MAN,3),0.3f,0.0f);
-        putAspect(EntityWolf.class, "Wolf",new AspectList().add(Aspect.BEAST,3));
+        putAspect(EntityBat.class, "Bat", new AspectList().add(Aspect.AIR, 2).add(Aspect.FLIGHT, 1));
+        putAspect(EntityChicken.class, "Chicken", new AspectList().add(Aspect.LIFE, 1).add(Aspect.FLIGHT, 1).add(Aspect.BEAST, 1));
+        putAspect(EntityCow.class, "Cow", new AspectList().add(Aspect.BEAST, 2).add(Aspect.EARTH, 1));
+        putAspect(EntityHorse.class, "Horse", new AspectList().add(Aspect.BEAST, 2).add(Aspect.AIR, 1));
+        putAspect(EntityIronGolem.class, "VillagerGolem", new AspectList().add(Aspect.METAL, 2).add(Aspect.MAN, 1), 0.3f, 0.0f);
+        putAspect(EntityMooshroom.class, "Mooshroom", new AspectList().add(Aspect.BEAST, 1).add(Aspect.EARTH, 1).add(Aspect.PLANT, 1));
+        putAspect(EntityOcelot.class, "Ocelot", new AspectList().add(Aspect.BEAST, 1).add(Aspect.EARTH, 1).add(Aspect.ELDRITCH, 1));
+        putAspect(EntityPig.class, "Pig", new AspectList().add(Aspect.BEAST, 1).add(Aspect.EARTH, 1).add(Aspect.MOTION, 1));
+        putAspect(EntitySheep.class, "Sheep", new AspectList().add(Aspect.EARTH, 2).add(Aspect.BEAST, 1));
+        putAspect(EntitySquid.class, "Squid", new AspectList().add(Aspect.WATER, 3));
+        putAspect(EntitySnowman.class, "SnowMan", new AspectList().add(Aspect.WATER, 2).add(Aspect.MAN, 1));
+        putAspect(EntityIronGolem.class, "Villager", new AspectList().add(Aspect.MAN, 3), 0.3f, 0.0f);
+        putAspect(EntityWolf.class, "Wolf", new AspectList().add(Aspect.BEAST, 3));
 
-        putAspect(EntityBrainyZombie.class,"BrainyZombie",new AspectList().add(Aspect.MAGIC,1).add(Aspect.UNDEAD,1).add(Aspect.DARKNESS,1),"thaumcraft");
-        putAspect(EntityBlaze.class,"Blaze",new AspectList().add(Aspect.FIRE,3));
-        putAspect(EntityCaveSpider.class,"CaveSpider",new AspectList().add(Aspect.BEAST,1).add(Aspect.DEATH,2));
-        putAspect(EntityCreeper.class,"Creeper",new AspectList().add(Aspect.MAGIC,1).add(Aspect.BEAST,1).add(Aspect.ELDRITCH,1));
-        putAspect(EntityEnderman.class,"Enderman",new AspectList().add(Aspect.ELDRITCH,2).add(Aspect.MAN,1),0.3f,0.0f);
-        putAspect(EntityFireBat.class,"Firebat",new AspectList().add(Aspect.FLIGHT,1).add(Aspect.FIRE,1).add(Aspect.MAGIC,1),"thaumcraft");
-        putAspect(EntityGhast.class,"Ghast",new AspectList().add(Aspect.FIRE,1).add(Aspect.FLIGHT,2),0.1f,0.2f);
-        putSlimeAspect(EntityMagmaCube.class,"Magma_Cube",new AspectList().add(Aspect.FIRE,1).add(Aspect.WATER,2));
-        putAspect(EntityPigZombie.class, "Zombie_Pigman",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.BEAST,1).add(Aspect.FIRE,1));
-        putAspect(EntitySilverfish.class, "Silverfish",new AspectList().add(Aspect.METAL,2).add(Aspect.EARTH,1));
-        putAspect(EntitySkeleton.class, "Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.FLIGHT,1));
-        putAspect(EntityWitherSkeleton.class, "Wither_Skeleton",new AspectList().add(Aspect.UNDEAD,1).add(Aspect.MAN,1).add(Aspect.AVERSION,1));
-        putSlimeAspect(EntitySlime.class, "Slime",new AspectList().add(Aspect.WATER,2).add(Aspect.BEAST,1));
-        putAspect(EntitySpider.class, "Spider",new AspectList().add(Aspect.BEAST,1).add(Aspect.UNDEAD,2));
-        putAspect(EntityWisp.class, "Wisp",new AspectList().add(Aspect.AIR,1).add(Aspect.MAGIC,2),"thaumcraft");
-        putAspect(EntityWitch.class, "Witch",new AspectList().add(Aspect.MAGIC,1).add(Aspect.UNDEAD,1).add(Aspect.ELDRITCH,1));
-        putAspect(EntityZombie.class, "Zombie",new AspectList().add(Aspect.MAN,1).add(Aspect.UNDEAD,2));
-        //put
+        putAspect(EntityBrainyZombie.class, "BrainyZombie", new AspectList().add(Aspect.MAGIC, 1).add(Aspect.UNDEAD, 1).add(Aspect.DARKNESS, 1), "thaumcraft");
+        putAspect(EntityBlaze.class, "Blaze", new AspectList().add(Aspect.FIRE, 3));
+        putAspect(EntityCaveSpider.class, "CaveSpider", new AspectList().add(Aspect.BEAST, 1).add(Aspect.DEATH, 2));
+        putAspect(EntityCreeper.class, "Creeper", new AspectList().add(Aspect.MAGIC, 1).add(Aspect.BEAST, 1).add(Aspect.ELDRITCH, 1));
+        putAspect(EntityEnderman.class, "Enderman", new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.MAN, 1), 0.3f, 0.0f);
+        putAspect(EntityFireBat.class, "Firebat", new AspectList().add(Aspect.FLIGHT, 1).add(Aspect.FIRE, 1).add(Aspect.MAGIC, 1), "thaumcraft");
+        putAspect(EntityGhast.class, "Ghast", new AspectList().add(Aspect.FIRE, 1).add(Aspect.FLIGHT, 2), 0.1f, 0.2f);
+        putSlimeAspect(EntityMagmaCube.class, "Magma_Cube", new AspectList().add(Aspect.FIRE, 1).add(Aspect.WATER, 2));
+        putAspect(EntityPigZombie.class, "Zombie_Pigman", new AspectList().add(Aspect.UNDEAD, 1).add(Aspect.BEAST, 1).add(Aspect.FIRE, 1));
+        putAspect(EntitySilverfish.class, "Silverfish", new AspectList().add(Aspect.METAL, 2).add(Aspect.EARTH, 1));
+        putAspect(EntitySkeleton.class, "Skeleton", new AspectList().add(Aspect.UNDEAD, 1).add(Aspect.MAN, 1).add(Aspect.FLIGHT, 1));
+        putAspect(EntityWitherSkeleton.class, "Wither_Skeleton", new AspectList().add(Aspect.UNDEAD, 1).add(Aspect.MAN, 1).add(Aspect.AVERSION, 1));
+        putSlimeAspect(EntitySlime.class, "Slime", new AspectList().add(Aspect.WATER, 2).add(Aspect.BEAST, 1));
+        putAspect(EntitySpider.class, "Spider", new AspectList().add(Aspect.BEAST, 1).add(Aspect.UNDEAD, 2));
+        putAspect(EntityWisp.class, "Wisp", new AspectList().add(Aspect.AIR, 1).add(Aspect.MAGIC, 2), "thaumcraft");
+        putAspect(EntityWitch.class, "Witch", new AspectList().add(Aspect.MAGIC, 1).add(Aspect.UNDEAD, 1).add(Aspect.ELDRITCH, 1));
+        putAspect(EntityZombie.class, "Zombie", new AspectList().add(Aspect.MAN, 1).add(Aspect.UNDEAD, 2));
+
+        //Mobs from 1.8 ~ 1.12, expect Elder Guardian and Evoker.
+        putAspect(EntityRabbit.class, "Rabbit", new AspectList().add(Aspect.BEAST, 1).add(Aspect.LIFE, 1).add(Aspect.MOTION, 1));
+        putAspect(EntityGuardian.class, "Guardian", new AspectList().add(Aspect.PROTECT, 1).add(Aspect.WATER, 1).add(Aspect.AVERSION, 1));
+        putAspect(EntityPolarBear.class, "Polar_Bear", new AspectList().add(Aspect.BEAST, 2).add(Aspect.COLD, 1));
+        putAspect(EntityHusk.class, "Husk", new AspectList().add(Aspect.MAN, 1).add(Aspect.UNDEAD, 1).add(Aspect.FIRE, 1));
+        putAspect(EntityStray.class, "Stray", new AspectList().add(Aspect.UNDEAD, 1).add(Aspect.MAN, 1).add(Aspect.COLD, 1));
+        putAspect(EntityLlama.class, "Llama", new AspectList().add(Aspect.BEAST, 1).add(Aspect.AIR, 1).add(Aspect.EXCHANGE, 3));
+        putAspect(EntityVindicator.class, "Vindication_Illager", new AspectList().add(Aspect.AVERSION, 1).add(Aspect.MAN, 2), 0.3f, 0.0f);
+        putAspect(EntityVex.class, "Vex", new AspectList().add(Aspect.FLIGHT, 1).add(Aspect.MAGIC, 1).add(Aspect.ELDRITCH, 1));
+        putAspect(EntityParrot.class, "Parrot", new AspectList().add(Aspect.MAN, 1).add(Aspect.FLIGHT, 1).add(Aspect.BEAST, 1));
+
     }
 
-
     public static void checkAspects() {
-        for(MobAspect mobAspect: aspects.values()) {
-            AspectList curAspects=mobAspect.getAspects();
-            for(MobAspect mobAspect2: aspects.values()) {
-                if(mobAspect.equals(mobAspect2))
+        for (MobAspect mobAspect : aspects.values()) {
+            AspectList curAspects = mobAspect.getAspects();
+            for (MobAspect mobAspect2 : aspects.values()) {
+                if (mobAspect.equals(mobAspect2))
                     continue;
                 AspectList checkAspects = mobAspect2.getAspects();
-                boolean same=true;
-                for(Aspect aspect:curAspects.getAspects()) {
-                    if(checkAspects.getAmount(aspect)!=curAspects.getAmount(aspect))
-                        same=false;
+                boolean same = true;
+                for (Aspect aspect : curAspects.getAspects()) {
+                    if (checkAspects.getAmount(aspect) != curAspects.getAmount(aspect))
+                        same = false;
                 }
-                if(same)
-                    ThaumicTinkerer.logger.error("Warning, Two entities have the same mob aspects"+mobAspect.toString()+", "+mobAspect2.toString());
+                if (same)
+                    ThaumicTinkerer.logger.error("Warning, Two entities have the same mob aspects" + mobAspect.toString() + ", " + mobAspect2.toString());
 
             }
         }
@@ -87,7 +97,7 @@ public class MobAspects {
     }
 
     public static MobAspect getByAspects(AspectList aspectList) {
-        for(MobAspect mobAspect2: aspects.values()) {
+        for (MobAspect mobAspect2 : aspects.values()) {
             AspectList checkAspects = mobAspect2.getAspects();
             boolean same = true;
 
@@ -108,34 +118,35 @@ public class MobAspects {
         }
         return null;
     }
-    static void putAspect(Class<?> clazz, String entityName,AspectList aspectsList) {
-        aspects.put(clazz,new MobAspect(clazz,entityName,aspectsList));
+
+    static void putAspect(Class<?> clazz, String entityName, AspectList aspectsList) {
+        aspects.put(clazz, new MobAspect(clazz, entityName, aspectsList));
     }
-    static void putAspect(Class<?> clazz, String entityName,AspectList aspectsList,String prefix) {
-        aspects.put(clazz,new MobAspect(clazz,entityName,aspectsList).setPrefix(prefix));
+
+    static void putAspect(Class<?> clazz, String entityName, AspectList aspectsList, String prefix) {
+        aspects.put(clazz, new MobAspect(clazz, entityName, aspectsList).setPrefix(prefix));
     }
-    static void putAspect(Class<?> clazz, String entityName,AspectList aspectsList,float scale, float offset) {
-        aspects.put(clazz,new MobAspect(clazz,entityName,aspectsList).setScale(scale).setOffset(offset));
+
+    static void putAspect(Class<?> clazz, String entityName, AspectList aspectsList, float scale, float offset) {
+        aspects.put(clazz, new MobAspect(clazz, entityName, aspectsList).setScale(scale).setOffset(offset));
     }
+
     private static final Method setSlimeSizeMethod;
 
-    static
-    {
+    static {
         setSlimeSizeMethod = ObfuscationReflectionHelper.findMethod(EntitySlime.class, "func_70799_a", void.class, int.class, boolean.class);
     }
-    static void putSlimeAspect(Class<?> clazz, String entityName,AspectList aspectsList) {
-        aspects.put(clazz,new MobAspect(clazz,entityName,aspectsList) {
+
+    static void putSlimeAspect(Class<?> clazz, String entityName, AspectList aspectsList) {
+        aspects.put(clazz, new MobAspect(clazz, entityName, aspectsList) {
             @Override
             public Entity createEntity(World worldObj) {
                 Entity entity = super.createEntity(worldObj);
-                if(entity instanceof EntitySlime) {
-                    try
-                    {
+                if (entity instanceof EntitySlime) {
+                    try {
                         setSlimeSizeMethod.invoke(entity, 1, true);
 
-                    }
-                    catch (ReflectiveOperationException e)
-                    {
+                    } catch (ReflectiveOperationException e) {
                         throw new ReportedException(new CrashReport("Could not call method '" + setSlimeSizeMethod.getName() + "'", e));
                     }
                 }

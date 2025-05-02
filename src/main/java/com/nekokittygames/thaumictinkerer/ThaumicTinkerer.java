@@ -153,7 +153,7 @@ public class ThaumicTinkerer {
             FocusEngine.registerElement(FocusEffectTelekenesis.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/telekenesis.png"), 13566207);
         }
         FocusEngine.registerElement(FocusEffectEfreetFlame.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/efreetflame.png"), 25565230);
-        FocusEngine.registerElement(FocusCelestialTeleport.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/celestial_teleport.png"),  0x22F5FF);
+        FocusEngine.registerElement(FocusCelestialTeleport.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/celestial_teleport.png"), 0x22F5FF);
         FocusEngine.registerElement(FocusEnderRift.class, new ResourceLocation("thaumictinkerer", "textures/foci_icons/ender_rift.png"), 0x2B3D3F);
     }
 

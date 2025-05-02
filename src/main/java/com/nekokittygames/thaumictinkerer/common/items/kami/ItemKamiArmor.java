@@ -1,8 +1,10 @@
 package com.nekokittygames.thaumictinkerer.common.items.Kami;
 
 import com.nekokittygames.thaumictinkerer.client.misc.ModelWings;
+import com.nekokittygames.thaumictinkerer.common.helper.ProjectileHelper;
 import com.nekokittygames.thaumictinkerer.common.items.ItemEnergeticNitor;
 import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -31,7 +33,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.items.IGoggles;
-import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.codechicken.lib.vec.Vector3;
 import thaumcraft.common.lib.events.PlayerEvents;
 
@@ -135,10 +136,10 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles {
             case HEAD: {
                 if (itemStack.getItemDamage() != 1) {
                     player.setAir(300);
-                    if (player.getEntityWorld().getBlockState(player.getPosition().up()).getBlock() == Blocks.WATER || player.getEntityWorld().getBlockState(player.getPosition().up()).getBlock() == Blocks.FLOWING_WATER) {
+                    if (player.getEntityWorld().getBlockState(player.getPosition().up()).getMaterial() == Material.WATER) {
                         player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, true, false));
                     }
-                    if ((player.getEntityWorld().getBlockState(player.getPosition().up()).getBlock() == Blocks.LAVA || player.getEntityWorld().getBlockState(player.getPosition().up()).getBlock() == Blocks.FLOWING_LAVA) && player.ticksExisted % 10 == 0)
+                    if (player.getEntityWorld().getBlockState(player.getPosition().up()).getMaterial() == Material.LAVA && player.ticksExisted % 10 == 0)
                         player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 31, 0, true, false));
                     int food = player.getFoodStats().getFoodLevel();
                     if (food > 0 && food < 18 && player.shouldHeal()
@@ -200,17 +201,20 @@ public class ItemKamiArmor extends ItemIchorArmor implements IGoggles {
 
     private void doProjectileEffect(EntityPlayer mp) {
         if (!mp.isSneaking()) {
-            List<Entity> projectiles = mp.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(mp.posX - 2, mp.posY - 2, mp.posZ - 2, mp.posX + 2, mp.posY + 2, mp.posZ + 2), e -> e instanceof IProjectile);
+            List<Entity> projectiles = mp.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(mp.posX - 4, mp.posY - 4, mp.posZ - 4, mp.posX + 3, mp.posY + 3, mp.posZ + 3), e -> e instanceof IProjectile);
             for (Entity potion : projectiles) {
-                Vector3 motionVec = new Vector3(potion.motionX, potion.motionY, potion.motionZ).normalize().multiply(Math.sqrt((potion.posX - mp.posX) * (potion.posX - mp.posX) + (potion.posY - mp.posY) * (potion.posY - mp.posY) + (potion.posZ - mp.posZ) * (potion.posZ - mp.posZ)) * 2);
+                //if (mp.world.isRemote) {
+                //    for (int i = 0; i < 6; i++)
+                //        FXDispatcher.INSTANCE.sparkle((float) potion.posX, (float) potion.posY, (float) potion.posZ, 6, 0, 0);
+                //} else {
+                    if (ProjectileHelper.getOwner(potion) == mp)
+                        continue;
+                    Vector3 motionVec = new Vector3(potion.motionX, potion.motionY, potion.motionZ).normalize().multiply(Math.sqrt((potion.posX - mp.posX) * (potion.posX - mp.posX) + (potion.posY - mp.posY) * (potion.posY - mp.posY) + (potion.posZ - mp.posZ) * (potion.posZ - mp.posZ)) * 2);
 
-                if (mp.world.isRemote)
-                    for (int i = 0; i < 6; i++)
-                        FXDispatcher.INSTANCE.sparkle((float) potion.posX, (float) potion.posY, (float) potion.posZ, 6, 0, 0);
-
-                potion.posX += motionVec.x;
-                potion.posY += motionVec.y;
-                potion.posZ += motionVec.z;
+                    potion.posX += motionVec.x;
+                    potion.posY += motionVec.y;
+                    potion.posZ += motionVec.z;
+               // }
             }
         }
     }
