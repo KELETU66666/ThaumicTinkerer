@@ -29,7 +29,7 @@ public class TileEntityFunnel extends TileEntityThaumicTinkerer implements IAspe
 
     private int speed = 1;
 
-    private SingleItemStackHandler inventory = new SingleItemStackHandler(1) {
+    private final SingleItemStackHandler inventory = new SingleItemStackHandler(1) {
         @Override
         protected void onContentsChanged(int slot) {
             super.onContentsChanged(slot);
@@ -122,7 +122,7 @@ public class TileEntityFunnel extends TileEntityThaumicTinkerer implements IAspe
                     if (hoppered instanceof TileJarFillable) {
                         TileJarFillable jar = (TileJarFillable) hoppered;
                         AspectList JarAspects = jar.getAspects();
-                        if ((jar.aspectFilter == null || jar.aspectFilter == aspect) && (JarAspects != null && JarAspects.size() == 0 || ((AspectList) Objects.requireNonNull(JarAspects)).getAspects()[0] == aspect)) {
+                        if ((jar.aspectFilter == null || jar.aspectFilter == aspect) && (JarAspects != null && JarAspects.size() == 0 || Objects.requireNonNull(JarAspects).getAspects()[0] == aspect)) {
                             int remain = jar.addToContainer(aspect, this.speed);
                             int amt = this.speed - remain;
                             item.setAspects(this.inventory.getStackInSlot(0), aspectList.remove(aspect, amt));

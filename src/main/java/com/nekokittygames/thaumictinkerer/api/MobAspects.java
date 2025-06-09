@@ -42,7 +42,7 @@ public class MobAspects {
         putAspect(EntitySheep.class, "Sheep", new AspectList().add(Aspect.EARTH, 2).add(Aspect.BEAST, 1));
         putAspect(EntitySquid.class, "Squid", new AspectList().add(Aspect.WATER, 3));
         putAspect(EntitySnowman.class, "SnowMan", new AspectList().add(Aspect.WATER, 2).add(Aspect.MAN, 1));
-        putAspect(EntityIronGolem.class, "Villager", new AspectList().add(Aspect.MAN, 3), 0.3f, 0.0f);
+        putAspect(EntityVillager.class, "Villager", new AspectList().add(Aspect.MAN, 3), 0.3f, 0.0f);
         putAspect(EntityWolf.class, "Wolf", new AspectList().add(Aspect.BEAST, 3));
 
         putAspect(EntityBrainyZombie.class, "BrainyZombie", new AspectList().add(Aspect.MAGIC, 1).add(Aspect.UNDEAD, 1).add(Aspect.DARKNESS, 1), "thaumcraft");
@@ -69,7 +69,7 @@ public class MobAspects {
         putAspect(EntityPolarBear.class, "Polar_Bear", new AspectList().add(Aspect.BEAST, 2).add(Aspect.COLD, 1));
         putAspect(EntityHusk.class, "Husk", new AspectList().add(Aspect.MAN, 1).add(Aspect.UNDEAD, 1).add(Aspect.FIRE, 1));
         putAspect(EntityStray.class, "Stray", new AspectList().add(Aspect.UNDEAD, 1).add(Aspect.MAN, 1).add(Aspect.COLD, 1));
-        putAspect(EntityLlama.class, "Llama", new AspectList().add(Aspect.BEAST, 1).add(Aspect.AIR, 1).add(Aspect.EXCHANGE, 3));
+        putAspect(EntityLlama.class, "Llama", new AspectList().add(Aspect.BEAST, 1).add(Aspect.AIR, 1).add(Aspect.EXCHANGE, 1));
         putAspect(EntityVindicator.class, "Vindication_Illager", new AspectList().add(Aspect.AVERSION, 1).add(Aspect.MAN, 2), 0.3f, 0.0f);
         putAspect(EntityVex.class, "Vex", new AspectList().add(Aspect.FLIGHT, 1).add(Aspect.MAGIC, 1).add(Aspect.ELDRITCH, 1));
         putAspect(EntityParrot.class, "Parrot", new AspectList().add(Aspect.MAN, 1).add(Aspect.FLIGHT, 1).add(Aspect.BEAST, 1));

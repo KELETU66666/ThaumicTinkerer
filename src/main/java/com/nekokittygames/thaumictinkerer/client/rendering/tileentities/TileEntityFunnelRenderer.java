@@ -49,7 +49,7 @@ public class TileEntityFunnelRenderer extends TileEntitySpecialRenderer<TileEnti
             GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
             GL11.glDisable(2896);
-            if (((IEssentiaContainerItem) te.getInventory().getStackInSlot(0).getItem()).getAspects(te.getInventory().getStackInSlot(0)).size() > 0) {
+            if (te.getInventory().getStackInSlot(0) != null && ((IEssentiaContainerItem) te.getInventory().getStackInSlot(0).getItem()).getAspects(te.getInventory().getStackInSlot(0)).size() > 0) {
                 Aspect aspect = ((IEssentiaContainerItem) te.getInventory().getStackInSlot(0).getItem()).getAspects(te.getInventory().getStackInSlot(0)).getAspects()[0];
                 int amount = ((IEssentiaContainerItem) te.getInventory().getStackInSlot(0).getItem()).getAspects(te.getInventory().getStackInSlot(0)).getAmount(aspect);
                 if (amount > 0)
