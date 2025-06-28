@@ -208,7 +208,6 @@ public class AspectCropLootManager {
 
     private static void addMechanicalAspectLoot() {
         addAspectLoot(Aspect.MECHANISM, new ItemStack(Blocks.PISTON, 1));
-        addAspectLoot(Aspect.MECHANISM, new ItemStack(Blocks.PISTON, 1, 1));
         addAspectLoot(Aspect.MECHANISM, "gear");
         addAspectLoot(Aspect.MOTION, new ItemStack(Blocks.RAIL), 1);
         addAspectLoot(Aspect.MOTION, new ItemStack(Blocks.ACTIVATOR_RAIL));
