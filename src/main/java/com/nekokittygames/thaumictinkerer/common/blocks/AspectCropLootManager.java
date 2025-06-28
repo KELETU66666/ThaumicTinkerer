@@ -1,5 +1,6 @@
 package com.nekokittygames.thaumictinkerer.common.blocks;
 
+import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.items.ItemInfusedSeeds;
 import com.nekokittygames.thaumictinkerer.common.items.ModItems;
 import net.minecraft.init.Blocks;
@@ -50,6 +51,9 @@ public class AspectCropLootManager {
     }
 
     public static void addAspectLoot(Aspect aspect, String target) {
+        if (TTConfig.balancedCrop)
+            return;
+
         for (String ore : OreDictionary.getOreNames()) {
             if (ore.contains(WordUtils.capitalizeFully(target)) || ore.contains(target)) {
                 NonNullList<ItemStack> ores = OreDictionary.getOres(ore);
@@ -83,7 +87,7 @@ public class AspectCropLootManager {
 
         // Primal Aspects
         addPrimalAspectSeeds();
-        
+
         // Basic aspects
         addAspectLoot(Aspect.ORDER, new ItemStack(Blocks.GLASS, 4));
         addAspectLoot(Aspect.ENTROPY, new ItemStack(Blocks.SAND, 4));
@@ -111,12 +115,12 @@ public class AspectCropLootManager {
     private static void addPrimalAspectSeeds() {
         Aspect[] primalAspects = {Aspect.AIR, Aspect.FIRE, Aspect.EARTH, Aspect.WATER};
         for (Aspect aspect : primalAspects) {
-                ItemStack seedStack = new ItemStack(ModItems.infused_seeds);
+            ItemStack seedStack = new ItemStack(ModItems.infused_seeds);
             ItemInfusedSeeds.setAspect(seedStack, aspect);
             addAspectLoot(aspect, seedStack);
         }
-        addAspectLoot(Aspect.AIR,   new ItemStack(ModItems.fruit_aer));
-        addAspectLoot(Aspect.FIRE,  new ItemStack(ModItems.fruit_ignis));
+        addAspectLoot(Aspect.AIR, new ItemStack(ModItems.fruit_aer));
+        addAspectLoot(Aspect.FIRE, new ItemStack(ModItems.fruit_ignis));
         addAspectLoot(Aspect.EARTH, new ItemStack(ModItems.fruit_terra));
         addAspectLoot(Aspect.WATER, new ItemStack(ModItems.fruit_aqua));
     }
@@ -135,7 +139,7 @@ public class AspectCropLootManager {
     private static void addAuraAspectLoot() {
         for (Aspect tag : Aspect.aspects.values()) {
             ItemStack wisp = new ItemStack(ItemsTC.crystalEssence);
-            ((ItemCrystalEssence)ItemsTC.crystalEssence).setAspects(wisp, new AspectList().add(tag, 2));
+            ((ItemCrystalEssence) ItemsTC.crystalEssence).setAspects(wisp, new AspectList().add(tag, 2));
             addAspectLoot(Aspect.AURA, wisp);
         }
     }
@@ -148,7 +152,7 @@ public class AspectCropLootManager {
         addAspectLoot(Aspect.MIND, new ItemStack(Items.PAPER, 4), 15);
         addAspectLoot(Aspect.MIND, new ItemStack(Items.BOOK, 2), 10);
         addAspectLoot(Aspect.MIND, new ItemStack(Blocks.BOOKSHELF, 1), 5);
-        
+
         //for (Enchantment enchant : Enchantment.REGISTRY) {
         //    addAspectLoot(Aspect.MIND, Items.ENCHANTED_BOOK.getEnchantedItemStack(new EnchantmentData(enchant, 1)), 1);
         //}
@@ -204,6 +208,7 @@ public class AspectCropLootManager {
 
     private static void addMechanicalAspectLoot() {
         addAspectLoot(Aspect.MECHANISM, new ItemStack(Blocks.PISTON, 1));
+        addAspectLoot(Aspect.MECHANISM, new ItemStack(Blocks.PISTON, 1, 1));
         addAspectLoot(Aspect.MECHANISM, "gear");
         addAspectLoot(Aspect.MOTION, new ItemStack(Blocks.RAIL), 1);
         addAspectLoot(Aspect.MOTION, new ItemStack(Blocks.ACTIVATOR_RAIL));
@@ -214,7 +219,7 @@ public class AspectCropLootManager {
     }
 
     private static void addMagicAspectLoot() {
-        addAspectLoot(Aspect.MAGIC, "shard");
+        addAspectLoot(Aspect.MAGIC, new ItemStack(ItemsTC.salisMundus));
     }
 
     private static void addSensoryAspectLoot() {

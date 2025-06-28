@@ -133,11 +133,9 @@ public class TTConfig {
     @Config.RequiresMcRestart
     public static float IWeaponDamage = 3.5F;
 
-    @Config.Comment("\"AuraStrike\" Modifier Damage Bonus")
-    @Config.Name("'AuraStrike' Modifier Damage Bonus")
-    @Config.RangeInt(min = 0)
-    @Config.RequiresMcRestart
-    public static int AuraStrikeBonus = 5;
+    @Config.Comment("Infused Crops only can drop specific items instead of oredicts")
+    @Config.Name("Enchanter WhiteList Mode")
+    public static boolean balancedCrop = true;
 
     @Mod.EventBusSubscriber
     private static class EventHandler {
