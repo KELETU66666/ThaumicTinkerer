@@ -84,7 +84,7 @@ public class ItemInfusedSeeds extends ItemSeeds implements IEssentiaContainerIte
         NBTTagCompound nbt = new NBTTagCompound();
         aspectList.writeToNBT(nbt);
         stack.getTagCompound().setTag(NBT_MAIN_ASPECT, nbt);
-        ModItems.infused_seeds.setAspects(stack, (new AspectList()).add(aspectList.getAspects()[0], 2));
+        ModItems.infused_seeds.setAspects(stack, new AspectList().add(aspectList.getAspects()[0], 2));
     }
 
     public static AspectList getAspectTendencies(ItemStack stack) {
@@ -114,10 +114,6 @@ public class ItemInfusedSeeds extends ItemSeeds implements IEssentiaContainerIte
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World player, List<String> tooltip, ITooltipFlag advanced) {
-        Aspect aspect = getAspect(stack);
-        if (aspect != null) {
-            tooltip.add(aspect.getName());
-        }
         AspectList aspectList = getAspectTendencies(stack);
         if (aspectList != null && aspectList.getAspects() != null && aspectList.getAspects().length > 0) {
             for (Aspect a : aspectList.getAspects()) {

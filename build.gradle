@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'com.wynprice.cursemaven'
 
-version = "1.12.2-5.9.7-Unofficial"
+version = "1.12.2-5.9.7.1-Unofficial"
 group = "${package_group}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "${mod_name}"
 
@@ -73,6 +73,8 @@ dependencies {
     //deobfCompile("curse.maven:evilcraft-74610:2811267")
     deobfCompile("curse.maven:theoneprobe-245211:2667280")//1.1x-1.4.4-55
     deobfCompile("curse.maven:thaumic-jei-285492:2705304")
+    deobfCompile("curse.maven:ender-io-64578:4674244")
+    deobfCompile("curse.maven:endercore-231868:4671384")
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"

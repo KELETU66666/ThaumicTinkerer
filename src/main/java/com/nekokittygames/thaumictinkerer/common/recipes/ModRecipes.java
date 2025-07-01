@@ -12,7 +12,6 @@ import com.nekokittygames.thaumictinkerer.common.libs.LibMisc;
 import com.nekokittygames.thaumictinkerer.common.libs.LibOreDict;
 import com.nekokittygames.thaumictinkerer.common.libs.LibRecipes;
 import com.nekokittygames.thaumictinkerer.common.libs.LibResearch;
-import com.nekokittygames.thaumictinkerer.common.recipes.ing.TTFocusIngredient;
 import com.nekokittygames.thaumictinkerer.common.recipes.ing.TTIngredientNBT;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -143,8 +142,8 @@ public class ModRecipes {
         FocusPackage focusPackage = new FocusPackage();
         focusPackage.addNode(new FocusEffectTelekenesis());
         ItemFocus.setPackage(focus, focusPackage);
-        addArcaneCraftingRecipe(LibRecipes.MOB_MAGNET, new ShapedArcaneRecipe(defaultGroup, LibResearch.CORPOREAL_MAGNET, 200, new AspectList().add(Aspect.AIR, 1).add(Aspect.ORDER, 1).add(Aspect.EARTH, 15).add(Aspect.ENTROPY, 1), new ItemStack(Objects.requireNonNull(ModBlocks.mob_magnet)), " C ", "ACE", "GFG", 'C', new ItemStack(ItemsTC.ingots, 1, 0), 'A', new TTIngredientNBT(airCrystal), 'E', new TTIngredientNBT(earthCrystal), 'G', new ItemStack(BlocksTC.logGreatwood), 'F', new TTFocusIngredient(FocusEffectTelekenesis.class, focus)));
-        addArcaneCraftingRecipe(LibRecipes.ITEM_MAGNET, new ShapedArcaneRecipe(defaultGroup, LibResearch.KINETIC_MAGNET, 20, new AspectList().add(Aspect.AIR, 1).add(Aspect.ORDER, 1).add(Aspect.EARTH, 15).add(Aspect.ENTROPY, 1), new ItemStack(Objects.requireNonNull(ModBlocks.magnet)), " C ", "ACE", "GFG", 'C', "ingotIron", 'A', new TTIngredientNBT(airCrystal), 'E', new TTIngredientNBT(earthCrystal), 'G', new ItemStack(BlocksTC.logGreatwood), 'F', new TTFocusIngredient(FocusEffectTelekenesis.class, focus)));
+        addArcaneCraftingRecipe(LibRecipes.MOB_MAGNET, new ShapedArcaneRecipe(defaultGroup, LibResearch.CORPOREAL_MAGNET, 75, new AspectList().add(Aspect.AIR, 1).add(Aspect.ORDER, 1).add(Aspect.EARTH, 1).add(Aspect.ENTROPY, 1), new ItemStack(Objects.requireNonNull(ModBlocks.mob_magnet)), " C ", "ACE", "GFG", 'C', new ItemStack(ItemsTC.ingots, 1, 0), 'A', new TTIngredientNBT(airCrystal), 'E', new TTIngredientNBT(earthCrystal), 'G', new ItemStack(BlocksTC.logGreatwood), 'F', new ItemStack(ItemsTC.nuggets, 1, 10)));
+        addArcaneCraftingRecipe(LibRecipes.ITEM_MAGNET, new ShapedArcaneRecipe(defaultGroup, LibResearch.KINETIC_MAGNET, 75, new AspectList().add(Aspect.AIR, 1).add(Aspect.ORDER, 1).add(Aspect.EARTH, 1).add(Aspect.ENTROPY, 1), new ItemStack(Objects.requireNonNull(ModBlocks.magnet)), " C ", "ACE", "GFG", 'C', "ingotIron", 'A', new TTIngredientNBT(airCrystal), 'E', new TTIngredientNBT(earthCrystal), 'G', new ItemStack(BlocksTC.logGreatwood), 'F', new ItemStack(ItemsTC.nuggets, 1, 10)));
         addArcaneCraftingRecipe(LibRecipes.TABLET, new ShapedArcaneRecipe(defaultGroup, LibResearch.TABLET, 20, new AspectList().add(Aspect.AIR, 3).add(Aspect.ORDER, 2).add(Aspect.FIRE, 1), new ItemStack(Objects.requireNonNull(ModBlocks.animation_tablet)), "GIG", "ISI", 'G', new ItemStack(Items.GOLD_INGOT), 'I', new ItemStack(Items.IRON_INGOT), 'S', new ItemStack(ItemsTC.seals)));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(LibMisc.MOD_ID, "revealing_helm"), new ShapelessArcaneRecipe(
                 defaultGroup,
