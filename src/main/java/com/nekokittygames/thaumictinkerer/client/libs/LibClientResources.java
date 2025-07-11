@@ -42,8 +42,8 @@ public class LibClientResources {
     /**
      * The constant MARK_TEXTURE.
      */
-    public static final ResourceLocation MARK_TEXTURE=new ResourceLocation(ASSET_NAME,"misc/mark");
-
+    public static final ResourceLocation MARK_TEXTURE = new ResourceLocation(ASSET_NAME, "misc/mark");
+    public static final ResourceLocation GUI_SOUL_HEARTS = new ResourceLocation(ASSET_NAME, "textures/gui/soul_hearts.png");
 
     /**
      * The type Shaders.

@@ -8,6 +8,7 @@ import static com.nekokittygames.thaumictinkerer.ThaumicTinkerer.instance;
 import com.nekokittygames.thaumictinkerer.client.misc.AspectColors;
 import com.nekokittygames.thaumictinkerer.client.misc.ClientHelper;
 import com.nekokittygames.thaumictinkerer.client.misc.Shaders;
+import com.nekokittygames.thaumictinkerer.client.misc.SoulHeartClientHandler;
 import com.nekokittygames.thaumictinkerer.client.rendering.special.multi.NitorRenderer;
 import com.nekokittygames.thaumictinkerer.client.rendering.tileentities.*;
 import com.nekokittygames.thaumictinkerer.common.blocks.ModBlocks;
@@ -23,6 +24,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,6 +32,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.client.fx.ParticleEngine;
 import thaumcraft.client.fx.other.FXEssentiaStream;
 import thaumcraft.common.blocks.misc.BlockNitor;
@@ -75,6 +78,8 @@ public class ClientProxy implements ITTProxy {
         Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new AspectColors(), ModItems.condensed_mob_aspect, ModItems.mob_aspect);
         Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new AspectColors(), ModItems.infused_seeds);
         Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new AspectColors(), ModBlocks.infused_grain);
+
+        MinecraftForge.EVENT_BUS.register(new SoulHeartClientHandler());
     }
 
     /**
@@ -109,5 +114,15 @@ public class ClientProxy implements ITTProxy {
         ParticleEngine.addEffect(world, new FXEssentiaStream(world, ped1.getX(), ped1.getY(), ped1.getZ(), pos.getX(), pos.getY(), pos.getZ(), 1, aspects.getAspects()[0].getColor(), 0.1f, 0, 0.2));
         ParticleEngine.addEffect(world, new FXEssentiaStream(world, ped2.getX(), ped2.getY(), ped2.getZ(), pos.getX(), pos.getY(), pos.getZ(), 1, aspects.getAspects()[1].getColor(), 0.1f, 0, 0.2));
         ParticleEngine.addEffect(world, new FXEssentiaStream(world, ped3.getX(), ped3.getY(), ped3.getZ(), pos.getX(), pos.getY(), pos.getZ(), 1, aspects.getAspects()[2].getColor(), 0.1f, 0, 0.2));
+    }
+
+    @Override
+    public void spawnXPTalismanParticle(EntityPlayer player) {
+        for (int i = 0; i < 6; i++)
+            FXDispatcher.INSTANCE.sparkle(
+                    (float) (player.posX + (Math.random() - 0.5)),
+                    (float) (player.posY + Math.random() - 0.5),
+                    (float) (player.posZ + (Math.random() - 0.5)),
+                    3, 0, 0);
     }
 }

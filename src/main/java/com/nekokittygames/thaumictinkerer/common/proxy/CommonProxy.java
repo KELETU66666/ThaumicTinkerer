@@ -52,4 +52,9 @@ public class CommonProxy implements ITTProxy {
     public void drawEntitySummonerParticle(World world, BlockPos ped1, BlockPos ped2, BlockPos ped3, BlockPos pos, AspectList aspects) {
 
     }
+
+    @Override
+    public void spawnXPTalismanParticle(EntityPlayer player) {
+
+    }
 }

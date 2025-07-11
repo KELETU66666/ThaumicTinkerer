@@ -137,6 +137,11 @@ public class TTConfig {
     @Config.Name("Enchanter WhiteList Mode")
     public static boolean balancedCrop = true;
 
+    @Config.Comment("The height of the Soul Heart bar. You can change this if you have a mod that adds a bar in that spot.")
+    @Config.Name("SoulHeart Height")
+    @Config.RangeInt(min = 0, max = 256)
+    public static int soulHeartHeight = 49;
+
     @Mod.EventBusSubscriber
     private static class EventHandler {
 

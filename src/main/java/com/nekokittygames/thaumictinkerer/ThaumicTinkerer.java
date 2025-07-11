@@ -24,6 +24,7 @@ import com.nekokittygames.thaumictinkerer.common.proxy.ITTProxy;
 import com.nekokittygames.thaumictinkerer.common.research.theorycraft.AidBlackQuartz;
 import com.nekokittygames.thaumictinkerer.common.research.theorycraft.CardExperience;
 import com.nekokittygames.thaumictinkerer.common.tileentity.Kami.TileWarpGate;
+import com.nekokittygames.thaumictinkerer.common.utils.SoulHeartHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.passive.EntityOcelot;
@@ -135,6 +136,7 @@ public class ThaumicTinkerer {
         proxy.registerRenderers();
         initFoci();
         MinecraftForge.EVENT_BUS.register(LootTableHandler.class);
+        MinecraftForge.EVENT_BUS.register(new SoulHeartHandler());
         MobAspects.checkAspects();
 
     }

@@ -13,6 +13,7 @@ package com.nekokittygames.thaumictinkerer.common.items;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
+import com.nekokittygames.thaumictinkerer.ThaumicTinkerer;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
 import com.nekokittygames.thaumictinkerer.common.utils.ItemNBTHelper;
 import net.minecraft.client.resources.I18n;
@@ -91,11 +92,7 @@ public class ItemXPTalisman extends TTItem implements IBauble {
                 int xp = getXP(par1ItemStack);
                 setXP(par1ItemStack, xp - 10);
                 par2World.playSound(null, par3EntityPlayer.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.NEUTRAL, 0.1F, (float) (0.1F + Math.random() / 2F));
-                for (int i = 0; par2World.isRemote && i < 6; i++) FXDispatcher.INSTANCE.sparkle(
-                        (float) (par3EntityPlayer.posX + (Math.random() - 0.5)),
-                        (float) (par3EntityPlayer.posY + Math.random() - 0.5),
-                        (float) (par3EntityPlayer.posZ + (Math.random() - 0.5)),
-                        3, 0, 0);
+                ThaumicTinkerer.proxy.spawnXPTalismanParticle(par3EntityPlayer);
             }
         }
 

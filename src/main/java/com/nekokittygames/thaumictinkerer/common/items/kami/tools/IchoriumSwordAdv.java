@@ -2,6 +2,7 @@ package com.nekokittygames.thaumictinkerer.common.items.Kami.Tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import com.nekokittygames.thaumictinkerer.common.utils.SoulHeartHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -83,10 +84,7 @@ public class IchoriumSwordAdv extends ItemSword {
 
             } else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {
                 player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 1, 1));
-                float absorption = player.getAbsorptionAmount();
-                if (absorption < 20) {
-                    player.setAbsorptionAmount(absorption + 1);
-                }
+                SoulHeartHandler.addHearts(player);
             }
         }
         return ret;

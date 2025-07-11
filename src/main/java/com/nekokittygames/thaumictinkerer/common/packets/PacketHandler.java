@@ -32,6 +32,7 @@ public class PacketHandler {
         INSTANCE.registerMessage(PacketTabletButton.Handler.class, PacketTabletButton.class, nextID(), Side.SERVER);
         INSTANCE.registerMessage(PacketWarpGateTeleport.class, PacketWarpGateTeleport.class, nextID(), Side.SERVER);
         INSTANCE.registerMessage(PacketWarpGateButton.class, PacketWarpGateButton.class, nextID(), Side.SERVER);
+        INSTANCE.registerMessage(PacketSoulHearts.class, PacketSoulHearts.class, nextID(), Side.CLIENT);
     }
 
 }

@@ -22,4 +22,6 @@ public interface ITTProxy {
     EntityPlayer getClientPlayer();
 
     void drawEntitySummonerParticle(World world, BlockPos ped1, BlockPos ped2, BlockPos ped3, BlockPos pos, AspectList aspects);
+
+    void spawnXPTalismanParticle(EntityPlayer player);
 }
