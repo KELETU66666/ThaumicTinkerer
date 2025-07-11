@@ -21,6 +21,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
@@ -84,7 +85,7 @@ public class ItemXPTalisman extends TTItem implements IBauble {
             boolean has = par3EntityPlayer.inventory.hasItemStack(stack);
             if (has) {
                 if(!par2World.isRemote) {
-                    par3EntityPlayer.inventory.getStackInSlot(par3EntityPlayer.inventory.getSlotFor(stack)).shrink(1);
+                    par3EntityPlayer.inventory.getStackInSlot(par3EntityPlayer.inventory.findSlotMatchingUnusedItem(stack)).shrink(1);
                     if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.EXPERIENCE_BOTTLE, 1))) {
                         par3EntityPlayer.dropItem(Items.EXPERIENCE_BOTTLE, 1);
                     }
