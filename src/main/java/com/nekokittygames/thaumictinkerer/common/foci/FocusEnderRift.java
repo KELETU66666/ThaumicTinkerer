@@ -31,7 +31,7 @@ public class FocusEnderRift extends FocusEffect {
 
     @Override
     public int getComplexity() {
-        return 25;
+        return 20;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class FocusEnderRift extends FocusEffect {
         PacketHandler.INSTANCE.sendToAllAround(new PacketFXFocusPartImpact(target.hitVec.x, target.hitVec.y, target.hitVec.z, new String[]{this.getKey()}), new NetworkRegistry.TargetPoint(this.getPackage().world.provider.getDimension(), target.hitVec.x, target.hitVec.y, target.hitVec.z, 64.0D));
         this.getPackage().world.playSound(null, target.hitVec.x, target.hitVec.y, target.hitVec.z, SoundsTC.wand, SoundCategory.PLAYERS, 0.33F, 5.0F + (float) (this.getPackage().world.rand.nextGaussian() * 0.05F));
 
-        if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit instanceof EntityPlayer && base instanceof EntityPlayer) {
+        if (target.typeOfHit == RayTraceResult.Type.ENTITY && target.entityHit instanceof EntityPlayer && base instanceof EntityPlayer && base == target.entityHit) {
             ((EntityPlayer) base).displayGUIChest(((EntityPlayer) target.entityHit).getInventoryEnderChest());
         }
 
