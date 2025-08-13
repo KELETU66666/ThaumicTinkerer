@@ -11,14 +11,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
-import net.minecraft.world.gen.MapGenRavine;
-import net.minecraft.world.gen.structure.MapGenMineshaft;
-import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenStructure;
-import net.minecraft.world.gen.structure.MapGenVillage;
-import net.minecraftforge.event.terraingen.InitMapGenEvent;
-import net.minecraftforge.event.terraingen.TerrainGen;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nullable;
@@ -41,11 +34,6 @@ public class ChunkGeneratorMining implements IChunkGenerator {
     private OreClusterGenerator generator;
 
     public ChunkGeneratorMining(World world, long seed) {
-        addMapGen(TerrainGen.getModdedMapGen(new MapGenCaves(), InitMapGenEvent.EventType.CAVE), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen(new MapGenRavine(), InitMapGenEvent.EventType.RAVINE), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen(new MapGenMineshaft(), InitMapGenEvent.EventType.MINESHAFT), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen(new MapGenStronghold(), InitMapGenEvent.EventType.STRONGHOLD), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen(new MapGenVillage(), InitMapGenEvent.EventType.VILLAGE), () -> false);
         this.world = world;
         this.seed = seed;
         this.generator = new OreClusterGenerator();
@@ -122,11 +110,5 @@ public class ChunkGeneratorMining implements IChunkGenerator {
     @Override
     public boolean isInsideStructure(World world, String s, BlockPos blockPos) {
         return false;
-    }
-
-
-    private void addMapGen(MapGenBase gen, BooleanSupplier active) {
-        Tuple<MapGenBase, BooleanSupplier> t = new Tuple<>(gen, active);
-        this.mapGen.add(t);
     }
 }
