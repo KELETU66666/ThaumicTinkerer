@@ -1,8 +1,11 @@
 package com.nekokittygames.thaumictinkerer.common.blocks;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.NonNullList;
@@ -12,12 +15,32 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public abstract class BlockGas extends TTBlock {
+
+    public static final PropertyInteger VARIANT = PropertyInteger.create("variant", 0, 4);
 
     public BlockGas(String name) {
         super(name, Material.AIR);
         //(0, 0, 0, 0, 0, 0);
-        setTickRandomly(false);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, 0));
+        setTickRandomly(true);
+    }
+
+    @Override
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, VARIANT);
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        return this.getDefaultState().withProperty(VARIANT, meta);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(VARIANT);
     }
 
     @Override
@@ -25,37 +48,36 @@ public abstract class BlockGas extends TTBlock {
         return EnumBlockRenderType.INVISIBLE;
     }
 
-    /*@Override
-    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-
-        int meta = par1World.getBlockMetadata(par2, par3, par4);
+    @Override
+    public void updateTick(World par1World, BlockPos pos, IBlockState state, Random rand) {
+        int meta = this.getMetaFromState(state);
         if (meta != 0) {
-            setAt(par1World, par2 - 1, par3, par4, meta - 1);
-            setAt(par1World, par2 + 1, par3, par4, meta - 1);
+            setAt(par1World, pos.add(-1, 0, 0), meta - 1);
+            setAt(par1World, pos.add(1, 0, 0), meta - 1);
 
-            setAt(par1World, par2, par3 - 1, par4, meta - 1);
-            setAt(par1World, par2, par3 + 1, par4, meta - 1);
+            setAt(par1World, pos.add(0, -1, 0), meta - 1);
+            setAt(par1World, pos.add(0, 1, 0), meta - 1);
 
-            setAt(par1World, par2, par3, par4 - 1, meta - 1);
-            setAt(par1World, par2, par3, par4 + 1, meta - 1);
+            setAt(par1World, pos.add(0, 0, -1), meta - 1);
+            setAt(par1World, pos.add(0, 0, 1), meta - 1);
 
             // Just in case...
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 2);
+            par1World.setBlockState(pos, this.getDefaultState(), 2);
 
-            placeParticle(par1World, par2, par3, par4);
+            placeParticle(par1World, pos.getX(), pos.getY(), pos.getZ());
         }
-    }*/
+    }
 
     public void placeParticle(World world, int par2, int par3, int par4) {
         // NO-OP, override
     }
 
     private void setAt(World world, BlockPos pos, int meta) {
-        /*if (world.isAirBlock(x, y, z) && world.getBlock(x, y, z) != this) {
+        if (world.isAirBlock(pos) && world.getBlockState(pos).getBlock() != this) {
             if (!world.isRemote)
-                world.setBlock(x, y, z, this, meta, 2);
-            world.scheduleBlockUpdate(x, y, z, this, 10);
-        }*/
+                world.setBlockState(pos, this.getStateFromMeta(meta), 2);
+            world.scheduleBlockUpdate(pos, this, 10, 3);
+        }
     }
 
     @Override
@@ -95,7 +117,7 @@ public abstract class BlockGas extends TTBlock {
 
     @Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess access, BlockPos pos) {
-        return null;
+        return NULL_AABB;
     }
 
     @Override
