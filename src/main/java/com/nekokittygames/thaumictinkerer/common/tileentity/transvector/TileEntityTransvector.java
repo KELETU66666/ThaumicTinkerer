@@ -1,9 +1,11 @@
 package com.nekokittygames.thaumictinkerer.common.tileentity.transvector;
 
+import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.tileentity.TileEntityCamoflage;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 
 public abstract class TileEntityTransvector extends TileEntityCamoflage implements ITickable {
@@ -48,6 +50,11 @@ public abstract class TileEntityTransvector extends TileEntityCamoflage implemen
     public boolean setTilePos(BlockPos tilePos) {
         TileEntity tile = world.getTileEntity(tilePos);
         if (checkTile(tilePos, tile)) return false;
+        for (String str : TTConfig.TransvectorBlacklist) {
+            if (world.getBlockState(tilePos).getBlock().getRegistryName().equals(new ResourceLocation(str))) {
+                return false;
+            }
+        }
         this.tilePos = tilePos;
         return true;
     }

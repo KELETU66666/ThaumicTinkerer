@@ -126,6 +126,7 @@ ttmisc.connector.dislfail=无法将矢量变换接口绑定到另一个上去.
 ttmisc.connector.notpresent=该矢量变换接口已经不存在了.
 ttmisc.connector.toofar=原来的矢量变换接口太远了.
 ttmisc.connector.clear=你已解除对原矢量变换接口的绑定.
+ttmisc.connector.blacklist=这个方块在矢量变换接口的黑名单内.
 ttmisc.soulMould.nonAssigned=无模板
 ttmisc.soulMould.pattern=目前模板:%s
 ttmisc.inactive=未激活

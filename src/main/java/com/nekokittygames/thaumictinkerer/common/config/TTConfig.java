@@ -127,6 +127,12 @@ public class TTConfig {
             "oreVinteum,392"
     };
 
+    @Config.Comment("Blacklist for Transvector Blocks")
+    @Config.Name("Transvector Block Blacklists")
+    public static String[] TransvectorBlacklist = new String[]{
+            "thaumcraft:thaumatorium"
+    };
+
     @Config.Comment("Ichorium ToolPart Base Damage")
     @Config.Name("Ichorium Weapon DamageBase")
     @Config.RangeInt(min = 0)

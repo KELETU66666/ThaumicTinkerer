@@ -137,6 +137,7 @@ ttmisc.connector.dislfail=Can't bind a Transvector Dislocator to another.
 ttmisc.connector.notpresent=The Transvector Block isn't present.
 ttmisc.connector.toofar=The Transvector Block of origin is too far away.
 ttmisc.connector.clear=You have cleared the selected Transvector block
+ttmisc.connector.blacklist=This block already blacklisted by Transvector.
 ttmisc.soulMould.nonAssigned=No Pattern
 ttmisc.soulMould.pattern=Current Pattern: %s
 ttmisc.inactive=Inactive

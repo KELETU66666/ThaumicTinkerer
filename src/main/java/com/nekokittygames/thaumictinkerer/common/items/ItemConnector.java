@@ -1,8 +1,10 @@
 package com.nekokittygames.thaumictinkerer.common.items;
 
+import com.nekokittygames.thaumictinkerer.common.config.TTConfig;
 import com.nekokittygames.thaumictinkerer.common.libs.LibItemNames;
 import com.nekokittygames.thaumictinkerer.common.tileentity.transvector.TileEntityTransvector;
 import com.nekokittygames.thaumictinkerer.common.utils.ItemNBTHelper;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -65,6 +67,7 @@ public class ItemConnector extends TTItem {
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         TileEntity tile = worldIn.getTileEntity(pos);
+        IBlockState block = worldIn.getBlockState(pos);
         ItemStack stack = player.getHeldItem(hand);
         BlockPos target = getTarget(stack);
         if (target == null) {
@@ -91,6 +94,13 @@ public class ItemConnector extends TTItem {
                 if (!worldIn.isRemote)
                     player.sendStatusMessage(new TextComponentTranslation("ttmisc.connector.interffail"), true);
                 return EnumActionResult.FAIL;
+            }
+            for(String str: TTConfig.TransvectorBlacklist) {
+                if(block.getBlock().getRegistryName().equals(new ResourceLocation(str))) {
+                    if (!worldIn.isRemote)
+                        player.sendStatusMessage(new TextComponentTranslation("ttmisc.connector.blacklist"), true);
+                    return EnumActionResult.FAIL;
+                }
             }
             if (!trans.setTilePos(pos)) {
                 if (!worldIn.isRemote)
