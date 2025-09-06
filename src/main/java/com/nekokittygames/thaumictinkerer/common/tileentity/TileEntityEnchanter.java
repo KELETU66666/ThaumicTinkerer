@@ -127,7 +127,7 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
 
     private static boolean canApply(ItemStack itemStack, Enchantment enchantment, List<Enchantment> currentEnchants, boolean checkConflicts) {
         String name = enchantment.getRegistryName().getNamespace();
-        if (TTConfig.balancedEnchanter && !(name.equals(LibMisc.MOD_ID) || name.equals("minecraft") || name.equals("forbiddenmagicre") || name.equals("planarartifice")))
+        if (TTConfig.balancedEnchanter && !(name.equals(LibMisc.MOD_ID) || name.equals("minecraft") || name.equals("forbiddenmagicre")))
             return false;
         if (ArrayUtils.contains(TTConfig.blacklistedEnchants, Enchantment.getEnchantmentID(enchantment)))
             return false;
@@ -779,22 +779,6 @@ public class TileEntityEnchanter extends TileEntityThaumicTinkerer implements IT
                     break;
                 case "enchantment.wrath":
                     addAmountTo(costItems, Aspect.getAspect("ira"), 6 * getLevels().get(i));
-                    break;
-                case "enchantment.consuming":
-                    addAmountTo(costItems, Aspect.getAspect("desidia"), 16);
-                    break;
-                case "enchantment.curious":
-                case "enchantment.educational":
-                    addAmountTo(costItems, Aspect.MIND, 6 * getLevels().get(i));
-                    break;
-                case "enchantment.voidtouched":
-                    addAmountTo(costItems, Aspect.getAspect("invidia"), 16);
-                    break;
-                case "enchantment.aura_infusing":
-                    addAmountTo(costItems, Aspect.AURA, 2 * getLevels().get(i));
-                    break;
-                case "enchantment.transmutative":
-                    addAmountTo(costItems, Aspect.EXCHANGE, 3 * getLevels().get(i));
                     break;
             }
             switch (Objects.requireNonNull(enchantment.type)) {
