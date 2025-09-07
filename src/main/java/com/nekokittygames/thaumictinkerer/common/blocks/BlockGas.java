@@ -63,7 +63,9 @@ public abstract class BlockGas extends TTBlock {
             // Just in case...
             par1World.setBlockState(pos, this.getDefaultState(), 2);
 
-            placeParticle(par1World, pos.getX(), pos.getY(), pos.getZ());
+            if(par1World.isRemote) {
+                placeParticle(par1World, pos.getX(), pos.getY(), pos.getZ());
+            }
         }
     }
 

@@ -1,15 +1,15 @@
 /**
  * This class was created by <Vazkii>. It's distributed as
  * part of the ThaumicTinkerer Mod.
- *
+ * <p>
  * ThaumicTinkerer is Open Source and distributed under a
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
  * (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
- *
+ * <p>
  * ThaumicTinkerer is a Derivative Work on Thaumcraft 4.
  * Thaumcraft 4 (c) Azanor 2012
  * (http://www.minecraftforum.net/topic/1585216-)
- *
+ * <p>
  * File Created @ [9 Sep 2013, 00:02:52 (GMT)]
  */
 package com.nekokittygames.thaumictinkerer.common.items;
@@ -51,7 +51,8 @@ public class ItemGasRemover extends TTItem {
                         Block block = par2World.getBlockState(new BlockPos(x, y, z)).getBlock();
                         if (block != null && block instanceof BlockGas) {
                             BlockGas gas = (BlockGas) block;
-                            gas.placeParticle(par2World, x, y, z);
+                            if (par2World.isRemote)
+                                gas.placeParticle(par2World, x, y, z);
                             par2World.setBlockState(new BlockPos(x, y, z), Blocks.AIR.getDefaultState(), 1 | 2);
                         }
                     }
