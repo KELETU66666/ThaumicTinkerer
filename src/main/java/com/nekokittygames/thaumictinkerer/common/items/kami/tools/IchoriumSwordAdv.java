@@ -79,7 +79,7 @@ public class IchoriumSwordAdv extends ItemSword {
                 List<Entity> entities = player.world.getEntitiesWithinAABB(entity.getClass(), new AxisAlignedBB(entity.posX - range, entity.posY - range, entity.posZ - range, entity.posX + range, entity.posY + range, entity.posZ + range));
                 ignoreLeftClick = true;
                 for (Entity entity1 : entities)
-                    entity1.attackEntityFrom(DamageSource.causeMobDamage(player), (float) player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
+                    entity1.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
                 ignoreLeftClick = false;
 
             } else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {

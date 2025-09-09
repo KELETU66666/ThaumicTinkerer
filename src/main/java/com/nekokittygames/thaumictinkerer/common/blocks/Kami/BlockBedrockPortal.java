@@ -18,7 +18,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -68,7 +67,7 @@ public class BlockBedrockPortal extends BlockContainer
                 BlockPos pos4 = pos.add(0, 254 - y, 0);
                 BlockPos pos5 = pos.add(0, 255 - y, 0);
 
-                entity.changeDimension(TTConfig.BedRockDimensionID, new TeleporterBedrock((WorldServer) world));
+                entity.changeDimension(TTConfig.BedRockDimensionID, new TeleporterBedrock());
                 entity.setPositionAndUpdate(x + 0.5, 251, z + 0.5);
 
 
@@ -89,7 +88,7 @@ public class BlockBedrockPortal extends BlockContainer
                 }
             } else{
 
-                entity.changeDimension(0, new TeleporterBedrock((WorldServer) world));
+                entity.changeDimension(0, new TeleporterBedrock());
                 entity.setPositionAndUpdate(world.getSpawnPoint().getX(), world.getSpawnPoint().getY() + 3, world.getSpawnPoint().getZ());
             }
         }

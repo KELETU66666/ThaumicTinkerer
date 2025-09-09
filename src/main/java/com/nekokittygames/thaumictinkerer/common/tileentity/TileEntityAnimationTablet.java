@@ -23,6 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -222,7 +223,7 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
     }
 
     private boolean detect() {
-        return !world.isAirBlock(getBlockTarget()) || detectEntity().size()>0;
+        return !world.isAirBlock(getBlockTarget()) || detectEntity().size() > 0;
     }
 
 
@@ -230,15 +231,15 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
         BlockPos newPos = this.getPos().offset(facing);
         return new AxisAlignedBB(newPos);
     }
+
     private List<Entity> detectEntity() {
-        AxisAlignedBB bounding=getBlockBounding();
-        detectedEntities = world.getEntitiesWithinAABB(Entity.class,bounding);
+        AxisAlignedBB bounding = getBlockBounding();
+        detectedEntities = world.getEntitiesWithinAABB(Entity.class, bounding);
         return detectedEntities;
     }
 
     @Override
     public void update() {
-
         if (!world.isRemote && player == null) {
             MinecraftServer worldServer = FMLCommonHandler.instance().getMinecraftServerInstance();
             player = new WeakReference<>(FakePlayerUtils.get(worldServer.getWorld(this.world.provider.getDimension()), new GameProfile(LibMisc.MOD_UUID, LibMisc.MOD_F_NAME)));
@@ -252,12 +253,12 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
         active = getRedstonePowered();
 
         boolean detect = detect();
-        if (!detect && isRemoving)
-            stopBreaking();
         if (detect && isRemoving && !world.isRemote) {
             Objects.requireNonNull(player.get()).interactionManager.updateBlockRemoving();
             continueBreaking();
         }
+        if (!detect && isRemoving)
+            stopBreaking();
 
 
         if ((active || isRemoving) && detect && progress == 0)
@@ -297,7 +298,7 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
     }
 
     private void continueBreaking() {
-        if(player == null)
+        if (player == null)
             return;
 
         BlockPos targetPos = getTargetBlock();
@@ -324,16 +325,14 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
                 if (this.curBlockDamageMP >= 1.0F) {
                     this.isRemoving = false;
                     player.get().interactionManager.blockRemoving(this.currentBlock);
-                    this.onPlayerDestroyBlock(this.currentBlock, player.get());
+                    //this.onPlayerDestroyBlock(this.currentBlock, player.get());
                     this.curBlockDamageMP = 0.0F;
                 }
-
-                world.sendBlockBreakProgress(player.get().getEntityId(), this.currentBlock, (int) (this.curBlockDamageMP * 10.0F) - 1);
             }
 
         }
     }
-    public static void LookAt(double px, double py, double pz , Entity entity) {
+    public static void LookAt(double px, double py, double pz, Entity entity) {
         double dirx = entity.getPosition().getX() - px;
         double diry = entity.getPosition().getY() - py;
         double dirz = entity.getPosition().getZ() - pz;
@@ -353,12 +352,12 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
 
         yaw += 90f;
         entity.rotationPitch = (float) pitch;
-        entity.rotationYaw = (float)yaw;
+        entity.rotationYaw = (float) yaw;
     }
 
     private void swingHit() {
 
-        if(player.get() == null)
+        if (player.get() == null)
             return;
 
         Vec3d base;
@@ -374,9 +373,9 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
         target = base.add(new Vec3d(look.x * 5, look.y * 5, look.z * 5));
         trace = world.rayTraceBlocks(base, target, false, false, true);
         traceEntity = FakePlayerUtils.traceEntities(player.get(), base, target, world);
-        if(traceEntity ==null && trace==null)
+        if (traceEntity == null && trace == null)
             return;
-        toUse = traceEntity == null ?  trace: traceEntity;
+        toUse = traceEntity == null ? trace : traceEntity;
         BlockPos targetPos = toUse.getBlockPos();
         if (trace != null && traceEntity != null) {
             double d1 = trace.hitVec.distanceTo(base);
@@ -384,14 +383,13 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
             toUse = traceEntity.typeOfHit == RayTraceResult.Type.ENTITY && d1 > d2 ? traceEntity : trace;
         }
 
-        if(pos != null && targetPos != null && world != null)
-            if (toUse.typeOfHit== RayTraceResult.Type.BLOCK)
-                if(world.getBlockState(targetPos) == world.getBlockState(pos))
+        if (pos != null && targetPos != null && world != null)
+            if (toUse.typeOfHit == RayTraceResult.Type.BLOCK)
+                if (world.getBlockState(targetPos) == world.getBlockState(pos))
                     return;
         if (!rightClick) {
-            if(detectEntity().size()>0)
-            {
-                Random rand=new Random();
+            if (detectEntity().size() > 0) {
+                Random rand = new Random();
                 Objects.requireNonNull(player.get()).attackTargetEntityWithCurrentItem(detectedEntities.get(rand.nextInt(detectedEntities.size())));
                 FakePlayerUtils.cleanupFakePlayerFromUse(getPlayer(), player.get().getHeldItemMainhand(), this.inventory.getStackInSlot(0), this);
                 return;
@@ -400,15 +398,13 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
             //world.sendBlockBreakProgress(fakePlayer.getEntityId(),);
 
         } else {
-            if(detectEntity().size()>0)
-            {
-                Random rand=new Random();
-                Entity entity=detectedEntities.get(rand.nextInt(detectedEntities.size()));
+            if (detectEntity().size() > 0) {
+                Random rand = new Random();
+                Entity entity = detectedEntities.get(rand.nextInt(detectedEntities.size()));
                 if (FakePlayerUtils.processUseEntity(player.get(), entity, toUse, CPacketUseEntity.Action.INTERACT_AT)) {
                     FakePlayerUtils.cleanupFakePlayerFromUse(getPlayer(), player.get().getHeldItemMainhand(), this.inventory.getStackInSlot(0), this);
                     return;
-                }
-                else if (FakePlayerUtils.processUseEntity(player.get(), entity, null, CPacketUseEntity.Action.INTERACT)) {
+                } else if (FakePlayerUtils.processUseEntity(player.get(), entity, null, CPacketUseEntity.Action.INTERACT)) {
                     FakePlayerUtils.cleanupFakePlayerFromUse(getPlayer(), player.get().getHeldItemMainhand().copy(), this.inventory.getStackInSlot(0), this);
                     return;
                 }
@@ -426,13 +422,13 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
     }
 
     private void leftClick(RayTraceResult toUse, BlockPos targetPos) {
-        if(player.get() == null)
+        if (player.get() == null)
             return;
 
         if (!this.isRemoving || !this.isHittingPosition(targetPos, player.get())) {
 
             ItemStack itm = FakePlayerUtils.leftClickInDirection(getPlayer(), this.world, this.pos, facing, world.getBlockState(pos), toUse);
-            if(toUse.typeOfHit== RayTraceResult.Type.BLOCK) {
+            if (toUse.typeOfHit == RayTraceResult.Type.BLOCK) {
                 IBlockState iblockstate = world.getBlockState(targetPos);
                 this.inventory.setStackInSlot(0, itm.copy());
                 boolean flag = iblockstate.getMaterial() != Material.AIR;
@@ -451,12 +447,16 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
 
     private void stopBreaking() {
         this.isRemoving = false;
+        this.curBlockDamageMP = 0.0f;
         if (!world.isRemote) {
             world.sendBlockBreakProgress(Objects.requireNonNull(player.get()).getEntityId(), this.currentBlock, -1);
         }
     }
 
     private void onPlayerDestroyBlock(BlockPos targetPos, ThaumicFakePlayer player) {
+        if(world.isRemote)
+            return;
+
         ItemStack stack = player.getHeldItemMainhand();
         if (!stack.isEmpty() && stack.getItem().onBlockStartBreak(stack, targetPos, player)) {
             return;
@@ -480,17 +480,17 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
                 itemstack1.onBlockDestroyed(world, iblockstate, targetPos, player);
 
                 if (itemstack1.isEmpty()) {
-                    net.minecraftforge.event.ForgeEventFactory.onPlayerDestroyItem(player, copyBeforeUse, EnumHand.MAIN_HAND);
+                    ForgeEventFactory.onPlayerDestroyItem(player, copyBeforeUse, EnumHand.MAIN_HAND);
                     player.setHeldItem(EnumHand.MAIN_HAND, ItemStack.EMPTY);
                 }
             }
         }
 
-        boolean flag = block.removedByPlayer(iblockstate, world, targetPos, player, false);
+        /*boolean flag = block.removedByPlayer(iblockstate, world, targetPos, player, false);
 
         if (flag) {
             block.onPlayerDestroy(world, targetPos, iblockstate);
-        }
+        }*/
     }
 
 
@@ -500,7 +500,7 @@ public class TileEntityAnimationTablet extends TileEntityInventoryTinkerer imple
 
     private BlockPos getBlockTarget() {
         BlockPos newPos = this.getPos().offset(facing);
-        if (isRightClick() && world.isAirBlock(newPos) )
+        if (isRightClick() && world.isAirBlock(newPos))
             newPos = newPos.offset(EnumFacing.DOWN);
         return newPos;
     }

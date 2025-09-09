@@ -31,9 +31,8 @@ public class BlockAnimationTablet extends TTTileEntity<TileEntityAnimationTablet
         return BlockRenderLayer.TRANSLUCENT;
     }
 
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        return  new AxisAlignedBB(0F, 0F, 0F, 1F, 1F / 16F * 2F, 1F);
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return new AxisAlignedBB(0F, 0F, 0F, 1F, 1F / 16F * 2F, 1F);
     }
 
     public boolean isFullCube(IBlockState p_isFullCube_1_) {
@@ -49,7 +48,6 @@ public class BlockAnimationTablet extends TTTileEntity<TileEntityAnimationTablet
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
-
 
 
     @Override
@@ -89,12 +87,13 @@ public class BlockAnimationTablet extends TTTileEntity<TileEntityAnimationTablet
 
         return false;
     }
+
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         TileEntity tileentity = worldIn.getTileEntity(pos);
         if (tileentity instanceof TileEntityAnimationTablet) {
-            TileEntityAnimationTablet repairer= (TileEntityAnimationTablet) tileentity;
-            if(repairer.getInventory().getStackInSlot(0)!=ItemStack.EMPTY) {
+            TileEntityAnimationTablet repairer = (TileEntityAnimationTablet) tileentity;
+            if (repairer.getInventory().getStackInSlot(0) != ItemStack.EMPTY) {
                 InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), repairer.getInventory().getStackInSlot(0));
 
             }
@@ -102,6 +101,7 @@ public class BlockAnimationTablet extends TTTileEntity<TileEntityAnimationTablet
         }
         super.breakBlock(worldIn, pos, state);
     }
+
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         super.updateTick(worldIn, pos, state, rand);
