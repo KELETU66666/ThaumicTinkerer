@@ -1,15 +1,15 @@
 /**
  * This class was created by <Vazkii>. It's distributed as
  * part of the ThaumicTinkerer Mod.
- *
+ * <p>
  * ThaumicTinkerer is Open Source and distributed under a
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
  * (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
- *
+ * <p>
  * ThaumicTinkerer is a Derivative Work on Thaumcraft 4.
  * Thaumcraft 4 (c) Azanor 2012
  * (http://www.minecraftforum.net/topic/1585216-)
- *
+ * <p>
  * File Created @ [11 Sep 2013, 15:45:16 (GMT)]
  */
 package com.nekokittygames.thaumictinkerer.common.items;
@@ -78,7 +78,7 @@ public class ItemCleansingTalisman extends TTItem implements IBauble {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World par2World, EntityPlayer par3EntityPlayer, @Nonnull EnumHand hand) {
-       ItemStack stack = par3EntityPlayer.getHeldItem(hand);
+        ItemStack stack = par3EntityPlayer.getHeldItem(hand);
         if (par3EntityPlayer.isSneaking()) {
             flipEnabled(stack);
             par2World.playSound(null, par3EntityPlayer.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.3F, 0.1F);
@@ -140,10 +140,8 @@ public class ItemCleansingTalisman extends TTItem implements IBauble {
 
                     if (removed) {
 
-
-                        par1ItemStack.damageItem(damage, player);
-                        //TODO: FIX THIS
-                        if(par1ItemStack.getItemDamage()<=0) {
+                        this.setDamage(par1ItemStack, this.getDamage(par1ItemStack) + damage);
+                        if (this.getDamage(par1ItemStack) > this.getMaxDamage(par1ItemStack)) {
                             BaublesApi.getBaubles((EntityPlayer) player).setInventorySlotContents(BaubleType.CHARM.getValidSlots()[0], ItemStack.EMPTY);
                         }
                         par2World.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 0.3F, 0.1F);
